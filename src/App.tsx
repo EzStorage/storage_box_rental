@@ -1,11 +1,14 @@
-import './App.css';
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import "./App.css";
+import { RouterProvider } from "react-router";
+import router from "./router";
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
 };
 
