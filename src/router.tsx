@@ -1,10 +1,10 @@
-import { createBrowserRouter } from "react-router";
-import MainLayout from "./layout/main-layout";
-import ProtectedRoute from "./layout/protected-route";
+import { createBrowserRouter } from 'react-router';
+import MainLayout from './layout/main-layout';
+import ProtectedRoute from './layout/protected-route';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <MainLayout />,
     children: [
       {
