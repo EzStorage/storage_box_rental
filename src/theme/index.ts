@@ -27,8 +27,7 @@ declare module "@mui/material/styles" {
       greyMed: string;
     };
     textCustom: {
-      primaryMed: string;
-      primaryHigh: string;
+      primary: string;
       info: string;
       success: string;
       danger: string;
@@ -63,6 +62,10 @@ const theme = createTheme({
       contrastText: "#1943C1",
     },
 
+    background: {
+      paper: "#F9F9FA",
+    },
+
     surface: {
       primaryMed: "#EF151E",
       primaryHigh: "#CD0F28",
@@ -84,8 +87,7 @@ const theme = createTheme({
     },
 
     textCustom: {
-      primaryMed: "#5B616D",
-      primaryHigh: "#CD0F28",
+      primary: "#CD0F28",
       info: "#1943C1",
       success: "#458116",
       danger: "#CE2E02",

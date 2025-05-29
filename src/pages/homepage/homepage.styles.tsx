@@ -70,3 +70,60 @@ export const HeroLeft = styled("div")(({ theme }) => ({
     },
   },
 }));
+
+// How It Works
+export const HowItWorksContainer = styled("section")(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  marginLeft: "-80px",
+  marginRight: "-80px",
+  padding: "64px 122px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "64px",
+
+  [theme.breakpoints.down("lg")]: {
+    marginLeft: "-16px",
+    marginRight: "-16px",
+    padding: "32px 16px",
+    gap: "32px",
+  },
+}));
+
+export const HowItWorksHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+  gap: "16px",
+
+  h1: {
+    color: theme.palette.textCustom.greyHigh,
+    fontSize: "40px",
+    lineHeight: "48px",
+    fontWeight: "600",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "26px",
+      lineHeight: "32px",
+    },
+
+    span: {
+      color: theme.palette.textCustom.primary,
+    },
+  },
+
+  p: {
+    fontWeight: "400",
+    fontSize: "18px",
+    lineHeight: "26px",
+    color: theme.palette.textCustom.greyMed,
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "15px",
+      lineHeight: "24px",
+    },
+  },
+}));
