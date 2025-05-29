@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import background from "../../assets/background-hero.jpg";
+import { Grid } from "@mui/material";
 
 // Hero
 export const HeroContainer = styled("section")(({ theme }) => ({
@@ -10,7 +11,7 @@ export const HeroContainer = styled("section")(({ theme }) => ({
   backgroundImage: `url(${background})`,
   backgroundSize: "cover",
   position: "relative",
-  padding: "72px 122px 0px",
+  padding: "72px 112px 0px",
 
   "&::before": {
     content: '""',
@@ -76,7 +77,7 @@ export const HowItWorksContainer = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   marginLeft: "-80px",
   marginRight: "-80px",
-  padding: "64px 122px",
+  padding: "64px 112px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -125,5 +126,66 @@ export const HowItWorksHeader = styled("div")(({ theme }) => ({
       fontSize: "15px",
       lineHeight: "24px",
     },
+  },
+}));
+
+// Feature Section
+export const FeatureSectionContainer = styled("section")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+  padding: "64px 0px",
+}));
+
+export const FeatureSectionHeader = styled(Grid)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "16px",
+  maxWidth: "600px",
+
+  h1: {
+    color: theme.palette.textCustom.greyHigh,
+    fontSize: "40px",
+    lineHeight: "48px",
+    fontWeight: "600",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "26px",
+      lineHeight: "32px",
+    },
+
+    span: {
+      color: theme.palette.textCustom.primary,
+    },
+  },
+
+  p: {
+    fontWeight: "400",
+    fontSize: "18px",
+    lineHeight: "26px",
+    color: theme.palette.textCustom.greyMed,
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "15px",
+      lineHeight: "24px",
+    },
+  },
+}));
+
+export const FeatureSectionItem = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "16px",
+
+  h2: {
+    color: theme.palette.textCustom.greyHigh,
+    fontSize: "15px",
+    fontWeight: "600",
+    lineHeight: "24px",
+  },
+
+  p: {
+    color: theme.palette.textCustom.greyMed,
+    fontSize: "13px",
+    fontWeight: "400",
+    lineHeight: "20px",
   },
 }));

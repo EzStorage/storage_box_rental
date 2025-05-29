@@ -33,7 +33,6 @@ const steps = [
     image: howItWorks4,
     title: "Secure Storage",
     description: "Your items are stored safely in our local facility, ready whenever you need them",
-    color: "from-amber-500 to-amber-600",
   },
   {
     number: "05",
@@ -41,7 +40,6 @@ const steps = [
     title: "Easy Returns",
     description:
       "We'll return your items when your booking ends or request a return anytime before",
-    color: "from-purple-500 to-purple-600",
   },
 ];
 

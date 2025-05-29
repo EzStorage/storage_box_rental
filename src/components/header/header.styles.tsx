@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const HeaderContainer = styled("header")(({ theme }) => ({
   width: "100%",
   height: "72px",
-  padding: "0px 122px",
+  padding: "0px 112px",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
