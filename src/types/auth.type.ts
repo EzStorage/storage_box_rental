@@ -1,1 +1,3 @@
-export const AuthState = {};
+export const AuthState = {
+  user: null,
+};
