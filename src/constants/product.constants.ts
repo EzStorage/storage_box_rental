@@ -17,6 +17,7 @@ export const PRODUCTS: Product[] = [
       { min: 15, max: 20, unitPrice: 88 },
       { min: 20, max: 25, unitPrice: 85 },
       { min: 25, max: 30, unitPrice: 83 },
+      // { min: 30, max: 30, unitPrice: 83 },
     ],
   },
 ];
