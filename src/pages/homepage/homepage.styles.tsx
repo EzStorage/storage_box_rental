@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 import background from "../../assets/background-hero.jpg";
-import { Grid } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 
-// Hero
+// ----- Hero -----
 export const HeroContainer = styled("section")(({ theme }) => ({
-  width: "100vw",
+  width: "100%",
   height: "100vh",
-  marginLeft: "-80px",
-  marginRight: "-80px",
+
   backgroundImage: `url(${background})`,
   backgroundSize: "cover",
   position: "relative",
-  padding: "72px 112px 0px",
+
+  padding: "72px 112px",
 
   "&::before": {
     content: '""',
@@ -27,20 +27,20 @@ export const HeroContainer = styled("section")(({ theme }) => ({
   "& > *": {
     position: "relative",
     zIndex: 2,
+    height: "100%",
+
+    [theme.breakpoints.down("lg")]: {
+      textAlign: "center",
+    },
   },
 
-  [theme.breakpoints.down("lg")]: {
-    marginLeft: "-16px",
-    marginRight: "-16px",
-    padding: "56px 16px 0px",
+  [theme.breakpoints.down("md")]: {
+    padding: "56px 16px",
     height: "100%",
   },
 }));
 
-export const HeroLeft = styled("div")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  gap: "16px",
+export const HeroLeft = styled(Stack)(({ theme }) => ({
   color: theme.palette.textCustom.white,
 
   h1: {
@@ -48,8 +48,6 @@ export const HeroLeft = styled("div")(({ theme }) => ({
     fontWeight: "600",
     lineHeight: "72px",
     letterSpacing: "-0.2px",
-    alignSelf: "flex-start",
-    margin: 0,
 
     [theme.breakpoints.down("lg")]: {
       fontSize: "32px",
@@ -62,7 +60,6 @@ export const HeroLeft = styled("div")(({ theme }) => ({
     fontSize: "18px",
     fontWeight: "400",
     lineHeight: "26px",
-    margin: 0,
 
     [theme.breakpoints.down("lg")]: {
       fontSize: "15px",
@@ -72,11 +69,142 @@ export const HeroLeft = styled("div")(({ theme }) => ({
   },
 }));
 
-// How It Works
+// ----- Card Hero -----
+export const CardHeroContainer = styled("div")(() => ({
+  backgroundColor: "white",
+  borderRadius: "12px",
+  padding: "24px",
+}));
+
+export const CardHeroImage = styled("div")(({}) => ({
+  width: "137px",
+  height: "137px",
+  borderRadius: "4px",
+  backgroundColor: "#F4F4F6",
+  marginRight: "20px",
+
+  img: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+}));
+
+export const ProductInfo = styled(Stack)(({ theme }) => ({
+  textAlign: "left",
+
+  h3: {
+    fontWeight: "600",
+    fontSize: "22px",
+    lineHeight: "28px",
+    color: "#1F1F1F",
+  },
+
+  ".chip-row": {
+    backgroundColor: "#F4F4F6",
+    borderRadius: "4px",
+    padding: "4px 6px",
+
+    fontSize: "12px",
+    fontWeight: "600",
+    lineHeight: "16px",
+    color: theme.palette.textCustom.greyMed,
+  },
+
+  ".original-price": {
+    textDecoration: "line-through",
+    fontWeight: "400",
+    fontSize: "13px",
+    lineHeight: "20px",
+    color: theme.palette.textCustom.greyMed,
+  },
+
+  ".discounted-price": {
+    "& > span:first-child": {
+      fontSize: "22px",
+      fontWeight: "600",
+      lineHeight: "28px",
+      color: theme.palette.surface.primaryHigh,
+    },
+
+    "& > span:last-child": {
+      fontSize: "13px",
+      fontWeight: "400",
+      lineHeight: "20px",
+      color: theme.palette.textCustom.greyMed,
+    },
+  },
+
+  ".bulk-button": {
+    fontWeight: "400",
+    fontSize: "13px",
+    lineHeight: "20px",
+    color: theme.palette.textCustom.greyMed,
+    textDecoration: "underline",
+    cursor: "pointer",
+
+    "&:hover": {
+      color: theme.palette.textCustom.primary,
+    },
+  },
+}));
+
+export const CardHeroQuality = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "20px 0",
+
+  p: {
+    fontSize: "15px",
+    fontWeight: "400",
+    lineHeight: "24px",
+    color: theme.palette.textCustom.greyMed,
+  },
+
+  button: {
+    border: `1px solid ${theme.palette.outline.greyLow}`,
+    borderRadius: "4px",
+    width: "40px",
+    height: "40px",
+  },
+
+  span: {
+    fontWeight: "600",
+    fontSize: "15px",
+    lineHeight: "24px",
+    color: theme.palette.textCustom.greyHigh,
+  },
+}));
+
+export const CardHeroPricingBreakdown = styled(Stack)(({ theme }) => ({
+  margin: "20px 0",
+
+  div: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+
+  p: {
+    fontSize: "15px",
+    fontWeight: "400",
+    lineHeight: "24px",
+    color: theme.palette.textCustom.greyMed,
+  },
+
+  ".discount": {
+    color: theme.palette.textCustom.success,
+  },
+
+  ".total": {
+    fontWeight: "600",
+    color: theme.palette.textCustom.greyHigh,
+  },
+}));
+
+// ----- How It Works -----
 export const HowItWorksContainer = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  marginLeft: "-80px",
-  marginRight: "-80px",
   padding: "64px 112px",
   display: "flex",
   flexDirection: "column",
@@ -85,8 +213,6 @@ export const HowItWorksContainer = styled("section")(({ theme }) => ({
   gap: "64px",
 
   [theme.breakpoints.down("lg")]: {
-    marginLeft: "-16px",
-    marginRight: "-16px",
     padding: "32px 16px",
     gap: "32px",
   },
@@ -129,10 +255,14 @@ export const HowItWorksHeader = styled("div")(({ theme }) => ({
   },
 }));
 
-// Feature Section
+// ----- Feature Section -----
 export const FeatureSectionContainer = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  padding: "64px 0px",
+  padding: "64px 112px",
+
+  [theme.breakpoints.down("md")]: {
+    padding: "64px 16px",
+  },
 }));
 
 export const FeatureSectionHeader = styled(Grid)(({ theme }) => ({
@@ -147,7 +277,7 @@ export const FeatureSectionHeader = styled(Grid)(({ theme }) => ({
     lineHeight: "48px",
     fontWeight: "600",
 
-    [theme.breakpoints.down("lg")]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: "26px",
       lineHeight: "32px",
     },

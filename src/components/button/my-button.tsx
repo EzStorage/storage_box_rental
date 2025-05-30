@@ -2,7 +2,7 @@ import { ButtonProps } from "@mui/material";
 import { StyledButton } from "./my-button.styles";
 
 export interface MyButtonProps extends ButtonProps {
-  variantType: "login" | "primary";
+  variantType: "login" | "primary" | "secondary";
 }
 
 const MyButton: React.FC<MyButtonProps> = ({ variantType = "primary", ...props }) => {

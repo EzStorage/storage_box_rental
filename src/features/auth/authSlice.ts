@@ -1,8 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { AuthState } from '../../types/auth.type';
+import { createSlice } from "@reduxjs/toolkit";
+
+const AuthState = {
+  user: null,
+};
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState: AuthState,
   reducers: {},
   extraReducers: () => {},

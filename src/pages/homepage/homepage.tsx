@@ -4,11 +4,11 @@ import HowItWorks from "./how-it-works";
 
 const Homepage: React.FC = () => {
   return (
-    <>
+    <div>
       <Hero />
       <HowItWorks />
       <FeatureSection />
-    </>
+    </div>
   );
 };
 export default Homepage;

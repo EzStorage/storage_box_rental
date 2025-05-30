@@ -1,9 +1,9 @@
-import ProcessFlow from "../../components/timeline";
 import howItWorks1 from "../../assets/how-it-works-1.png";
 import howItWorks2 from "../../assets/how-it-works-2.png";
 import howItWorks3 from "../../assets/how-it-works-3.png";
 import howItWorks4 from "../../assets/how-it-works-4.png";
 import howItWorks5 from "../../assets/how-it-works-5.png";
+import ProcessFlow from "../../components/process-flow";
 import { HowItWorksContainer, HowItWorksHeader } from "./homepage.styles";
 
 const steps = [

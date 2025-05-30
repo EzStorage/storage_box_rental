@@ -1,12 +1,13 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { HeroContainer, HeroLeft } from "./homepage.styles";
+import CardHero from "./card-hero";
 
 const Hero: React.FC = () => {
   return (
     <HeroContainer>
-      <Grid container columnSpacing={{ lg: 20 }} alignItems="center" justifyContent="center">
-        <Grid size={{ xs: 12, lg: 6 }} sx={{ mb: { xs: "24px", lg: 0 } }}>
-          <HeroLeft>
+      <Grid container alignItems="center" justifyContent="center" spacing={{ xs: 0, lg: "64px" }}>
+        <Grid container size={{ xs: 12, lg: 6 }} sx={{ mb: { xs: "24px", lg: 0 } }}>
+          <HeroLeft spacing={"16px"}>
             <h1>Storage and Moving. Make it simple</h1>
             <p>
               Our flexible and convenient storage solutions in Singapore make it easy for anyone to
@@ -15,7 +16,17 @@ const Hero: React.FC = () => {
           </HeroLeft>
         </Grid>
 
-        <Grid size={{ xs: 12, lg: 6 }}></Grid>
+        <Grid size={{ xs: 12, lg: 6 }}>
+          <Box
+            sx={{
+              maxWidth: 480,
+              width: "100%",
+              mx: "auto",
+            }}
+          >
+            <CardHero />
+          </Box>
+        </Grid>
       </Grid>
     </HeroContainer>
   );

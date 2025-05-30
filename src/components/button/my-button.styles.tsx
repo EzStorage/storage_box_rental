@@ -6,7 +6,7 @@ export const StyledButton = styled(Button, {
   shouldForwardProp: prop => prop !== "variantType",
 })<MyButtonProps>(({ theme, variantType }) => {
   switch (variantType) {
-    case "login":
+    case "login": {
       return {
         backgroundColor: "white",
         color: theme.palette.textCustom.greyMed,
@@ -22,6 +22,29 @@ export const StyledButton = styled(Button, {
           color: "white",
         },
       };
+    }
+
+    case "primary": {
+      return {
+        textTransform: "none",
+        backgroundColor: theme.palette.surface.primaryMed,
+        color: theme.palette.textCustom.white,
+        fontWeight: 600,
+        fontSize: "15px",
+        textDecoration: "none",
+      };
+    }
+
+    case "secondary": {
+      return {
+        textTransform: "none",
+        backgroundColor: `${theme.palette.surface.black}E0`,
+        color: theme.palette.textCustom.white,
+        fontWeight: 600,
+        fontSize: "15px",
+        textDecoration: "none",
+      };
+    }
 
     default:
       return {};

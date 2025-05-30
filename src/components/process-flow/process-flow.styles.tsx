@@ -86,7 +86,7 @@ export const StepNumber = styled("div")(({ theme }) => ({
   marginBottom: "24px",
   width: "fit-content",
 
-  [theme.breakpoints.down("lg")]: {
+  [theme.breakpoints.down("md")]: {
     fontSize: "22px",
     lineHeight: "28px",
     marginBottom: 0,
@@ -98,7 +98,7 @@ export const StepImage = styled("img")(({ theme }) => ({
   height: "auto",
   marginBottom: "32px",
 
-  [theme.breakpoints.down("lg")]: {
+  [theme.breakpoints.down("md")]: {
     maxWidth: "100px",
     maxHeight: "100px",
     objectFit: "contain",
