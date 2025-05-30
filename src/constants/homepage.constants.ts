@@ -84,3 +84,110 @@ export const SLIDESHOW = [
     alt: "Slideshow Image 4",
   },
 ];
+
+export interface TestimonialItem {
+  id: number;
+  name: string;
+  avatar: string;
+  rating: number;
+  text: string;
+}
+
+export interface Testimonial {
+  left: TestimonialItem[];
+  middle: TestimonialItem[];
+  right: TestimonialItem[];
+}
+
+export const TESTIMONIALS: Testimonial = {
+  left: [
+    {
+      id: 1,
+      name: "Darlene Robertson",
+      rating: 5,
+      text: "I am extremely pleased with the service provided by Ezstorage. Their reliable storage solutions have made my life so much easier. I can trust them to keep my belongings safe and secure. Highly recommend!",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 2,
+      name: "Sarah Johnson",
+      rating: 5,
+      text: "This platform has completely transformed how we manage our projects. The intuitive interface and powerful features make collaboration seamless.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 3,
+      name: "Michael Chen",
+      rating: 5,
+      text: "The development experience is outstanding. Clean code, great documentation, and excellent performance across all devices.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 4,
+      name: "Emily Rodriguez",
+      rating: 5,
+      text: "Beautiful design system and components that are both functional and aesthetically pleasing. Our users love the new interface.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+  ],
+  middle: [
+    {
+      id: 5,
+      name: "Lisa Thompson",
+      rating: 5,
+      text: "Game-changing technology that has streamlined our entire workflow. Highly recommend to any growing business.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 6,
+      name: "James Wilson",
+      rating: 5,
+      text: "Robust architecture and scalable solutions. The technical implementation is top-notch and future-proof.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 7,
+      name: "Anna Martinez",
+      rating: 5,
+      text: "Efficiency has improved dramatically. What used to take hours now takes minutes. Incredible time savings.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 8,
+      name: "Robert Taylor",
+      rating: 5,
+      text: "Our conversion rates have never been higher. The user experience is smooth and conversion-optimized.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+  ],
+  right: [
+    {
+      id: 9,
+      name: "Jennifer Lee",
+      rating: 5,
+      text: "Employee satisfaction has increased significantly. The platform is user-friendly and reduces training time.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 10,
+      name: "Mark Anderson",
+      rating: 5,
+      text: "Cost-effective solution with excellent ROI. The pricing model is transparent and value-driven.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 11,
+      name: "Rachel Green",
+      rating: 5,
+      text: "Customer satisfaction scores have reached all-time highs. The support and features exceed expectations.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+    {
+      id: 12,
+      name: "Alex Brown",
+      rating: 5,
+      text: "The reporting capabilities are phenomenal. Real-time insights help us make better business decisions.",
+      avatar: "/placeholder.svg?height=60&width=60",
+    },
+  ],
+};

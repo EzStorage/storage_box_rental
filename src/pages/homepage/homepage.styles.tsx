@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import background from "../../assets/background-hero.jpg";
 import { Box, Grid, Stack } from "@mui/material";
+import { motion } from "framer-motion";
 
 // ----- Hero -----
 export const HeroContainer = styled("section")(({ theme }) => ({
@@ -318,4 +319,156 @@ export const FeatureSectionItem = styled("div")(({ theme }) => ({
     fontWeight: "400",
     lineHeight: "20px",
   },
+}));
+
+// ---- Testimonial -----
+export const TestimonialSectionContainer = styled("section")(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+  padding: "96px 112px",
+
+  [theme.breakpoints.down("lg")]: {
+    padding: "48px 16px",
+  },
+}));
+
+export const TestimonialSectionHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+  gap: "16px",
+  marginBottom: "64px",
+
+  [theme.breakpoints.down("lg")]: {
+    marginBottom: "32px",
+  },
+
+  h1: {
+    color: theme.palette.textCustom.greyHigh,
+    fontSize: "40px",
+    lineHeight: "48px",
+    fontWeight: "600",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "26px",
+      lineHeight: "32px",
+    },
+
+    span: {
+      color: theme.palette.textCustom.primary,
+    },
+  },
+
+  p: {
+    fontWeight: "400",
+    fontSize: "18px",
+    lineHeight: "26px",
+    color: theme.palette.textCustom.greyMed,
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "15px",
+      lineHeight: "24px",
+    },
+  },
+}));
+
+export const TestimonialMotionList = styled(motion.div)(({ theme }) => ({
+  display: "flex",
+  gap: "24px",
+  padding: "24px 0",
+
+  [theme.breakpoints.up("lg")]: {
+    flexDirection: "column",
+  },
+}));
+
+export const ScrollContainer = styled("div")(({ theme }) => ({
+  position: "relative",
+
+  [theme.breakpoints.up("lg")]: {
+    overflowY: "hidden",
+    height: "600px",
+  },
+
+  [theme.breakpoints.down("md")]: {
+    overflowX: "hidden",
+  },
+}));
+
+export const HorizontalGradientOverlay = styled.div<{ position: "left" | "right" }>`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  ${props => props.position}: 0;
+  width: 6rem; /* w-24 */
+  z-index: 10;
+  background: ${props =>
+    props.position === "left"
+      ? "linear-gradient(to right, #FFFFFF, transparent)"
+      : "linear-gradient(to left, #FFFFFF, transparent)"};
+`;
+
+export const VerticalGradientOverlay = styled.div<{ position: "top" | "bottom" }>`
+  position: absolute;
+  ${props => props.position}: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  z-index: 10;
+  background: ${props =>
+    props.position === "top"
+      ? "linear-gradient(to bottom, #FFFFFF, transparent)"
+      : "linear-gradient(to top, #FFFFFF, transparent)"};
+`;
+
+export const ColumnsContainer = styled.div`
+  display: flex;
+  gap: 24px;
+  height: 100%;
+`;
+
+export const Column = styled.div`
+  flex: 1;
+`;
+
+export const TestimonialCard = styled("div")(({ theme }) => ({
+  backgroundColor: "white",
+  borderRadius: "8px",
+  padding: "20px",
+  border: `1px solid ${theme.palette.outline.greyLow}`,
+  flexShrink: 0,
+  width: "100%",
+}));
+
+export const StarsContainer = styled.div`
+  display: flex;
+  margin-bottom: 8px;
+`;
+
+export const TestimonialText = styled("p")(({ theme }) => ({
+  color: theme.palette.textCustom.greyMed,
+  fontSize: "15px",
+  fontWeight: 400,
+  lineHeight: "24px",
+  marginBottom: "16px",
+}));
+
+export const AuthorSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+export const Avatar = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+export const AuthorName = styled("h4")(({ theme }) => ({
+  color: theme.palette.textCustom.greyHigh,
+  fontSize: "15px",
+  fontWeight: 600,
 }));
