@@ -1,7 +1,6 @@
 import { Avatar, Badge, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useLocation } from "react-router";
 import { useAppSelector } from "../../app/hooks";
-import { FiShoppingCart } from "react-icons/fi";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { Button } from "../Button";

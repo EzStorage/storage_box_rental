@@ -12,7 +12,6 @@ import { Product } from "../../types/product.type";
 import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
-import { FiShoppingCart } from "react-icons/fi";
 import MyButton from "../../components/Button/MyButton";
 import ShopCartIcon from "../../components/icons/ShopCartIcon";
 
