@@ -1,6 +1,6 @@
 import ProcessFlow from "../../components/ProcessFlow/ProcessFlow";
 import { STEPS } from "../../constants/homepage.constants";
-import { HowItWorksContainer, HowItWorksHeader } from "./Homepage.styles";
+import { HowItWorksContainer, HowItWorksHeader } from "../Homepage/Homepage.styles";
 
 const HowItWorks: React.FC = () => {
     return (

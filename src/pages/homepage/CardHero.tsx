@@ -5,7 +5,7 @@ import {
     CardHeroPricingBreakdown,
     CardHeroQuality,
     ProductInfo,
-} from "./Homepage.styles";
+} from "../Homepage/Homepage.styles";
 import { useMemo, useState } from "react";
 import { PRODUCTS } from "../../constants/product.constants";
 import { Product } from "../../types/product.type";
@@ -13,7 +13,8 @@ import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
-import MyButton from "../../components/button/MyButton";
+import MyButton from "../../components/Button/MyButton";
+import ShopCartIcon from "../../components/icons/ShopCartIcon";
 
 interface CardHeroProps {
     productId?: string;
@@ -109,7 +110,9 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                     <MyButton
                         variantType="secondary"
                         sx={{ width: "100%" }}
-                        startIcon={<FiShoppingCart />}
+                        startIcon={
+                            <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
+                        }
                     >
                         Add to cart
                     </MyButton>

@@ -13,8 +13,8 @@ import {
     TestimonialMotionList,
     TestimonialText,
     VerticalGradientOverlay,
-} from "./Homepage.styles";
-import { FaStar } from "react-icons/fa";
+} from "../Homepage/Homepage.styles";
+import StarIcon from "../../components/icons/StarIcon";
 
 type TestimonialListProps = {
     list: TestimonialItem[];
@@ -28,7 +28,7 @@ const TestimonicalCar: React.FC<{ testimonial: TestimonialItem }> = ({ testimoni
         <TestimonialCard key={testimonial.id}>
             <StarsContainer>
                 {[...Array(testimonial.rating)].map((_, index) => (
-                    <FaStar key={index} size={16} fill="#FDB022" color="#FDB022" />
+                    <StarIcon key={index} />
                 ))}
             </StarsContainer>
             <TestimonialText>{testimonial.text}</TestimonialText>

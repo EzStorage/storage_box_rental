@@ -319,6 +319,14 @@ export const FeatureSectionItem = styled("div")(({ theme }) => ({
         fontWeight: "400",
         lineHeight: "20px",
     },
+
+    ".icon": {
+        width: "56px",
+        height: "56px",
+        padding: "12px",
+        background: "#FEE2E5",
+        borderRadius: "8px",
+    },
 }));
 
 // ---- Testimonial -----

@@ -7,6 +7,7 @@ import { useMotionValueEvent, useScroll } from "motion/react";
 import { Button } from "../Button";
 import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Header.styles";
 import Logo from "../Logo/Logo";
+import ShopCartIcon from "../icons/ShopCartIcon";
 
 const Header: React.FC = () => {
     const theme = useTheme();
@@ -44,7 +45,7 @@ const Header: React.FC = () => {
 
             <HeaderRight>
                 <Badge>
-                    <FiShoppingCart size={24} color={isChangeColor ? "white" : "black"} />
+                    <ShopCartIcon width={24} color={isChangeColor ? "white" : "black"} />
                 </Badge>
 
                 {!isMobile && (

@@ -1,11 +1,11 @@
 import { Grid, Stack } from "@mui/material";
+import { FEATURES, SLIDESHOW } from "../../constants/homepage.constants";
+import Slideshow from "../../components/Slideshow/Slideshow";
 import {
     FeatureSectionContainer,
     FeatureSectionHeader,
     FeatureSectionItem,
-} from "./Homepage.styles";
-import { FEATURES, SLIDESHOW } from "../../constants/homepage.constants";
-import Slideshow from "../../components/Slideshow/slideshow";
+} from "../Homepage/Homepage.styles";
 
 const FeatureSection: React.FC = () => {
     return (
@@ -35,7 +35,9 @@ const FeatureSection: React.FC = () => {
                     {FEATURES.map(feature => (
                         <Stack key={feature.title} spacing={12}>
                             <FeatureSectionItem>
-                                <img src={feature.icon} alt={feature.title} />
+                                <div className="icon">
+                                    <feature.Icon />
+                                </div>
                                 <div>
                                     <h2>{feature.title}</h2>
                                     <p>{feature.description}</p>
