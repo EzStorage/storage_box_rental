@@ -1,4 +1,4 @@
-import { Avatar, useMediaQuery } from "@mui/material";
+import { Avatar, useMediaQuery, useTheme } from "@mui/material";
 import { TestimonialItem, TESTIMONIALS } from "../../constants/homepage.constants";
 import {
   AuthorName,
@@ -6,6 +6,7 @@ import {
   Column,
   ColumnsContainer,
   HorizontalGradientOverlay,
+  Row,
   ScrollContainer,
   StarsContainer,
   TestimonialCard,
@@ -67,14 +68,18 @@ const TestimonialList: React.FC<TestimonialListProps> = ({
 };
 
 const MasonryTestimonial: React.FC = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <ScrollContainer>
       {isMobile ? (
         <>
           <HorizontalGradientOverlay position="left" />
-          <TestimonialList list={TESTIMONIALS.middle} duration={100} isMobile={isMobile} />
+          <Row>
+            <TestimonialList list={TESTIMONIALS.middle} duration={100} isMobile={isMobile} />
+            <TestimonialList list={TESTIMONIALS.middle} duration={100} isMobile={isMobile} />
+          </Row>
           <HorizontalGradientOverlay position="right" />
         </>
       ) : (

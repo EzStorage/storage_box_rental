@@ -391,7 +391,7 @@ export const ScrollContainer = styled("div")(({ theme }) => ({
     height: "600px",
   },
 
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     overflowX: "hidden",
   },
 }));
@@ -428,6 +428,11 @@ export const ColumnsContainer = styled.div`
   height: 100%;
 `;
 
+export const Row = styled("div")(({}) => ({
+  display: "flex",
+  alignItems: "center",
+}));
+
 export const Column = styled.div`
   flex: 1;
 `;
@@ -438,7 +443,16 @@ export const TestimonialCard = styled("div")(({ theme }) => ({
   padding: "20px",
   border: `1px solid ${theme.palette.outline.greyLow}`,
   flexShrink: 0,
-  width: "100%",
+  width: "30%",
+  overflow: "hidden",
+
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+
+  [theme.breakpoints.up("lg")]: {
+    width: "100%",
+  },
 }));
 
 export const StarsContainer = styled.div`
