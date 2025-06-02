@@ -1,11 +1,7 @@
 import { Grid, Stack } from "@mui/material";
 import { FEATURES, SLIDESHOW } from "../../constants/homepage.constants";
-import Slideshow from "../../components/Slideshow/Slideshow";
-import {
-    FeatureSectionContainer,
-    FeatureSectionHeader,
-    FeatureSectionItem,
-} from "../Homepage/Homepage.styles";
+import { FeatureSectionContainer, FeatureSectionHeader, FeatureSectionItem } from "./index.styles";
+import Slideshow from "src/components/slideshow/slideshow";
 
 const FeatureSection: React.FC = () => {
     return (

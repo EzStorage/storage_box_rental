@@ -5,7 +5,7 @@ import {
     CardHeroPricingBreakdown,
     CardHeroQuality,
     ProductInfo,
-} from "../Homepage/Homepage.styles";
+} from "./index.styles";
 import { useMemo, useState } from "react";
 import { PRODUCTS } from "../../constants/product.constants";
 import { Product } from "../../types/product.type";

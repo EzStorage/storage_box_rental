@@ -1,5 +1,5 @@
-import { TestimonialSectionContainer, TestimonialSectionHeader } from "../Homepage/Homepage.styles";
-import MasonryTestimonials from "../Homepage/MansoryTestimonial";
+import { TestimonialSectionContainer, TestimonialSectionHeader } from "./index.styles";
+import MasonryTestimonials from "./MansoryTestimonial";
 
 const TestimonialSection: React.FC = () => {
     return (

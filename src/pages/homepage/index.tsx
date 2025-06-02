@@ -1,8 +1,8 @@
 import { Box, Divider, useTheme } from "@mui/material";
-import FeatureSection from "../Homepage/FeatureSection";
-import HowItWorks from "../Homepage/HowItWorks";
-import TestimonialSection from "../Homepage/TestimonialSection";
-import Hero from "../Homepage/Hero";
+import FeatureSection from "./FeatureSection";
+import HowItWorks from "./HowItWorks";
+import TestimonialSection from "./TestimonialSection";
+import Hero from "./components/Hero";
 
 const Homepage: React.FC = () => {
     const theme = useTheme();

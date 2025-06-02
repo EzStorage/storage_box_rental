@@ -13,7 +13,7 @@ import {
     TestimonialMotionList,
     TestimonialText,
     VerticalGradientOverlay,
-} from "../Homepage/Homepage.styles";
+} from "./index.styles";
 import StarIcon from "../../components/icons/StarIcon";
 
 type TestimonialListProps = {
