@@ -66,7 +66,7 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                 </ProductInfo>
             </Stack>
 
-            <Divider sx={{ background: theme.palette.outline.greyLow }} />
+            <Divider sx={{ borderColor: theme.palette.outline.greyLow }} />
 
             <CardHeroQuality>
                 <p>Number of box</p>
@@ -81,7 +81,7 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                 </Stack>
             </CardHeroQuality>
 
-            <Divider sx={{ background: theme.palette.outline.greyLow }} />
+            <Divider sx={{ borderColor: theme.palette.outline.greyLow }} />
 
             <CardHeroPricingBreakdown spacing={"8px"}>
                 <Box>

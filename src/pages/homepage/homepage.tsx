@@ -13,7 +13,7 @@ const Homepage: React.FC = () => {
             <HowItWorks />
             <FeatureSection />
             <Box sx={{ background: "white", padding: { xs: "0 16px", lg: "0 112px" } }}>
-                <Divider color={theme.palette.outline.greyLow} />
+                <Divider sx={{ borderColor: theme.palette.outline.greyLow }} />
             </Box>
             <TestimonialSection />
         </div>
