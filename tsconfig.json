@@ -20,5 +20,16 @@
         "jsx": "react-jsx",
         "declaration": true,
         "baseUrl": "./"
-    }
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "coverage",
+        "scripts",
+        "test",
+        "**/*.test.tsx",
+        "**/*.test.ts"
+    ]
 }
