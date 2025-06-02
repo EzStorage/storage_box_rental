@@ -3,8 +3,8 @@ import FeatureSection from "./FeatureSection";
 import HowItWorks from "./HowItWorks";
 import TestimonialSection from "./TestimonialSection";
 import Hero from "./components/Hero";
-import { FAQContainer } from "./Homepage.styles";
 import Footer from "./Footer";
+import FAQSection from "./FAQSection";
 
 const Homepage: React.FC = () => {
     const theme = useTheme();
@@ -18,7 +18,7 @@ const Homepage: React.FC = () => {
                 <Divider sx={{ borderColor: theme.palette.outline.greyLow }} />
             </Box>
             <TestimonialSection />
-            <FAQContainer />
+            <FAQSection />
             <Footer />
         </div>
     );
