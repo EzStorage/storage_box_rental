@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { Button } from "../Button";
 import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Header.styles";
-import Logo from "../Logo/Logo";
-import ShopCartIcon from "../icons/ShopCartIcon";
+import Logo from "../Logo";
+import ShopCartIcon from "../Icons/ShopCartIcon";
 
 const Header: React.FC = () => {
     const theme = useTheme();

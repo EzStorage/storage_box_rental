@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import { HeroContainer, HeroLeft } from "../index.styles";
+import { HeroContainer, HeroLeft } from "../Homepage.styles";
 import CardHero from "../CardHero";
 
 const Hero: React.FC = () => {

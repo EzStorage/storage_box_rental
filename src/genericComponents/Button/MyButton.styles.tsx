@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
-import { MyButtonProps } from "../Button/MyButton";
+import { MyButtonProps } from "./MyButton";
 
 export const StyledButton = styled(Button, {
     shouldForwardProp: prop => prop !== "variantType",

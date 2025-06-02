@@ -7,9 +7,9 @@ import howItWorks2 from "../assets/how-it-works-2.png";
 import howItWorks3 from "../assets/how-it-works-3.png";
 import howItWorks4 from "../assets/how-it-works-4.png";
 import howItWorks5 from "../assets/how-it-works-5.png";
-import DateTimeIcon from "../components/icons/DateTimeIcon";
-import SafeDeliveryIcon from "../components/icons/SafeDeliveryIcon";
-import TruckReturnIcon from "../components/icons/TruckReturnIcon";
+import DateTimeIcon from "../genericComponents/icons/DateTimeIcon";
+import SafeDeliveryIcon from "../genericComponents/icons/SafeDeliveryIcon";
+import TruckReturnIcon from "../genericComponents/icons/TruckReturnIcon";
 
 export const STEPS = [
     {

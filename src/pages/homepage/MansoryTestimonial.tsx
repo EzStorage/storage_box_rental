@@ -13,8 +13,8 @@ import {
     TestimonialMotionList,
     TestimonialText,
     VerticalGradientOverlay,
-} from "./index.styles";
-import StarIcon from "../../components/icons/StarIcon";
+} from "./Homepage.styles";
+import StarIcon from "../../genericComponents/icons/StarIcon";
 
 type TestimonialListProps = {
     list: TestimonialItem[];
