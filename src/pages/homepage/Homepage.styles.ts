@@ -494,3 +494,64 @@ export const AuthorName = styled("h4")(({ theme }) => ({
     fontSize: "15px",
     fontWeight: 600,
 }));
+
+export const FAQContainer = styled(Box)(({ theme }) => ({
+    backgroundColor: "white",
+    padding: "32px 56px",
+    color: theme.palette.text.primary,
+
+    [theme.breakpoints.down("md")]: {
+        padding: "8px 16px",
+    },
+}));
+
+export const FAQHeading = styled("h2")(({ theme }) => ({
+    fontSize: "3rem",
+
+    fontWeight: 600,
+    lineHeight: 1.2,
+    margin: 0,
+    padding: 0,
+
+    color: theme.palette.text.primary,
+    span: {
+        color: theme.palette.textCustom.primary,
+    },
+}));
+
+export const QuestionText = styled("h4")(({ theme }) => ({
+    fontWeight: 600,
+    fontSize: "15px",
+    lineHeight: "24px",
+    margin: 0,
+    maxWidth: "552px",
+    width: "100%",
+    minWidth: "320px",
+    letterSpacing: "normal",
+    color: theme.palette.text.primary,
+}));
+
+export const AnswerText = styled("p")(({ theme }) => ({
+    color: theme.palette.text.secondary,
+    margin: 0,
+    fontSize: "1rem",
+    lineHeight: 1.5,
+}));
+
+export const FooterTitle = styled("h6")(({ theme }) => ({
+    fontSize: "13px",
+    width: "245.33px",
+    fontWeight: 600,
+    lineHeight: "20px",
+    color: "#8C929C",
+    marginBottom: "8px",
+}));
+
+export const FooterText = styled("p")(() => ({
+    fontSize: "15px",
+    fontWeight: 600,
+    lineHeight: "24px",
+    color: "#C3C6CC",
+    margin: 0,
+    marginBottom: "6px",
+}));
