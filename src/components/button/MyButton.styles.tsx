@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
-import { MyButtonProps } from "./MyButton";
+import { MyButtonProps } from "../Button/MyButton";
 
 export const StyledButton = styled(Button, {
     shouldForwardProp: prop => prop !== "variantType",
@@ -32,6 +32,11 @@ export const StyledButton = styled(Button, {
                 fontWeight: 600,
                 fontSize: "15px",
                 textDecoration: "none",
+
+                "&.Mui-disabled": {
+                    backgroundColor: theme.palette.surface.disabledLow,
+                    color: theme.palette.textCustom.greyBase,
+                },
             };
         }
 
