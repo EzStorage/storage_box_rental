@@ -12,8 +12,8 @@ import { Product } from "../../types/product.type";
 import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
-import MyButton from "../../genericComponents/Button/MyButton";
-import ShopCartIcon from "../../genericComponents/icons/ShopCartIcon";
+import MyButton from "../../components/Button/MyButton";
+import ShopCartIcon from "../../components/icons/ShopCartIcon";
 
 interface CardHeroProps {
     productId?: string;

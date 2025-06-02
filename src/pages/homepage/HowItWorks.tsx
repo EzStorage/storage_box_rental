@@ -1,4 +1,4 @@
-import ProcessFlow from "../../genericComponents/ProcessFlow";
+import ProcessFlow from "../../components/ProcessFlow";
 import { STEPS } from "../../constants/homepage.constants";
 import { HowItWorksContainer, HowItWorksHeader } from "./Homepage.styles";
 
