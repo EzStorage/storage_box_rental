@@ -13,7 +13,7 @@ import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
 import MyButton from "../../components/Button/MyButton";
-import ShopCartIcon from "../../components/icons/ShopCartIcon";
+import ShopCartIcon from "../../components/Icons/ShopCartIcon";
 
 interface CardHeroProps {
     productId?: string;

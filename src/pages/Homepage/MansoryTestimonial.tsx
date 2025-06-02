@@ -14,7 +14,7 @@ import {
     TestimonialText,
     VerticalGradientOverlay,
 } from "./Homepage.styles";
-import StarIcon from "../../components/icons/StarIcon";
+import StarIcon from "../../components/Icons/StarIcon";
 
 type TestimonialListProps = {
     list: TestimonialItem[];

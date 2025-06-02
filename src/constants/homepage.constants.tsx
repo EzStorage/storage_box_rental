@@ -7,9 +7,9 @@ import howItWorks2 from "../assets/how-it-works-2.png";
 import howItWorks3 from "../assets/how-it-works-3.png";
 import howItWorks4 from "../assets/how-it-works-4.png";
 import howItWorks5 from "../assets/how-it-works-5.png";
-import DateTimeIcon from "../components/icons/DateTimeIcon";
-import SafeDeliveryIcon from "../components/icons/SafeDeliveryIcon";
-import TruckReturnIcon from "../components/icons/TruckReturnIcon";
+import DateTimeIcon from "../components/Icons/DateTimeIcon";
+import SafeDeliveryIcon from "../components/Icons/SafeDeliveryIcon";
+import TruckReturnIcon from "../components/Icons/TruckReturnIcon";
 
 export const STEPS = [
     {
@@ -49,7 +49,7 @@ export const STEPS = [
     },
 ];
 
-export const FEATURES = [
+export const FEATURES: Array<Record<string, any>> = [
     {
         Icon: DateTimeIcon,
         title: "Flexible Storage Plans",
