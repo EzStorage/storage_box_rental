@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import "./App.css";
-import router from "./Router";
+import router from "./RouterFile";
 
 const App = () => {
     return (
