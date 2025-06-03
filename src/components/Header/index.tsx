@@ -1,4 +1,4 @@
-import { Avatar, Badge, Stack, useMediaQuery, useTheme } from "@mui/material";
+import { Avatar, Badge, Popover, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useLocation } from "react-router";
 import { useAppSelector } from "../../app/hooks";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { Button } from "../Button";
 import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Header.styles";
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
+import ProfilePopover from "./ProfilePopover";
 
 const Header: React.FC = () => {
     const theme = useTheme();
@@ -14,7 +15,17 @@ const Header: React.FC = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const user = useAppSelector(state => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
+    const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
+
     const { scrollY } = useScroll();
+
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     useMotionValueEvent(scrollY, "change", latest => {
         setScrolled(latest > 250 ? true : false);
@@ -50,7 +61,7 @@ const Header: React.FC = () => {
                 {!isMobile && (
                     <>
                         {user ? (
-                            <Avatar src={(user as any)?.avatarUrl} />
+                            <Avatar src={(user as any)?.avatarUrl} onClick={handleClick} />
                         ) : (
                             <Link to="/login">
                                 <Button variantType="login">Log In</Button>
@@ -59,6 +70,27 @@ const Header: React.FC = () => {
                     </>
                 )}
             </HeaderRight>
+
+            <Popover
+                open={Boolean(anchorEl)}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 56,
+                    horizontal: "right",
+                }}
+                transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                }}
+                slotProps={{
+                    paper: {
+                        sx: { borderRadius: "8px" },
+                    },
+                }}
+            >
+                <ProfilePopover />
+            </Popover>
         </HeaderContainer>
     );
 };

@@ -38,7 +38,7 @@ const OTPStep: React.FC<OTPStepProps> = ({ onBack, selectedCountry, phoneNumber 
         setLoading(true);
         try {
             const result = await dispatch(
-                verifyOtp({ phoneNumber: `${selectedCountry.code}${phoneNumber}`, otp }),
+                verifyOtp({ phoneNumber: `(${selectedCountry.code}) ${phoneNumber}`, otp }),
             ).unwrap();
             navigate("/");
         } catch (error) {
