@@ -52,7 +52,9 @@ const Header: React.FC = () => {
                         {user ? (
                             <Avatar src={(user as any)?.avatarUrl} />
                         ) : (
-                            <Button variantType="login">Log In</Button>
+                            <Link to="/login">
+                                <Button variantType="login">Log In</Button>
+                            </Link>
                         )}
                     </>
                 )}

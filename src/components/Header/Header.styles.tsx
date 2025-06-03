@@ -14,7 +14,7 @@ export const HeaderContainer = styled("header")<{
 
     position: "fixed",
     top: 0,
-    zIndex: 10,
+    zIndex: 20,
     transition: "all 0.3s ease-out",
 
     [theme.breakpoints.down("md")]: {

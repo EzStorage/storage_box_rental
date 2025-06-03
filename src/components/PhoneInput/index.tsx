@@ -7,6 +7,8 @@ interface PhoneInputProps {
     onChangeCountry: (country: CountryCallingCodeType) => void;
     phoneNumber: string;
     onChangePhoneNumber: (phone: string) => void;
+    isError: boolean;
+    onError: (isError: boolean) => void;
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({
@@ -14,6 +16,8 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
     onChangeCountry,
     phoneNumber,
     onChangePhoneNumber,
+    isError,
+    onError,
 }) => {
     const theme = useTheme();
 
@@ -26,41 +30,40 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
     };
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        const isValid = /^[0-9]*$/.test(value);
+
         onChangePhoneNumber(event.target.value);
+        onChangePhoneNumber(value);
+        onError(!isValid);
     };
 
     return (
         <PhoneInputContainer>
-            <FormControl>
-                <PhoneInputSelectContainer
-                    IconComponent={() => null}
-                    value={selectedCountry.code}
-                    onChange={handleCountryChange}
-                    renderValue={value => {
-                        const country = COUNTRY_CALLING_CODES.find(c => c.code === value);
-                        return (
-                            <Box className="select">
-                                <span>{country?.flag}</span>
-                                <span>{country?.code}</span>
-                            </Box>
-                        );
-                    }}
-                >
-                    {COUNTRY_CALLING_CODES.map(country => (
-                        <MenuItem key={country.code} value={country.code}>
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <span style={{ fontSize: "24px" }}>{country.flag}</span>
-                                <span>{country.code}</span>
-                                <span
-                                    style={{ marginLeft: "8px", color: "#666", fontSize: "14px" }}
-                                >
-                                    {country.country}
-                                </span>
-                            </Box>
-                        </MenuItem>
-                    ))}
-                </PhoneInputSelectContainer>
-            </FormControl>
+            <PhoneInputSelectContainer
+                IconComponent={() => null}
+                value={selectedCountry.code}
+                onChange={handleCountryChange}
+                renderValue={value => {
+                    const country = COUNTRY_CALLING_CODES.find(c => c.code === value);
+                    return (
+                        <Box className="select">
+                            <span>{country?.flag}</span>
+                            <span>{country?.code}</span>
+                        </Box>
+                    );
+                }}
+            >
+                {COUNTRY_CALLING_CODES.map(country => (
+                    <MenuItem key={country.code} value={country.code}>
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <span>{country.flag}</span>
+                            <span>{country.code}</span>
+                            <span>{country.country}</span>
+                        </Box>
+                    </MenuItem>
+                ))}
+            </PhoneInputSelectContainer>
 
             <TextField
                 placeholder="Input your phone number"
@@ -68,11 +71,15 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
                 onChange={handlePhoneNumberChange}
                 variant="outlined"
                 fullWidth
+                error={isError}
+                helperText={isError ? "Phone number must contain only digits" : " "}
                 sx={{
                     "& .MuiOutlinedInput-root": {
                         backgroundColor: "#F4F4F6",
                         borderRadius: "4px",
                         height: "48px",
+                        color: theme.palette.textCustom.greyHigh,
+
                         "& fieldset": {
                             border: "none",
                         },

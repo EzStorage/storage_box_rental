@@ -15,11 +15,13 @@ export const PhoneInputSelectContainer = styled(Select<string>)<SelectProps<stri
         "& .MuiOutlinedInput-notchedOutline": {
             border: "none",
         },
+
         "& .MuiSelect-select": {
             display: "flex",
             alignItems: "center",
             gap: 1,
             fontSize: "18px",
+            padding: "14px 16px",
         },
 
         "> div": {
@@ -40,7 +42,7 @@ export const PhoneInputSelectContainer = styled(Select<string>)<SelectProps<stri
                 fontSize: "20px",
             },
 
-            "span:nth-child(2)": {
+            "span:nth-of-type(2)": {
                 fontWeight: 400,
                 fontSize: "15px",
                 lineHeight: "24px",

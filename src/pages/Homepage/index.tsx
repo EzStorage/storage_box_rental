@@ -3,7 +3,6 @@ import FeatureSection from "./FeatureSection";
 import HowItWorks from "./HowItWorks";
 import TestimonialSection from "./TestimonialSection";
 import Hero from "./components/Hero";
-import Footer from "./Footer";
 import FAQSection from "./FAQSection";
 
 const Homepage: React.FC = () => {
@@ -19,7 +18,6 @@ const Homepage: React.FC = () => {
             </Box>
             <TestimonialSection />
             <FAQSection />
-            <Footer />
         </div>
     );
 };
