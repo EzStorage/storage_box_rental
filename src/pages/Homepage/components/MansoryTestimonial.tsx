@@ -1,5 +1,5 @@
 import { Avatar, useMediaQuery, useTheme } from "@mui/material";
-import { TestimonialItem, TESTIMONIALS } from "../../constants/homepage.constants";
+import { TestimonialItem, TESTIMONIALS } from "../constants";
 import {
     AuthorName,
     AuthorSection,
@@ -13,8 +13,8 @@ import {
     TestimonialMotionList,
     TestimonialText,
     VerticalGradientOverlay,
-} from "./Homepage.styles";
-import StarIcon from "../../components/Icons/StarIcon";
+} from "../Homepage.styles";
+import StarIcon from "../../../components/Icons/StarIcon";
 
 type TestimonialListProps = {
     list: TestimonialItem[];

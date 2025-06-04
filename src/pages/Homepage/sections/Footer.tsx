@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Divider } from "@mui/material";
-import { FooterText, FooterTitle } from "./Homepage.styles";
-import Logo from "src/components/Logo";
-import { FacebookIcon } from "src/components/Icons/FacebookIcon";
-import { LinkedInIcon } from "src/components/Icons/LinkedInIcon";
-import { InstagramIcon } from "src/components/Icons/InstagramIcon";
+import { FooterText, FooterTitle } from "../Homepage.styles";
+import Logo from "@components/Logo";
+import { FacebookIcon } from "@components/Icons/FacebookIcon";
+import { LinkedInIcon } from "@components/Icons/LinkedInIcon";
+import { InstagramIcon } from "@components/Icons/InstagramIcon";
 
 const Footer: React.FC = () => {
     return (

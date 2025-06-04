@@ -4,16 +4,21 @@ import { MyButtonProps } from "./MyButton";
 
 export const StyledButton = styled(Button, {
     shouldForwardProp: prop => prop !== "variantType",
-})<MyButtonProps>(({ theme, variantType }) => {
+})<MyButtonProps>(({ theme, variantType, fullWidth }) => {
+    const genericStyles = {
+        fontWeight: 600,
+        fontSize: "15px",
+        width: fullWidth ? "100%" : "auto",
+        textDecoration: "none",
+    };
     switch (variantType) {
         case "login": {
             return {
+                ...genericStyles,
                 backgroundColor: "white",
                 color: theme.palette.textCustom.greyMed,
                 border: `1px solid ${theme.palette.outline.greyMed}`,
-                fontWeight: 600,
                 fontSize: "13px",
-                textDecoration: "none",
                 textTransform: "capitalize",
                 padding: "8px 16px",
                 borderRadius: "4px",
@@ -26,12 +31,10 @@ export const StyledButton = styled(Button, {
 
         case "primary": {
             return {
+                ...genericStyles,
                 textTransform: "none",
                 backgroundColor: theme.palette.surface.primaryMed,
                 color: theme.palette.textCustom.white,
-                fontWeight: 600,
-                fontSize: "15px",
-                textDecoration: "none",
 
                 "&.Mui-disabled": {
                     backgroundColor: theme.palette.surface.disabledLow,
@@ -42,16 +45,14 @@ export const StyledButton = styled(Button, {
 
         case "secondary": {
             return {
+                ...genericStyles,
                 textTransform: "none",
                 backgroundColor: `${theme.palette.surface.black}E0`,
                 color: theme.palette.textCustom.white,
-                fontWeight: 600,
-                fontSize: "15px",
-                textDecoration: "none",
             };
         }
 
         default:
-            return {};
+            return genericStyles;
     }
 });

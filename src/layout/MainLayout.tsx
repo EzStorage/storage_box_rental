@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router";
 import Header from "../components/Header";
 import { useMediaQuery, useTheme } from "@mui/material";
-import Footer from "src/pages/Homepage/Footer";
+import Footer from "src/pages/Homepage/sections/Footer";
 
 const MainLayout: React.FC = () => {
     const theme = useTheme();

@@ -11,7 +11,7 @@ import EditIcon from "../Icons/EditIcon";
 import { Link } from "react-router";
 import CalendarIcon from "../Icons/CalendarIcon";
 import LogOutIcon from "../Icons/LogOutIcon";
-import { getStatusCards } from "src/constants/homepage.constants";
+import { getStatusCards } from "src/pages/Homepage/constants";
 import SummaryCards from "../SummaryCards";
 
 const ProfilePopover: React.FC = () => {

@@ -8,15 +8,16 @@ import {
     LoginHeaderMobile,
     LoginWrapper,
 } from "./Login.styles";
-import ArrowLeftIcon from "src/components/Icons/ArrowLeftIcon";
-import Logo from "src/components/Logo";
+import ArrowLeftIcon from "@components/Icons/ArrowLeftIcon";
+import Logo from "@components/Logo";
 import PhoneStep from "./PhoneStep";
 import OTPStep from "./OTPStep";
 import { COUNTRY_CALLING_CODES } from "src/constants/phonecode.constants";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 const Login: React.FC = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+    const { isMobile } = useScreenSize();
     const navigate = useNavigate();
 
     const [selectedCountry, setSelectedCountry] = useState(() => {

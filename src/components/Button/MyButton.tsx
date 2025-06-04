@@ -3,6 +3,7 @@ import { StyledButton } from "./MyButton.styles";
 
 export interface MyButtonProps extends ButtonProps {
     variantType?: "login" | "primary" | "secondary";
+    fullWidth?: boolean;
 }
 
 const MyButton: React.FC<MyButtonProps> = ({ variantType, ...props }) => {

@@ -19,7 +19,16 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "declaration": true,
-        "baseUrl": "./"
+        "baseUrl": "./",
+        "paths": {
+            "react/jsx-runtime": ["./node_modules/react/jsx-runtime"],
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "@helpers/*": ["src/helpers/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@pages/*": ["src/pages/*"],
+        }
     },
     "include": ["src"],
     "exclude": [

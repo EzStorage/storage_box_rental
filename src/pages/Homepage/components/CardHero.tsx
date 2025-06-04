@@ -5,19 +5,22 @@ import {
     CardHeroPricingBreakdown,
     CardHeroQuality,
     ProductInfo,
-} from "./Homepage.styles";
+} from "../Homepage.styles";
 import { useMemo, useState } from "react";
-import { PRODUCTS } from "../../constants/product.constants";
-import { Product } from "../../types/product.type";
-import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
+import { PRODUCTS } from "../../../constants/product.constants";
+import { Product } from "../../../types/product.type";
+import { calculateUnitPrice } from "../../../helpers/calculateUnitPrice";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
-import MyButton from "../../components/Button/MyButton";
-import ShopCartIcon from "../../components/Icons/ShopCartIcon";
+import MyButton from "../../../components/Button/MyButton";
+import ShopCartIcon from "../../../components/Icons/ShopCartIcon";
+import { formatAmount } from "src/helpers/amount";
 
 interface CardHeroProps {
     productId?: string;
 }
+
+const discount = 10;
 
 const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
     const theme = useTheme();
@@ -25,13 +28,13 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
     const [showBulkPricing, setShowBulkPricing] = useState(false);
 
     const product: Product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
-    const discount = 10;
 
-    const getUnitPrice = useMemo(() => {
-        return calculateUnitPrice(quantity, product.bulkPricingTiers ?? []);
-    }, [quantity, product.bulkPricingTiers]);
+    const unitPrice = useMemo(
+        () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []),
+        [quantity, product.bulkPricingTiers],
+    );
 
-    const subtotal = getUnitPrice * quantity;
+    const subtotal = useMemo(() => unitPrice * quantity, [unitPrice, quantity]);
     const tax = product.tax;
     const total = subtotal + tax - discount;
 
@@ -54,9 +57,9 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                     </Stack>
 
                     <Stack>
-                        <p className="original-price">S${product.originalPrice.toFixed(2)}</p>
+                        <p className="original-price">{formatAmount(product.originalPrice)}</p>
                         <p className="discounted-price">
-                            <span>S${getUnitPrice.toFixed(2)}</span>
+                            <span>{formatAmount(unitPrice)}</span>
                             <span>/month</span>
                         </p>
                         <div className="bulk-button" onClick={() => setShowBulkPricing(true)}>
@@ -86,21 +89,21 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
             <CardHeroPricingBreakdown spacing={"8px"}>
                 <Box>
                     <p>
-                        S${getUnitPrice.toFixed(2)} x {quantity} boxes
+                        {formatAmount(unitPrice)} x {quantity} boxes
                     </p>
-                    <p>S${subtotal.toFixed(2)}</p>
+                    <p>{formatAmount(subtotal)}</p>
                 </Box>
                 <Box>
                     <p>Tax and fees</p>
-                    <p>S${tax.toFixed(2)}</p>
+                    <p>{formatAmount(tax)}</p>
                 </Box>
                 <Box>
                     <p>Discount</p>
-                    <p className="discount">-S${discount.toFixed(2)}</p>
+                    <p className="discount">{formatAmount(-discount)}</p>
                 </Box>
                 <Box>
                     <p className="total">Total amount</p>
-                    <p className="total">S${total.toFixed(2)}</p>
+                    <p className="total">{formatAmount(total)}</p>
                 </Box>
             </CardHeroPricingBreakdown>
 
@@ -108,7 +111,7 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                 <Grid size={{ xs: 12, md: 6 }}>
                     <MyButton
                         variantType="secondary"
-                        sx={{ width: "100%" }}
+                        fullWidth
                         startIcon={
                             <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
                         }
@@ -117,7 +120,7 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                     </MyButton>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
-                    <MyButton variantType="primary" sx={{ width: "100%" }}>
+                    <MyButton variantType="primary" fullWidth>
                         Book now
                     </MyButton>
                 </Grid>

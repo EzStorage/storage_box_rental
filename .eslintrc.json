@@ -1,0 +1,52 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "createDefaultProgram": true
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true
+    },
+    "plugins": [
+        "react-refresh",
+        "react",
+        "import",
+        "@typescript-eslint",
+        "jsx-a11y",
+        "testing-library"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "./eslint-custom.json",
+        "plugin:prettier/recommended"
+    ],
+    "overrides": [
+        {
+            "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+            "extends": ["plugin:testing-library/react"]
+        }
+    ],
+    "settings": {
+        "react": {
+            "version": "17.0.2"
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": "./tsconfig.json"
+            }
+        }
+    }
+}

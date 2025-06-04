@@ -1,14 +1,15 @@
-import { Box, Divider, IconButton, Stack, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Divider, IconButton, Stack, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Button } from "src/components/Button";
-import ChevronLeftIcon from "src/components/Icons/ChevronLeftIcon";
-import PrivacyIcon from "src/components/Icons/PrivacyIcon";
-import OTPInput from "src/components/OTPInput";
+import { Button } from "@components/Button";
+import ChevronLeftIcon from "@components/Icons/ChevronLeftIcon";
+import PrivacyIcon from "@components/Icons/PrivacyIcon";
+import OTPInput from "@components/OTPInput";
 import { OTPResendCodeContainer } from "./Login.styles";
 import { CountryCallingCodeType } from "src/constants/phonecode.constants";
 import { useAppDispatch } from "src/app/hooks";
 import { useNavigate } from "react-router";
 import { verifyOtp } from "src/features/auth/authThunks";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 interface OTPStepProps {
     onBack: (step: string) => void;
@@ -18,7 +19,7 @@ interface OTPStepProps {
 
 const OTPStep: React.FC<OTPStepProps> = ({ onBack, selectedCountry, phoneNumber }) => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+    const { isMobile } = useScreenSize();
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();

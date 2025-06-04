@@ -1,8 +1,8 @@
 import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import { HeroContainer, HeroIntro, HeroLeft } from "../Homepage.styles";
-import CardHero from "../CardHero";
+import CardHero from "./CardHero";
 import { useAppSelector } from "src/app/hooks";
-import SummaryCards from "src/components/SummaryCards";
+import SummaryCards from "@components/SummaryCards";
 
 const Hero: React.FC = () => {
     const theme = useTheme();

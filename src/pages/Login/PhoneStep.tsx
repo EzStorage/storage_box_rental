@@ -1,7 +1,7 @@
 import { Box, Divider, Stack, useMediaQuery, useTheme } from "@mui/material";
-import { Button } from "src/components/Button";
-import UserIcon from "src/components/Icons/UserIcon";
-import PhoneInput from "src/components/PhoneInput";
+import { Button } from "@components/Button";
+import UserIcon from "@components/Icons/UserIcon";
+import PhoneInput from "@components/PhoneInput";
 import { CountryCallingCodeType } from "src/constants/phonecode.constants";
 
 interface PhoneStepProps {

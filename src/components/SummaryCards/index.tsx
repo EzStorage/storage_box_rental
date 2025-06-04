@@ -1,6 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import { useAppSelector } from "src/app/hooks";
-import { getStatusCards } from "src/constants/homepage.constants";
+import { getStatusCards } from "src/pages/Homepage/constants";
 import { SummaryCard } from "./SummaryCards.styles";
 import { Link } from "react-router";
 

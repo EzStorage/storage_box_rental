@@ -1,15 +1,15 @@
-import slideShow1 from "../assets/slideshow-1.png";
-import slideShow2 from "../assets/slideshow-2.png";
-import slideShow3 from "../assets/slideshow-3.png";
-import slideShow4 from "../assets/slideshow-4.png";
-import howItWorks1 from "../assets/how-it-works-1.png";
-import howItWorks2 from "../assets/how-it-works-2.png";
-import howItWorks3 from "../assets/how-it-works-3.png";
-import howItWorks4 from "../assets/how-it-works-4.png";
-import howItWorks5 from "../assets/how-it-works-5.png";
-import DateTimeIcon from "../components/Icons/DateTimeIcon";
-import SafeDeliveryIcon from "../components/Icons/SafeDeliveryIcon";
-import TruckReturnIcon from "../components/Icons/TruckReturnIcon";
+import slideShow1 from "@assets/slideshow-1.png";
+import slideShow2 from "@assets/slideshow-2.png";
+import slideShow3 from "@assets/slideshow-3.png";
+import slideShow4 from "@assets/slideshow-4.png";
+import howItWorks1 from "@assets/how-it-works-1.png";
+import howItWorks2 from "@assets/how-it-works-2.png";
+import howItWorks3 from "@assets/how-it-works-3.png";
+import howItWorks4 from "@assets/how-it-works-4.png";
+import howItWorks5 from "@assets/how-it-works-5.png";
+import DateTimeIcon from "../../components/Icons/DateTimeIcon";
+import SafeDeliveryIcon from "../../components/Icons/SafeDeliveryIcon";
+import TruckReturnIcon from "../../components/Icons/TruckReturnIcon";
 import { User } from "src/types/auth.type";
 
 export const STEPS = [
@@ -221,5 +221,44 @@ export const getStatusCards = (user: User): StatusCard[] => [
         count: user?.historyBooking ?? 0,
         bgColor: "#FFFEEC",
         borderColor: "#FAF39B",
+    },
+];
+
+export const faqs = [
+    {
+        question: "How does the storage service work?",
+        answer: "You choose your storage size and duration, complete the booking online, and deliver your items to our secure facility.",
+    },
+    {
+        question: "Is there a minimum storage duration?",
+        answer: "Yes, the minimum storage duration is one month, but you can extend or reduce it anytime based on your needs.",
+    },
+    {
+        question: "Can I change my plan later?",
+        answer: "Absolutely! You can upgrade or downgrade your storage plan at any time by contacting our support team.",
+    },
+    {
+        question: "What happens if my storage booking is about to expire?",
+        answer: "We will notify you in advance to renew or extend your booking. If you do not take action, your items may be subject to removal according to our policy.",
+    },
+    {
+        question: "What is your cancellation policy?",
+        answer: "You can cancel your booking up to 48 hours before the scheduled start date with a full refund. After that, cancellation fees may apply.",
+    },
+    {
+        question: "Can I add multiple users to manage my storage?",
+        answer: "Yes, you can add authorized users to manage your storage account for easy access and management.",
+    },
+    {
+        question: "How does billing work?",
+        answer: "Billing is done monthly based on your storage size and duration, with convenient online payment options.",
+    },
+    {
+        question: "Are my items stored safely?",
+        answer: "We use state-of-the-art security systems including CCTV, alarms, and restricted access to keep your items safe.",
+    },
+    {
+        question: "What items are not allowed in storage?",
+        answer: "Hazardous materials, perishable goods, flammable items, and illegal products are strictly prohibited in our storage units.",
     },
 ];
