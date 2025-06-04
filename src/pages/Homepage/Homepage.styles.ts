@@ -4,45 +4,87 @@ import { Box, Grid, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 
 // ----- Hero -----
-export const HeroContainer = styled("section")(({ theme }) => ({
-    width: "100%",
-    height: "100vh",
+interface HeroContainerProps {
+    isLogin?: boolean;
+    isMobile?: boolean;
+}
 
-    backgroundImage: `url(${background})`,
-    backgroundSize: "cover",
-    position: "relative",
-
-    padding: "72px 112px",
-
-    "&::before": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
+export const HeroContainer = styled("section")<HeroContainerProps>(
+    ({ theme, isLogin, isMobile }) => ({
         width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.4)",
-        zIndex: 1,
-    },
+        height: "100vh",
 
-    "& > *": {
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
         position: "relative",
-        zIndex: 2,
-        height: "100%",
 
-        [theme.breakpoints.down("lg")]: {
-            textAlign: "center",
+        padding: "72px 112px",
+
+        "&::before":
+            isMobile && isLogin
+                ? {}
+                : {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      zIndex: 1,
+                  },
+
+        "& > *": {
+            position: "relative",
+            zIndex: 2,
+            height: "100%",
+
+            [theme.breakpoints.down("md")]: {
+                textAlign: isLogin ? "left" : "center",
+            },
+
+            [theme.breakpoints.between("md", "lg")]: {
+                textAlign: "center",
+            },
         },
+
+        [theme.breakpoints.down("md")]: {
+            padding: "56px 16px",
+            height: "100%",
+            backgroundImage: isLogin ? "none" : `url(${background})`,
+            backgroundColor: isLogin ? "#F4F4F6" : "transparent",
+        },
+    }),
+);
+
+export const HeroIntro = styled("div")(({ theme }) => ({
+    padding: "24px 16px 0",
+
+    "> .name": {
+        fontWeight: 600,
+        fontSize: "18px",
+        lineHeight: "26px",
+        color: theme.palette.textCustom.greyHigh,
     },
 
-    [theme.breakpoints.down("md")]: {
-        padding: "56px 16px",
-        height: "100%",
+    "> .subtitle": {
+        fontWeight: 400,
+        fontSize: "13px",
+        lineHeight: "20px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    "> div:nth-of-type(3)": {
+        display: "flex",
+        padding: "16px 0",
+        justifyContent: "space-between",
+        gap: "8px",
     },
 }));
 
 export const HeroLeft = styled(Stack)(({ theme }) => ({
     color: theme.palette.textCustom.white,
+    width: "100%",
 
     h1: {
         fontSize: "64px",

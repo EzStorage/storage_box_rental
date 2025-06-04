@@ -31,13 +31,18 @@ const Header: React.FC = () => {
         setScrolled(latest > 250 ? true : false);
     });
 
-    const isChangeColor = location.pathname === "/" && !scrolled;
+    const isTransparentBg =
+        location.pathname === "/" && ((!isMobile && !scrolled) || (isMobile && user === null));
 
     return (
-        <HeaderContainer isChangeColor={isChangeColor}>
+        <HeaderContainer isChangeColor={isTransparentBg}>
             <Stack direction="row" alignItems="center" gap={"24px"}>
                 {/* Logo */}
-                <HeaderLogo to="/" style={{ textDecoration: "none" }} isChangeColor={isChangeColor}>
+                <HeaderLogo
+                    to="/"
+                    style={{ textDecoration: "none" }}
+                    isChangeColor={isTransparentBg}
+                >
                     <Stack direction="row" alignItems="center" gap={"4px"}>
                         <Logo />
                         <span>Storage</span>
@@ -46,7 +51,7 @@ const Header: React.FC = () => {
 
                 {/* Navigation Links */}
                 {!isMobile && (
-                    <HeaderLeftNav isChangeColor={isChangeColor}>
+                    <HeaderLeftNav isChangeColor={isTransparentBg}>
                         <Link to="#about">About Us</Link>
                         <Link to="#faq">FAQs</Link>
                     </HeaderLeftNav>
@@ -55,7 +60,7 @@ const Header: React.FC = () => {
 
             <HeaderRight>
                 <Badge>
-                    <ShopCartIcon width={24} color={isChangeColor ? "white" : "black"} />
+                    <ShopCartIcon width={24} color={isTransparentBg ? "white" : "black"} />
                 </Badge>
 
                 {!isMobile && (

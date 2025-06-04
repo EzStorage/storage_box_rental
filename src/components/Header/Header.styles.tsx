@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { MenuList, Popover } from "@mui/material";
+import { MenuList } from "@mui/material";
 import { Link } from "react-router";
 
 export const HeaderContainer = styled("header")<{
@@ -104,52 +104,6 @@ export const ProfilePopoverInfo = styled("div")(({}) => ({
     justifyContent: "space-between",
     gap: "8px",
 }));
-
-interface ProfilePopoverCardProps {
-    background?: string;
-    borderColor?: string;
-}
-
-export const ProfilePopoverCard = styled("div")<ProfilePopoverCardProps>(
-    ({ theme, background, borderColor }) => ({
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        background: background,
-        border: `1px solid ${borderColor}`,
-        width: "125px",
-        height: "80px",
-        padding: "8px 12px",
-
-        "> div": {
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-
-            ".title": {
-                fontWeight: 400,
-                fontSize: "13px",
-                lineHeight: "20px",
-                color: theme.palette.textCustom.greyHigh,
-            },
-
-            ".count": {
-                fontWeight: 600,
-                fontSize: "22px",
-                lineHeight: "28px",
-                color: theme.palette.textCustom.greyHigh,
-            },
-        },
-
-        ".view-all": {
-            textDecoration: "none",
-            fontWeight: 600,
-            fontSize: "11px",
-            lineHeight: "16px",
-            color: theme.palette.textCustom.greyMed,
-        },
-    }),
-);
 
 export const ProfilePopoverMenu = styled(MenuList)(({ theme }) => ({
     background: "white",

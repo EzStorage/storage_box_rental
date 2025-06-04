@@ -10,6 +10,7 @@ import howItWorks5 from "../assets/how-it-works-5.png";
 import DateTimeIcon from "../components/Icons/DateTimeIcon";
 import SafeDeliveryIcon from "../components/Icons/SafeDeliveryIcon";
 import TruckReturnIcon from "../components/Icons/TruckReturnIcon";
+import { User } from "src/types/auth.type";
 
 export const STEPS = [
     {
@@ -194,3 +195,31 @@ export const TESTIMONIALS: Testimonial = {
         },
     ],
 };
+
+export interface StatusCard {
+    title: string;
+    count: number;
+    bgColor: string;
+    borderColor: string;
+}
+
+export const getStatusCards = (user: User): StatusCard[] => [
+    {
+        title: "Upcoming",
+        count: user?.upcomingBooking ?? 0,
+        bgColor: "#FFFEEC",
+        borderColor: "#FAF39B",
+    },
+    {
+        title: "Stored",
+        count: user?.storedBooking ?? 0,
+        bgColor: "#F8FDEB",
+        borderColor: "#D8F4A6",
+    },
+    {
+        title: "History",
+        count: user?.historyBooking ?? 0,
+        bgColor: "#FFFEEC",
+        borderColor: "#FAF39B",
+    },
+];
