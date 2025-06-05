@@ -8,6 +8,8 @@ import { ThirdStep } from "./components/ThirdStep";
 import { BookingProvider, useBookingSelector } from "./context";
 import { useBookingInitialization } from "./hooks/useBookingInitialization";
 import { BookingContainer } from "./Booking.styles";
+import { useScreenSize } from "@hooks/useScreenSize";
+import { MHeader } from "./components/MHeader";
 
 export function Booking() {
     return (
@@ -21,8 +23,11 @@ function BookingContent() {
     useBookingInitialization();
 
     const step = useBookingSelector(state => state.step);
+    const { isMobile } = useScreenSize();
+
     return (
         <BookingContainer>
+            {isMobile && <MHeader />}
             <ProgressBooking />
             {step >= 1 && <FirstStep />}
             {step >= 2 && <SecondStep />}

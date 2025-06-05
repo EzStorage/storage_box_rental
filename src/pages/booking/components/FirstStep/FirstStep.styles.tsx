@@ -1,10 +1,14 @@
 import { Button } from "@components/Button";
 import { styled } from "@mui/material";
 
-export const ProductCardContainer = styled("div")(() => ({
+export const ProductCardContainer = styled("div")(({ theme }) => ({
     display: "flex",
     maxHeight: "137px",
     margin: "20px 0",
+
+    [theme.breakpoints.down("lg")]: {
+        margin: "16px 0",
+    },
 
     "> div:first-of-type": {
         marginRight: "20px",
