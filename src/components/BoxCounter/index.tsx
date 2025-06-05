@@ -2,13 +2,16 @@ import {
     BoxCounterButton,
     BoxCounterContainer,
     BoxCounterQuality,
+    BoxCounterQuantity,
     BoxCounterTitle,
 } from "./BoxCounter.styles";
 import { IoRemoveOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useTheme } from "@mui/material";
 
 export function BoxCounter() {
+    const theme = useTheme();
     const [quantity, setQuantity] = useState(2);
 
     const incrementQuantity = () => setQuantity(prev => prev + 1);
@@ -19,11 +22,11 @@ export function BoxCounter() {
             <BoxCounterTitle>Number of box</BoxCounterTitle>
             <BoxCounterQuality>
                 <BoxCounterButton onClick={decrementQuantity}>
-                    <IoRemoveOutline color="#5B616D" />
+                    <IoRemoveOutline color={theme.palette.textCustom.greyMed} />
                 </BoxCounterButton>
-                <span>{quantity}</span>
+                <BoxCounterQuantity>{quantity}</BoxCounterQuantity>
                 <BoxCounterButton onClick={incrementQuantity}>
-                    <IoAddOutline color="#5B616D" />
+                    <IoAddOutline color={theme.palette.textCustom.greyMed} />
                 </BoxCounterButton>
             </BoxCounterQuality>
         </BoxCounterContainer>

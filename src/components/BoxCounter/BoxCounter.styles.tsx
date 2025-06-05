@@ -27,3 +27,10 @@ export const BoxCounterButton = styled(IconButton)(({ theme }) => ({
     width: "40px",
     height: "40px",
 }));
+
+export const BoxCounterQuantity = styled("div")(({ theme }) => ({
+    fontWeight: 600,
+    fontSize: "15px",
+    lineHeight: "24px",
+    color: theme.palette.textCustom.greyHigh,
+}));

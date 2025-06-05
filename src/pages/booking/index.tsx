@@ -24,13 +24,11 @@ function BookingContent() {
     return (
         <BookingContainer>
             <ProgressBooking />
-            <div>
-                {step >= 1 && <FirstStep />}
-                {step >= 2 && <SecondStep />}
-                {step >= 3 && <ThirdStep />}
-                {step >= 4 && <FourthStep />}
-                {step >= 5 && <FifthStep />}
-            </div>
+            {step >= 1 && <FirstStep />}
+            {step >= 2 && <SecondStep />}
+            {step >= 3 && <ThirdStep />}
+            {step >= 4 && <FourthStep />}
+            {step >= 5 && <FifthStep />}
         </BookingContainer>
     );
 }

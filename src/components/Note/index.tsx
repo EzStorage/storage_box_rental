@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { NoteContainer, NoteContent, NoteRow } from "./Note.styles";
-import { CSSProperties } from "@mui/material";
 
 type NoteProps = {
     Icon?: ReactNode;
@@ -11,22 +10,11 @@ type NoteProps = {
 export function Note({ Icon, title, children }: NoteProps) {
     return (
         <NoteContainer>
-            <div>
-                {!!title ? (
-                    <>
-                        <NoteRow isTitle={!!title}>
-                            {Icon && <div>{Icon}</div>}
-                            <p>{title}</p>
-                        </NoteRow>
-                        <NoteContent>{children}</NoteContent>
-                    </>
-                ) : (
-                    <NoteRow isTitle={!!title}>
-                        {Icon && <div>{Icon}</div>}
-                        <NoteContent>{children}</NoteContent>
-                    </NoteRow>
-                )}
-            </div>
+            <NoteRow isTitle={!!title}>
+                {Icon && <div>{Icon}</div>}
+                {!!title ? <p>{title}</p> : <NoteContent>{children}</NoteContent>}
+            </NoteRow>
+            {!!title && <NoteContent>{children}</NoteContent>}
         </NoteContainer>
     );
 }
