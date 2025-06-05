@@ -4,11 +4,11 @@ export const DurationSelectorContainer = styled("div")(({ theme }) => ({
     display: "grid",
     gap: "12px",
 
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("lg")]: {
         gridTemplateColumns: "repeat(3, 1fr)",
     },
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("lg")]: {
         gridTemplateColumns: "repeat(2, 1fr)",
     },
 }));

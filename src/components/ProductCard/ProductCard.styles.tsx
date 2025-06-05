@@ -1,10 +1,15 @@
 import { Chip, styled } from "@mui/material";
 
-export const ProductImageContainer = styled("div")(({}) => ({
+export const ProductImageContainer = styled("div")(({ theme }) => ({
     backgroundColor: "#F4F4F6",
     borderRadius: "4px",
     height: "137px",
     width: "137px",
+
+    [theme.breakpoints.down("lg")]: {
+        height: "91px",
+        width: "91px",
+    },
 
     img: {
         width: "100%",
@@ -13,11 +18,16 @@ export const ProductImageContainer = styled("div")(({}) => ({
     },
 }));
 
-export const ProductTitleContainer = styled("h3")(() => ({
+export const ProductTitleContainer = styled("h3")(({ theme }) => ({
     fontWeight: 600,
     fontSize: "22px",
     lineHeight: "28px",
     color: "#1F1F1F",
+
+    [theme.breakpoints.down("lg")]: {
+        fontSize: "18px",
+        lineHeight: "26px",
+    },
 }));
 
 export const ProductChipContainer = styled(Chip)(({ theme }) => ({
@@ -44,4 +54,9 @@ export const ProductDiscountedPriceContainer = styled("span")(({ theme }) => ({
     fontWeight: 600,
     lineHeight: "28px",
     color: theme.palette.surface.primaryHigh,
+
+    [theme.breakpoints.down("lg")]: {
+        fontSize: "18px",
+        lineHeight: "26px",
+    },
 }));

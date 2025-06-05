@@ -1,9 +1,3 @@
-import { ProductImage } from "@components/ProductCard/ProductImage";
-import {
-    StepContainer,
-    StepHeaderProgress,
-    StepHeaderTitle,
-} from "../ProgressBooking/ProgressBooking.styles";
 import {
     FirstStepAddDuration,
     FirstStepNoteContainer,
@@ -17,6 +11,7 @@ import { IoAddOutline } from "react-icons/io5";
 import { DurationSelector } from "../DurationSelector";
 import { FirstStepProductCard } from "./FirstStepProductCard";
 import { useTheme } from "@mui/material";
+import { StepContainer, StepHeaderProgress, StepHeaderTitle } from "@pages/booking/Booking.styles";
 
 export function FirstStep() {
     const theme = useTheme();
@@ -41,7 +36,7 @@ export function FirstStep() {
             <FirstStepStorageTitle>How long is your storage for?</FirstStepStorageTitle>
             <DurationSelector />
             <FirstStepAddDuration startIcon={<IoAddOutline />}>
-                Custom Duration
+                Custom duration
             </FirstStepAddDuration>
         </StepContainer>
     );
