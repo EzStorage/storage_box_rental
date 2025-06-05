@@ -8,7 +8,7 @@ import { OTPResendCodeContainer } from "./Login.styles";
 import { CountryCallingCodeType } from "src/constants/phonecode.constants";
 import { useAppDispatch } from "src/app/hooks";
 import { useNavigate } from "react-router";
-import { verifyOtp } from "src/features/auth/authThunks";
+import { verifyOtp } from "src/redux/auth/authThunks";
 import { useScreenSize } from "@hooks/useScreenSize";
 
 interface OTPStepProps {
