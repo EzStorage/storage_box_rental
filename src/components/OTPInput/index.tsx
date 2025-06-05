@@ -1,7 +1,7 @@
 import { Stack, useTheme } from "@mui/material";
 import { OTPDash, OTPError, OTPInputContainer, OTPInputItem } from "./OTPInput.styles";
 import { useEffect, useRef } from "react";
-import InvalidIcon from "../Icons/InvalidIcon";
+import InfoIcon from "../Icons/InfoIcon";
 
 interface OTPInputProps {
     otp: string[];
@@ -135,7 +135,7 @@ const OTPInput: React.FC<OTPInputProps> = ({
             {/* Error message */}
             {isInvalidOtp && (
                 <OTPError direction={"row"} spacing={"4px"}>
-                    <InvalidIcon />
+                    <InfoIcon />
                     <div>Invalid Verification Code</div>
                 </OTPError>
             )}

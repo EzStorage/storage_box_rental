@@ -5,7 +5,7 @@ interface Props {
     color?: string;
 }
 
-const InvalidIcon: React.FC<Props> = ({
+const InfoIcon: React.FC<Props> = ({
     className,
     width = "12",
     height = width,
@@ -29,4 +29,4 @@ const InvalidIcon: React.FC<Props> = ({
         </svg>
     );
 };
-export default InvalidIcon;
+export default InfoIcon;

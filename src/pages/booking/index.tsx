@@ -1,10 +1,13 @@
+import { Box } from "@mui/material";
 import { FifthStep } from "./components/FifthStep";
 import { FirstStep } from "./components/FirstStep";
 import { FourthStep } from "./components/FourthStep";
+import { ProgressBooking } from "./components/ProgressBooking";
 import { SecondStep } from "./components/SecondStep";
 import { ThirdStep } from "./components/ThirdStep";
 import { BookingProvider, useBookingSelector } from "./context";
 import { useBookingInitialization } from "./hooks/useBookingInitialization";
+import { BookingContainer } from "./Booking.styles";
 
 export function Booking() {
     return (
@@ -19,12 +22,15 @@ function BookingContent() {
 
     const step = useBookingSelector(state => state.step);
     return (
-        <div>
-            {step >= 1 && <FirstStep />}
-            {step >= 2 && <SecondStep />}
-            {step >= 3 && <ThirdStep />}
-            {step >= 4 && <FourthStep />}
-            {step >= 5 && <FifthStep />}
-        </div>
+        <BookingContainer>
+            <ProgressBooking />
+            <div>
+                {step >= 1 && <FirstStep />}
+                {step >= 2 && <SecondStep />}
+                {step >= 3 && <ThirdStep />}
+                {step >= 4 && <FourthStep />}
+                {step >= 5 && <FifthStep />}
+            </div>
+        </BookingContainer>
     );
 }

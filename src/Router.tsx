@@ -3,6 +3,7 @@ import MainLayout from "./layout/MainLayout";
 import ProtectedRoute from "./layout/ProtectedRoute";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
+import { Booking } from "@pages/booking";
 
 const Router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const Router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />,
+            },
+            {
+                path: "/booking",
+                element: <Booking />,
             },
             {
                 element: <ProtectedRoute />,
