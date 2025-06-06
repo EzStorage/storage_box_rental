@@ -13,8 +13,9 @@ import { PRODUCTS } from "src/constants/product.constants";
 import { Product } from "src/types/product.type";
 import { formatAmount } from "@helpers/amount";
 import { useBookingSelector } from "@pages/booking/context";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
+import { BulkPricingDialog } from "@components/BulkPricingDialog";
 
 export function FirstStepProductCard() {
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
@@ -23,6 +24,14 @@ export function FirstStepProductCard() {
         () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []),
         [quantity, product.bulkPricingTiers],
     );
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const handleClickOpenDialog = () => {
+        setOpenDialog(true);
+    };
+    const handleCloseDialog = () => {
+        setOpenDialog(false);
+    };
 
     return (
         <ProductCardContainer>
@@ -40,8 +49,11 @@ export function FirstStepProductCard() {
                     <ProductDiscountedPrice>{formatAmount(unitPrice)}</ProductDiscountedPrice>
                     <ProductDiscountedPeriod>/month</ProductDiscountedPeriod>
                 </div>
-                <ProductShowBulkPricing>Show all bulk pricing</ProductShowBulkPricing>
+                <ProductShowBulkPricing onClick={handleClickOpenDialog}>
+                    Show all bulk pricing
+                </ProductShowBulkPricing>
             </div>
+            <BulkPricingDialog open={openDialog} onClose={handleCloseDialog} />
         </ProductCardContainer>
     );
 }
