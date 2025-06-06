@@ -12,9 +12,17 @@ import { ProductDiscountedPrice } from "@components/ProductCard/ProductDiscounte
 import { PRODUCTS } from "src/constants/product.constants";
 import { Product } from "src/types/product.type";
 import { formatAmount } from "@helpers/amount";
+import { useBookingSelector } from "@pages/booking/context";
+import { useMemo } from "react";
+import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 
 export function FirstStepProductCard() {
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
+    const quantity = useBookingSelector(state => state.quantity);
+    const unitPrice = useMemo(
+        () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []),
+        [quantity, product.bulkPricingTiers],
+    );
 
     return (
         <ProductCardContainer>
@@ -29,7 +37,7 @@ export function FirstStepProductCard() {
                 </ProductChipContainer>
                 <ProductOriginalPrice>{formatAmount(product.originalPrice)}</ProductOriginalPrice>
                 <div>
-                    <ProductDiscountedPrice>{formatAmount(95)}</ProductDiscountedPrice>
+                    <ProductDiscountedPrice>{formatAmount(unitPrice)}</ProductDiscountedPrice>
                     <ProductDiscountedPeriod>/month</ProductDiscountedPeriod>
                 </div>
                 <ProductShowBulkPricing>Show all bulk pricing</ProductShowBulkPricing>

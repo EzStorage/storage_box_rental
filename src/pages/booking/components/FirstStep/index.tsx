@@ -12,9 +12,17 @@ import { DurationSelector } from "../DurationSelector";
 import { FirstStepProductCard } from "./FirstStepProductCard";
 import { useTheme } from "@mui/material";
 import { StepContainer, StepHeaderProgress, StepHeaderTitle } from "@pages/booking/Booking.styles";
+import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
 
 export function FirstStep() {
     const theme = useTheme();
+
+    const commit = useBookingCommit();
+    const quantity = useBookingSelector(state => state.quantity);
+
+    const handleQuantity = (newQuantity: number) => {
+        commit({ quantity: newQuantity });
+    };
 
     return (
         <StepContainer>
@@ -32,7 +40,7 @@ export function FirstStep() {
                     </ProductList>
                 </Note>
             </FirstStepNoteContainer>
-            <BoxCounter />
+            <BoxCounter value={quantity} onChange={handleQuantity} />
             <FirstStepStorageTitle>How long is your storage for?</FirstStepStorageTitle>
             <DurationSelector />
             <FirstStepAddDuration startIcon={<IoAddOutline />}>

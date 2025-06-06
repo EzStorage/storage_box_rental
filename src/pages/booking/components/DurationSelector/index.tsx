@@ -6,17 +6,23 @@ import {
     DurationSelectorPrice,
     DurationSelectorTitle,
 } from "./DurationSelector.styles";
-import { useState } from "react";
+import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
 
 export function DurationSelector() {
-    const [selectedPlan, setSelectedPlan] = useState("1month");
+    const commit = useBookingCommit();
+    const commitmentPeriod = useBookingSelector(state => state.commitmentPeriod);
+
+    const handleCommitmentPeriod = (newPlan: string) => {
+        commit({ commitmentPeriod: newPlan });
+    };
+
     return (
         <DurationSelectorContainer>
             {DURATION_PLANS.map(plan => (
                 <DurationSelectorItem
                     key={plan.id}
-                    isSelected={selectedPlan === plan.id}
-                    onClick={() => setSelectedPlan(plan.id)}
+                    isSelected={commitmentPeriod === plan.id}
+                    onClick={() => handleCommitmentPeriod(plan.id)}
                 >
                     <DurationSelectorTitle>
                         {plan.title} <span>({plan.days} days)</span>
