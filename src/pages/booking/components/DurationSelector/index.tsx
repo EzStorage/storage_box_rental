@@ -6,14 +6,15 @@ import {
     DurationSelectorPrice,
     DurationSelectorTitle,
 } from "./DurationSelector.styles";
-import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
+import { useBookingSelector } from "@pages/booking/context";
+import { useBookingFormActions } from "@pages/booking/hooks/useBookingFormActions";
 
 export function DurationSelector() {
-    const commit = useBookingCommit();
-    const commitmentPeriod = useBookingSelector(state => state.commitmentPeriod);
+    const { handleChangeField } = useBookingFormActions();
+    const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
 
-    const handleCommitmentPeriod = (newPlan: string) => {
-        commit({ commitmentPeriod: newPlan });
+    const handleCommitmentPeriod = (value: string) => {
+        handleChangeField("commitmentPeriod", value);
     };
 
     return (
