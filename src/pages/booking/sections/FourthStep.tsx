@@ -1,3 +1,3 @@
 export function FourthStep() {
-    return <div>Step 4</div>;
+    return <div id="step-4">Step 4</div>;
 }

@@ -11,7 +11,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
 import { Product } from "src/types/product.type";
 import { PRODUCTS } from "src/constants/product.constants";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { DURATION_PLANS } from "../DurationSelector/constants";
 import { formatAmount } from "@helpers/amount";
@@ -37,6 +37,20 @@ export function CheckoutFooter() {
     const handleStep = (value: number) => {
         commit({ step: value });
     };
+
+    useEffect(() => {
+        const section = document.getElementById(`step-${step}`);
+        if (section) {
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+        }
+    }, [step]);
 
     const AddToCardButton = () => {
         if (isMobile) {
@@ -89,7 +103,7 @@ export function CheckoutFooter() {
                         </MyButton>
                     ) : (
                         <MyButton variantType="primary" fullWidth>
-                            Go to checkout
+                            {isMobile ? "Checkout" : "Go to checkout"}
                         </MyButton>
                     )}
                 </CheckoutFooterActions>

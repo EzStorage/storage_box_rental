@@ -26,7 +26,7 @@ export function FirstStep() {
     };
 
     return (
-        <StepContainer>
+        <StepContainer id="step-1">
             <StepHeaderProgress>STEP 1 OF 5</StepHeaderProgress>
             <StepHeaderTitle>How many boxes do you want to store?</StepHeaderTitle>
             <FirstStepProductCard />

@@ -42,7 +42,7 @@ export const CheckoutFooterActions = styled("div")(({ theme }) => ({
     width: "300px",
 
     [theme.breakpoints.down("lg")]: {
-        width: "150px",
+        width: "200px",
         gap: "12px",
     },
 }));
