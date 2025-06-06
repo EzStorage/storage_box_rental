@@ -19,18 +19,15 @@ import { BulkPricingDialog } from "@components/BulkPricingDialog";
 
 export function FirstStepProductCard() {
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
-    const quantity = useBookingSelector(state => state.quantity);
+    const quantity = useBookingSelector(state => state.form.quantity);
     const unitPrice = useMemo(
         () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []),
         [quantity, product.bulkPricingTiers],
     );
     const [openDialog, setOpenDialog] = useState(false);
 
-    const handleClickOpenDialog = () => {
-        setOpenDialog(true);
-    };
-    const handleCloseDialog = () => {
-        setOpenDialog(false);
+    const toggleBulkDialog = () => {
+        setOpenDialog(prev => !prev);
     };
 
     return (
@@ -49,11 +46,11 @@ export function FirstStepProductCard() {
                     <ProductDiscountedPrice>{formatAmount(unitPrice)}</ProductDiscountedPrice>
                     <ProductDiscountedPeriod>/month</ProductDiscountedPeriod>
                 </div>
-                <ProductShowBulkPricing onClick={handleClickOpenDialog}>
+                <ProductShowBulkPricing onClick={toggleBulkDialog}>
                     Show all bulk pricing
                 </ProductShowBulkPricing>
             </div>
-            <BulkPricingDialog open={openDialog} onClose={handleCloseDialog} />
+            <BulkPricingDialog open={openDialog} onClose={toggleBulkDialog} />
         </ProductCardContainer>
     );
 }

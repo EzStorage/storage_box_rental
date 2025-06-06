@@ -8,20 +8,21 @@ import InfoIcon from "@components/Icons/InfoIcon";
 import { Note } from "@components/Note";
 import { BoxCounter } from "@components/BoxCounter";
 import { IoAddOutline } from "react-icons/io5";
-import { DurationSelector } from "../DurationSelector";
 import { FirstStepProductCard } from "./FirstStepProductCard";
 import { useTheme } from "@mui/material";
 import { StepContainer, StepHeaderProgress, StepHeaderTitle } from "@pages/booking/Booking.styles";
-import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
+import { useBookingSelector } from "@pages/booking/context";
+import { DurationSelector } from "@pages/booking/components/DurationSelector";
+import { useBookingFormActions } from "@pages/booking/hooks/useBookingFormActions";
 
 export function FirstStep() {
     const theme = useTheme();
+    const { handleChangeField } = useBookingFormActions();
 
-    const commit = useBookingCommit();
-    const quantity = useBookingSelector(state => state.quantity);
+    const quantity = useBookingSelector(state => state.form.quantity);
 
-    const handleQuantity = (newQuantity: number) => {
-        commit({ quantity: newQuantity });
+    const handleQuantity = (value: number) => {
+        handleChangeField("quantity", value);
     };
 
     return (

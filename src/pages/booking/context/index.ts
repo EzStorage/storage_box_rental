@@ -2,14 +2,14 @@ import { createFastContext } from "../../../helpers/createFastContext";
 
 type DeliveryType = "Express" | "6-Hour slot";
 
-interface ScheduleInfo {
+export interface ScheduleInfo {
     location: string;
     date: string;
     type: DeliveryType;
     time: string;
 }
 
-export interface IBookingState {
+export interface IBookingForm {
     bookingId: string;
     productId: string;
     quantity: number;
@@ -18,33 +18,39 @@ export interface IBookingState {
     delivery: ScheduleInfo;
     pickup: ScheduleInfo;
     return: ScheduleInfo;
+}
+
+export interface IBookingState {
     step: number;
     errorMessage?: Record<string, string>;
+    form: IBookingForm;
 }
 
 const initalBookingState: IBookingState = {
-    bookingId: "",
-    productId: "",
-    quantity: 2,
-    commitmentPeriod: "1month",
-    deliveryLocation: "",
-    delivery: {
-        location: "",
-        type: "Express",
-        date: "",
-        time: "",
-    },
-    pickup: {
-        location: "",
-        type: "Express",
-        date: "",
-        time: "",
-    },
-    return: {
-        location: "",
-        type: "Express",
-        date: "",
-        time: "",
+    form: {
+        bookingId: "",
+        productId: "",
+        quantity: 2,
+        commitmentPeriod: "1month",
+        deliveryLocation: "",
+        delivery: {
+            location: "",
+            type: "Express",
+            date: "",
+            time: "",
+        },
+        pickup: {
+            location: "",
+            type: "Express",
+            date: "",
+            time: "",
+        },
+        return: {
+            location: "",
+            type: "Express",
+            date: "",
+            time: "",
+        },
     },
     step: 1,
     errorMessage: {},

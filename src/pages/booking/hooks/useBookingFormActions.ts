@@ -1,10 +1,15 @@
-import { useBookingCommit } from "../context";
+import { IBookingForm, useBookingCommit } from "../context";
 
 export function useBookingFormActions() {
     const commit = useBookingCommit();
 
-    const handleChangeField = (field: string, value: string) => {
-        commit({ [field]: value });
+    const handleChangeField = (field: keyof IBookingForm, value: string | number) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                [field]: value,
+            },
+        }));
     };
 
     const validateField = (field: string, value: string): boolean => {

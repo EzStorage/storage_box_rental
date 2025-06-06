@@ -1,15 +1,14 @@
-import { Box } from "@mui/material";
-import { FifthStep } from "./components/FifthStep";
-import { FirstStep } from "./components/FirstStep";
-import { FourthStep } from "./components/FourthStep";
+import { FifthStep } from "./sections/FifthStep";
+import { FirstStep } from "./sections/FirstStep";
+import { FourthStep } from "./sections/FourthStep";
 import { ProgressBooking } from "./components/ProgressBooking";
-import { SecondStep } from "./components/SecondStep";
-import { ThirdStep } from "./components/ThirdStep";
+import { SecondStep } from "./sections/SecondStep";
+import { ThirdStep } from "./sections/ThirdStep";
 import { BookingProvider, useBookingSelector } from "./context";
-import { useBookingInitialization } from "./hooks/useBookingInitialization";
 import { BookingContainer } from "./Booking.styles";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MHeader } from "./components/MHeader";
+import { CheckoutFooter } from "./components/CheckoutFooter";
 
 export function Booking() {
     return (
@@ -20,8 +19,6 @@ export function Booking() {
 }
 
 function BookingContent() {
-    useBookingInitialization();
-
     const step = useBookingSelector(state => state.step);
     const { isMobile } = useScreenSize();
 
@@ -34,6 +31,7 @@ function BookingContent() {
             {step >= 3 && <ThirdStep />}
             {step >= 4 && <FourthStep />}
             {step >= 5 && <FifthStep />}
+            <CheckoutFooter />
         </BookingContainer>
     );
 }

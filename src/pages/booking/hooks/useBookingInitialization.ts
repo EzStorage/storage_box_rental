@@ -9,7 +9,7 @@ export async function useBookingInitialization() {
         async function initializeBooking() {
             try {
                 const data = await getInitialBookingData();
-                commit({ bookingId: "12345" });
+                commit({});
             } catch (error) {
                 console.error("Failed to initialize booking:", error);
             }

@@ -52,6 +52,15 @@ export const StyledButton = styled(Button, {
             };
         }
 
+        case "back": {
+            return {
+                ...genericStyles,
+                textTransform: "none",
+                backgroundColor: `#F4F4F6`,
+                color: theme.palette.textCustom.greyMed,
+            };
+        }
+
         default:
             return genericStyles;
     }
