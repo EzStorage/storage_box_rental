@@ -13,24 +13,27 @@ import {
   CardHeroPricingBreakdown,
   CardHeroQuality,
   ProductInfo,
-} from "../../Homepage/Homepage.styles";
+} from "./homepage.styles";
 import { useMemo, useState } from "react";
-import { PRODUCTS } from "../../../constants/product.constants";
-import { Product } from "../../../types/product.type";
-import { calculateUnitPrice } from "../../../helpers/calculateUnitPrice";
+import { PRODUCTS } from "../../constants/product.constants";
+import { Product } from "../../types/product.type";
+import { calculateUnitPrice } from "../../utils/calculate-unit-price";
 import { IoRemoveOutline, IoAddOutline } from "react-icons/io5";
-import MyButton from "../../../components/Button/MyButton";
+import MyButton from "../../components/button/my-button";
 import { FiShoppingCart } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../app/redux/cart/cartSlice";
 
 interface CardHeroProps {
   productId?: string;
-  onAddToCart: (product: Product, quantity: number) => void; // accept handler from parent
+  
 }
 
 const CardHero: React.FC<CardHeroProps> = ({
   productId = "standard-box",
-  onAddToCart,
+  
 }) => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const [quantity, setQuantity] = useState(1); // start from 1
   const [showBulkPricing, setShowBulkPricing] = useState(false);
@@ -131,7 +134,8 @@ const CardHero: React.FC<CardHeroProps> = ({
             variantType="secondary"
             sx={{ width: "100%" }}
             startIcon={<FiShoppingCart />}
-            onClick={() => onAddToCart(product, quantity)}
+            onClick={() => dispatch(addToCart({ product, quantity }))}
+
           >
             Add to cart
           </MyButton>

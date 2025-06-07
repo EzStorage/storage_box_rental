@@ -1,7 +1,7 @@
 import { Box, Grid } from "@mui/material";
-import { HeroContainer, HeroLeft } from "../Homepage.styles";
+import { HeroContainer, HeroLeft } from "./homepage.styles";
 import CardHero from "./CardHero";
-import { Product } from "../../../types/product.type";
+import { Product } from "../../types/product.type";
 
 interface HeroProps {
   onAddToCart: (product: Product, quantity: number) => void;

@@ -11,8 +11,8 @@ import {
 import { IoClose, IoAddOutline, IoRemoveOutline } from "react-icons/io5";
 import { Product } from "../../types/product.type";
 import Standard_Product from "../../assets/Standard.png";
-import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
-import EmptyCartIcon from "../../components/Icons/EmptyCart"
+import { calculateUnitPrice } from "../../utils/calculate-unit-price";
+import EmptyCartIcon from "../../components/icons/EmptyCart"
 
 interface CartDrawerProps {
   open: boolean;
