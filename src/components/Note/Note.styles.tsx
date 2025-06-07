@@ -19,14 +19,31 @@ interface NoteProps {
     isTitle?: boolean;
 }
 
+export const NoteIcon = styled("div")<NoteProps>(({ isTitle }) => ({
+    ...(isTitle && {
+        display: "flex",
+        alignItems: "center",
+    }),
+}));
+
 export const NoteRow = styled("div")<NoteProps>(({ isTitle }) => ({
     display: "flex",
     alignItems: isTitle ? "center" : "flex-start",
     gap: "4px",
+
+    ...(isTitle && {
+        marginBottom: "4px",
+    }),
 }));
 
 export const NoteContent = styled("div")(({}) => ({
     fontWeight: 400,
+    fontSize: "13px",
+    lineHeight: "20px",
+}));
+
+export const NoteTitle = styled("div")(({}) => ({
+    fontWeight: 600,
     fontSize: "13px",
     lineHeight: "20px",
 }));

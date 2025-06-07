@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { NoteContainer, NoteContent, NoteRow } from "./Note.styles";
+import { NoteContainer, NoteContent, NoteIcon, NoteRow, NoteTitle } from "./Note.styles";
 
 type NoteProps = {
     Icon?: ReactNode;
@@ -11,8 +11,8 @@ export function Note({ Icon, title, children }: NoteProps) {
     return (
         <NoteContainer>
             <NoteRow isTitle={!!title}>
-                {Icon && <div>{Icon}</div>}
-                {!!title ? <p>{title}</p> : <NoteContent>{children}</NoteContent>}
+                {Icon && <NoteIcon isTitle={!!title}>{Icon}</NoteIcon>}
+                {!!title ? <NoteTitle>{title}</NoteTitle> : <NoteContent>{children}</NoteContent>}
             </NoteRow>
             {!!title && <NoteContent>{children}</NoteContent>}
         </NoteContainer>
