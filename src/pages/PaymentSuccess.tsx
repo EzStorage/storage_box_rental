@@ -3,28 +3,29 @@ import {
   Box,
   Typography,
   Paper,
+  Button,
   Divider,
   Stack,
-  Chip,
-  Button
+  Chip
 } from "@mui/material";
-import Standard from "./assets/standard_box.png";
-import { CheckCircleIcon } from "../../src/components/icons/CheckCircleIcon";
-
-
+import { Product } from ".././types/product.type";
+import { CheckCircleIcon } from "../components/Icons/CheckCircleIcon";
+import  Standard from "../assets/standard-box.png";
+import { Bold_text, BoxAttributeChip ,AddressText, TimeText} from "./Homepage/Homepage.styles";
 export default function App() {
   return (
     <Box
       sx={{
         fontFamily: "Poppins",
-        minHeight: "100vh",
+        height: "100vh",
         width: "100vw",
         backgroundColor: "#f5f6f9",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "48px 16px",
-        boxSizing: "border-box"
+        padding: "48px 32px",
+        boxSizing: "border-box",
+        paddingTop:"120px"
       }}
     >
       {/* Success Icon */}
@@ -44,28 +45,20 @@ export default function App() {
       <Typography
         variant="body1"
         color="text.secondary"
-        sx={{ mb: 4, fontFamily: "Poppins", textAlign: "center" }}
+        sx={{ mb: 4, fontFamily: "Poppins",color:"#5B616D" }}
       >
         Thank you for purchase! Your booking information will be sent to{" "}
         <strong style={{ color: "black" }}>(+65) 1234 123 124</strong>
       </Typography>
 
       {/* Booking Card */}
-      <Paper
-        elevation={0}
-        sx={{
-          p: "24px",
-          width: "492px",
-          backgroundColor: "white",
-          borderRadius: "12px"
-        }}
-      >
+      <Paper elevation={0} sx={{ backgroundColor:"white",p: 3, width: "492px", height: "380px" }}>
         {/* Top Line */}
         <Typography
           variant="body1"
           sx={{
             fontSize: "15px",
-            mb: 2,
+            mb: 1,
             display: "flex",
             alignItems: "center",
             gap: 0,
@@ -96,14 +89,7 @@ export default function App() {
         </Typography>
 
         {/* Bordered Section */}
-        <Box
-          sx={{
-            border: "1px solid #EBECF0",
-            borderRadius: "12px",
-            padding: "16px",
-            backgroundColor: "white"
-          }}
-        >
+        <Box sx={{ border: "1px solid #EBECF0", borderRadius: "8px", padding: 2 }}>
           {/* Box Info */}
           <Box
             sx={{
@@ -114,43 +100,21 @@ export default function App() {
               flexWrap: "wrap"
             }}
           >
-             <div>
-      <img src={Standard} alt="Standard" style={{width:"80px"}} />
-    </div>
+             <img
+              src={Standard}
+              alt="Standard Box"
+              width={80}
+              height={80}
+              style={{ objectFit: "contain" }}
+            />
             <Box>
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                  mb: 0.5
-                }}
+              <Bold_text style={{fontSize:"18px"}}
               >
                 Standard Box
-              </Typography>
-              <Stack direction="row" spacing={1} mt={0.5} mb={1.5}>
-                <Chip
-                  label="60 x 40 x 31cm"
-                  size="small"
-                  sx={{
-                    fontWeight: 600,
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    borderRadius: "4px",
-                    color: "#5B616D"
-                  }}
-                />
-                <Chip
-                  label="Max 20kg"
-                  size="small"
-                  sx={{
-                    fontWeight: 600,
-                    fontFamily: "Poppins",
-                    fontSize: "13px",
-                    borderRadius: "4px",
-                    color: "#5B616D"
-                  }}
-                />
+              </Bold_text>
+              <Stack direction="row" spacing={1} mt={0.5}>
+                <BoxAttributeChip label="60 x 40 x 31cm" />
+                <BoxAttributeChip label="Max 20kg" />
               </Stack>
               <Typography
                 fontSize="14px"
@@ -158,8 +122,7 @@ export default function App() {
                   fontWeight: 600,
                   mt: 1,
                   fontFamily: "Poppins",
-                  color: "#5B616D",
-                  mb:1.5
+                  color: "#5B616D"
                 }}
               >
                 2 boxes × 6 months
@@ -173,15 +136,16 @@ export default function App() {
             { label: "Packed Box Pickup" },
             { label: "Packed box dropoff" }
           ].map((item, index) => (
-            <Box key={index} sx={{ mb: index < 2 ? 2 : 0 }}>
+            <Box key={index} sx={{ mb: 1 }}>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "flex-start",
                   width: "100%",
+                  mb: 1,
                   fontFamily: "Poppins",
-                  mb: 1
+                  color:"black"
                 }}
               >
                 <Typography
@@ -199,78 +163,48 @@ export default function App() {
                     textAlign: "right"
                   }}
                 >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontFamily: "Poppins",
-                      fontWeight: 400,
-                      fontSize: "13px",
-                      lineHeight: "20px",
-                      color: "#0A0C11",
-                      mb: 0.2
-                    }}
-                  >
+                  <AddressText>
                     123 Changi, Singapore
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontFamily: "Poppins",
-                      fontWeight: 400,
-                      fontSize: "11px",
-                      lineHeight: "20px",
-                      color: "#5B616D"
-                    }}
-                  >
+                  </AddressText>
+                  <TimeText>
                     Wed, 24 Sep 2025 · 6-hour slot · 8am - 2pm
-                  </Typography>
+                  </TimeText>
                 </Box>
               </Box>
-              {index < 2 && <Divider sx={{ my: 1 }} />}
+              {index < 2 && <Divider sx={{ backgroundColor:"#EBECF0",my: 1 }} />}
             </Box>
           ))}
         </Box>
       </Paper>
 
       {/* Action Buttons */}
-      <Stack
-        direction={{ xs: "column", sm: "row" }}
-        spacing={2}
-        sx={{ mt: 5 }}
-      >
+      <Stack direction="row" spacing={4} sx={{ mt: 4, fontFamily: "Poppins" }}>
         <Button
-          
+          variant="contained"
           sx={{
-            textTransform: "none",
+            backgroundColor: "white",
+            width: "174px",
+            height: "48px",
+            color: "grey.700",
+            "&:hover": {
+              backgroundColor: "grey.100"
+            },
             fontFamily: "Poppins",
-            paddingX: 2,
-            width:"174px",
-            height:"48px",
-            backgroundColor:"#FFFFFF",
-            paddingY: 1.25,
-            borderRadius: "4px",
-            fontWeight:600,
-            fontSize:"15px",
-            color:"#5B616D"
+            boxShadow: "none",
+            textTransform: "none",
+            fontWeight: 600
           }}
         >
           Go to dashboard
         </Button>
         <Button
           variant="contained"
+          color="error"
           sx={{
+            width: "174px",
+            height: "48px",
             textTransform: "none",
-            fontFamily: "Poppins",
-            paddingX: 1,
-            width:"174px",
-            height:"48px",
-            fontSize:"15px",
-            paddingY: 1.25,
-            backgroundColor: "#EF151E",
-            borderRadius: "4px",
-            "&:hover": {
-              backgroundColor: "#1E293B"
-            }
+            fontFamily: "Poppins"
           }}
         >
           Go to my bookings

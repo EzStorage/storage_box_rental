@@ -2,11 +2,11 @@ import { Avatar, Badge, IconButton, Stack, useMediaQuery, useTheme } from "@mui/
 import { Link, useLocation } from "react-router";
 import { useAppSelector } from "../../app/hooks";
 import { FiShoppingCart } from "react-icons/fi";
-import { Button } from "../button";
+import { Button } from "../Button";
 import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./header.styles";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
-import Logo from "../logo";
+import Logo from "../Logo";
 
 interface HeaderProps {
   onCartOpen: () => void;

@@ -1,7 +1,7 @@
 import { createBrowserRouter  } from "react-router-dom";
-import MainLayout from "./layout/main-layout";
-import ProtectedRoute from "./layout/protected-route";
-import Homepage from "./pages/homepage";
+import MainLayout from "./layout/MainLayout";
+import ProtectedRoute from "./layout/ProtectedRoute";
+import Homepage from "./pages/Homepage/Index";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFailed from "./pages/PaymentFailed";
 

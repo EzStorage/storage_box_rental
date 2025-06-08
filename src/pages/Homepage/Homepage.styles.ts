@@ -1,8 +1,15 @@
 import styled from "@emotion/styled";
 import background from "../../assets/background-hero.jpg";
-import { Box, Grid, Stack } from "@mui/material";
+import { Box, Grid, Stack, Button, Chip } from "@mui/material";
 import { motion } from "framer-motion";
+import React from "react";
+import Drawer from "@mui/material/Drawer";
+import Paper from "@mui/material/Paper";
 
+import IconButton from "@mui/material/IconButton";
+
+import { IoClose } from "react-icons/io5";
+import Typography from "@mui/material/Typography";
 // ----- Hero -----
 interface HeroContainerProps {
     isLogin?: boolean;
@@ -596,4 +603,73 @@ export const FooterText = styled("p")(() => ({
     color: "#C3C6CC",
     margin: 0,
     marginBottom: "6px",
+}));
+
+export const Bold_text = styled("h5")(({ theme }) => ({
+    fontWeight: 600,
+    fontSize: "22px",
+    display: "flex",
+    alignItems: "center",
+    color: "black",
+    fontFamily: '"Poppins", sans-serif',
+}));
+export const SuperScript = styled("h5")(({ theme }) => ({
+    color: "grey",
+    fontWeight: 600,
+    fontSize: "18px",
+    position: "relative",
+    top: "-1px",
+    padding: "6px",
+}));
+export const StyledDrawerPaper = styled(Paper)(({ theme }) => ({
+    width: 480,
+    backgroundColor: theme.palette.background.paper,
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh",
+}));
+export const Button_Cart = styled(Button)(({ theme }) => ({
+    fontWeight: 400,
+    fontSize: "12px",
+    pt: 1,
+    backgroundColor: "#EF151E",
+    color: "white",
+    textTransform: "none",
+    "&:hover": { backgroundColor: "#cc0000" },
+    width: "305px",
+    minHeight: "40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
+export const BoxAttributeChip = styled(Chip)(({ theme }) => ({
+  fontWeight: 600,
+  fontFamily: "Poppins",
+  fontSize: "13px",
+  borderRadius: "4px",
+  color: "#5B616D",
+  backgroundColor: "#F4F4F6",
+  height: "24px", 
+  "& .MuiChip-label": {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+  },
+}));
+export const AddressText = styled(Typography)(({ theme }) => ({
+  fontFamily: "Poppins",
+  fontWeight: 400,
+  fontSize: "13px",
+  lineHeight: "20px",
+  color: "#0A0C11",
+  marginBottom: theme.spacing(0.2),
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
+}));
+export const TimeText = styled(Typography)(({ theme }) => ({
+  fontFamily: "Poppins",
+  fontWeight: 400,
+  fontSize: "11px",
+  lineHeight: "20px",
+  color: "#5B616D",
 }));

@@ -1,13 +1,10 @@
+// src/components/homepage/Hero.tsx
+
 import { Box, Grid } from "@mui/material";
-import { HeroContainer, HeroLeft } from "./homepage.styles";
+import { HeroContainer, HeroLeft } from "../Homepage.styles";
 import CardHero from "./CardHero";
-import { Product } from "../../types/product.type";
 
-interface HeroProps {
-  onAddToCart: (product: Product, quantity: number) => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onAddToCart }) => {
+const Hero: React.FC = () => {
   return (
     <HeroContainer>
       <Grid
@@ -16,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ onAddToCart }) => {
         justifyContent="center"
         spacing={{ xs: 0, lg: "64px" }}
       >
-        <Grid container size={{ xs: 12, lg: 6 }} sx={{ mb: { xs: "24px", lg: 0 } }}>
+        <Grid>
           <HeroLeft spacing={"16px"}>
             <h1>Storage and Moving. Make it simple</h1>
             <p>
@@ -26,10 +23,9 @@ const Hero: React.FC<HeroProps> = ({ onAddToCart }) => {
           </HeroLeft>
         </Grid>
 
-        <Grid size={{ xs: 12, lg: 6 }}>
+        <Grid>
           <Box sx={{ maxWidth: 480, width: "100%", mx: "auto" }}>
-            {/* Pass onAddToCart to CardHero */}
-            <CardHero onAddToCart={onAddToCart} />
+            <CardHero />
           </Box>
         </Grid>
       </Grid>

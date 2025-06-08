@@ -13,16 +13,16 @@ import {
   CardHeroPricingBreakdown,
   CardHeroQuality,
   ProductInfo,
-} from "./homepage.styles";
+} from "../Homepage.styles";
 import { useMemo, useState } from "react";
-import { PRODUCTS } from "../../constants/product.constants";
-import { Product } from "../../types/product.type";
-import { calculateUnitPrice } from "../../utils/calculate-unit-price";
+import { PRODUCTS } from "../../../constants/product.constants";
+import { Product } from "../../../types/product.type";
+import { calculateUnitPrice } from "../../../utils/calculate-unit-price";
 import { IoRemoveOutline, IoAddOutline } from "react-icons/io5";
-import MyButton from "../../components/button/my-button";
+import MyButton from "../../../components/Button/MyButton";
 import { FiShoppingCart } from "react-icons/fi";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../app/redux/cart/cartSlice";
+import { addToCart } from "../../../redux/auth/cartSlice";
 
 interface CardHeroProps {
   productId?: string;
@@ -35,7 +35,7 @@ const CardHero: React.FC<CardHeroProps> = ({
 }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
-  const [quantity, setQuantity] = useState(1); // start from 1
+  const [quantity, setQuantity] = useState(1); 
   const [showBulkPricing, setShowBulkPricing] = useState(false);
 
   const product: Product =
@@ -55,7 +55,6 @@ const CardHero: React.FC<CardHeroProps> = ({
 
   return (
     <CardHeroContainer>
-      {/* Top Section: Image and Info */}
       <Stack direction="row" sx={{ mb: { xs: "16px", lg: "20px" } }}>
         <CardHeroImage>
           <img src={product.image} alt={product.id} />
@@ -89,7 +88,7 @@ const CardHero: React.FC<CardHeroProps> = ({
 
       <Divider sx={{ background: theme.palette.outline.greyLow }} />
 
-      {/* Quantity Control */}
+      
       <CardHeroQuality>
         <p>Number of boxes</p>
         <Stack direction="row" alignItems="center" spacing={"20px"}>
@@ -105,7 +104,7 @@ const CardHero: React.FC<CardHeroProps> = ({
 
       <Divider sx={{ background: theme.palette.outline.greyLow }} />
 
-      {/* Pricing Breakdown */}
+      
       <CardHeroPricingBreakdown spacing={"8px"}>
         <Box>
           <p>
@@ -127,7 +126,7 @@ const CardHero: React.FC<CardHeroProps> = ({
         </Box>
       </CardHeroPricingBreakdown>
 
-      {/* Action Buttons */}
+      
       <Grid container spacing={2} sx={{ mt: 2 }}>
         <Grid>
           <MyButton
