@@ -5,7 +5,7 @@ import {
     OtherNotesListDesc,
     OtherNotesListLabel,
     OtherNotesTitle,
-} from "../MHeader/OtherNotes.styles";
+} from "./OtherNotes.styles";
 
 export function OtherNotes() {
     return (
@@ -13,7 +13,7 @@ export function OtherNotes() {
             <OtherNotesTitle>Other notes:</OtherNotesTitle>
             <OtherNotesList>
                 {OTHER_NOTES.map(info => (
-                    <li>
+                    <li key={info.label}>
                         <OtherNotesListLabel>{info.label}</OtherNotesListLabel>&nbsp;
                         <OtherNotesListDesc>{info.description}</OtherNotesListDesc>
                     </li>

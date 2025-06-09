@@ -1,12 +1,12 @@
 import { createFastContext } from "../../../helpers/createFastContext";
 
-type DeliveryType = "Express" | "6-Hour slot";
+export type TimeType = "express" | "6HourSlot";
 
 export interface ScheduleInfo {
     location: string;
-    date: string;
-    type: DeliveryType;
-    time: string;
+    date: Date;
+    timeType: TimeType;
+    timeSlot: string;
 }
 
 export interface IBookingForm {
@@ -35,21 +35,21 @@ const initalBookingState: IBookingState = {
         deliveryLocation: "",
         delivery: {
             location: "",
-            type: "Express",
-            date: "",
-            time: "",
+            date: new Date(),
+            timeType: "6HourSlot",
+            timeSlot: "8am-2pm",
         },
         pickup: {
             location: "",
-            type: "Express",
-            date: "",
-            time: "",
+            date: new Date(),
+            timeType: "6HourSlot",
+            timeSlot: "8am-2pm",
         },
         return: {
             location: "",
-            type: "Express",
-            date: "",
-            time: "",
+            date: new Date(),
+            timeType: "6HourSlot",
+            timeSlot: "8am-2pm",
         },
     },
     step: 1,

@@ -12,6 +12,21 @@ export function useBookingFormActions() {
         }));
     };
 
+    const handleChangeDeliveryField = (
+        field: keyof IBookingForm["delivery"],
+        value: string | number | Date,
+    ) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                delivery: {
+                    ...prev.form.delivery,
+                    [field]: value,
+                },
+            },
+        }));
+    };
+
     const validateField = (field: string, value: string): boolean => {
         // Example validation logic
         return true;
@@ -36,6 +51,7 @@ export function useBookingFormActions() {
 
     return {
         handleChangeField,
+        handleChangeDeliveryField,
         validateField,
         handleSubmit,
         handleError,

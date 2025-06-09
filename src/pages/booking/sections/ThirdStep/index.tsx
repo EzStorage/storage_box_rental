@@ -1,0 +1,88 @@
+import InfoIcon from "@components/Icons/InfoIcon";
+import ThreeDSquareIcon from "@components/Icons/ThreeDSquareIcon";
+import { Note } from "@components/Note";
+import { useTheme } from "@mui/material";
+import { StepContainer, StepHeaderProgress, StepHeaderTitle } from "@pages/booking/Booking.styles";
+import {
+    ThirdStepInputContainer,
+    ThirdStepNotesContainer,
+    ThirdStepSelectorContainer,
+} from "./ThirdStep.styles";
+import { LocationInput } from "@pages/booking/components/LocationInput";
+import { TimeType, useBookingSelector } from "@pages/booking/context";
+import { useBookingFormActions } from "@pages/booking/hooks/useBookingFormActions";
+import { DatePicker } from "@pages/booking/components/DatePicker";
+import { TimeSlotSelector } from "@pages/booking/components/TimeSlotSelector";
+
+export function ThirdStep() {
+    const theme = useTheme();
+
+    const { handleChangeDeliveryField } = useBookingFormActions();
+    const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
+    const deliveryTimeType = useBookingSelector(state => state.form.delivery.timeType);
+    const deliveryTimeSlot = useBookingSelector(state => state.form.delivery.timeSlot);
+
+    const handleChangeLocation = (value: string) => {
+        handleChangeDeliveryField("location", value);
+    };
+
+    const handleChangeDate = (value: Date) => {
+        handleChangeDeliveryField("date", value);
+    };
+
+    const handleChangeTimeType = (value: TimeType) => {
+        handleChangeDeliveryField("timeType", value);
+    };
+
+    const handleChangeTimeSlot = (value: string) => {
+        handleChangeDeliveryField("timeSlot", value);
+    };
+
+    return (
+        <StepContainer id="step-3">
+            <StepHeaderProgress>STEP 3 OF 5</StepHeaderProgress>
+            <StepHeaderTitle>Delivery of Box to your place</StepHeaderTitle>
+            <ThirdStepNotesContainer>
+                <Note
+                    Icon={<InfoIcon color={theme.palette.textCustom.info} width={"15px"} />}
+                    title="Service information"
+                >
+                    To ensure a smooth storage experience, we provide our EZ Storage boxes for you
+                    to pack your items. Simply let us know where to deliver the empty box, and once
+                    you're ready, we’ll collect it and securely store your items in our facility.
+                </Note>
+                <Note Icon={<ThreeDSquareIcon />} title="How It works">
+                    <ul>
+                        <li>We deliver an empty EZ Storage box to your location.</li>
+                        <li>You pack your items at your convenience.</li>
+                        <li>We pick up the packed box and store it securely.</li>
+                        <li>Need something back? Request a return anytime within your plan.</li>
+                    </ul>
+                </Note>
+            </ThirdStepNotesContainer>
+
+            <ThirdStepInputContainer>
+                <div>Where should we deliver the empty box for storage?</div>
+                <LocationInput
+                    location={deliveryLocation}
+                    onChangeLocation={handleChangeLocation}
+                />
+            </ThirdStepInputContainer>
+
+            <ThirdStepInputContainer>
+                <div>When should the delivery be made?</div>
+                <DatePicker onChange={() => handleChangeDate(new Date())} />
+            </ThirdStepInputContainer>
+
+            <ThirdStepSelectorContainer>
+                <div>Select delivery time</div>
+                <TimeSlotSelector
+                    timeType={deliveryTimeType}
+                    onChangeTimeType={handleChangeTimeType}
+                    timeSlot={deliveryTimeSlot}
+                    onChangeTimeSlot={handleChangeTimeSlot}
+                />
+            </ThirdStepSelectorContainer>
+        </StepContainer>
+    );
+}
