@@ -1,3 +1,4 @@
+
 import { Avatar, Badge, Popover, Stack } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -8,6 +9,7 @@ import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Heade
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
+
 import { useScreenSize } from "@hooks/useScreenSize";
 import { NAV_ITEMS } from "./constants";
 import { logout } from "src/redux/auth/authSlice";
@@ -87,7 +89,7 @@ const Header: React.FC = () => {
 
             <HeaderRight>
                 <Badge>
-                    <ShopCartIcon width={24} color={isWhiteBackground ? "black" : "white"} />
+
                 </Badge>
 
                 {isDesktop && (
