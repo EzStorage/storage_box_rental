@@ -26,8 +26,8 @@ const SafeDeliveryIcon: React.FC<Props> = ({
                 fill={color}
             />
             <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M16 6.66671C16 5.93033 16.5969 5.33337 17.3333 5.33337H20C20.7364 5.33337 21.3333 5.93033 21.3333 6.66671C21.3333 7.40308 20.7364 8.00004 20 8.00004H17.3333C16.5969 8.00004 16 7.40308 16 6.66671Z"
                 fill={color}
             />
