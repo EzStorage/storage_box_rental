@@ -1,4 +1,4 @@
-import { Avatar, Badge, Popover, Stack, useMediaQuery, useTheme } from "@mui/material";
+import { Avatar,IconButton, Badge, Popover, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useLocation } from "react-router";
 import { useAppSelector } from "../../app/hooks";
 import { useState } from "react";
@@ -8,8 +8,10 @@ import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Heade
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
-
-const Header: React.FC = () => {
+interface HeaderProps {
+  onCartOpen: () => void;
+}
+const Header: React.FC<HeaderProps> = ({ onCartOpen }) => {
     const theme = useTheme();
     const location = useLocation();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -60,7 +62,9 @@ const Header: React.FC = () => {
 
             <HeaderRight>
                 <Badge>
+                    <IconButton onClick={onCartOpen}>
                     <ShopCartIcon width={24} color={isTransparentBg ? "white" : "black"} />
+                    </IconButton>
                 </Badge>
 
                 {!isMobile && (

@@ -15,7 +15,8 @@ import { IoAddOutline } from "react-icons/io5";
 import MyButton from "../../../components/Button/MyButton";
 import ShopCartIcon from "../../../components/Icons/ShopCartIcon";
 import { formatAmount } from "src/helpers/amount";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/auth/cartSlice";
 interface CardHeroProps {
     productId?: string;
 }
@@ -23,6 +24,7 @@ interface CardHeroProps {
 const discount = 10;
 
 const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
+    const dispatch = useDispatch();
     const theme = useTheme();
     const [quantity, setQuantity] = useState(2);
     const [showBulkPricing, setShowBulkPricing] = useState(false);
@@ -115,9 +117,11 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                         startIcon={
                             <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
                         }
+                        onClick={() => dispatch(addToCart({ product, quantity }))}
+
                     >
                         Add to cart
-                    </MyButton>
+                    </MyButton >
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
                     <MyButton variantType="primary" fullWidth>

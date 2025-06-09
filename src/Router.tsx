@@ -1,27 +1,35 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter  } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import ProtectedRoute from "./layout/ProtectedRoute";
-import Homepage from "./pages/Homepage";
-import Login from "./pages/Login";
+import Homepage from "./pages/Homepage/index";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailed from "./pages/PaymentFailed";
 
-const Router = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainLayout />,
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Homepage />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "payment-failed",
+        element: <PaymentFailed />,
+      },
+      {
+        element: <ProtectedRoute />,
         children: [
-            {
-                index: true,
-                element: <Homepage />,
-            },
-            {
-                path: "/login",
-                element: <Login />,
-            },
-            {
-                element: <ProtectedRoute />,
-                children: [],
-            },
+          
         ],
-    },
+      },
+    ],
+  },
 ]);
-export default Router;
+
+export default router;
