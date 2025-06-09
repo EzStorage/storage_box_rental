@@ -3,9 +3,12 @@ import HowItWorks from "./sections/HowItWorks";
 import Testimonial from "./sections/Testimonial";
 import Hero from "./sections/Hero";
 import FAQ from "./sections/FAQ";
+import Footer from "../../pages/Homepage/sections/Footer"
 import { SectionDivider } from "./components/SectionDivider";
+
 import { useEffect } from "react";
 import { useLocation } from "react-router";
+import CartDrawer from "@components/cart/CartDrawer";
 
 const Homepage: React.FC = () => {
     const location = useLocation();
@@ -39,7 +42,10 @@ const Homepage: React.FC = () => {
             <SectionDivider />
             <Testimonial />
             <FAQ />
+            <Footer/>
+            <CartDrawer/>
         </>
     );
-};
+  }
+
 export default Homepage;

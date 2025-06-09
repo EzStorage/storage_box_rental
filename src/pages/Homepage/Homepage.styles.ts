@@ -1,6 +1,251 @@
 import styled from "@emotion/styled";
-import { Box, Grid } from "@mui/material";
+import background from "../../assets/background-hero.jpg";
+import { Box, Grid, Stack,Button,Chip } from "@mui/material";
 import { motion } from "framer-motion";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import { CrossCircleIcon } from "@components/Icons/CrossCircleIcon";
+// ----- Hero -----
+interface HeroContainerProps {
+    isLogin?: boolean;
+    isMobile?: boolean;
+}
+
+export const HeroContainer = styled("section")<HeroContainerProps>(
+    ({ theme, isLogin, isMobile }) => ({
+        width: "100%",
+        height: "100vh",
+
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        position: "relative",
+
+        padding: "72px 112px",
+
+        "&::before":
+            isMobile && isLogin
+                ? {}
+                : {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      zIndex: 1,
+                  },
+
+        "& > *": {
+            position: "relative",
+            zIndex: 2,
+            height: "100%",
+
+            [theme.breakpoints.down("md")]: {
+                textAlign: isLogin ? "left" : "center",
+            },
+
+            [theme.breakpoints.between("md", "lg")]: {
+                textAlign: "center",
+            },
+        },
+
+        [theme.breakpoints.down("md")]: {
+            padding: "56px 16px",
+            height: "100%",
+            backgroundImage: isLogin ? "none" : `url(${background})`,
+            backgroundColor: isLogin ? "#F4F4F6" : "transparent",
+        },
+    }),
+);
+
+export const HeroIntro = styled("div")(({ theme }) => ({
+    padding: "24px 16px 0",
+
+    "> .name": {
+        fontWeight: 600,
+        fontSize: "18px",
+        lineHeight: "26px",
+        color: theme.palette.textCustom.greyHigh,
+    },
+
+    "> .subtitle": {
+        fontWeight: 400,
+        fontSize: "13px",
+        lineHeight: "20px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    "> div:nth-of-type(3)": {
+        display: "flex",
+        padding: "16px 0",
+        justifyContent: "space-between",
+        gap: "8px",
+    },
+}));
+
+export const HeroLeft = styled(Stack)(({ theme }) => ({
+    color: theme.palette.textCustom.white,
+    width: "100%",
+
+    h1: {
+        fontSize: "64px",
+        fontWeight: "600",
+        lineHeight: "72px",
+        letterSpacing: "-0.2px",
+
+        [theme.breakpoints.down("lg")]: {
+            fontSize: "32px",
+            lineHeight: "40px",
+            letterSpacing: "0px",
+        },
+    },
+
+    p: {
+        fontSize: "18px",
+        fontWeight: "400",
+        lineHeight: "26px",
+
+        [theme.breakpoints.down("lg")]: {
+            fontSize: "15px",
+            lineHeight: "24px",
+            letterSpacing: "0px",
+        },
+    },
+}));
+
+// ----- Card Hero -----
+export const CardHeroContainer = styled("div")(() => ({
+    backgroundColor: "white",
+    borderRadius: "12px",
+    padding: "24px",
+}));
+
+export const CardHeroImage = styled("div")(({}) => ({
+    width: "137px",
+    height: "137px",
+    borderRadius: "4px",
+    backgroundColor: "#F4F4F6",
+    marginRight: "20px",
+
+    img: {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+    },
+}));
+
+export const ProductInfo = styled(Stack)(({ theme }) => ({
+    textAlign: "left",
+
+    h3: {
+        fontWeight: "600",
+        fontSize: "22px",
+        lineHeight: "28px",
+        color: "#1F1F1F",
+    },
+
+    ".chip-row": {
+        backgroundColor: "#F4F4F6",
+        borderRadius: "4px",
+        padding: "4px 6px",
+
+        fontSize: "12px",
+        fontWeight: "600",
+        lineHeight: "16px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    ".original-price": {
+        textDecoration: "line-through",
+        fontWeight: "400",
+        fontSize: "13px",
+        lineHeight: "20px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    ".discounted-price": {
+        "& > span:first-child": {
+            fontSize: "22px",
+            fontWeight: "600",
+            lineHeight: "28px",
+            color: theme.palette.surface.primaryHigh,
+        },
+
+        "& > span:last-child": {
+            fontSize: "13px",
+            fontWeight: "400",
+            lineHeight: "20px",
+            color: theme.palette.textCustom.greyMed,
+        },
+    },
+
+    ".bulk-button": {
+        fontWeight: "400",
+        fontSize: "13px",
+        lineHeight: "20px",
+        color: theme.palette.textCustom.greyMed,
+        textDecoration: "underline",
+        cursor: "pointer",
+
+        "&:hover": {
+            color: theme.palette.textCustom.primary,
+        },
+    },
+}));
+
+export const CardHeroQuality = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "20px 0",
+
+    p: {
+        fontSize: "15px",
+        fontWeight: "400",
+        lineHeight: "24px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    button: {
+        border: `1px solid ${theme.palette.outline.greyLow}`,
+        borderRadius: "4px",
+        width: "40px",
+        height: "40px",
+    },
+
+    span: {
+        fontWeight: "600",
+        fontSize: "15px",
+        lineHeight: "24px",
+        color: theme.palette.textCustom.greyHigh,
+    },
+}));
+
+export const CardHeroPricingBreakdown = styled(Stack)(({ theme }) => ({
+    margin: "20px 0",
+
+    div: {
+        display: "flex",
+        justifyContent: "space-between",
+    },
+
+    p: {
+        fontSize: "15px",
+        fontWeight: "400",
+        lineHeight: "24px",
+        color: theme.palette.textCustom.greyMed,
+    },
+
+    ".discount": {
+        color: theme.palette.textCustom.success,
+    },
+
+    ".total": {
+        fontWeight: "600",
+        color: theme.palette.textCustom.greyHigh,
+    },
+}));
 
 // ----- How It Works -----
 export const HowItWorksContainer = styled("section")(({ theme }) => ({
@@ -305,16 +550,14 @@ export const FAQContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const FAQHeading = styled("h2")(({ theme }) => ({
+    fontSize: "3rem",
+
     fontWeight: 600,
-    fontSize: "40px",
-    lineHeight: "48px",
+    lineHeight: 1.2,
+    margin: 0,
+    padding: 0,
+
     color: theme.palette.text.primary,
-
-    [theme.breakpoints.down("lg")]: {
-        fontSize: "26px",
-        lineHeight: "32px",
-    },
-
     span: {
         color: theme.palette.textCustom.primary,
     },
@@ -322,14 +565,14 @@ export const FAQHeading = styled("h2")(({ theme }) => ({
 
 export const QuestionText = styled("h4")(({ theme }) => ({
     fontWeight: 600,
-    fontSize: "18px",
-    lineHeight: "26px",
-    color: theme.palette.textCustom.greyMed,
-
-    [theme.breakpoints.down("lg")]: {
-        fontSize: "15px",
-        lineHeight: "24px",
-    },
+    fontSize: "15px",
+    lineHeight: "24px",
+    margin: 0,
+    maxWidth: "552px",
+    width: "100%",
+    minWidth: "320px",
+    letterSpacing: "normal",
+    color: theme.palette.text.primary,
 }));
 
 export const AnswerText = styled("p")(({ theme }) => ({
@@ -355,4 +598,329 @@ export const FooterText = styled("p")(() => ({
     color: "#C3C6CC",
     margin: 0,
     marginBottom: "6px",
+}));
+export const Bold_text = styled("h5")(({ theme }) => ({
+    fontWeight: 600,
+    fontSize: "22px",
+    display: "flex",
+    alignItems: "center",
+    color: "black",
+    paddingLeft:"30px",
+    fontFamily: '"Poppins", sans-serif',
+    [theme.breakpoints.up('md')]: {
+    paddingLeft:"0px"
+  },
+}));
+export const SuperScript = styled("h5")(({ theme }) => ({
+    color: "grey",
+    fontWeight: 600,
+    fontSize: "18px",
+    position: "relative",
+    top: "-1px",
+    padding: "6px",
+}));
+export const StyledDrawerPaper = styled(Paper)(({ theme }) => ({
+    width: 480,
+    backgroundColor: theme.palette.background.paper,
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh",
+}));
+export const Button_Cart = styled(Button)(({ theme }) => ({
+    fontWeight: 400,
+    fontSize: "12px",
+    pt: 1,
+    backgroundColor: "#EF151E",
+    color: "white",
+    textTransform: "none",
+    "&:hover": { backgroundColor: "#cc0000" },
+    width: "305px",
+    minHeight: "40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
+export const BoxAttributeChip = styled(Chip)(({ theme }) => ({
+  fontWeight: 600,
+  fontFamily: "Poppins",
+  fontSize: "13px",
+  borderRadius: "4px",
+  color: "#5B616D",
+  backgroundColor: "#F4F4F6",
+  height: "24px", 
+  "& .MuiChip-label": {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+  },
+}));
+export const AddressText = styled(Typography)(({ theme }) => ({
+  fontFamily: "Poppins",
+  fontWeight: 400,
+  fontSize: "13px",
+  lineHeight: "20px",
+  color: "#0A0C11",
+  marginBottom: theme.spacing(0.2),
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
+}));
+export const TimeText = styled(Typography)(({ theme }) => ({
+  fontFamily: "Poppins",
+  fontWeight: 400,
+  fontSize: "11px",
+  lineHeight: "20px",
+  color: "#5B616D",
+}));
+export const FullPageContainer = styled(Box)(({ theme }) => ({
+  fontFamily: "Poppins",
+  minHeight: "100vh",
+  width: "100vw",
+  backgroundColor: "#f5f6f9",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: theme.spacing(6, 4),
+  boxSizing: "border-box",
+  paddingTop: theme.spacing(15),
+
+  [theme.breakpoints.down("sm")]: {
+    paddingTop: theme.spacing(4), // less top padding for mobile
+  },
+}));
+export const SuccessFailureHeading = styled(Typography)(({ theme }) => ({
+  fontFamily: '"Poppins", sans-serif',
+  fontWeight: "bold",
+  color: "black",
+  paddingTop: theme.spacing(2),
+  paddingBottom:theme.spacing(0.8),
+  fontSize:"22px"
+}));
+export const IDText= styled(Typography)(({ theme }) => ({
+  fontFamily: '"Poppins", sans-serif',
+  fontSize: "15px",
+  marginBottom: theme.spacing(1),
+  display: "flex",
+  alignItems: "center",
+  gap: 0,
+  color: "#5B616D",
+}));
+export const BorderBox = styled(Box)(({ theme }) => ({
+  border: "1px solid #EBECF0",
+  borderRadius: "8px",
+  padding: theme.spacing(2),
+  fontFamily: '"Poppins", sans-serif',
+}));
+export const ThankText = styled(Typography)(({ theme }) => ({
+  fontFamily: '"Poppins", sans-serif',
+  color: "#5B616D",
+  marginBottom: theme.spacing(4),
+}));
+export const StyledWhiteButton = styled(Button)(({ theme }) => ({
+  backgroundColor: "white",
+  width: "174px",
+  height: "48px",
+  color: theme.palette.grey[700],
+  fontFamily: '"Poppins", sans-serif',
+  fontWeight: 600,
+  
+  boxShadow: "none",
+  textTransform: "none",
+  "&:hover": {
+    backgroundColor: theme.palette.grey[100],
+  },
+}));
+export const BookingTryAgain = styled(Button)(({ theme }) => ({
+  width: "174px",
+  height: "48px",
+  textTransform: "none",
+  fontFamily: '"Poppins", sans-serif',
+  backgroundColor:"#EF151E",
+  color:"white"
+}));
+export const VerticalDivider = styled(Box)(({ theme }) => ({
+  width: "1px",
+  height: "16px",
+  backgroundColor: "#D1D5DB",
+  marginLeft: theme.spacing(1),
+  marginRight: theme.spacing(1),
+}));
+export const StatusText = styled(Box)(() => ({
+  fontFamily: '"Poppins", sans-serif',
+  fontSize: "15px",
+  fontWeight: 600,
+  lineHeight: "20px",
+  color: "#59961F",
+}));
+export const DimensionText = styled(Typography)(({theme}) => ({
+  fontFamily: '"Poppins", sans-serif',
+  fontSize: "14px",
+  fontWeight: 600,
+  marginTop: "8px", 
+  color: "#5B616D",
+  textAlign: "left",
+}));
+export const LabelRow = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-start",
+  width: "100%",
+  marginBottom: "8px", 
+  fontFamily: '"Poppins", sans-serif',
+  color: "black",
+}));
+
+export const LabelText = styled(Typography)(() => ({
+  fontSize: "13px",
+  fontWeight: 600,
+  fontFamily: '"Poppins", sans-serif',
+}));
+
+export const ValueColumn = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+  textAlign: "right",
+  fontFamily: '"Poppins", sans-serif',
+});
+export const ResponsiveIcon = styled(CrossCircleIcon)(({ theme }) => ({
+  width: '40px',
+  height: '40px',
+  [theme.breakpoints.up('sm')]: {
+    width: '50px',
+    height: '50px',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '60px',
+    height: '60px',
+  },
+}));
+
+export const ResponsiveFlexBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  gap: theme.spacing(2),
+  marginBottom: theme.spacing(2),
+  flexWrap: "wrap",
+  justifyContent: "center",
+  alignItems: "center",
+
+  [theme.breakpoints.up("sm")]: {
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+}));
+
+export const ResponsiveStack = styled(Stack)(({ theme }) => ({
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap:theme.spacing(1),
+  marginTop: theme.spacing(2),
+  fontFamily: "Poppins",
+
+  [theme.breakpoints.up("sm")]: {
+    flexDirection: "row",
+    gap: theme.spacing(0),
+  },
+
+  "& > *": {
+    margin: theme.spacing(1), // applies spacing between children
+    [theme.breakpoints.up("sm")]: {
+      margin: theme.spacing(2),
+    },
+  },
+}));
+export const ResponsivePaper = styled(Paper)(({ theme }) => ({
+  backgroundColor: "white",
+  padding: theme.spacing(3),
+  width: "100%",
+  height: "auto",
+  [theme.breakpoints.up("sm")]: {
+    width: "400px",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "480px",
+    height: 380,
+  },
+}));
+
+export const StyledBoxChip = styled(Chip)(({ theme }) => ({
+  fontSize: "12px",
+  fontFamily: '"Poppins", sans-serif',
+  height: "24px",
+  
+  color:"#5B616D",
+  fontWeight:600,
+  backgroundColor:"#F4F4F6",
+  borderRadius:"2px",
+  paddingLeft: 8,
+  paddingRight: 8,
+  "& .MuiChip-label": {
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
+
+}));
+export const CartDrawerHeader = styled(Box)(({ theme }) => ({
+  height: "76px",
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  backgroundColor: "white",
+}));
+export const ProductImage = styled(Box)(({ theme }) => ({
+  width: "35%",
+  [theme.breakpoints.up("sm")]: {
+    width: "27%",
+  },
+  height: "auto",
+  objectFit: "cover",
+  borderRadius: theme.shape.borderRadius,
+}));
+export const StyledCartDrawerPaper = styled(Paper)(({ theme }) => ({
+  width: "100%",
+  backgroundColor: "white",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
+  [theme.breakpoints.up("sm")]: {
+    width: 480,
+  },
+}));
+export const CartDurationText = styled(Typography)(({ theme }) => ({
+  width: "135px",
+  height: "20px",
+  fontFamily: "Poppins, sans-serif",
+  fontStyle: "normal",
+  fontWeight: 400,
+  fontSize: "13px",
+  lineHeight: "20px",
+  color: "#5B616D",
+}));
+export const CartPrice = styled(Typography)(({ theme }) => ({
+  color: "#CD0F28",
+  fontWeight: 600,
+  fontSize: "18px",
+  paddingTop: "12.5px",
+  paddingBottom: "12.5px",
+}));
+export const CartQuantityButtonWrapper = styled(Box)(() => ({
+  border: "1px solid #ccc",
+  borderRadius: "6px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+export const FlexBetween = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems:"center",
+});
+export const QuantityButtonContainer = styled(Box)(() => ({
+  border: "1px solid #ccc",
+  borderRadius: "6px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
