@@ -55,7 +55,7 @@ export const HeaderRight = styled("div")(() => ({
 
 // ---- Profile Popover -----
 
-export const ProfilePopoverContainer = styled("div")(({}) => ({
+export const ProfilePopoverContainer = styled("div")({
     display: "flex",
     flexDirection: "column",
     width: "426px",
@@ -63,7 +63,7 @@ export const ProfilePopoverContainer = styled("div")(({}) => ({
     ".MuiPaper-root": {
         top: "68px",
     },
-}));
+});
 
 export const ProfilePopoverHeader = styled("div")(({ theme }) => ({
     display: "flex",
@@ -98,12 +98,12 @@ export const ProfilePopoverHeader = styled("div")(({ theme }) => ({
     },
 }));
 
-export const ProfilePopoverInfo = styled("div")(({}) => ({
+export const ProfilePopoverInfo = styled("div")({
     display: "flex",
     padding: "16px",
     justifyContent: "space-between",
     gap: "8px",
-}));
+});
 
 export const ProfilePopoverMenu = styled(MenuList)(({ theme }) => ({
     background: "white",

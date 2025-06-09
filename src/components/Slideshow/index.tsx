@@ -14,7 +14,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
         }, 4000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [slides.length]);
 
     return (
         <SlideshowWrapper>

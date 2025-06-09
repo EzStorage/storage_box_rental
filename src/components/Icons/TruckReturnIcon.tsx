@@ -38,8 +38,8 @@ const TruckReturnIcon: React.FC<Props> = ({
                 fill={color}
             />
             <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M29.9305 14.1666L30.2139 14.6926C30.2923 14.8382 30.3333 15.0012 30.3333 15.1666V16.1666H26.6667C26.1144 16.1666 25.6667 15.7189 25.6667 15.1666C25.6667 14.6142 26.1144 14.1666 26.6667 14.1666H29.9305Z"
                 fill={color}
             />
