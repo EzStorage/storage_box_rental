@@ -13,7 +13,7 @@ export const ThirdStepNotesContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const ThirdStepInputContainer = styled("div")(({}) => ({
+export const ThirdStepInputContainer = styled("div")(({ theme }) => ({
     marginBottom: "20px",
 
     "> div:first-of-type": {
@@ -21,6 +21,7 @@ export const ThirdStepInputContainer = styled("div")(({}) => ({
         fontSize: "15px",
         lineHeight: "24px",
         marginBottom: "8px",
+        color: theme.palette.textCustom.greyHigh,
     },
 }));
 

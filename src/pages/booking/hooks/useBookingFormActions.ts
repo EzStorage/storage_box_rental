@@ -27,6 +27,36 @@ export function useBookingFormActions() {
         }));
     };
 
+    const handleChangePickupField = (
+        field: keyof IBookingForm["pickup"],
+        value: string | number | Date,
+    ) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                pickup: {
+                    ...prev.form.pickup,
+                    [field]: value,
+                },
+            },
+        }));
+    };
+
+    const handleChangeReturnField = (
+        field: keyof IBookingForm["return"],
+        value: string | number | Date,
+    ) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                return: {
+                    ...prev.form.return,
+                    [field]: value,
+                },
+            },
+        }));
+    };
+
     const validateField = (field: string, value: string): boolean => {
         // Example validation logic
         return true;
@@ -52,6 +82,8 @@ export function useBookingFormActions() {
     return {
         handleChangeField,
         handleChangeDeliveryField,
+        handleChangePickupField,
+        handleChangeReturnField,
         validateField,
         handleSubmit,
         handleError,

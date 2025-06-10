@@ -167,8 +167,6 @@ export function Calendar({ onDateSelect, initialDate = new Date() }: CalendarPro
                         item.isPreviousMonth,
                     );
 
-                    console.log(isTodayDate, item.day);
-
                     return (
                         <CalendarDayCell key={index}>
                             <CalendarDayButton

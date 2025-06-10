@@ -1,5 +1,5 @@
 import LocationIcon from "@components/Icons/LocationIcon";
-import { InputAdornment } from "@mui/material";
+import { InputAdornment, useTheme } from "@mui/material";
 import { LocationInputContainer } from "./LocationInput.styles";
 
 interface LocationInputProps {
@@ -8,6 +8,8 @@ interface LocationInputProps {
 }
 
 export function LocationInput({ location, onChangeLocation }: LocationInputProps) {
+    const theme = useTheme();
+
     const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         onChangeLocation(value);
@@ -22,7 +24,11 @@ export function LocationInput({ location, onChangeLocation }: LocationInputProps
                 input: {
                     startAdornment: (
                         <InputAdornment position="start">
-                            <LocationIcon />
+                            <LocationIcon
+                                color={
+                                    location !== "" ? theme.palette.textCustom.greyMed : undefined
+                                }
+                            />
                         </InputAdornment>
                     ),
                 },

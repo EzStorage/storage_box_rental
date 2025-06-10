@@ -1,13 +1,39 @@
 import { styled } from "@mui/material";
+import { NoteVariantsEnum } from ".";
 
-export const NoteContainer = styled("div")(({ theme }) => ({
-    background: theme.palette.surface.info,
-    color: theme.palette.textCustom.info,
-    padding: "12px 16px",
-    borderRadius: "4px",
-    display: "flex",
-    flexDirection: "column",
-}));
+type NoteContainerProps = {
+    variant?: NoteVariantsEnum;
+};
+
+export const NoteContainer = styled("div")<NoteContainerProps>(({ theme, variant }) => {
+    let background;
+    let color;
+    let padding;
+
+    switch (variant) {
+        case "transparent":
+            background = "transparent";
+            color = theme.palette.textCustom.greyMed;
+            padding = 0;
+            break;
+
+        case "info":
+        default:
+            background = theme.palette.surface.info;
+            color = theme.palette.textCustom.info;
+            padding = "12px 16px";
+            break;
+    }
+
+    return {
+        background,
+        color,
+        padding,
+        borderRadius: "4px",
+        display: "flex",
+        flexDirection: "column",
+    };
+});
 
 export const NoteColumn = styled("div")(() => ({
     display: "flex",
