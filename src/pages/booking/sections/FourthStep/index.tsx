@@ -1,4 +1,5 @@
 import { StepContainer, StepHeaderProgress, StepHeaderTitle } from "@pages/booking/Booking.styles";
+import { PickupEmptyBox } from "@pages/booking/components/PickupEmptyBox";
 import { PickupInformation } from "@pages/booking/components/PickupInformation";
 import { ReturnInformation } from "@pages/booking/components/ReturnInformation";
 
@@ -12,6 +13,7 @@ export function FourthStep() {
             </StepHeaderTitle>
             <PickupInformation />
             <ReturnInformation />
+            <PickupEmptyBox />
         </StepContainer>
     );
 }

@@ -18,6 +18,7 @@ export interface IBookingForm {
     delivery: ScheduleInfo;
     pickup: ScheduleInfo;
     return: ScheduleInfo;
+    emptyDuration: number;
 }
 
 export interface IBookingState {
@@ -51,6 +52,7 @@ const initalBookingState: IBookingState = {
             timeType: "6HourSlot",
             timeSlot: "8am-2pm",
         },
+        emptyDuration: 7,
     },
     step: 1,
     errorMessage: {},

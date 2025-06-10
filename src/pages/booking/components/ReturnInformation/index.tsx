@@ -24,6 +24,7 @@ export function ReturnInformation() {
 
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
     const pickupDate = useBookingSelector(state => state.form.pickup.date);
+
     const durationPlans = DURATION_PLANS.find(info => info.id === commitmentPeriod)?.days ?? 0;
     const futureDate = useMemo(() => {
         if (!pickupDate || !durationPlans) return undefined;
@@ -86,7 +87,11 @@ export function ReturnInformation() {
 
             <ReturnStepInputContainer>
                 <div>When will we return your items to your place?</div>
-                <DatePicker onChange={handleChangeDate} value={futureDate} />
+                <DatePicker
+                    key={futureDate?.toISOString()}
+                    onChange={handleChangeDate}
+                    value={futureDate}
+                />
                 <NoteContainer>
                     <Note
                         variant={NoteVariantsEnum.TRANSPARENT}

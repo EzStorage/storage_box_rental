@@ -75,7 +75,7 @@ export function PickupInformation() {
                         This day will serve as the storage start date
                     </PickupDescription>
                 </div>
-                <DatePicker onChange={() => handleChangeDate(new Date())} />
+                <DatePicker onChange={handleChangeDate} value={new Date()} />
                 <NoteContainer>
                     <Note Icon={<InfoIcon width={"15px"} color={theme.palette.textCustom.info} />}>
                         Your storage start date must be within <span>30 days</span> of the empty box
