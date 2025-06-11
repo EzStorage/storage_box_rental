@@ -13,7 +13,7 @@ const FAQSection: React.FC = () => {
     const detailsRef = useRef<HTMLDivElement | null>(null);
 
     return (
-        <FAQContainer sx={{ padding: "2rem 1rem", color: "#F9F9FA" }}>
+        <FAQContainer sx={{ padding: "2rem 1rem", color: "#F9F9FA" }} id="faq">
             <Box
                 sx={{
                     display: "flex",

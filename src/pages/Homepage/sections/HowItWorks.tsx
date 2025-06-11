@@ -4,7 +4,7 @@ import { HowItWorksContainer, HowItWorksHeader } from "../Homepage.styles";
 
 const HowItWorks: React.FC = () => {
     return (
-        <HowItWorksContainer>
+        <HowItWorksContainer id="about">
             <HowItWorksHeader>
                 <h1>
                     How it <span>works</span>

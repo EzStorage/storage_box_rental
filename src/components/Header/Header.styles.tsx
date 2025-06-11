@@ -3,15 +3,15 @@ import { MenuList } from "@mui/material";
 import { Link } from "react-router";
 
 export const HeaderContainer = styled("header")<{
-    isChangeColor?: boolean;
-}>(({ theme, isChangeColor }) => ({
+    isWhiteBackground?: boolean;
+}>(({ theme, isWhiteBackground }) => ({
     width: "100%",
     height: "72px",
     padding: "0 112px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: isChangeColor ? "transparent" : "white",
+    backgroundColor: isWhiteBackground ? "white" : "transparent",
 
     position: "fixed",
     top: 0,
@@ -24,25 +24,27 @@ export const HeaderContainer = styled("header")<{
     },
 }));
 
-export const HeaderLogo = styled(Link)<{ isChangeColor?: boolean }>(({ isChangeColor }) => ({
-    color: isChangeColor ? "white" : "black",
-    fontSize: "20px",
-    fontWeight: 700,
-    lineHeight: "24px",
-}));
+export const HeaderLogo = styled(Link)<{ isWhiteBackground?: boolean }>(
+    ({ isWhiteBackground }) => ({
+        color: isWhiteBackground ? "black" : "white",
+        fontSize: "20px",
+        fontWeight: 700,
+        lineHeight: "24px",
+    }),
+);
 
-export const HeaderLeftNav = styled("nav")<{ isChangeColor?: boolean }>(
-    ({ theme, isChangeColor }) => ({
+export const HeaderLeftNav = styled("nav")<{ isWhiteBackground?: boolean }>(
+    ({ theme, isWhiteBackground }) => ({
         display: "flex",
         alignItems: "center",
         gap: "20px",
 
-        a: {
+        div: {
             textDecoration: "none",
             fontWeight: 600,
             fontSize: "13px",
             lineHeight: "20px",
-            color: theme.palette.textCustom[isChangeColor ? "white" : "greyHigh"],
+            color: theme.palette.textCustom[isWhiteBackground ? "greyHigh" : "white"],
         },
     }),
 );

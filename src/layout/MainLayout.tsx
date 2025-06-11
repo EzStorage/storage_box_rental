@@ -1,13 +1,12 @@
 import { Outlet, useLocation } from "react-router";
 import Header from "../components/Header";
-import { useMediaQuery, useTheme } from "@mui/material";
 import Footer from "src/pages/Homepage/sections/Footer";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 const MainLayout: React.FC = () => {
-    const theme = useTheme();
     const location = useLocation();
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-    const isShowHeaderFooter = location.pathname === "/" || !isMobile;
+    const { isDesktop } = useScreenSize();
+    const isShowHeaderFooter = location.pathname === "/" || isDesktop;
 
     return (
         <>

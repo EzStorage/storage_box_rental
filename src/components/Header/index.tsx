@@ -1,5 +1,5 @@
-import { Avatar, Badge, Popover, Stack, useMediaQuery, useTheme } from "@mui/material";
-import { Link, useLocation } from "react-router";
+import { Avatar, Badge, Popover, Stack } from "@mui/material";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useAppSelector } from "../../app/hooks";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
@@ -8,16 +8,21 @@ import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Heade
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
+import { useScreenSize } from "@hooks/useScreenSize";
+import { NAV_ITEMS } from "./constants";
 
 const Header: React.FC = () => {
-    const theme = useTheme();
+    const { isDesktop } = useScreenSize();
     const location = useLocation();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const navigate = useNavigate();
     const user = useAppSelector(state => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
     const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
-
     const { scrollY } = useScroll();
+
+    const isWhiteBackground =
+        location.pathname !== "/" ||
+        (location.pathname === "/" && (scrolled || (!isDesktop && user !== null)));
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         setAnchorEl(event.currentTarget);
@@ -27,21 +32,33 @@ const Header: React.FC = () => {
         setAnchorEl(null);
     };
 
+    const handleScrollTo = (id: string) => {
+        navigate("/", { state: { scrollToId: id } });
+        const element = document.getElementById(id);
+        if (element) {
+            const headerOffset = 50;
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+        }
+    };
+
     useMotionValueEvent(scrollY, "change", latest => {
         setScrolled(latest > 250 ? true : false);
     });
 
-    const isTransparentBg =
-        location.pathname === "/" && ((!isMobile && !scrolled) || (isMobile && user === null));
-
     return (
-        <HeaderContainer isChangeColor={isTransparentBg}>
+        <HeaderContainer isWhiteBackground={isWhiteBackground}>
             <Stack direction="row" alignItems="center" gap={"24px"}>
                 {/* Logo */}
                 <HeaderLogo
                     to="/"
                     style={{ textDecoration: "none" }}
-                    isChangeColor={isTransparentBg}
+                    isWhiteBackground={isWhiteBackground}
                 >
                     <Stack direction="row" alignItems="center" gap={"4px"}>
                         <Logo />
@@ -50,20 +67,23 @@ const Header: React.FC = () => {
                 </HeaderLogo>
 
                 {/* Navigation Links */}
-                {!isMobile && (
-                    <HeaderLeftNav isChangeColor={isTransparentBg}>
-                        <Link to="#about">About Us</Link>
-                        <Link to="#faq">FAQs</Link>
+                {isDesktop && (
+                    <HeaderLeftNav isWhiteBackground={isWhiteBackground}>
+                        {NAV_ITEMS.map(item => (
+                            <div key={item.id} onClick={() => handleScrollTo(item.id)}>
+                                {item.name}
+                            </div>
+                        ))}
                     </HeaderLeftNav>
                 )}
             </Stack>
 
             <HeaderRight>
                 <Badge>
-                    <ShopCartIcon width={24} color={isTransparentBg ? "white" : "black"} />
+                    <ShopCartIcon width={24} color={isWhiteBackground ? "black" : "white"} />
                 </Badge>
 
-                {!isMobile && (
+                {isDesktop && (
                     <>
                         {user ? (
                             <Avatar src={(user as any)?.avatarUrl} onClick={handleClick} />
