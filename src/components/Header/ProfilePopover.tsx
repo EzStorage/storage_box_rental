@@ -1,4 +1,4 @@
-import { Avatar, CircularProgress, ListItemIcon, ListItemText, MenuItem } from "@mui/material";
+import { Avatar, ListItemIcon, ListItemText, MenuItem } from "@mui/material";
 import {
     ProfilePopoverContainer,
     ProfilePopoverHeader,
@@ -12,16 +12,19 @@ import CalendarIcon from "../Icons/CalendarIcon";
 import LogOutIcon from "../Icons/LogOutIcon";
 import SummaryCards from "../SummaryCards";
 
-const ProfilePopover: React.FC = () => {
+interface ProfilePopoverProps {
+    onLogout: () => void;
+}
+
+const ProfilePopover: React.FC<ProfilePopoverProps> = ({ onLogout }) => {
     const user = useAppSelector(state => state.auth.user);
-    if (!user) return <CircularProgress />;
 
     return (
         <ProfilePopoverContainer>
             <ProfilePopoverHeader>
                 <div>
                     <Avatar src={(user as any)?.avatarUrl} />
-                    <div className="phone">{user.phone}</div>
+                    <div className="phone">{user?.phone}</div>
                 </div>
                 <Button endIcon={<EditIcon />} className="edit-button">
                     Edit
@@ -43,7 +46,7 @@ const ProfilePopover: React.FC = () => {
                     <ListItemIcon>
                         <LogOutIcon />
                     </ListItemIcon>
-                    <ListItemText>Log Out</ListItemText>
+                    <ListItemText onClick={onLogout}>Log Out</ListItemText>
                 </MenuItem>
             </ProfilePopoverMenu>
         </ProfilePopoverContainer>

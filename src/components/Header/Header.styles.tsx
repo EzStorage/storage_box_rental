@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import { MenuList } from "@mui/material";
 import { Link } from "react-router";
 
-export const HeaderContainer = styled("header")<{
+export const HeaderContainer = styled("header", {
+    shouldForwardProp: prop => prop !== "isWhiteBackground",
+})<{
     isWhiteBackground?: boolean;
 }>(({ theme, isWhiteBackground }) => ({
     width: "100%",
@@ -18,36 +20,36 @@ export const HeaderContainer = styled("header")<{
     zIndex: 20,
     transition: "all 0.3s ease-out",
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
         height: "56px",
         padding: "0 16px",
     },
 }));
 
-export const HeaderLogo = styled(Link)<{ isWhiteBackground?: boolean }>(
-    ({ isWhiteBackground }) => ({
-        color: isWhiteBackground ? "black" : "white",
-        fontSize: "20px",
-        fontWeight: 700,
-        lineHeight: "24px",
-    }),
-);
+export const HeaderLogo = styled(Link, {
+    shouldForwardProp: prop => prop !== "isWhiteBackground",
+})<{ isWhiteBackground?: boolean }>(({ isWhiteBackground }) => ({
+    color: isWhiteBackground ? "black" : "white",
+    fontSize: "20px",
+    fontWeight: 700,
+    lineHeight: "24px",
+}));
 
-export const HeaderLeftNav = styled("nav")<{ isWhiteBackground?: boolean }>(
-    ({ theme, isWhiteBackground }) => ({
-        display: "flex",
-        alignItems: "center",
-        gap: "20px",
+export const HeaderLeftNav = styled("nav", {
+    shouldForwardProp: prop => prop !== "isWhiteBackground",
+})<{ isWhiteBackground?: boolean }>(({ theme, isWhiteBackground }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: "20px",
 
-        div: {
-            textDecoration: "none",
-            fontWeight: 600,
-            fontSize: "13px",
-            lineHeight: "20px",
-            color: theme.palette.textCustom[isWhiteBackground ? "greyHigh" : "white"],
-        },
-    }),
-);
+    div: {
+        textDecoration: "none",
+        fontWeight: 600,
+        fontSize: "13px",
+        lineHeight: "20px",
+        color: theme.palette.textCustom[isWhiteBackground ? "greyHigh" : "white"],
+    },
+}));
 
 export const HeaderRight = styled("div")(() => ({
     display: "flex",

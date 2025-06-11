@@ -1,6 +1,6 @@
 import { Avatar, Badge, Popover, Stack } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { Button } from "../Button";
@@ -10,11 +10,13 @@ import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { NAV_ITEMS } from "./constants";
+import { logout } from "src/redux/auth/authSlice";
 
 const Header: React.FC = () => {
     const { isDesktop } = useScreenSize();
     const location = useLocation();
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
     const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
@@ -45,6 +47,11 @@ const Header: React.FC = () => {
                 behavior: "smooth",
             });
         }
+    };
+
+    const handleLogout = () => {
+        dispatch(logout());
+        setAnchorEl(null);
     };
 
     useMotionValueEvent(scrollY, "change", latest => {
@@ -114,7 +121,7 @@ const Header: React.FC = () => {
                     },
                 }}
             >
-                <ProfilePopover />
+                <ProfilePopover onLogout={handleLogout} />
             </Popover>
         </HeaderContainer>
     );

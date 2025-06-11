@@ -29,7 +29,7 @@ const FAQSection: React.FC = () => {
                     <FAQHeading style={{ marginBottom: "12px", marginLeft: "40px" }}>
                         <span>questions</span>
                     </FAQHeading>
-                    <AnswerText style={{ fontSize: "1.9rem", marginLeft: "40px" }}>
+                    <AnswerText style={{ marginLeft: "40px" }}>
                         Everything you need to know about storage, billing, and returns.
                     </AnswerText>
                 </Box>
@@ -44,7 +44,6 @@ const FAQSection: React.FC = () => {
                             }
                             sx={{
                                 boxShadow: "none",
-                                borderBottom: `1px solid ${theme.palette.divider}`,
                                 backgroundColor: "transparent",
                                 width: "100%",
                                 maxWidth: "592px",
@@ -67,7 +66,7 @@ const FAQSection: React.FC = () => {
                             </AccordionSummary>
                             <AccordionDetails
                                 ref={expandedIndex === index ? detailsRef : null}
-                                sx={{ padding: "8px 0" }} // tighter spacing inside answer
+                                sx={{ padding: "8px 0" }}
                             >
                                 <AnswerText>{answer}</AnswerText>
                             </AccordionDetails>

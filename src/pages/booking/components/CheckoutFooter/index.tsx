@@ -35,23 +35,33 @@ export function CheckoutFooter() {
         [quantity, month, product.bulkPricingTiers],
     );
 
-    const handleStep = (value: number) => {
-        commit({ step: value });
+    const handleNext = () => {
+        const nextStep = step + 1;
+        commit({ step: nextStep });
+        setTimeout(() => {
+            const nextSection = document.getElementById(`step-${nextStep}`);
+            if (nextSection) {
+                window.scrollTo({
+                    top: nextSection.getBoundingClientRect().top + window.pageYOffset - 40,
+                    behavior: "smooth",
+                });
+            }
+        });
     };
 
-    useEffect(() => {
-        const section = document.getElementById(`step-${step}`);
-        if (section) {
-            const headerOffset = 80;
-            const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerOffset;
-
+    const handleBack = () => {
+        const nextStep = step - 1;
+        const nextSection = document.getElementById(`step-${nextStep}`);
+        if (nextSection) {
             window.scrollTo({
-                top: offsetPosition,
+                top: nextSection.getBoundingClientRect().top + window.pageYOffset - 40,
                 behavior: "smooth",
             });
         }
-    }, [step]);
+        setTimeout(() => {
+            commit({ step: nextStep });
+        }, 500);
+    };
 
     const AddToCardButton = () => {
         if (!isDesktop) {
@@ -87,7 +97,7 @@ export function CheckoutFooter() {
                             variantType="back"
                             fullWidth
                             startIcon={isDesktop && <IoChevronUp />}
-                            onClick={() => handleStep(step - 1)}
+                            onClick={handleBack}
                         >
                             Back
                         </MyButton>
@@ -98,7 +108,7 @@ export function CheckoutFooter() {
                             variantType="primary"
                             fullWidth
                             endIcon={isDesktop && <IoChevronDown />}
-                            onClick={() => handleStep(step + 1)}
+                            onClick={handleNext}
                         >
                             Next
                         </MyButton>

@@ -61,7 +61,7 @@ const TestimonialList: React.FC<TestimonialListProps> = ({
             transition={{ duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         >
             {list.map(testimonial => (
-                <TestimonicalCar testimonial={testimonial} />
+                <TestimonicalCar testimonial={testimonial} key={testimonial.id} />
             ))}
         </TestimonialMotionList>
     );

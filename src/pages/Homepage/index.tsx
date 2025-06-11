@@ -1,7 +1,7 @@
 import Feature from "./sections/Feature";
 import HowItWorks from "./sections/HowItWorks";
 import Testimonial from "./sections/Testimonial";
-import Hero from "./components/Hero";
+import Hero from "./sections/Hero";
 import FAQ from "./sections/FAQ";
 import { SectionDivider } from "./components/SectionDivider";
 import { useEffect } from "react";

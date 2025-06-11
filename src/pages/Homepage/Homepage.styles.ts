@@ -1,249 +1,6 @@
 import styled from "@emotion/styled";
-import background from "../../assets/background-hero.jpg";
-import { Box, Grid, Stack } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { motion } from "framer-motion";
-
-// ----- Hero -----
-interface HeroContainerProps {
-    isLogin?: boolean;
-    isMobile?: boolean;
-}
-
-export const HeroContainer = styled("section")<HeroContainerProps>(
-    ({ theme, isLogin, isMobile }) => ({
-        width: "100%",
-        height: "100vh",
-
-        backgroundImage: `url(${background})`,
-        backgroundSize: "cover",
-        position: "relative",
-
-        padding: "72px 112px",
-
-        "&::before":
-            isMobile && isLogin
-                ? {}
-                : {
-                      content: '""',
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      backgroundColor: "rgba(0, 0, 0, 0.4)",
-                      zIndex: 1,
-                  },
-
-        "& > *": {
-            position: "relative",
-            zIndex: 2,
-            height: "100%",
-
-            [theme.breakpoints.down("md")]: {
-                textAlign: isLogin ? "left" : "center",
-            },
-
-            [theme.breakpoints.between("md", "lg")]: {
-                textAlign: "center",
-            },
-        },
-
-        [theme.breakpoints.down("md")]: {
-            padding: "56px 16px",
-            height: "100%",
-            backgroundImage: isLogin ? "none" : `url(${background})`,
-            backgroundColor: isLogin ? "#F4F4F6" : "transparent",
-        },
-    }),
-);
-
-export const HeroIntro = styled("div")(({ theme }) => ({
-    padding: "24px 16px 0",
-
-    "> .name": {
-        fontWeight: 600,
-        fontSize: "18px",
-        lineHeight: "26px",
-        color: theme.palette.textCustom.greyHigh,
-    },
-
-    "> .subtitle": {
-        fontWeight: 400,
-        fontSize: "13px",
-        lineHeight: "20px",
-        color: theme.palette.textCustom.greyMed,
-    },
-
-    "> div:nth-of-type(3)": {
-        display: "flex",
-        padding: "16px 0",
-        justifyContent: "space-between",
-        gap: "8px",
-    },
-}));
-
-export const HeroLeft = styled(Stack)(({ theme }) => ({
-    color: theme.palette.textCustom.white,
-    width: "100%",
-
-    h1: {
-        fontSize: "64px",
-        fontWeight: "600",
-        lineHeight: "72px",
-        letterSpacing: "-0.2px",
-
-        [theme.breakpoints.down("lg")]: {
-            fontSize: "32px",
-            lineHeight: "40px",
-            letterSpacing: "0px",
-        },
-    },
-
-    p: {
-        fontSize: "18px",
-        fontWeight: "400",
-        lineHeight: "26px",
-
-        [theme.breakpoints.down("lg")]: {
-            fontSize: "15px",
-            lineHeight: "24px",
-            letterSpacing: "0px",
-        },
-    },
-}));
-
-// ----- Card Hero -----
-export const CardHeroContainer = styled("div")(() => ({
-    backgroundColor: "white",
-    borderRadius: "12px",
-    padding: "24px",
-}));
-
-export const CardHeroImage = styled("div")(({}) => ({
-    width: "137px",
-    height: "137px",
-    borderRadius: "4px",
-    backgroundColor: "#F4F4F6",
-    marginRight: "20px",
-
-    img: {
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-    },
-}));
-
-export const ProductInfo = styled(Stack)(({ theme }) => ({
-    textAlign: "left",
-
-    h3: {
-        fontWeight: "600",
-        fontSize: "22px",
-        lineHeight: "28px",
-        color: "#1F1F1F",
-    },
-
-    ".chip-row": {
-        backgroundColor: "#F4F4F6",
-        borderRadius: "4px",
-        padding: "4px 6px",
-
-        fontSize: "12px",
-        fontWeight: "600",
-        lineHeight: "16px",
-        color: theme.palette.textCustom.greyMed,
-    },
-
-    ".original-price": {
-        textDecoration: "line-through",
-        fontWeight: "400",
-        fontSize: "13px",
-        lineHeight: "20px",
-        color: theme.palette.textCustom.greyMed,
-    },
-
-    ".discounted-price": {
-        "& > span:first-child": {
-            fontSize: "22px",
-            fontWeight: "600",
-            lineHeight: "28px",
-            color: theme.palette.surface.primaryHigh,
-        },
-
-        "& > span:last-child": {
-            fontSize: "13px",
-            fontWeight: "400",
-            lineHeight: "20px",
-            color: theme.palette.textCustom.greyMed,
-        },
-    },
-
-    ".bulk-button": {
-        fontWeight: "400",
-        fontSize: "13px",
-        lineHeight: "20px",
-        color: theme.palette.textCustom.greyMed,
-        textDecoration: "underline",
-        cursor: "pointer",
-
-        "&:hover": {
-            color: theme.palette.textCustom.primary,
-        },
-    },
-}));
-
-export const CardHeroQuality = styled(Box)(({ theme }) => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "20px 0",
-
-    p: {
-        fontSize: "15px",
-        fontWeight: "400",
-        lineHeight: "24px",
-        color: theme.palette.textCustom.greyMed,
-    },
-
-    button: {
-        border: `1px solid ${theme.palette.outline.greyLow}`,
-        borderRadius: "4px",
-        width: "40px",
-        height: "40px",
-    },
-
-    span: {
-        fontWeight: "600",
-        fontSize: "15px",
-        lineHeight: "24px",
-        color: theme.palette.textCustom.greyHigh,
-    },
-}));
-
-export const CardHeroPricingBreakdown = styled(Stack)(({ theme }) => ({
-    margin: "20px 0",
-
-    div: {
-        display: "flex",
-        justifyContent: "space-between",
-    },
-
-    p: {
-        fontSize: "15px",
-        fontWeight: "400",
-        lineHeight: "24px",
-        color: theme.palette.textCustom.greyMed,
-    },
-
-    ".discount": {
-        color: theme.palette.textCustom.success,
-    },
-
-    ".total": {
-        fontWeight: "600",
-        color: theme.palette.textCustom.greyHigh,
-    },
-}));
 
 // ----- How It Works -----
 export const HowItWorksContainer = styled("section")(({ theme }) => ({
@@ -548,14 +305,16 @@ export const FAQContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const FAQHeading = styled("h2")(({ theme }) => ({
-    fontSize: "3rem",
-
     fontWeight: 600,
-    lineHeight: 1.2,
-    margin: 0,
-    padding: 0,
-
+    fontSize: "40px",
+    lineHeight: "48px",
     color: theme.palette.text.primary,
+
+    [theme.breakpoints.down("lg")]: {
+        fontSize: "26px",
+        lineHeight: "32px",
+    },
+
     span: {
         color: theme.palette.textCustom.primary,
     },
@@ -563,14 +322,14 @@ export const FAQHeading = styled("h2")(({ theme }) => ({
 
 export const QuestionText = styled("h4")(({ theme }) => ({
     fontWeight: 600,
-    fontSize: "15px",
-    lineHeight: "24px",
-    margin: 0,
-    maxWidth: "552px",
-    width: "100%",
-    minWidth: "320px",
-    letterSpacing: "normal",
-    color: theme.palette.text.primary,
+    fontSize: "18px",
+    lineHeight: "26px",
+    color: theme.palette.textCustom.greyMed,
+
+    [theme.breakpoints.down("lg")]: {
+        fontSize: "15px",
+        lineHeight: "24px",
+    },
 }));
 
 export const AnswerText = styled("p")(({ theme }) => ({
