@@ -17,6 +17,7 @@ const Homepage: React.FC = () => {
         if (location.state?.scrollToId) {
             const id = location.state.scrollToId;
 
+
             setTimeout(() => {
                 const element = document.getElementById(id);
                 if (element) {
@@ -47,5 +48,6 @@ const Homepage: React.FC = () => {
         </>
     );
   }
+
 
 export default Homepage;

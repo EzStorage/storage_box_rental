@@ -24,12 +24,20 @@ import {
   BoxAttributeChip,
   AddressText,
   TimeText,
+  ResponsiveStack,
+  ResponsivePaper,
+  StyledBoxChip,
 } from "./Homepage/Homepage.styles";
 
 import { CheckCircleIcon } from "../components/Icons/CheckCircleIcon";
 import Standard from "../assets/standard-box.png";
-
+import { ResponsiveFlexBox } from "./Homepage/Homepage.styles";
 export default function App() {
+  const boxSteps = [
+    { label: "Empty Box Dropoff" },
+    { label: "Packed Box Pickup" },
+    { label: "Packed box dropoff" },
+  ];
   return (
     <FullPageContainer textAlign={"center"}>
       <CheckCircleIcon />
@@ -41,14 +49,7 @@ export default function App() {
         <strong style={{ color: "black" }}>(+65) 1234 123 124</strong>
       </ThankText>
 
-      <Paper
-        elevation={0}
-        sx={{
-          backgroundColor: "white",
-          p: 3,
-          width: { xs: "100%", sm: "400px", md: "480px" },
-          height: { xs: "auto", md: 380 },
-        }}
+      <ResponsivePaper
       >
         <IDText>
           <span>Booking ID: 234KHHK</span>
@@ -57,19 +58,7 @@ export default function App() {
         </IDText>
 
         <BorderBox>
-          <Box
-            sx={{
-              display: "flex",
-              gap: 2,
-              alignItems: { sm: "flex-start", xs: "center" },
-              mb: 2,
-              flexWrap: "wrap",
-              justifyContent: {
-                xs: "center",
-                sm: "flex-start",
-              },
-              width: "100%",
-            }}
+          <ResponsiveFlexBox
           >
             <img
               src={Standard}
@@ -79,43 +68,21 @@ export default function App() {
               style={{ objectFit: "contain" }}
             />
 
-            <Box
-              sx={{
-                textAlign: { xs: "center", sm: "left" },
-                flex: 1,
-              }}
-            >
+            <Box>
               <Bold_text style={{ fontSize: 18 }}>Standard Box</Bold_text>
-              <Stack
-                direction="row"
-                spacing={1}
-                justifyContent={{ xs: "center", sm: "flex-start" }}
-                mt={0.5}
-              >
-                <BoxAttributeChip
-                  style={{
-                    fontSize: "12px",
-                    fontFamily: '"Poppins", sans-serif',
-                  }}
+              <Stack direction="row" spacing={0.8} mt={0.5}>
+                <StyledBoxChip
                   label="60 x 40 x 31cm"
                 />
-                <BoxAttributeChip
-                  style={{
-                    fontSize: "12px",
-                    fontFamily: '"Poppins", sans-serif',
-                  }}
+                <StyledBoxChip
                   label="Max 20kg"
                 />
               </Stack>
               <DimensionText>2 boxes × 6 months</DimensionText>
             </Box>
-          </Box>
+          </ResponsiveFlexBox>
 
-          {[
-            { label: "Empty Box Dropoff" },
-            { label: "Packed Box Pickup" },
-            { label: "Packed box dropoff" },
-          ].map((item, index) => (
+          {boxSteps.map((item, index) => (
             <Box key={index} sx={{ mb: 1 }}>
               <LabelRow>
                 <LabelText>{item.label}</LabelText>
@@ -131,22 +98,14 @@ export default function App() {
             </Box>
           ))}
         </BorderBox>
-      </Paper>
+      </ResponsivePaper>
 
-      {/* Action Buttons */}
-      <Stack
-        direction={{ xs: "column", sm: "row" }}
-        spacing={{ xs: 2, sm: 4 }}
-        sx={{
-          mt: { xs: 2, sm: 4 },
-          fontFamily: "Poppins",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+      
+      <ResponsiveStack
       >
         <StyledWhiteButton>Go to dashboard</StyledWhiteButton>
         <BookingTryAgain>Go to my bookings</BookingTryAgain>
-      </Stack>
+      </ResponsiveStack>
     </FullPageContainer>
   );
 }
