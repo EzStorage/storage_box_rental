@@ -8,10 +8,11 @@ import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Heade
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
-interface HeaderProps {
-  onCartOpen: () => void;
-}
-const Header: React.FC<HeaderProps> = ({ onCartOpen }) => {
+import { useDispatch } from "react-redux";
+import { openCart } from "../../redux/auth/cartSlice";
+const Header: React.FC= () => {
+    const dispatch = useDispatch();
+    
     const theme = useTheme();
     const location = useLocation();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -62,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onCartOpen }) => {
 
             <HeaderRight>
                 <Badge>
-                    <IconButton onClick={onCartOpen}>
+                    <IconButton onClick={() => dispatch(openCart())}>
                     <ShopCartIcon width={24} color={isTransparentBg ? "white" : "black"} />
                     </IconButton>
                 </Badge>

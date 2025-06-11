@@ -4,6 +4,7 @@ import { Box, Grid, Stack,Button,Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import { CrossCircleIcon } from "@components/Icons/CrossCircleIcon";
 // ----- Hero -----
 interface HeroContainerProps {
     isLogin?: boolean;
@@ -604,7 +605,11 @@ export const Bold_text = styled("h5")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     color: "black",
+    paddingLeft:"30px",
     fontFamily: '"Poppins", sans-serif',
+    [theme.breakpoints.up('md')]: {
+    paddingLeft:"0px"
+  },
 }));
 export const SuperScript = styled("h5")(({ theme }) => ({
     color: "grey",
@@ -668,7 +673,7 @@ export const TimeText = styled(Typography)(({ theme }) => ({
 }));
 export const FullPageContainer = styled(Box)(({ theme }) => ({
   fontFamily: "Poppins",
-  height: "100vh",
+  minHeight: "100vh",
   width: "100vw",
   backgroundColor: "#f5f6f9",
   display: "flex",
@@ -677,6 +682,10 @@ export const FullPageContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(6, 4),
   boxSizing: "border-box",
   paddingTop: theme.spacing(15),
+
+  [theme.breakpoints.down("sm")]: {
+    paddingTop: theme.spacing(4), // less top padding for mobile
+  },
 }));
 export const SuccessFailureHeading = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", sans-serif',
@@ -770,3 +779,15 @@ export const ValueColumn = styled(Box)({
   textAlign: "right",
   fontFamily: '"Poppins", sans-serif',
 });
+export const ResponsiveIcon = styled(CrossCircleIcon)(({ theme }) => ({
+  width: '40px',
+  height: '40px',
+  [theme.breakpoints.up('sm')]: {
+    width: '50px',
+    height: '50px',
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '60px',
+    height: '60px',
+  },
+}));
