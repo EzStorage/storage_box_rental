@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { removeFromCart, updateQuantity, closeCart, CartItem } from "../../redux/auth/cartSlice";
 import { Bold_text, Button_Cart, SuperScript } from "../../pages/Homepage/Homepage.styles";
-
+import { BookingTryAgain } from "../../pages/Homepage/Homepage.styles";
 const CartDrawer: React.FC = () => {
     const dispatch = useDispatch();
     const open = useSelector((state: RootState) => state.cart.isOpen);
@@ -45,7 +45,7 @@ const CartDrawer: React.FC = () => {
             slotProps={{
                 paper: {
                     sx: {
-                        width: 480,
+                        width: { xs: "100%", sm: 480 },
                         backgroundColor: "white",
                         display: "flex",
                         flexDirection: "column",
@@ -82,9 +82,12 @@ const CartDrawer: React.FC = () => {
                         justifyContent="center"
                         sx={{ mt: 6, mb: 4 }}
                     >
-                        <Box sx={{ mt: 6, mb: -6.65 }}>
+                        <Box sx={{ mt: 6, mb: -6.65, paddingBottom:3.7 }}>
                             <EmptyCartIcon />
                         </Box>
+                        <Typography sx={{paddingBottom:3}}>No storage yet!</Typography>
+                        <BookingTryAgain>Book new storage</BookingTryAgain>
+
 
                        
                     </Box>
@@ -108,7 +111,7 @@ const CartDrawer: React.FC = () => {
                                         src={Standard_Product}
                                         alt={item.name}
                                         sx={{
-                                            width: "27%",
+                                            width: { xs: "35%", sm: "27%" },
                                             height: "auto",
                                             objectFit: "cover",
                                             borderRadius: 1,

@@ -795,6 +795,7 @@ export const ResponsiveIcon = styled(CrossCircleIcon)(({ theme }) => ({
   },
 }));
 
+
 export const ResponsiveFlexBox = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: theme.spacing(2),
@@ -924,3 +925,4 @@ export const QuantityButtonContainer = styled(Box)(() => ({
   alignItems: "center",
   justifyContent: "center",
 }));
+

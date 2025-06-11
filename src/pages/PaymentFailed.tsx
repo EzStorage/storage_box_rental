@@ -29,23 +29,26 @@ import {
   TimeText,
 } from "./Homepage/Homepage.styles";
 
+/*
 import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
+*/
 import Standard from "../assets/standard-box.png";
 import { Product } from ".././types/product.type";
-
+import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
+import image from "../assets/image.png";
 export default function App() {
   return (
-    <FullPageContainer>
-      <CrossCircleIcon />
-
-      <SuccessFailureHeading>Payment success</SuccessFailureHeading>
+    <FullPageContainer textAlign={"center"}>
+      <img src={image} alt="cross" width={69} height={69} />
+       
+      <SuccessFailureHeading>Payment Failed</SuccessFailureHeading>
 
       <ThankText>
         Thank you for purchase! Your booking information will be sent to{" "}
         <strong style={{ color: "black" }}>(+65) 1234 123 124</strong>
       </ThankText>
 
-      <Paper elevation={0} sx={{ backgroundColor: "white", p: 3, width: 492, height: 380 }}>
+      <Paper elevation={0} sx={{ backgroundColor: "white", p: 3,width: { xs: '100%', sm: '400px', md: '480px' },height: { xs: "auto", md: 380 }}}>
         <IDText>
           <span>Booking ID: 234KHHK</span>
           <VerticalDivider />
@@ -57,9 +60,13 @@ export default function App() {
             sx={{
               display: "flex",
               gap: 2,
-              alignItems: "flex-start",
+              alignItems: {sm:"flex-start",xs:"center"},
               mb: 2,
               flexWrap: "wrap",
+               justifyContent: {
+      xs: "center", // center on mobile
+      sm: "flex-start",
+    },
             }}
           >
             <img
@@ -68,6 +75,7 @@ export default function App() {
               width={80}
               height={80}
               style={{ objectFit: "contain" }}
+              
             />
             <Box>
               <Bold_text style={{ fontSize: 18 }}>Standard Box</Bold_text>
@@ -100,7 +108,16 @@ export default function App() {
       </Paper>
 
       {/* Action Buttons */}
-      <Stack direction="row" spacing={4} sx={{ mt: 4, fontFamily: "Poppins" }}>
+      <Stack
+  direction={{ xs: 'column', sm: 'row' }} // column on mobile, row on sm and up
+  spacing={{ xs: 2, sm: 4 }}
+  sx={{
+    mt: { xs: 2, sm: 4 },
+    fontFamily: "Poppins",
+    justifyContent: "center",
+    alignItems: "center", // centers items in column layout
+  }}
+>
         <StyledWhiteButton>Go to dashboard</StyledWhiteButton>
         <BookingTryAgain>Try again</BookingTryAgain>
       </Stack>
