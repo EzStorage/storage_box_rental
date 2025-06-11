@@ -7,25 +7,26 @@ import {
     CheckoutFooterTitle,
 } from "./CheckoutFooter.styles";
 import ShopCartIcon from "@components/Icons/ShopCartIcon";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useBookingCommit, useBookingSelector } from "@pages/booking/context";
 import { Product } from "src/types/product.type";
 import { PRODUCTS } from "src/constants/product.constants";
 import { useEffect, useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
-import { DURATION_PLANS } from "../DurationSelector/constants";
 import { formatAmount } from "@helpers/amount";
 import { IoChevronUp, IoChevronDown } from "react-icons/io5";
+import { useScreenSize } from "@hooks/useScreenSize";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function CheckoutFooter() {
     const theme = useTheme();
+    const { isDesktop } = useScreenSize();
 
     const commit = useBookingCommit();
     const step = useBookingSelector(state => state.step);
     const quantity = useBookingSelector(state => state.form.quantity);
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
 
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
     const month = (DURATION_PLANS.find(m => m.id === commitmentPeriod)?.days ?? 0) / 30;
 
@@ -53,7 +54,7 @@ export function CheckoutFooter() {
     }, [step]);
 
     const AddToCardButton = () => {
-        if (isMobile) {
+        if (!isDesktop) {
             return (
                 <CheckoutFooterAddCardIconButton>
                     <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
@@ -66,7 +67,7 @@ export function CheckoutFooter() {
                 fullWidth
                 startIcon={<ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />}
             >
-                {!isMobile && "Add to cart"}
+                {isDesktop && "Add to cart"}
             </MyButton>
         );
     };
@@ -85,7 +86,7 @@ export function CheckoutFooter() {
                         <MyButton
                             variantType="back"
                             fullWidth
-                            startIcon={!isMobile && <IoChevronUp />}
+                            startIcon={isDesktop && <IoChevronUp />}
                             onClick={() => handleStep(step - 1)}
                         >
                             Back
@@ -96,14 +97,14 @@ export function CheckoutFooter() {
                         <MyButton
                             variantType="primary"
                             fullWidth
-                            endIcon={!isMobile && <IoChevronDown />}
+                            endIcon={isDesktop && <IoChevronDown />}
                             onClick={() => handleStep(step + 1)}
                         >
                             Next
                         </MyButton>
                     ) : (
                         <MyButton variantType="primary" fullWidth>
-                            {isMobile ? "Checkout" : "Go to checkout"}
+                            {!isDesktop ? "Checkout" : "Go to checkout"}
                         </MyButton>
                     )}
                 </CheckoutFooterActions>

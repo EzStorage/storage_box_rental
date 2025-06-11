@@ -40,7 +40,7 @@ export const PaymentInformationBoxFeeContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const PaymentInformationDeliveryFeeContainer = styled("div")(({ theme }) => ({
+export const PaymentInformationDeliveryFeeContainer = styled("div")(() => ({
     padding: "12px 0",
 
     "> div:first-of-type": {

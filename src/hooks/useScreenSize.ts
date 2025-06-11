@@ -1,9 +1,9 @@
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export function useScreenSize() {
     const theme = useTheme();
-    const isMobile = theme.breakpoints.down("md");
-    const isTablet = theme.breakpoints.between("md", "lg");
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const isTablet = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
     return {
         isMobile,

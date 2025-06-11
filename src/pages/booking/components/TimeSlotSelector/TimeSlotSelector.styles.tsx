@@ -52,7 +52,7 @@ export const TimeSlotOptionContainer = styled("label")<TimeSlotProps>(({ theme, 
     borderRadius: "4px",
 }));
 
-export const TimeSlotOptiontext = styled("span")(({}) => ({
+export const TimeSlotOptiontext = styled("span")(() => ({
     marginLeft: "12px",
     fontWeight: 400,
     fontSize: "15px",

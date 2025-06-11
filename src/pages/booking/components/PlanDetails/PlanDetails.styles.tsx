@@ -1,8 +1,6 @@
 import { styled } from "@mui/material";
 
-export const PlanDetailsContainer = styled("div")(() => ({}));
-
-export const PlanDetailsTitle = styled("div")(({ theme }) => ({
+export const PlanDetailsTitle = styled("div")(() => ({
     background: "#F9F9FA",
     padding: "8px 16px",
     fontWeight: 600,

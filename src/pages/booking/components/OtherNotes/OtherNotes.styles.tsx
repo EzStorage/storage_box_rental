@@ -16,7 +16,7 @@ export const OtherNotesTitle = styled("div")(({ theme }) => ({
     marginBottom: "8px",
 }));
 
-export const OtherNotesList = styled("ul")(({}) => ({
+export const OtherNotesList = styled("ul")(() => ({
     listStyleType: "disc",
     marginLeft: "20px",
 }));

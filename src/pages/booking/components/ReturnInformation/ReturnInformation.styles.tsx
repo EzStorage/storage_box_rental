@@ -24,7 +24,7 @@ export const ReturnStepInputContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const LocationCheckboxContainer = styled("div")(({}) => ({
+export const LocationCheckboxContainer = styled("div")(() => ({
     marginTop: "8px",
 }));
 
@@ -35,11 +35,11 @@ export const PickupDescription = styled("p")(({ theme }) => ({
     color: theme.palette.textCustom.greyMed,
 }));
 
-export const NoteContainer = styled("div")(({ theme }) => ({
+export const NoteContainer = styled("div")(() => ({
     marginTop: "4px",
 }));
 
-export const ReturnSelectorContainer = styled("div")(({}) => ({
+export const ReturnSelectorContainer = styled("div")(() => ({
     marginBottom: "20px",
 
     "> div:first-of-type": {

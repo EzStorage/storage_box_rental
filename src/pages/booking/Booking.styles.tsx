@@ -9,6 +9,12 @@ export const BookingContainer = styled("div")(({ theme }) => ({
     },
 }));
 
+export const StepsContainer = styled("div")(({ theme }) => ({
+    [theme.breakpoints.down("lg")]: {
+        marginBottom: "72px",
+    },
+}));
+
 export const StepContainer = styled("div")(({ theme }) => ({
     maxWidth: "592px",
     display: "flex",

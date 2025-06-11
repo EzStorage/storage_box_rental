@@ -1,7 +1,6 @@
-import { useMediaQuery, useTheme } from "@mui/material";
-
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { CustomTooltipContainer } from "./CustomTooltip.styles";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 interface CustomTooltipProps {
     children: ReactElement;
@@ -9,10 +8,8 @@ interface CustomTooltipProps {
 }
 
 export function CustomTooltip({ children, title }: CustomTooltipProps) {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-    const tooltipPlacement = isMobile ? "top-end" : "top-start";
+    const { isDesktop } = useScreenSize();
+    const tooltipPlacement = isDesktop ? "top-start" : "top-end";
 
     return (
         <CustomTooltipContainer

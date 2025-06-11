@@ -1,5 +1,4 @@
 import { formatAmount } from "@helpers/amount";
-import { DURATION_PLANS } from "./constants";
 import {
     DurationSelectorContainer,
     DurationSelectorItem,
@@ -8,6 +7,7 @@ import {
 } from "./DurationSelector.styles";
 import { useBookingSelector } from "@pages/booking/context";
 import { useBookingFormActions } from "@pages/booking/hooks/useBookingFormActions";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function DurationSelector() {
     const { handleChangeField } = useBookingFormActions();

@@ -1,12 +1,11 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import { BookingInformationContainer, BookingInformationTitle } from "./BookingInformation.styles";
 import { BookingProductCard } from "./BookingProductCard";
 import { useBookingSelector } from "@pages/booking/context";
 import { BookingInfo } from "./BookingInfo";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 export function BookingInformation() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+    const { isDesktop } = useScreenSize();
 
     // Delivery
     const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
@@ -28,9 +27,9 @@ export function BookingInformation() {
 
     return (
         <>
-            {isMobile && <BookingInformationTitle>Booking Informations</BookingInformationTitle>}
+            {!isDesktop && <BookingInformationTitle>Booking Informations</BookingInformationTitle>}
             <BookingInformationContainer>
-                {!isMobile && (
+                {isDesktop && (
                     <BookingInformationTitle>Booking Informations</BookingInformationTitle>
                 )}
                 <BookingProductCard />

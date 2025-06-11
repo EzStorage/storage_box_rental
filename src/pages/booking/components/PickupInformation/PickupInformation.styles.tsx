@@ -35,7 +35,7 @@ export const PickupDescription = styled("p")(({ theme }) => ({
     color: theme.palette.textCustom.greyMed,
 }));
 
-export const NoteContainer = styled("div")(({ theme }) => ({
+export const NoteContainer = styled("div")(() => ({
     marginTop: "12px",
 
     span: {
@@ -43,7 +43,7 @@ export const NoteContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const PickupSelectorContainer = styled("div")(({}) => ({
+export const PickupSelectorContainer = styled("div")(() => ({
     marginBottom: "20px",
 
     "> div:first-of-type": {

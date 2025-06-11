@@ -3,10 +3,7 @@ import { styled } from "@mui/material";
 export const DurationSelectorContainer = styled("div")(({ theme }) => ({
     display: "grid",
     gap: "12px",
-
-    [theme.breakpoints.up("lg")]: {
-        gridTemplateColumns: "repeat(3, 1fr)",
-    },
+    gridTemplateColumns: "repeat(3, 1fr)",
 
     [theme.breakpoints.down("lg")]: {
         gridTemplateColumns: "repeat(2, 1fr)",

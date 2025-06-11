@@ -36,7 +36,7 @@ export const ProductEstimateFeeContainer = styled("div")(({ theme }) => ({
     alignItems: "center",
     marginTop: "12px",
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
         flexDirection: "column",
         alignItems: "flex-start",
     },
@@ -49,7 +49,7 @@ export const ProductEstimateFeeTitle = styled("div")(({ theme }) => ({
     color: theme.palette.textCustom.greyHigh,
 }));
 
-export const ProductEstimateFeePricing = styled("div")(({ theme }) => ({
+export const ProductEstimateFeePricing = styled("div")(() => ({
     display: "flex",
     alignItems: "center",
     gap: "4px",
@@ -62,7 +62,7 @@ export const ProductDescription = styled("div")(({ theme }) => ({
     color: theme.palette.textCustom.greyMed,
     textAlign: "right",
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
         textAlign: "left",
     },
 }));

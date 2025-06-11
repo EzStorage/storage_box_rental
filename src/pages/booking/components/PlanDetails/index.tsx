@@ -1,6 +1,6 @@
 import { useBookingSelector } from "@pages/booking/context";
 import { PlanDetailsInfoContainer, PlanDetailsTitle } from "./PlanDetails.styles";
-import { DURATION_PLANS } from "../DurationSelector/constants";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function PlanDetails() {
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);

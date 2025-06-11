@@ -15,8 +15,8 @@ import { DatePicker } from "../DatePicker";
 import { Note, NoteVariantsEnum } from "@components/Note";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { TimeSlotSelector } from "../TimeSlotSelector";
-import { DURATION_PLANS } from "../DurationSelector/constants";
 import { useEffect, useMemo } from "react";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function ReturnInformation() {
     const theme = useTheme();

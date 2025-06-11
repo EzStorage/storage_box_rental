@@ -10,6 +10,8 @@ export const CheckoutFooterContainer = styled("div")(({ theme }) => ({
     [theme.breakpoints.down("lg")]: {
         height: "72px",
         padding: "0 16px",
+        position: "fixed",
+        width: "100%",
     },
 
     "> div": {
@@ -47,7 +49,7 @@ export const CheckoutFooterActions = styled("div")(({ theme }) => ({
     },
 }));
 
-export const CheckoutFooterAddCardIconButton = styled(IconButton)(({ theme }) => ({
+export const CheckoutFooterAddCardIconButton = styled(IconButton)(() => ({
     background: "#000000E0",
     borderRadius: "4px",
 }));

@@ -10,7 +10,7 @@ import {
 } from "./BookingInformation.styles";
 import { ProductChip } from "@components/ProductCard/ProductChip";
 import { useBookingSelector } from "@pages/booking/context";
-import { DURATION_PLANS } from "../DurationSelector/constants";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function BookingProductCard() {
     const quantity = useBookingSelector(state => state.form.quantity);

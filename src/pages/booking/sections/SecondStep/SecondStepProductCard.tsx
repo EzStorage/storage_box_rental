@@ -19,7 +19,7 @@ import { formatAmount } from "@helpers/amount";
 import { useBookingSelector } from "@pages/booking/context";
 import { useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
-import { DURATION_PLANS } from "@pages/booking/components/DurationSelector/constants";
+import { DURATION_PLANS } from "@pages/booking/constants";
 
 export function SecondStepProductCard() {
     const quantity = useBookingSelector(state => state.form.quantity);

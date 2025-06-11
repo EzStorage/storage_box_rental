@@ -1,4 +1,3 @@
-import { useMediaQuery, useTheme } from "@mui/material";
 import {
     PaymentInformationBoxFeeContainer,
     PaymentInformationContainer,
@@ -9,14 +8,14 @@ import {
 import { useBookingSelector } from "@pages/booking/context";
 import { Product } from "src/types/product.type";
 import { PRODUCTS } from "src/constants/product.constants";
-import { DURATION_PLANS } from "../DurationSelector/constants";
 import { useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { formatAmount } from "@helpers/amount";
+import { DURATION_PLANS } from "@pages/booking/constants";
+import { useScreenSize } from "@hooks/useScreenSize";
 
 export function PaymentInformation() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+    const { isDesktop } = useScreenSize();
 
     const quantity = useBookingSelector(state => state.form.quantity);
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
@@ -37,7 +36,7 @@ export function PaymentInformation() {
 
     return (
         <>
-            {isMobile && <PaymentInformationTitle>Payment Information</PaymentInformationTitle>}{" "}
+            {!isDesktop && <PaymentInformationTitle>Payment Information</PaymentInformationTitle>}{" "}
             <PaymentInformationContainer>
                 <PaymentInformationBoxFeeContainer>
                     <div>

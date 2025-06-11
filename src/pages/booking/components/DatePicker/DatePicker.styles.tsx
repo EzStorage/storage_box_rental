@@ -8,27 +8,27 @@ export const CalendarContainer = styled("div")(({ theme }) => ({
     border: `1px solid ${theme.palette.outline.greyLow}`,
 }));
 
-export const CalendarHeader = styled("div")(({ theme }) => ({
+export const CalendarHeader = styled("div")(() => ({
     backgroundColor: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
 }));
 
-export const CalendarTitle = styled("div")(({ theme }) => ({
+export const CalendarTitle = styled("div")(() => ({
     fontWeight: 600,
     fontSize: "15px",
     lineHeight: "24px",
     color: "#101828",
 }));
 
-export const CalendarGrid = styled("div")(({}) => ({
+export const CalendarGrid = styled("div")(() => ({
     display: "grid",
     gridTemplateColumns: "repeat(7, 1fr)",
     marginTop: "16px",
 }));
 
-export const CalendarWeekday = styled("div")(({}) => ({
+export const CalendarWeekday = styled("div")(() => ({
     textAlign: "center",
     fontWeight: 600,
     fontSize: "11px",
@@ -37,7 +37,7 @@ export const CalendarWeekday = styled("div")(({}) => ({
     padding: "12px 0",
 }));
 
-export const CalendarDayCell = styled("div")(({}) => ({
+export const CalendarDayCell = styled("div")(() => ({
     position: "relative",
     padding: "2px",
 }));
@@ -125,7 +125,7 @@ export const IconContainer = styled("div")(({ theme }) => ({
     color: theme.palette.textCustom.greyMed,
 }));
 
-export const DateText = styled("span")(({ theme }) => ({
+export const DateText = styled("span")(() => ({
     fontWeight: 400,
     fontSize: "15px",
     lineHeight: "24px",
