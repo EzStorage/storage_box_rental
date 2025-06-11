@@ -1,5 +1,5 @@
 
-import { Avatar, Badge, Popover, Stack } from "@mui/material";
+import { Avatar, Badge, Popover, Stack,IconButton } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useState } from "react";
@@ -9,16 +9,16 @@ import { HeaderContainer, HeaderLeftNav, HeaderLogo, HeaderRight } from "./Heade
 import Logo from "../Logo";
 import ShopCartIcon from "../Icons/ShopCartIcon";
 import ProfilePopover from "./ProfilePopover";
-
 import { useScreenSize } from "@hooks/useScreenSize";
 import { NAV_ITEMS } from "./constants";
 import { logout } from "src/redux/auth/authSlice";
-
-const Header: React.FC = () => {
+import { useDispatch } from "react-redux";
+import { openCart } from "../../redux/auth/cartSlice";
+const Header: React.FC= () => {
+    const dispatch = useAppDispatch();
     const { isDesktop } = useScreenSize();
     const location = useLocation();
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const user = useAppSelector(state => state.auth.user);
     const [scrolled, setScrolled] = useState(false);
     const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
@@ -89,6 +89,9 @@ const Header: React.FC = () => {
 
             <HeaderRight>
                 <Badge>
+                    <IconButton onClick={() => dispatch(openCart())}>
+                    <ShopCartIcon width={24} color={!isWhiteBackground ? "white" : "black"} />
+                    </IconButton>
 
                 </Badge>
 
