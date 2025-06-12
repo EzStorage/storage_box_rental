@@ -40,7 +40,7 @@ export default function App() {
     ];
     return (
         <FullPageContainer textAlign={"center"}>
-            <img src={image} alt="cross" width={69} height={69} />
+            <CrossCircleIcon/>
 
             <SuccessFailureHeading>Payment Failed</SuccessFailureHeading>
 

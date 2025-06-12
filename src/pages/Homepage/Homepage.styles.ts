@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { CrossCircleIcon } from "@components/Icons/CrossCircleIcon";
+import { SURFACE, OUTLINE, TEXT_CUSTOM } from "../../constants/palette";
 // ----- Hero -----
 interface HeroContainerProps {
     isLogin?: boolean;
@@ -582,14 +583,14 @@ export const AnswerText = styled("p")(({ theme }) => ({
     lineHeight: 1.5,
 }));
 
-export const FooterTitle = styled("h6")(({ theme }) => ({
+export const FooterTitle = styled("h6")({
     fontSize: "13px",
     width: "245.33px",
     fontWeight: 600,
     lineHeight: "20px",
     color: "#8C929C",
     marginBottom: "8px",
-}));
+});
 
 export const FooterText = styled("p")({
     fontSize: "15px",
@@ -607,21 +608,21 @@ export const Bold_text = styled("h5")(({ theme }) => ({
     fontSize: "22px",
     display: "flex",
     alignItems: "center",
-    color: "black",
+    color: SURFACE.BLACK,
     paddingLeft:"30px",
     fontFamily: '"Poppins", sans-serif',
     [theme.breakpoints.up('md')]: {
     paddingLeft:"0px"
   },
 }));
-export const SuperScript = styled("h5")(({ theme }) => ({
-    color: "grey",
+export const SuperScript = styled("h5")({
+    color: SURFACE.GREY_SURFACE_0,
     fontWeight: 600,
     fontSize: "18px",
     position: "relative",
     top: "-1px",
     padding: "6px",
-}));
+});
 export const StyledDrawerPaper = styled(Paper)(({ theme }) => ({
     width: 480,
     backgroundColor: theme.palette.background.paper,
@@ -629,27 +630,27 @@ export const StyledDrawerPaper = styled(Paper)(({ theme }) => ({
     flexDirection: "column",
     height: "100vh",
 }));
-export const Button_Cart = styled(Button)(({ theme }) => ({
+export const Button_Cart = styled(Button)({
     fontWeight: 400,
     fontSize: "12px",
     pt: 1,
-    backgroundColor: "#EF151E",
+    backgroundColor: SURFACE.PRIMARY_MED,
     color: "white",
     textTransform: "none",
-    "&:hover": { backgroundColor: "#cc0000" },
+    "&:hover": { backgroundColor:SURFACE.PRIMARY_DARK },
     width: "305px",
     minHeight: "40px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-}));
+});
 export const BoxAttributeChip = styled(Chip)(({ theme }) => ({
   fontWeight: 600,
   fontFamily: "Poppins",
   fontSize: "13px",
   borderRadius: "4px",
-  color: "#5B616D",
-  backgroundColor: "#F4F4F6",
+  color: TEXT_CUSTOM.PRIMARY_MED,
+  backgroundColor:OUTLINE.GREY_BASE,
   height: "24px", 
   "& .MuiChip-label": {
     paddingLeft: theme.spacing(1),
@@ -661,24 +662,24 @@ export const AddressText = styled(Typography)(({ theme }) => ({
   fontWeight: 400,
   fontSize: "13px",
   lineHeight: "20px",
-  color: "#0A0C11",
+  color: TEXT_CUSTOM.GREY_HIGH,
   marginBottom: theme.spacing(0.2),
   overflow: "hidden",
   whiteSpace: "nowrap",
   textOverflow: "ellipsis",
 }));
-export const TimeText = styled(Typography)(({ theme }) => ({
+export const TimeText = styled(Typography)({
   fontFamily: "Poppins",
   fontWeight: 400,
   fontSize: "11px",
   lineHeight: "20px",
-  color: "#5B616D",
-}));
+  color: TEXT_CUSTOM.PRIMARY_MED,
+});
 export const FullPageContainer = styled(Box)(({ theme }) => ({
   fontFamily: "Poppins",
   minHeight: "100vh",
   width: "100vw",
-  backgroundColor: "#f5f6f9",
+  backgroundColor:SURFACE.DISABLED_BASE,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -687,13 +688,13 @@ export const FullPageContainer = styled(Box)(({ theme }) => ({
   paddingTop: theme.spacing(15),
 
   [theme.breakpoints.down("sm")]: {
-    paddingTop: theme.spacing(4), // less top padding for mobile
+    paddingTop: theme.spacing(4), 
   },
 }));
 export const SuccessFailureHeading = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", sans-serif',
   fontWeight: "bold",
-  color: "black",
+  color: SURFACE.BLACK,
   paddingTop: theme.spacing(2),
   paddingBottom:theme.spacing(0.8),
   fontSize:"22px"
@@ -705,7 +706,7 @@ export const IDText= styled(Typography)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: 0,
-  color: "#5B616D",
+  color: TEXT_CUSTOM.PRIMARY_MED,
 }));
 export const BorderBox = styled(Box)(({ theme }) => ({
   border: "1px solid #EBECF0",
@@ -715,11 +716,11 @@ export const BorderBox = styled(Box)(({ theme }) => ({
 }));
 export const ThankText = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", sans-serif',
-  color: "#5B616D",
+  color: TEXT_CUSTOM.PRIMARY_MED,
   marginBottom: theme.spacing(4),
 }));
 export const StyledWhiteButton = styled(Button)(({ theme }) => ({
-  backgroundColor: "white",
+  backgroundColor:TEXT_CUSTOM.WHITE,
   width: "174px",
   height: "48px",
   color: theme.palette.grey[700],
@@ -732,18 +733,18 @@ export const StyledWhiteButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.grey[100],
   },
 }));
-export const BookingTryAgain = styled(Button)(({ theme }) => ({
+export const BookingTryAgain = styled(Button) ({
   width: "174px",
   height: "48px",
   textTransform: "none",
   fontFamily: '"Poppins", sans-serif',
-  backgroundColor:"#EF151E",
-  color:"white"
-}));
+  backgroundColor:SURFACE.PRIMARY_MED,
+  color:TEXT_CUSTOM.WHITE
+});
 export const VerticalDivider = styled(Box)(({ theme }) => ({
   width: "1px",
   height: "16px",
-  backgroundColor: "#D1D5DB",
+  backgroundColor: OUTLINE.GREY_LIGHT,
   marginLeft: theme.spacing(1),
   marginRight: theme.spacing(1),
 }));
@@ -752,16 +753,16 @@ export const StatusText = styled(Box)(() => ({
   fontSize: "15px",
   fontWeight: 600,
   lineHeight: "20px",
-  color: "#59961F",
+  color: SURFACE.GREEN,
 }));
-export const DimensionText = styled(Typography)(({theme}) => ({
+export const DimensionText = styled(Typography) ({
   fontFamily: '"Poppins", sans-serif',
   fontSize: "14px",
   fontWeight: 600,
   marginTop: "8px", 
-  color: "#5B616D",
+  color: TEXT_CUSTOM.PRIMARY_MED,
   textAlign: "left",
-}));
+});
 export const LabelRow = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
@@ -769,7 +770,7 @@ export const LabelRow = styled(Box)(() => ({
   width: "100%",
   marginBottom: "8px", 
   fontFamily: '"Poppins", sans-serif',
-  color: "black",
+  color: SURFACE.BLACK,
 }));
 
 export const LabelText = styled(Typography)(() => ({
@@ -822,18 +823,18 @@ export const ResponsiveStack = styled(Stack)(({ theme }) => ({
 
   [theme.breakpoints.up("sm")]: {
     flexDirection: "row",
-    gap: theme.spacing(0),
+    gap: theme.spacing(0.1),
   },
 
   "& > *": {
-    margin: theme.spacing(1), // applies spacing between children
+    margin: theme.spacing(1),
     [theme.breakpoints.up("sm")]: {
       margin: theme.spacing(2),
     },
   },
 }));
 export const ResponsivePaper = styled(Paper)(({ theme }) => ({
-  backgroundColor: "white",
+  backgroundColor: TEXT_CUSTOM.WHITE,
   padding: theme.spacing(3),
   width: "100%",
   height: "auto",
@@ -846,14 +847,14 @@ export const ResponsivePaper = styled(Paper)(({ theme }) => ({
   },
 }));
 
-export const StyledBoxChip = styled(Chip)(({ theme }) => ({
+export const StyledBoxChip = styled(Chip)({
   fontSize: "12px",
   fontFamily: '"Poppins", sans-serif',
   height: "24px",
   
-  color:"#5B616D",
+  color:TEXT_CUSTOM.PRIMARY_MED,
   fontWeight:600,
-  backgroundColor:"#F4F4F6",
+  backgroundColor:SURFACE.GREY_SURFACE_2,
   borderRadius:"2px",
   paddingLeft: 8,
   paddingRight: 8,
@@ -862,69 +863,5 @@ export const StyledBoxChip = styled(Chip)(({ theme }) => ({
     paddingRight: 0,
   },
 
-}));
-export const CartDrawerHeader = styled(Box)(({ theme }) => ({
-  height: "76px",
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  backgroundColor: "white",
-}));
-export const ProductImage = styled(Box)(({ theme }) => ({
-  width: "35%",
-  [theme.breakpoints.up("sm")]: {
-    width: "27%",
-  },
-  height: "auto",
-  objectFit: "cover",
-  borderRadius: theme.shape.borderRadius,
-}));
-export const StyledCartDrawerPaper = styled(Paper)(({ theme }) => ({
-  width: "100%",
-  backgroundColor: "white",
-  display: "flex",
-  flexDirection: "column",
-  height: "100vh",
-  [theme.breakpoints.up("sm")]: {
-    width: 480,
-  },
-}));
-export const CartDurationText = styled(Typography)(({ theme }) => ({
-  width: "135px",
-  height: "20px",
-  fontFamily: "Poppins, sans-serif",
-  fontStyle: "normal",
-  fontWeight: 400,
-  fontSize: "13px",
-  lineHeight: "20px",
-  color: "#5B616D",
-}));
-export const CartPrice = styled(Typography)(({ theme }) => ({
-  color: "#CD0F28",
-  fontWeight: 600,
-  fontSize: "18px",
-  paddingTop: "12.5px",
-  paddingBottom: "12.5px",
-}));
-export const CartQuantityButtonWrapper = styled(Box)(() => ({
-  border: "1px solid #ccc",
-  borderRadius: "6px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-export const FlexBetween = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems:"center",
 });
-export const QuantityButtonContainer = styled(Box)(() => ({
-  border: "1px solid #ccc",
-  borderRadius: "6px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
 
