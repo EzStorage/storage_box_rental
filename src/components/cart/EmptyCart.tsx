@@ -1,9 +1,20 @@
-export function EmptyCart() {
-    return (
-        <div style={{ textAlign: "center", padding: "20px" }}>
-            <h2>Your Cart is Empty</h2>
-            <p>Looks like you haven&apos;t added anything to your cart yet.</p>
-            <p>Start shopping now!</p>
-        </div>
-    );
-}
+
+import React from "react";
+import { Box, Typography } from "@mui/material";
+import EmptyCartIcon from "../Icons/EmptyCart";
+import { sectionBoxSx, BookingTryAgain, CenteredStack } from "./CartStyles";
+
+const EmptyCartView: React.FC = () => {
+  return (
+    <CenteredStack>
+      <Box sx={sectionBoxSx}>
+        <EmptyCartIcon />
+      </Box>
+      <Typography sx={{ pb: 3 }}>No storage yet!</Typography>
+      <BookingTryAgain>Book new storage</BookingTryAgain>
+    </CenteredStack>
+  );
+};
+
+export default EmptyCartView;
+

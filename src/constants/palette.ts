@@ -1,4 +1,5 @@
 export const SURFACE = {
+<<<<<<< HEAD
     PRIMARY_MED: "#EF151E",
     PRIMARY_HIGH: "#CD0F28",
     PRIMARY_BASE: "#FFF2EC",
@@ -19,6 +20,30 @@ export const OUTLINE = {
     GREY_BASE: "#F4F4F6",
     GREY_MED: "#DDDFE4",
     GREY_LIGHT: "#C3C6CC",
+=======
+  PRIMARY_MED: "#EF151E",
+  PRIMARY_HIGH: "#CD0F28",
+  PRIMARY_BASE: "#FFF2EC",
+  INFO: "#F0F5FF",
+  GREY_SURFACE_0: "#FFFFFF",
+  GREY_SURFACE_1: "#F9F9FA",
+  GREY_SURFACE_2: "#F4F4F6",
+  DISABLED_BASE: "#F4F4F6",
+  DISABLED_LOW: "#EBECF0",
+  BLACK: "#000000",
+  PRIMARY_DARK:"#cc0000",
+  BACKGROUNND_LIGHT:"#f5f6f9",
+  GREEN:"#59961F"
+};
+
+export const OUTLINE = {
+  PRIMARY_MED: "#FA8371",
+  GREY_LOW: "#EBECF0",
+  GREY_BASE: "#F4F4F6",
+  GREY_MED: "#DDDFE4",
+  GREY_LIGHT:"#D1D5DB",
+  
+>>>>>>> 107df30 (EmptyCart and Palettes)
 };
 
 export const TEXT_CUSTOM = {
