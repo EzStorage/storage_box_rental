@@ -10,7 +10,7 @@ const MainLayout: React.FC = () => {
 
     return (
         <>
-            {isShowHeaderFooter && <Header />}
+            {isShowHeaderFooter && <Header/>}
             <Outlet />
             {isShowHeaderFooter && <Footer />}
         </>

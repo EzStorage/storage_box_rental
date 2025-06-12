@@ -9,6 +9,7 @@ export const SURFACE = {
   DISABLED_BASE: "#F4F4F6",
   DISABLED_LOW: "#EBECF0",
   BLACK: "#000000",
+  PRIMARY_DARK:"#cc0000"
 };
 
 export const OUTLINE = {
