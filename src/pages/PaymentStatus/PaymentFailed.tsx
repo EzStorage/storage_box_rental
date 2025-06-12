@@ -26,7 +26,7 @@ import {
 import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
 */
 import { ResponsiveFlexBox } from "../Homepage/Homepage.styles";
-import Standard from "../assets/standard-box.png";
+import Standard from "../../assets/standard-box.png";
 import { CrossCircleIcon } from "../../components/Icons/CrossCircleIcon";
 export default function App() {
     const boxSteps = [

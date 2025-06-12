@@ -11,11 +11,10 @@ import {
 } from "./ReturnInformation.styles";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
 import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
-import { DatePicker } from "../DatePicker";
 import { Note, NoteVariantsEnum } from "@components/Note";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { TimeSlotSelector } from "../TimeSlotSelector";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
 import { CustomDatePicker } from "../CustomDatePicker";
 import { addDays } from "date-fns";

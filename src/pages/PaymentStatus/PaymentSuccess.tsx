@@ -22,7 +22,7 @@ import {
 } from "../Homepage/Homepage.styles";
 
 import { CheckCircleIcon } from "../../components/Icons/CheckCircleIcon";
-import Standard from "../assets/standard-box.png";
+import Standard from "../../assets/standard-box.png";
 import { ResponsiveFlexBox } from "../Homepage/Homepage.styles";
 export default function App() {
     const boxSteps = [
