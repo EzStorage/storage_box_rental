@@ -17,6 +17,7 @@ import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
 import { DatePicker } from "@pages/BookingFlow/components/DatePicker";
 import { TimeSlotSelector } from "@pages/BookingFlow/components/TimeSlotSelector";
+import { CustomDatePicker } from "@pages/BookingFlow/components/CustomDatePicker";
 
 const SERVICE_INFORMATION = `To ensure a smooth storage experience, we provide our EZ Storage boxes for you
                     to pack your items. Simply let us know where to deliver the empty box, and once
@@ -77,7 +78,11 @@ export function ThirdStep() {
 
             <ThirdStepInputContainer>
                 <div>When should the delivery be made?</div>
-                <DatePicker onChange={() => handleChangeDate(new Date())} />
+                <CustomDatePicker
+                    defaultValue={new Date()}
+                    minDate={new Date()}
+                    onChange={handleChangeDate}
+                />
             </ThirdStepInputContainer>
 
             <ThirdStepSelectorContainer>

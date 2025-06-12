@@ -11,19 +11,21 @@ import {
 } from "./PickupInformation.styles";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
 import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
-import { DatePicker } from "../DatePicker";
 import { Note } from "@components/Note";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { useTheme } from "@mui/material";
 import { TimeSlotSelector } from "../TimeSlotSelector";
+import { CustomDatePicker } from "../CustomDatePicker";
+import { addDays } from "date-fns";
 
 export function PickupInformation() {
     const theme = useTheme();
     const { handleChangePickupField } = useBookingFormActions();
 
+    const deliveryDate = useBookingSelector(state => state.form.delivery.date);
     const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
-    const pickupLocation = useBookingSelector(state => state.form.pickup.location);
 
+    const pickupLocation = useBookingSelector(state => state.form.pickup.location);
     const pickupTimeType = useBookingSelector(state => state.form.pickup.timeType);
     const pickupTimeSlot = useBookingSelector(state => state.form.pickup.timeSlot);
 
@@ -75,7 +77,13 @@ export function PickupInformation() {
                         This day will serve as the storage start date
                     </PickupDescription>
                 </div>
-                <DatePicker onChange={handleChangeDate} value={new Date()} />
+                <CustomDatePicker
+                    key={deliveryDate?.toISOString()}
+                    defaultValue={deliveryDate}
+                    minDate={deliveryDate}
+                    maxDate={addDays(deliveryDate, 30)}
+                    onChange={handleChangeDate}
+                />
                 <NoteContainer>
                     <Note Icon={<InfoIcon width={"15px"} color={theme.palette.textCustom.info} />}>
                         Your storage start date must be within <span>30 days</span> of the empty box

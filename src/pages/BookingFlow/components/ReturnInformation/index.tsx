@@ -17,6 +17,8 @@ import InfoIcon from "@components/Icons/InfoIcon";
 import { TimeSlotSelector } from "../TimeSlotSelector";
 import { useEffect, useMemo } from "react";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
+import { CustomDatePicker } from "../CustomDatePicker";
+import { addDays } from "date-fns";
 
 export function ReturnInformation() {
     const theme = useTheme();
@@ -24,13 +26,7 @@ export function ReturnInformation() {
 
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
     const pickupDate = useBookingSelector(state => state.form.pickup.date);
-
     const durationPlans = DURATION_PLANS.find(info => info.id === commitmentPeriod)?.days ?? 0;
-    const futureDate = useMemo(() => {
-        if (!pickupDate || !durationPlans) return undefined;
-        const date = new Date(new Date(pickupDate).getTime() + durationPlans * 86400000);
-        return date;
-    }, [pickupDate, durationPlans]);
 
     const pickupLocation = useBookingSelector(state => state.form.pickup.location);
     const returnLocation = useBookingSelector(state => state.form.return.location);
@@ -87,10 +83,12 @@ export function ReturnInformation() {
 
             <ReturnStepInputContainer>
                 <div>When will we return your items to your place?</div>
-                <DatePicker
-                    key={futureDate?.toISOString()}
+                <CustomDatePicker
+                    key={pickupDate?.toISOString()}
+                    defaultValue={addDays(pickupDate, durationPlans)}
+                    minDate={pickupDate}
+                    maxDate={addDays(pickupDate, durationPlans)}
                     onChange={handleChangeDate}
-                    value={futureDate}
                 />
                 <NoteContainer>
                     <Note
