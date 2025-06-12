@@ -29,10 +29,7 @@ export function PaymentInformation() {
         [quantity, product.bulkPricingTiers],
     );
 
-    const totalAmount = useMemo(
-        () => unitPrice * month * quantity,
-        [quantity, month, product.bulkPricingTiers, unitPrice],
-    );
+    const totalAmount = useMemo(() => unitPrice * month * quantity, [quantity, month, unitPrice]);
 
     return (
         <>

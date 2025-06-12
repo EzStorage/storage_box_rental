@@ -57,7 +57,7 @@ export function useBookingFormActions() {
         }));
     };
 
-    const validateField = (field: string, value: string): boolean => {
+    const validateField = (): boolean => {
         // Example validation logic
         return true;
     };

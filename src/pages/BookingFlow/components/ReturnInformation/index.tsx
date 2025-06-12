@@ -14,7 +14,6 @@ import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
 import { Note, NoteVariantsEnum } from "@components/Note";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { TimeSlotSelector } from "../TimeSlotSelector";
-import { useEffect } from "react";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
 import { CustomDatePicker } from "../CustomDatePicker";
 import { addDays } from "date-fns";
@@ -57,13 +56,6 @@ export function ReturnInformation() {
             handleChangeLocation("");
         }
     };
-
-    useEffect(() => {
-        if (!pickupDate || !durationPlans) return;
-        const pickup = new Date(pickupDate);
-        const newFutureDate = new Date(pickup.getTime() + durationPlans * 86400000);
-        handleChangeDate(newFutureDate);
-    }, [pickupDate, durationPlans]);
 
     return (
         <ReturnInformationContainer>

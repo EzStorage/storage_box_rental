@@ -8,7 +8,7 @@ export async function useBookingInitialization() {
     useEffect(() => {
         async function initializeBooking() {
             try {
-                const data = await getInitialBookingData();
+                await getInitialBookingData();
                 commit({});
             } catch (error) {
                 console.error("Failed to initialize booking:", error);

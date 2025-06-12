@@ -15,7 +15,6 @@ import {
 import { LocationInput } from "@pages/BookingFlow/components/LocationInput";
 import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
-import { DatePicker } from "@pages/BookingFlow/components/DatePicker";
 import { TimeSlotSelector } from "@pages/BookingFlow/components/TimeSlotSelector";
 import { CustomDatePicker } from "@pages/BookingFlow/components/CustomDatePicker";
 

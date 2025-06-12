@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { ChevronContainer, TimePeriodDropdownContainer } from "./TimePeriodDropdown.styles";
 import { IconButton } from "@mui/material";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
