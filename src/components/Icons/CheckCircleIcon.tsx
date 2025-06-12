@@ -21,10 +21,10 @@ export const CheckCircleIcon = () => (
                 y2="1.98812"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop stop-color="#20C59D" />
-                <stop offset="0.3103" stop-color="#38CE8C" />
-                <stop offset="0.9631" stop-color="#75E461" />
-                <stop offset="1" stop-color="#79E55E" />
+                <stop stopColor="#20C59D" />
+                <stop offset="0.3103" stopColor="#38CE8C" />
+                <stop offset="0.9631" stopColor="#75E461" />
+                <stop offset="1" stopColor="#79E55E" />
             </linearGradient>
             <linearGradient
                 id="paint1_linear_66_20412"
@@ -34,8 +34,8 @@ export const CheckCircleIcon = () => (
                 y2="14.6854"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop offset="0.0168" stop-color="#CCCCCC" />
-                <stop offset="1" stop-color="#F2F2F2" />
+                <stop offset="0.0168" stopColor="#CCCCCC" />
+                <stop offset="1" stopColor="#F2F2F2" />
             </linearGradient>
             <linearGradient
                 id="paint2_linear_66_20412"
@@ -45,8 +45,8 @@ export const CheckCircleIcon = () => (
                 y2="31.4227"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop stop-color="#41262F" />
-                <stop offset="1" stop-color="#543843" />
+                <stop stopColor="#41262F" />
+                <stop offset="1" stopColor="#543843" />
             </linearGradient>
         </defs>
     </svg>

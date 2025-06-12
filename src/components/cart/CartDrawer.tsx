@@ -6,7 +6,6 @@ import { RootState } from "../../app/store";
 import { updateQuantity, closeCart } from "../../redux/auth/cartSlice";
 import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import Standard_Product from "../../assets/standard-box.png";
-import EmptyCartIcon from "../../components/Icons/EmptyCart";
 import {
     Bold_text,
     Button_Cart,
@@ -17,19 +16,16 @@ import {
     FlexBetween,
     QuantityButtonContainer,
     SuperScript,
-    BookingTryAgain,
     paperSx,
     ScrollableContent,
-    CenteredStack,
     HorizontalItemStack,
     productImageSx,
-    sectionBoxSx,
     cartIconButtonSx,
     mutedTextSx,
     lightDividerSx,
 } from "./CartStyles";
-import EmptyCart from "./EmptyCart"
-import { SURFACE, OUTLINE, TEXT_CUSTOM } from "../../constants/palette"; 
+import { EmptyCart } from "./EmptyCart";
+import { SURFACE } from "../../constants/palette";
 const CartDrawer: React.FC = () => {
     const dispatch = useDispatch();
     const open = useSelector((state: RootState) => state.cart.isOpen);
@@ -38,9 +34,9 @@ const CartDrawer: React.FC = () => {
     const onClose = () => dispatch(closeCart());
     const onQuantityChange = (cartItemId: string, newQuantity: number) =>
         dispatch(updateQuantity({ id: cartItemId, quantity: newQuantity }));
-    const incrementQuantity = (cartItemId: string, currentQty: number = 1) =>
+    const incrementQuantity = (cartItemId: string, currentQty = 1) =>
         onQuantityChange(cartItemId, currentQty + 1);
-    const decrementQuantity = (cartItemId: string, currentQty: number = 1) =>
+    const decrementQuantity = (cartItemId: string, currentQty = 1) =>
         currentQty > 1 && onQuantityChange(cartItemId, currentQty - 1);
     const handleIncrementClick = (cartItemId: string, quantity: number) => () => {
         incrementQuantity(cartItemId, quantity);
@@ -77,7 +73,7 @@ const CartDrawer: React.FC = () => {
 
             <ScrollableContent>
                 {cartItems.length === 0 ? (
-                    <EmptyCart/>
+                    <EmptyCart />
                 ) : (
                     cartItems.map((item, index) => {
                         const unitPrice = calculateUnitPrice(
@@ -100,7 +96,10 @@ const CartDrawer: React.FC = () => {
                                                 <CartQuantityButtonWrapper justifyContent="center">
                                                     <IconButton
                                                         size="small"
-                                                        onClick={handleDecrementClick(item.cartItemId, item.quantity || 1)}
+                                                        onClick={handleDecrementClick(
+                                                            item.cartItemId,
+                                                            item.quantity || 1,
+                                                        )}
                                                         sx={cartIconButtonSx}
                                                     >
                                                         <IoRemoveOutline />
@@ -110,7 +109,10 @@ const CartDrawer: React.FC = () => {
                                                 <QuantityButtonContainer>
                                                     <IconButton
                                                         size="small"
-                                                        onClick={handleIncrementClick(item.cartItemId, item.quantity || 1)}
+                                                        onClick={handleIncrementClick(
+                                                            item.cartItemId,
+                                                            item.quantity || 1,
+                                                        )}
                                                         sx={cartIconButtonSx}
                                                     >
                                                         <IoAddOutline />

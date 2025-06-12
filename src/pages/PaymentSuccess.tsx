@@ -1,111 +1,93 @@
-import React from "react";
+import { Box, Divider, Stack } from "@mui/material";
 import {
-  Box,
-  Paper,
-  Divider,
-  Stack,
-} from "@mui/material";
-
-import {
-  FullPageContainer,
-  LabelRow,
-  SuccessFailureHeading,
-  IDText,
-  ThankText,
-  BorderBox,
-  BookingTryAgain,
-  ValueColumn,
-  LabelText,
-  StyledWhiteButton,
-  VerticalDivider,
-  DimensionText,
-  StatusText,
-  Bold_text,
-  BoxAttributeChip,
-  AddressText,
-  TimeText,
-  ResponsiveStack,
-  ResponsivePaper,
-  StyledBoxChip,
+    FullPageContainer,
+    LabelRow,
+    SuccessFailureHeading,
+    IDText,
+    ThankText,
+    BorderBox,
+    BookingTryAgain,
+    ValueColumn,
+    LabelText,
+    StyledWhiteButton,
+    VerticalDivider,
+    DimensionText,
+    StatusText,
+    Bold_text,
+    AddressText,
+    TimeText,
+    ResponsiveStack,
+    ResponsivePaper,
+    StyledBoxChip,
 } from "./Homepage/Homepage.styles";
 
 import { CheckCircleIcon } from "../components/Icons/CheckCircleIcon";
 import Standard from "../assets/standard-box.png";
 import { ResponsiveFlexBox } from "./Homepage/Homepage.styles";
 export default function App() {
-  const boxSteps = [
-    { label: "Empty Box Dropoff" },
-    { label: "Packed Box Pickup" },
-    { label: "Packed box dropoff" },
-  ];
-  return (
-    <FullPageContainer textAlign={"center"}>
-      <CheckCircleIcon />
+    const boxSteps = [
+        { label: "Empty Box Dropoff" },
+        { label: "Packed Box Pickup" },
+        { label: "Packed box dropoff" },
+    ];
+    return (
+        <FullPageContainer textAlign={"center"}>
+            <CheckCircleIcon />
 
-      <SuccessFailureHeading>Payment success</SuccessFailureHeading>
+            <SuccessFailureHeading>Payment success</SuccessFailureHeading>
 
-      <ThankText>
-        Thank you for your purchase! Your booking information will be sent to{" "}
-        <strong style={{ color: "black" }}>(+65) 1234 123 124</strong>
-      </ThankText>
+            <ThankText>
+                Thank you for your purchase! Your booking information will be sent to{" "}
+                <strong style={{ color: "black" }}>(+65) 1234 123 124</strong>
+            </ThankText>
 
-      <ResponsivePaper
-      >
-        <IDText>
-          <span>Booking ID: 234KHHK</span>
-          <VerticalDivider />
-          <StatusText>Paid</StatusText>
-        </IDText>
+            <ResponsivePaper>
+                <IDText>
+                    <span>Booking ID: 234KHHK</span>
+                    <VerticalDivider />
+                    <StatusText>Paid</StatusText>
+                </IDText>
 
-        <BorderBox>
-          <ResponsiveFlexBox
-          >
-            <img
-              src={Standard}
-              alt="Standard Box"
-              width={80}
-              height={80}
-              style={{ objectFit: "contain" }}
-            />
+                <BorderBox>
+                    <ResponsiveFlexBox>
+                        <img
+                            src={Standard}
+                            alt="Standard Box"
+                            width={80}
+                            height={80}
+                            style={{ objectFit: "contain" }}
+                        />
 
-            <Box>
-              <Bold_text style={{ fontSize: 18 }}>Standard Box</Bold_text>
-              <Stack direction="row" spacing={0.8} mt={0.5}>
-                <StyledBoxChip
-                  label="60 x 40 x 31cm"
-                />
-                <StyledBoxChip
-                  label="Max 20kg"
-                />
-              </Stack>
-              <DimensionText>2 boxes × 6 months</DimensionText>
-            </Box>
-          </ResponsiveFlexBox>
+                        <Box>
+                            <Bold_text style={{ fontSize: 18 }}>Standard Box</Bold_text>
+                            <Stack direction="row" spacing={0.8} mt={0.5}>
+                                <StyledBoxChip label="60 x 40 x 31cm" />
+                                <StyledBoxChip label="Max 20kg" />
+                            </Stack>
+                            <DimensionText>2 boxes × 6 months</DimensionText>
+                        </Box>
+                    </ResponsiveFlexBox>
 
-          {boxSteps.map((item, index) => (
-            <Box key={index} sx={{ mb: 1 }}>
-              <LabelRow>
-                <LabelText>{item.label}</LabelText>
+                    {boxSteps.map((item, index) => (
+                        <Box key={index} sx={{ mb: 1 }}>
+                            <LabelRow>
+                                <LabelText>{item.label}</LabelText>
 
-                <ValueColumn>
-                  <AddressText>123 Changi, Singapore</AddressText>
-                  <TimeText>Wed, 24 Sep 2025 · 6-hour slot · 8am - 2pm</TimeText>
-                </ValueColumn>
-              </LabelRow>
-              {index < 2 && (
-                <Divider sx={{ backgroundColor: "#EBECF0", my: 1 }} />
-              )}
-            </Box>
-          ))}
-        </BorderBox>
-      </ResponsivePaper>
+                                <ValueColumn>
+                                    <AddressText>123 Changi, Singapore</AddressText>
+                                    <TimeText>Wed, 24 Sep 2025 · 6-hour slot · 8am - 2pm</TimeText>
+                                </ValueColumn>
+                            </LabelRow>
+                            {index < 2 && <Divider sx={{ backgroundColor: "#EBECF0", my: 1 }} />}
+                        </Box>
+                    ))}
+                </BorderBox>
+            </ResponsivePaper>
 
-      
-      <ResponsiveStack
-      >
-        <StyledWhiteButton>Go to dashboard</StyledWhiteButton>
-        <BookingTryAgain>Go to my bookings</BookingTryAgain>
-      </ResponsiveStack>
-    </FullPageContainer>
-  );
+            <ResponsiveStack>
+                <StyledWhiteButton>Go to dashboard</StyledWhiteButton>
+                <BookingTryAgain>Go to my bookings</BookingTryAgain>
+            </ResponsiveStack>
+        </FullPageContainer>
+    );
 }

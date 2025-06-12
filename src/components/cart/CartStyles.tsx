@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
-import background from "../../assets/background-hero.jpg";
-import { Box, Grid, Stack, Button, Chip } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Stack, Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { CrossCircleIcon } from "@components/Icons/CrossCircleIcon";
 import { SURFACE, OUTLINE, TEXT_CUSTOM } from "../../constants/palette";
 
 export const CartDrawerHeader = styled(Box)(({ theme }) => ({
@@ -14,7 +11,7 @@ export const CartDrawerHeader = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: SURFACE.GREY_SURFACE_0, 
+    backgroundColor: SURFACE.GREY_SURFACE_0,
 }));
 
 export const StyledCartDrawerPaper = styled(Paper)(({ theme }) => ({
@@ -36,11 +33,11 @@ export const CartDurationText = styled(Typography)({
     fontWeight: 400,
     fontSize: "13px",
     lineHeight: "20px",
-    color: TEXT_CUSTOM.PRIMARY_MED, 
+    color: TEXT_CUSTOM.PRIMARY_MED,
 });
 
 export const CartPrice = styled(Typography)({
-    color: TEXT_CUSTOM.PRIMARY_HIGH, 
+    color: TEXT_CUSTOM.PRIMARY_HIGH,
     fontWeight: 600,
     fontSize: "18px",
     paddingTop: "12.5px",
@@ -48,7 +45,7 @@ export const CartPrice = styled(Typography)({
 });
 
 export const CartQuantityButtonWrapper = styled(Box)(() => ({
-    border: `1px solid ${OUTLINE.GREY_MED}`, 
+    border: `1px solid ${OUTLINE.GREY_MED}`,
     borderRadius: "6px",
     display: "flex",
     alignItems: "center",
@@ -74,7 +71,7 @@ export const Bold_text = styled("h5")(({ theme }) => ({
     fontSize: "22px",
     display: "flex",
     alignItems: "center",
-    color: TEXT_CUSTOM.GREY_HIGH, 
+    color: TEXT_CUSTOM.GREY_HIGH,
     paddingLeft: "30px",
     fontFamily: '"Poppins", sans-serif',
     [theme.breakpoints.up("md")]: {
@@ -89,7 +86,7 @@ export const Button_Cart = styled(Button)({
     backgroundColor: SURFACE.PRIMARY_MED,
     color: TEXT_CUSTOM.WHITE,
     textTransform: "none",
-    "&:hover": { backgroundColor: SURFACE.PRIMARY_HIGH }, 
+    "&:hover": { backgroundColor: SURFACE.PRIMARY_HIGH },
     width: "305px",
     minHeight: "40px",
     display: "flex",

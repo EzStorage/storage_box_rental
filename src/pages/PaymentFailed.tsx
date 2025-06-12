@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Typography, Paper, Button, Divider, Stack, Chip } from "@mui/material";
+import { Box, Divider, Stack } from "@mui/material";
 
 import {
     FullPageContainer,
@@ -16,7 +15,6 @@ import {
     DimensionText,
     StatusText,
     Bold_text,
-    BoxAttributeChip,
     AddressText,
     TimeText,
     ResponsiveStack,
@@ -29,9 +27,7 @@ import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
 */
 import { ResponsiveFlexBox } from "./Homepage/Homepage.styles";
 import Standard from "../assets/standard-box.png";
-import { Product } from ".././types/product.type";
 import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
-import image from "../assets/image.png";
 export default function App() {
     const boxSteps = [
         { label: "Empty Box Dropoff" },
@@ -40,7 +36,7 @@ export default function App() {
     ];
     return (
         <FullPageContainer textAlign={"center"}>
-            <CrossCircleIcon/>
+            <CrossCircleIcon />
 
             <SuccessFailureHeading>Payment Failed</SuccessFailureHeading>
 
@@ -68,12 +64,8 @@ export default function App() {
                         <Box>
                             <Bold_text style={{ fontSize: 18 }}>Standard Box</Bold_text>
                             <Stack direction="row" spacing={0.8} mt={0.5}>
-                                <StyledBoxChip
-                                    label="60 x 40 x 31cm"
-                                />
-                                <StyledBoxChip
-                                    label="Max 20kg"
-                                />
+                                <StyledBoxChip label="60 x 40 x 31cm" />
+                                <StyledBoxChip label="Max 20kg" />
                             </Stack>
                             <DimensionText>2 boxes × 6 months</DimensionText>
                         </Box>

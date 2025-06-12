@@ -1,5 +1,4 @@
-
-import { Avatar, Badge, Popover, Stack,IconButton } from "@mui/material";
+import { Avatar, Badge, Popover, Stack, IconButton } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useState } from "react";
@@ -12,9 +11,8 @@ import ProfilePopover from "./ProfilePopover";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { NAV_ITEMS } from "./constants";
 import { logout } from "src/redux/auth/authSlice";
-import { useDispatch } from "react-redux";
 import { openCart } from "../../redux/auth/cartSlice";
-const Header: React.FC= () => {
+const Header: React.FC = () => {
     const dispatch = useAppDispatch();
     const { isDesktop } = useScreenSize();
     const location = useLocation();
@@ -90,9 +88,8 @@ const Header: React.FC= () => {
             <HeaderRight>
                 <Badge>
                     <IconButton onClick={() => dispatch(openCart())}>
-                    <ShopCartIcon width={24} color={!isWhiteBackground ? "white" : "black"} />
+                        <ShopCartIcon width={24} color={!isWhiteBackground ? "white" : "black"} />
                     </IconButton>
-
                 </Badge>
 
                 {isDesktop && (

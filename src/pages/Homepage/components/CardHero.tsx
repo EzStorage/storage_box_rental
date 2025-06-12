@@ -1,4 +1,4 @@
-import { Box, Chip, Divider, Grid, IconButton, Stack, useTheme ,Button} from "@mui/material";
+import { Box, Chip, Divider, Grid, IconButton, Stack, useTheme } from "@mui/material";
 import {
     CardHeroContainer,
     CardHeroImage,
@@ -118,10 +118,9 @@ const CardHero: React.FC<CardHeroProps> = ({ productId = "standard-box" }) => {
                             <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
                         }
                         onClick={() => dispatch(addToCart({ product, quantity }))}
-
                     >
                         Add to cart
-                    </MyButton >
+                    </MyButton>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
                     <MyButton variantType="primary" fullWidth>

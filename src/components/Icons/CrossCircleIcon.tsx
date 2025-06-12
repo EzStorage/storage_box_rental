@@ -17,8 +17,8 @@ export const CrossCircleIcon = () => (
                 y2="54.6275"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop stop-color="#FD7F60" />
-                <stop offset="1" stop-color="#FA262A" />
+                <stop stopColor="#FD7F60" />
+                <stop offset="1" stopColor="#FA262A" />
             </linearGradient>
         </defs>
     </svg>
