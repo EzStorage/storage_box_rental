@@ -18,10 +18,10 @@ const Router = createBrowserRouter([
                 path: "/login",
                 element: <Login />,
             },
-            {
-                path: "/booking",
-                element: <Booking />,
-            },
+            // {
+            //     path: "/booking",
+            //     element: <Booking />,
+            // },
             {
                 element: <ProtectedRoute />,
                 children: [],
