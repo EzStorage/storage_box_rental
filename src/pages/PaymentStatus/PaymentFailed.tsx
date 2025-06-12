@@ -20,14 +20,14 @@ import {
     ResponsiveStack,
     ResponsivePaper,
     StyledBoxChip,
-} from "./Homepage/Homepage.styles";
+} from "../Homepage/Homepage.styles";
 
 /*
 import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
 */
-import { ResponsiveFlexBox } from "./Homepage/Homepage.styles";
+import { ResponsiveFlexBox } from "../Homepage/Homepage.styles";
 import Standard from "../assets/standard-box.png";
-import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
+import { CrossCircleIcon } from "../../components/Icons/CrossCircleIcon";
 export default function App() {
     const boxSteps = [
         { label: "Empty Box Dropoff" },

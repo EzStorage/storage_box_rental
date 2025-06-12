@@ -19,11 +19,11 @@ import {
     ResponsiveStack,
     ResponsivePaper,
     StyledBoxChip,
-} from "./Homepage/Homepage.styles";
+} from "../Homepage/Homepage.styles";
 
-import { CheckCircleIcon } from "../components/Icons/CheckCircleIcon";
+import { CheckCircleIcon } from "../../components/Icons/CheckCircleIcon";
 import Standard from "../assets/standard-box.png";
-import { ResponsiveFlexBox } from "./Homepage/Homepage.styles";
+import { ResponsiveFlexBox } from "../Homepage/Homepage.styles";
 export default function App() {
     const boxSteps = [
         { label: "Empty Box Dropoff" },

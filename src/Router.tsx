@@ -6,8 +6,8 @@ import Login from "./pages/Login";
 import { Booking } from "@pages/BookingFlow";
 
 import Homepage from "./pages/Homepage/index";
-import PaymentSuccess from "./pages/PaymentSuccess";
-import PaymentFailed from "./pages/PaymentFailed";
+import PaymentSuccess from "./pages/PaymentStatus/PaymentSuccess";
+import PaymentFailed from "./pages/PaymentStatus/PaymentFailed";
 
 const router = createBrowserRouter([
     {
