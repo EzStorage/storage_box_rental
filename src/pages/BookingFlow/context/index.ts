@@ -32,7 +32,7 @@ const initalBookingState: IBookingState = {
         bookingId: "",
         productId: "",
         quantity: 2,
-        commitmentPeriod: "1month",
+        commitmentPeriod: "1M",
         deliveryLocation: "",
         delivery: {
             location: "",

@@ -26,7 +26,7 @@ export function createFastContext<Store extends Record<string, any>>(initialValu
         const subscribersRef = useRef(new Set<SubscribeFn>());
 
         const returnValue = useMemo(
-            {
+            () => ({
                 get: () => storeRef.current,
                 set: (value: Partial<Store> | ((store: Store) => Partial<Store>)) => {
                     const newValue = typeof value === "function" ? value(storeRef.current) : value;
@@ -41,7 +41,7 @@ export function createFastContext<Store extends Record<string, any>>(initialValu
                         subscribersRef.current.delete(callback);
                     };
                 },
-            },
+            }),
             [],
         );
 
