@@ -13,11 +13,11 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const ProductChipContainer = styled("div")(() => ({
+export const ProductChipContainer = styled("div")({
     display: "flex",
     alignItems: "center",
     gap: "6px",
-}));
+});
 
 export const ProductDiscountedPeriod = styled("span")(({ theme }) => ({
     fontSize: "13px",
@@ -39,10 +39,10 @@ export const ProductShowBulkPricing = styled("div")(({ theme }) => ({
     },
 }));
 
-export const ProductList = styled("ul")(({}) => ({
+export const ProductList = styled("ul")({
     listStyleType: "disc",
     marginLeft: "16px",
-}));
+});
 
 // ----- Card Hero ------
 

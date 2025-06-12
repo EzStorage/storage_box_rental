@@ -51,11 +51,11 @@ export const HeaderLeftNav = styled("nav", {
     },
 }));
 
-export const HeaderRight = styled("div")(() => ({
+export const HeaderRight = styled("div")({
     display: "flex",
     alignItems: "center",
     gap: "24px",
-}));
+});
 
 // ---- Profile Popover -----
 

@@ -1,5 +1,11 @@
 import { Stack, useTheme } from "@mui/material";
-import { OTPDash, OTPError, OTPInputContainer, OTPInputItem } from "./OTPInput.styles";
+import {
+    htmlInputStyles,
+    OTPDash,
+    OTPError,
+    OTPInputContainer,
+    OTPInputItem,
+} from "./OTPInput.styles";
 import { useEffect, useRef } from "react";
 import InfoIcon from "../Icons/InfoIcon";
 
@@ -86,14 +92,10 @@ const OTPInput: React.FC<OTPInputProps> = ({
                         slotProps={{
                             htmlInput: {
                                 style: {
-                                    textAlign: "center",
-                                    fontSize: "22px",
-                                    fontWeight: 600,
-                                    lineHeight: "28px",
+                                    ...htmlInputStyles,
                                     color: isInvalidOtp
                                         ? theme.palette.textCustom.danger
                                         : theme.palette.textCustom.greyBase,
-                                    padding: "12px 16px",
                                 },
                             },
                         }}
@@ -116,14 +118,10 @@ const OTPInput: React.FC<OTPInputProps> = ({
                         slotProps={{
                             htmlInput: {
                                 style: {
-                                    textAlign: "center",
-                                    fontSize: "22px",
-                                    fontWeight: 600,
-                                    lineHeight: "28px",
+                                    ...htmlInputStyles,
                                     color: isInvalidOtp
                                         ? theme.palette.textCustom.danger
                                         : theme.palette.textCustom.greyBase,
-                                    padding: "12px 16px",
                                 },
                             },
                         }}

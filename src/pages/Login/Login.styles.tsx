@@ -31,7 +31,7 @@ export const LoginHeaderMobile = styled(Box)(({ theme }) => ({
     padding: "2px 8px",
 }));
 
-export const DesktopBranding = styled(Stack)(({}) => ({
+export const DesktopBranding = styled(Stack)({
     color: "white",
 
     ".title": {
@@ -46,7 +46,7 @@ export const DesktopBranding = styled(Stack)(({}) => ({
         fontSize: "22px",
         lineHeight: "28px",
     },
-}));
+});
 
 export const FormContainer = styled(Stack)(({ theme }) => ({
     padding: "24px",

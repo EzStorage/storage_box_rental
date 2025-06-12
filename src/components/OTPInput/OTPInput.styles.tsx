@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { Box, Stack, TextField } from "@mui/material";
+import { Box, Stack, SxProps, TextField, Theme } from "@mui/material";
 
-export const OTPInputContainer = styled(Box)(() => ({
+export const OTPInputContainer = styled(Box)({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     gap: "8px",
-}));
+});
 
 interface OTPInputItemProps {
     isInvalid?: boolean;
@@ -41,7 +41,7 @@ export const OTPDash = styled(Box)(({ theme }) => ({
     color: theme.palette.textCustom.greyLow,
 }));
 
-export const OTPError = styled(Stack)(() => ({
+export const OTPError = styled(Stack)({
     display: "flex",
     alignItems: "center",
     color: "#EF151E",
@@ -51,4 +51,12 @@ export const OTPError = styled(Stack)(() => ({
         fontSize: "12px",
         lineHeight: "16px",
     },
-}));
+});
+
+export const htmlInputStyles: SxProps<Theme> = {
+    textAlign: "center",
+    fontSize: "22px",
+    fontWeight: 600,
+    lineHeight: "28px",
+    padding: "12px 16px",
+};

@@ -9,17 +9,17 @@ export const BoxCounterContainer = styled("div")(({ theme }) => ({
     borderBottom: `1px solid ${theme.palette.outline.greyLow}`,
 }));
 
-export const BoxCounterTitle = styled("div")(({ theme }) => ({
+export const BoxCounterTitle = styled("div")({
     fontWeight: 400,
     fontSize: "15px",
     lineHeight: "24px",
-}));
+});
 
-export const BoxCounterQuality = styled("div")(({}) => ({
+export const BoxCounterQuality = styled("div")({
     display: "flex",
     alignItems: "center",
     gap: "20px",
-}));
+});
 
 export const BoxCounterButton = styled(IconButton)(({ theme }) => ({
     border: `1px solid ${theme.palette.outline.greyLow}`,

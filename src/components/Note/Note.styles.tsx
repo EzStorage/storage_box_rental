@@ -35,11 +35,11 @@ export const NoteContainer = styled("div")<NoteContainerProps>(({ theme, variant
     };
 });
 
-export const NoteColumn = styled("div")(() => ({
+export const NoteColumn = styled("div")({
     display: "flex",
     flexDirection: "column",
     gap: "4px",
-}));
+});
 
 interface NoteProps {
     isTitle?: boolean;
@@ -62,14 +62,14 @@ export const NoteRow = styled("div")<NoteProps>(({ isTitle }) => ({
     }),
 }));
 
-export const NoteContent = styled("div")(({}) => ({
+export const NoteContent = styled("div")({
     fontWeight: 400,
     fontSize: "13px",
     lineHeight: "20px",
-}));
+});
 
-export const NoteTitle = styled("div")(({}) => ({
+export const NoteTitle = styled("div")({
     fontWeight: 600,
     fontSize: "13px",
     lineHeight: "20px",
-}));
+});

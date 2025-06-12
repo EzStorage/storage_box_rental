@@ -8,14 +8,14 @@ import {
     TableHead,
 } from "@mui/material";
 
-export const BulkPricingDialogContainer = styled(Dialog)(() => ({
+export const BulkPricingDialogContainer = styled(Dialog)({
     ".MuiPaper-root": {
         width: "100%",
         borderRadius: "12px",
         position: "relative",
         background: "white",
     },
-}));
+});
 
 export const BulkPricingCloseButton = styled(IconButton)(({ theme }) => ({
     borderRadius: "1000px",

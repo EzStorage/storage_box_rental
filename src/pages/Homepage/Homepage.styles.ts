@@ -235,10 +235,10 @@ export const ColumnsContainer = styled.div`
     height: 100%;
 `;
 
-export const Row = styled("div")(({}) => ({
+export const Row = styled("div")({
     display: "flex",
     alignItems: "center",
-}));
+});
 
 export const Column = styled.div`
     flex: 1;
@@ -348,11 +348,11 @@ export const FooterTitle = styled("h6")(({ theme }) => ({
     marginBottom: "8px",
 }));
 
-export const FooterText = styled("p")(() => ({
+export const FooterText = styled("p")({
     fontSize: "15px",
     fontWeight: 600,
     lineHeight: "24px",
     color: "#C3C6CC",
     margin: 0,
     marginBottom: "6px",
-}));
+});

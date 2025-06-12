@@ -18,7 +18,7 @@ export function Note({ Icon, title, children, variant = NoteVariantsEnum.INFO }:
         <NoteContainer variant={variant}>
             <NoteRow isTitle={!!title}>
                 {Icon && <NoteIcon isTitle={!!title}>{Icon}</NoteIcon>}
-                {!!title ? <NoteTitle>{title}</NoteTitle> : <NoteContent>{children}</NoteContent>}
+                {title ? <NoteTitle>{title}</NoteTitle> : <NoteContent>{children}</NoteContent>}
             </NoteRow>
             {!!title && <NoteContent>{children}</NoteContent>}
         </NoteContainer>

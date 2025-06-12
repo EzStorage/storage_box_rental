@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
 import background from "@assets/background-hero.jpg";
 
-export const DHeroContainer = styled("section")(() => ({
+export const DHeroContainer = styled("section")({
     width: "100%",
     height: "100vh",
     backgroundImage: `url(${background})`,
@@ -28,7 +28,7 @@ export const DHeroContainer = styled("section")(() => ({
         zIndex: 2,
         height: "100%",
     },
-}));
+});
 
 export const MHeroContainer = styled("section", {
     shouldForwardProp: prop => prop !== "isLogin",

@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import { Box, Select, SelectProps } from "@mui/material";
 
-export const PhoneInputContainer = styled(Box)(() => ({
+export const PhoneInputContainer = styled(Box)({
     display: "flex",
     gap: "12px",
-}));
+});
 
 export const PhoneInputSelectContainer = styled(Select<string>)<SelectProps<string>>(
     ({ theme }) => ({
