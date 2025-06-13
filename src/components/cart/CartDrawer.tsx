@@ -24,7 +24,7 @@ import {
     mutedTextSx,
     lightDividerSx,
 } from "./CartStyles";
-import { EmptyCart } from "./EmptyCart";
+import  EmptyCart  from "./EmptyCart";
 import { SURFACE } from "../../constants/palette";
 const CartDrawer: React.FC = () => {
     const dispatch = useDispatch();

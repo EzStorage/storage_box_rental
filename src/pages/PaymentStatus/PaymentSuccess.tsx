@@ -19,7 +19,7 @@ import {
     ResponsiveStack,
     ResponsivePaper,
     StyledBoxChip,
-} from "../Homepage/Homepage.styles";
+} from "./PaymentStatus.styles";
 
 import { CheckCircleIcon } from "../../components/Icons/CheckCircleIcon";
 import Standard from "../../assets/standard-box.png";
