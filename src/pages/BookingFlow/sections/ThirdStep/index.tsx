@@ -8,6 +8,7 @@ import {
     StepHeaderTitle,
 } from "@pages/BookingFlow/Booking.styles";
 import {
+    NoteDateContainer,
     ThirdStepInputContainer,
     ThirdStepNotesContainer,
     ThirdStepSelectorContainer,
@@ -17,6 +18,7 @@ import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
 import { TimeSlotSelector } from "@pages/BookingFlow/components/TimeSlotSelector";
 import { CustomDatePicker } from "@pages/BookingFlow/components/CustomDatePicker";
+import { max, parseISO, startOfDay, subDays } from "date-fns";
 
 const SERVICE_INFORMATION = `To ensure a smooth storage experience, we provide our EZ Storage boxes for you
                     to pack your items. Simply let us know where to deliver the empty box, and once
@@ -26,9 +28,22 @@ export function ThirdStep() {
     const theme = useTheme();
 
     const { handleChangeDeliveryField } = useBookingFormActions();
+
+    const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
+    const isCustomDuration = typeof commitmentPeriod === "object" && commitmentPeriod !== null;
     const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
     const deliveryTimeType = useBookingSelector(state => state.form.delivery.timeType);
     const deliveryTimeSlot = useBookingSelector(state => state.form.delivery.timeSlot);
+
+    const today = startOfDay(new Date());
+    const startDate =
+        isCustomDuration && commitmentPeriod.startDate
+            ? startOfDay(parseISO(commitmentPeriod.startDate))
+            : undefined;
+    const thirtyDaysBeforeStart = startDate ? subDays(startDate, 30) : undefined;
+    const minDate =
+        startDate && thirtyDaysBeforeStart ? max([today, thirtyDaysBeforeStart]) : today;
+    const maxDate = isCustomDuration && startDate ? startDate : undefined;
 
     const handleChangeLocation = (value: string) => {
         handleChangeDeliveryField("location", value);
@@ -78,10 +93,21 @@ export function ThirdStep() {
             <ThirdStepInputContainer>
                 <div>When should the delivery be made?</div>
                 <CustomDatePicker
-                    defaultValue={new Date()}
-                    minDate={new Date()}
+                    defaultValue={minDate}
+                    minDate={minDate}
+                    maxDate={maxDate}
                     onChange={handleChangeDate}
                 />
+                {isCustomDuration && (
+                    <NoteDateContainer>
+                        <Note
+                            Icon={<InfoIcon color={theme.palette.textCustom.info} width={"15px"} />}
+                        >
+                            Your empty box delivery date must be <span>30 days</span> prior to the
+                            start of storage.
+                        </Note>
+                    </NoteDateContainer>
+                )}
             </ThirdStepInputContainer>
 
             <ThirdStepSelectorContainer>

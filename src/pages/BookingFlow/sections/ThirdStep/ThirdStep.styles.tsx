@@ -35,3 +35,11 @@ export const ThirdStepSelectorContainer = styled("div")({
         marginBottom: "8px",
     },
 });
+
+export const NoteDateContainer = styled("div")({
+    marginTop: "8px",
+
+    span: {
+        fontWeight: 600,
+    },
+});

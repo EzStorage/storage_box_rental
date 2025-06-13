@@ -1,13 +1,7 @@
-import {
-    FirstStepAddDuration,
-    FirstStepNoteContainer,
-    FirstStepStorageTitle,
-    ProductList,
-} from "./FirstStep.styles";
+import { FirstStepNoteContainer, FirstStepStorageTitle, ProductList } from "./FirstStep.styles";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { Note } from "@components/Note";
 import { BoxCounter } from "@components/BoxCounter";
-import { IoAddOutline } from "react-icons/io5";
 import { FirstStepProductCard } from "./FirstStepProductCard";
 import { useTheme } from "@mui/material";
 import {
@@ -48,9 +42,6 @@ export function FirstStep() {
             <BoxCounter value={quantity} onChange={handleQuantity} />
             <FirstStepStorageTitle>How long is your storage for?</FirstStepStorageTitle>
             <DurationSelector />
-            <FirstStepAddDuration startIcon={<IoAddOutline />}>
-                Custom duration
-            </FirstStepAddDuration>
         </StepContainer>
     );
 }

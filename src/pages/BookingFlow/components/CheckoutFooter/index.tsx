@@ -17,6 +17,7 @@ import { formatAmount } from "@helpers/amount";
 import { IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
+import { differenceInDays } from "date-fns";
 
 export function CheckoutFooter() {
     const theme = useTheme();
@@ -26,13 +27,17 @@ export function CheckoutFooter() {
     const step = useBookingSelector(state => state.step);
     const quantity = useBookingSelector(state => state.form.quantity);
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
+    const differenceDays =
+        typeof commitmentPeriod === "object" &&
+        typeof commitmentPeriod !== null &&
+        differenceInDays(commitmentPeriod.endDate, commitmentPeriod.startDate);
 
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
-    const month = (DURATION_PLANS.find(m => m.id === commitmentPeriod)?.days ?? 0) / 30;
-
+    const plans = DURATION_PLANS.find(m => m.id === commitmentPeriod);
+    const months = (Number(plans?.days ?? differenceDays) || 0) / 30;
     const totalAmount = useMemo(
-        () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []) * month * quantity,
-        [quantity, month, product.bulkPricingTiers],
+        () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []) * months * quantity,
+        [quantity, months, product.bulkPricingTiers],
     );
 
     const handleNext = () => {

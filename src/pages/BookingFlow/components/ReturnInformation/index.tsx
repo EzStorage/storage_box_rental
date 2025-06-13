@@ -23,12 +23,14 @@ export function ReturnInformation() {
     const { handleChangeReturnField } = useBookingFormActions();
 
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
+    const isCustomDuration = typeof commitmentPeriod === "object" && commitmentPeriod !== null;
+
     const pickupDate = useBookingSelector(state => state.form.pickup.date);
     const durationPlans = DURATION_PLANS.find(info => info.id === commitmentPeriod)?.days ?? 0;
-
     const pickupLocation = useBookingSelector(state => state.form.pickup.location);
-    const returnLocation = useBookingSelector(state => state.form.return.location);
 
+    const returnDate = useBookingSelector(state => state.form.return.date);
+    const returnLocation = useBookingSelector(state => state.form.return.location);
     const returnTimeType = useBookingSelector(state => state.form.return.timeType);
     const returnTimeSlot = useBookingSelector(state => state.form.return.timeSlot);
 
@@ -76,7 +78,10 @@ export function ReturnInformation() {
                 <div>When will we return your items to your place?</div>
                 <CustomDatePicker
                     key={pickupDate?.toISOString()}
-                    defaultValue={addDays(pickupDate, durationPlans)}
+                    readOnly={isCustomDuration}
+                    defaultValue={
+                        isCustomDuration ? returnDate : addDays(pickupDate, durationPlans)
+                    }
                     minDate={pickupDate}
                     maxDate={addDays(pickupDate, durationPlans)}
                     onChange={handleChangeDate}

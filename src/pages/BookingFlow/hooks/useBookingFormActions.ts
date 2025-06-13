@@ -12,6 +12,17 @@ export function useBookingFormActions() {
         }));
     };
 
+    const handleChangeCommitmentPeriodField = (
+        value: string | { startDate: string; endDate: string },
+    ) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                commitmentPeriod: value,
+            },
+        }));
+    };
+
     const handleChangeDeliveryField = (
         field: keyof IBookingForm["delivery"],
         value: string | number | Date,
@@ -81,6 +92,7 @@ export function useBookingFormActions() {
 
     return {
         handleChangeField,
+        handleChangeCommitmentPeriodField,
         handleChangeDeliveryField,
         handleChangePickupField,
         handleChangeReturnField,

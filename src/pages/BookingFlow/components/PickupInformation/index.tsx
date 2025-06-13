@@ -22,9 +22,13 @@ export function PickupInformation() {
     const theme = useTheme();
     const { handleChangePickupField } = useBookingFormActions();
 
+    const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
+    const isCustomDuration = typeof commitmentPeriod === "object" && commitmentPeriod !== null;
+
     const deliveryDate = useBookingSelector(state => state.form.delivery.date);
     const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
 
+    const pickupDate = useBookingSelector(state => state.form.pickup.date);
     const pickupLocation = useBookingSelector(state => state.form.pickup.location);
     const pickupTimeType = useBookingSelector(state => state.form.pickup.timeType);
     const pickupTimeSlot = useBookingSelector(state => state.form.pickup.timeSlot);
@@ -79,7 +83,8 @@ export function PickupInformation() {
                 </div>
                 <CustomDatePicker
                     key={deliveryDate?.toISOString()}
-                    defaultValue={deliveryDate}
+                    readOnly={isCustomDuration}
+                    defaultValue={isCustomDuration ? pickupDate : deliveryDate}
                     minDate={deliveryDate}
                     maxDate={addDays(deliveryDate, 30)}
                     onChange={handleChangeDate}
