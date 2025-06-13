@@ -20,11 +20,8 @@ import {
     ResponsiveStack,
     ResponsivePaper,
     StyledBoxChip,
-} from "../Homepage/Homepage.styles";
+} from "./PaymentStatus.styles";
 
-/*
-import { CrossCircleIcon } from "../components/Icons/CrossCircleIcon";
-*/
 import { ResponsiveFlexBox } from "../Homepage/Homepage.styles";
 import Standard from "../../assets/standard-box.png";
 import { CrossCircleIcon } from "../../components/Icons/CrossCircleIcon";
