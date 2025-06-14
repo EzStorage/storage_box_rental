@@ -76,11 +76,13 @@ const Footer: React.FC = () => {
             <Box
                 sx={{
                     display: "flex",
+                    flexDirection: { xs: "column-reverse", md: "row" },
                     justifyContent: "space-between",
-                    alignItems: "center",
+                    alignItems: "left",
                     marginTop: "8px",
                     color: "#777",
                     fontSize: "13px",
+                    gap: { xs: "12px", md: 0 },
                 }}
             >
                 <FooterText style={{ textAlign: "left" }}>

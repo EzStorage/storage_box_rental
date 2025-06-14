@@ -24,12 +24,12 @@ const FAQSection: React.FC = () => {
                     flexWrap: "wrap",
                 }}
             >
-                <Box sx={{ flex: 1, minWidth: 300 }}>
-                    <FAQHeading style={{ marginLeft: "40px" }}>Frequently asked</FAQHeading>
-                    <FAQHeading style={{ marginBottom: "12px", marginLeft: "40px" }}>
+                <Box sx={{ flex: 1, minWidth: 300 , textAlign:"left"}}>
+                    <FAQHeading>Frequently asked</FAQHeading>
+                    <FAQHeading style={{ marginBottom: "12px" }}>
                         <span>questions</span>
                     </FAQHeading>
-                    <AnswerText style={{ marginLeft: "40px" }}>
+                    <AnswerText>
                         Everything you need to know about storage, billing, and returns.
                     </AnswerText>
                 </Box>
