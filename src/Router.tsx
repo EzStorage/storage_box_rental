@@ -19,6 +19,14 @@ const router = createBrowserRouter([
                 element: <Homepage />,
             },
             {
+                path: "/login",
+                element: <Login />,
+            },
+            {
+                path: "/booking",
+                element: <Booking />,
+            },
+            {
                 path: "payment-success",
                 element: <PaymentSuccess />,
             },
@@ -29,18 +37,6 @@ const router = createBrowserRouter([
             {
                 element: <ProtectedRoute />,
                 children: [
-                    {
-                        index: true,
-                        element: <Homepage />,
-                    },
-                    {
-                        path: "/login",
-                        element: <Login />,
-                    },
-                    // {
-                    //     path: "/booking",
-                    //     element: <Booking />,
-                    // },
                     {
                         element: <ProtectedRoute />,
                         children: [],

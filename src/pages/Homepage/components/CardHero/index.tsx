@@ -16,6 +16,7 @@ import MyButton from "@components/Button/MyButton";
 import ShopCartIcon from "@components/Icons/ShopCartIcon";
 import { useAppDispatch, useAppSelector } from "src/app/hooks";
 import { Link } from "react-router";
+import { addToCart } from "src/redux/auth/cartSlice";
 
 interface CardHeroProps {
     productId?: string;
@@ -24,6 +25,7 @@ interface CardHeroProps {
 export default function CardHero({ productId = "standard-box" }: CardHeroProps) {
     const theme = useTheme();
     const { isDesktop } = useScreenSize();
+    const dispatch = useAppDispatch();
 
     const [quantity, setQuantity] = useState(2);
     const user = useAppSelector(state => state.auth.user);
@@ -88,6 +90,7 @@ export default function CardHero({ productId = "standard-box" }: CardHeroProps) 
                     startIcon={
                         <ShopCartIcon width={20} color={theme.palette.textCustom.greyBase} />
                     }
+                    onClick={() => dispatch(addToCart({ product, quantity }))}
                 >
                     Add to cart
                 </MyButton>

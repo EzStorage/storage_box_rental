@@ -20,14 +20,20 @@ import { useBookingSelector } from "@pages/BookingFlow/context";
 import { useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
+import { differenceInDays } from "date-fns";
+import { formatDate } from "@helpers/formatDate";
 
 export function SecondStepProductCard() {
     const quantity = useBookingSelector(state => state.form.quantity);
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
 
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
+    const differenceDays =
+        typeof commitmentPeriod === "object" &&
+        typeof commitmentPeriod !== null &&
+        differenceInDays(commitmentPeriod.endDate, commitmentPeriod.startDate);
     const plans = DURATION_PLANS.find(m => m.id === commitmentPeriod);
-    const months = (plans?.days ?? 0) / 30;
+    const months = (Number(plans?.days ?? differenceDays) || 0) / 30;
 
     const unitPrice = useMemo(
         () => calculateUnitPrice(quantity, product.bulkPricingTiers ?? []),
@@ -58,8 +64,10 @@ export function SecondStepProductCard() {
                 </ProductEstimateFeeContainer>
                 <ProductDivider />
                 <ProductDescription>
-                    {formatAmount(unitPrice)} x {quantity} boxes x {plans?.title} ({plans?.days}{" "}
-                    days)
+                    {formatAmount(unitPrice)} x {quantity} boxes x{" "}
+                    {plans
+                        ? `${plans.title} (${plans.days} ${plans.days <= 1 ? "day" : "days"})`
+                        : `${typeof differenceDays === "number" ? `${differenceDays} ${differenceDays <= 1 ? "day" : "days"}` : ""}`}
                 </ProductDescription>
             </ProductInfoContainer>
         </ProductCardContainer>

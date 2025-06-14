@@ -47,6 +47,7 @@ export function CustomDatePicker({
         <DatePickerContainer>
             <DatePicker
                 closeOnScroll
+                showPopperArrow={false}
                 disabled={readOnly}
                 selected={selectedDate}
                 customInput={<CustomInput />}

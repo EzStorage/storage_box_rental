@@ -12,6 +12,17 @@ export function useBookingFormActions() {
         }));
     };
 
+    const handleChangeCommitmentPeriodField = (
+        value: string | { startDate: string; endDate: string },
+    ) => {
+        commit(prev => ({
+            form: {
+                ...prev.form,
+                commitmentPeriod: value,
+            },
+        }));
+    };
+
     const handleChangeDeliveryField = (
         field: keyof IBookingForm["delivery"],
         value: string | number | Date,
@@ -57,7 +68,7 @@ export function useBookingFormActions() {
         }));
     };
 
-    const validateField = (field: string, value: string): boolean => {
+    const validateField = (): boolean => {
         // Example validation logic
         return true;
     };
@@ -81,6 +92,7 @@ export function useBookingFormActions() {
 
     return {
         handleChangeField,
+        handleChangeCommitmentPeriodField,
         handleChangeDeliveryField,
         handleChangePickupField,
         handleChangeReturnField,

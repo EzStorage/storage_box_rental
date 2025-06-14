@@ -11,11 +11,9 @@ import {
 } from "./ReturnInformation.styles";
 import { useBookingFormActions } from "@pages/BookingFlow/hooks/useBookingFormActions";
 import { TimeType, useBookingSelector } from "@pages/BookingFlow/context";
-import { DatePicker } from "../DatePicker";
 import { Note, NoteVariantsEnum } from "@components/Note";
 import InfoIcon from "@components/Icons/InfoIcon";
 import { TimeSlotSelector } from "../TimeSlotSelector";
-import { useEffect, useMemo } from "react";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
 import { CustomDatePicker } from "../CustomDatePicker";
 import { addDays } from "date-fns";
@@ -25,12 +23,14 @@ export function ReturnInformation() {
     const { handleChangeReturnField } = useBookingFormActions();
 
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
+    const isCustomDuration = typeof commitmentPeriod === "object" && commitmentPeriod !== null;
+
     const pickupDate = useBookingSelector(state => state.form.pickup.date);
     const durationPlans = DURATION_PLANS.find(info => info.id === commitmentPeriod)?.days ?? 0;
-
     const pickupLocation = useBookingSelector(state => state.form.pickup.location);
-    const returnLocation = useBookingSelector(state => state.form.return.location);
 
+    const returnDate = useBookingSelector(state => state.form.return.date);
+    const returnLocation = useBookingSelector(state => state.form.return.location);
     const returnTimeType = useBookingSelector(state => state.form.return.timeType);
     const returnTimeSlot = useBookingSelector(state => state.form.return.timeSlot);
 
@@ -59,13 +59,6 @@ export function ReturnInformation() {
         }
     };
 
-    useEffect(() => {
-        if (!pickupDate || !durationPlans) return;
-        const pickup = new Date(pickupDate);
-        const newFutureDate = new Date(pickup.getTime() + durationPlans * 86400000);
-        handleChangeDate(newFutureDate);
-    }, [pickupDate, durationPlans]);
-
     return (
         <ReturnInformationContainer>
             <ReturnInformationTitle>Return information</ReturnInformationTitle>
@@ -85,7 +78,10 @@ export function ReturnInformation() {
                 <div>When will we return your items to your place?</div>
                 <CustomDatePicker
                     key={pickupDate?.toISOString()}
-                    defaultValue={addDays(pickupDate, durationPlans)}
+                    readOnly={isCustomDuration}
+                    defaultValue={
+                        isCustomDuration ? returnDate : addDays(pickupDate, durationPlans)
+                    }
                     minDate={pickupDate}
                     maxDate={addDays(pickupDate, durationPlans)}
                     onChange={handleChangeDate}

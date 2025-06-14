@@ -1,4 +1,3 @@
-import { Button } from "@components/Button";
 import { styled } from "@mui/material";
 
 export const ProductCardContainer = styled("div")(({ theme }) => ({
@@ -56,11 +55,4 @@ export const FirstStepStorageTitle = styled("div")(({ theme }) => ({
     lineHeight: "24px",
     color: theme.palette.textCustom.greyHigh,
     margin: "20px 0",
-}));
-
-export const FirstStepAddDuration = styled(Button)(({ theme }) => ({
-    width: "fit-content",
-    textTransform: "none",
-    marginTop: "20px",
-    color: theme.palette.surface.primaryHigh,
 }));

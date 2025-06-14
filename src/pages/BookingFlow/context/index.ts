@@ -13,7 +13,7 @@ export interface IBookingForm {
     bookingId: string;
     productId: string;
     quantity: number;
-    commitmentPeriod: string;
+    commitmentPeriod: string | { startDate: string; endDate: string };
     deliveryLocation: string;
     delivery: ScheduleInfo;
     pickup: ScheduleInfo;
