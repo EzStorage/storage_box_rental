@@ -89,12 +89,16 @@ export function PickupInformation() {
                     maxDate={addDays(deliveryDate, 30)}
                     onChange={handleChangeDate}
                 />
-                <NoteContainer>
-                    <Note Icon={<InfoIcon width={"15px"} color={theme.palette.textCustom.info} />}>
-                        Your storage start date must be within <span>30 days</span> of the empty box
-                        drop-off date.
-                    </Note>
-                </NoteContainer>
+                {!isCustomDuration && (
+                    <NoteContainer>
+                        <Note
+                            Icon={<InfoIcon width={"15px"} color={theme.palette.textCustom.info} />}
+                        >
+                            Your storage start date must be within <span>30 days</span> of the empty
+                            box drop-off date.
+                        </Note>
+                    </NoteContainer>
+                )}
             </PickupStepInputContainer>
 
             <PickupSelectorContainer>

@@ -33,6 +33,11 @@ export const HeaderLogo = styled(Link, {
     fontSize: "20px",
     fontWeight: 700,
     lineHeight: "24px",
+    textDecoration: "none",
+
+    display: "flex",
+    alignItems: "center",
+    gap: "4px",
 }));
 
 export const HeaderLeftNav = styled("nav", {
@@ -48,6 +53,7 @@ export const HeaderLeftNav = styled("nav", {
         fontSize: "13px",
         lineHeight: "20px",
         color: theme.palette.textCustom[isWhiteBackground ? "greyHigh" : "white"],
+        cursor: "pointer",
     },
 }));
 

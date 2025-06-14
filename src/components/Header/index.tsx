@@ -62,15 +62,9 @@ const Header: React.FC = () => {
         <HeaderContainer isWhiteBackground={isWhiteBackground}>
             <Stack direction="row" alignItems="center" gap={"24px"}>
                 {/* Logo */}
-                <HeaderLogo
-                    to="/"
-                    style={{ textDecoration: "none" }}
-                    isWhiteBackground={isWhiteBackground}
-                >
-                    <Stack direction="row" alignItems="center" gap={"4px"}>
-                        <Logo />
-                        <span>Storage</span>
-                    </Stack>
+                <HeaderLogo to="/" isWhiteBackground={isWhiteBackground}>
+                    <Logo />
+                    <span>Storage</span>
                 </HeaderLogo>
 
                 {/* Navigation Links */}
