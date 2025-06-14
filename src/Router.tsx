@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "./layout/MainLayout";
 import ProtectedRoute from "./layout/ProtectedRoute";
 
-import Login from "./pages/Login";
 import { Booking } from "@pages/BookingFlow";
-
-import Homepage from "./pages/Homepage/index";
+import { Homepage } from "@pages/Homepage";
+import { MyBooking } from "@pages/MyBooking";
+import { Login } from "@pages/Login";
 import PaymentSuccess from "./pages/PaymentStatus/PaymentSuccess";
 import PaymentFailed from "./pages/PaymentStatus/PaymentFailed";
 
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: "/booking",
                 element: <Booking />,
+            },
+            {
+                path: "/my-booking",
+                element: <MyBooking />,
             },
             {
                 path: "payment-success",

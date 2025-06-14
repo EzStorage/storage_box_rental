@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router";
 import CartDrawer from "@components/cart/CartDrawer";
 
-const Homepage: React.FC = () => {
+export const Homepage: React.FC = () => {
     const location = useLocation();
 
     useEffect(() => {
@@ -45,5 +45,3 @@ const Homepage: React.FC = () => {
         </>
     );
 };
-
-export default Homepage;

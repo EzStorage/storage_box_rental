@@ -15,7 +15,7 @@ import OTPStep from "./OTPStep";
 import { COUNTRY_CALLING_CODES } from "src/constants/phonecode.constants";
 import { useScreenSize } from "@hooks/useScreenSize";
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
     const theme = useTheme();
     const { isMobile } = useScreenSize();
     const navigate = useNavigate();
@@ -94,4 +94,3 @@ const Login: React.FC = () => {
         </LoginWrapper>
     );
 };
-export default Login;
