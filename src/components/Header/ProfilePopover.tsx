@@ -11,6 +11,7 @@ import EditIcon from "../Icons/EditIcon";
 import CalendarIcon from "../Icons/CalendarIcon";
 import LogOutIcon from "../Icons/LogOutIcon";
 import SummaryCards from "../SummaryCards";
+import { Link } from "react-router";
 
 interface ProfilePopoverProps {
     onLogout: () => void;
@@ -36,12 +37,15 @@ const ProfilePopover: React.FC<ProfilePopoverProps> = ({ onLogout }) => {
             </ProfilePopoverInfo>
 
             <ProfilePopoverMenu>
-                <MenuItem>
-                    <ListItemIcon>
-                        <CalendarIcon />
-                    </ListItemIcon>
-                    <ListItemText>My Bookings</ListItemText>
-                </MenuItem>
+                <Link to="/my-booking">
+                    <MenuItem>
+                        <ListItemIcon>
+                            <CalendarIcon />
+                        </ListItemIcon>
+                        <ListItemText>My Bookings</ListItemText>
+                    </MenuItem>
+                </Link>
+
                 <MenuItem>
                     <ListItemIcon>
                         <LogOutIcon />

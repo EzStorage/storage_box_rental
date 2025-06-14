@@ -119,6 +119,10 @@ export const ProfilePopoverMenu = styled(MenuList)(({ theme }) => ({
     background: "white",
     borderTop: `1px solid ${theme.palette.outline.greyLow}`,
 
+    a: {
+        textDecoration: "none",
+    },
+
     ".MuiListItemIcon-root": {
         minWidth: "20px",
         padding: "8px",

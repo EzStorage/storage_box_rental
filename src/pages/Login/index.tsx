@@ -34,7 +34,7 @@ const Login: React.FC = () => {
         if (currentStep === "otp") {
             setCurrentStep("phone");
         } else {
-            navigate("/");
+            navigate(-1);
         }
     };
 
