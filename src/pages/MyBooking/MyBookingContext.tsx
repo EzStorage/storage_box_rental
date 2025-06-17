@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { BookingTabs } from "./components/Tabs";
 import { BookingList } from "./components/BookingList";
 import { Container, HeaderBox, NewStorageButton } from "./styles";
 import { Typography } from "@mui/material";
+import { useMyBookingSelector, useMyBookingCommit } from "./context";
 
 const MyBooking = () => {
-  const [activeTab, setActiveTab] = useState("Upcoming");
+  const selectedTab = useMyBookingSelector(state => state.selectedTab);
+  const commit = useMyBookingCommit();
+
+  const setActiveTab = (tab: string) => {
+    commit(() => ({
+      selectedTab: tab,
+    }));
+  };
 
   return (
     <Container>
@@ -16,8 +24,8 @@ const MyBooking = () => {
         <NewStorageButton>+ New storage</NewStorageButton>
       </HeaderBox>
 
-      <BookingTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <BookingList activeTab={activeTab} />
+      <BookingTabs activeTab={selectedTab} setActiveTab={setActiveTab} />
+      <BookingList activeTab={selectedTab} />
     </Container>
   );
 };
