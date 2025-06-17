@@ -33,6 +33,15 @@ export const TEXT_CUSTOM = {
     WHITE: "#FFFFFF",
 };
 
+export const STATUS = {
+  WARNING_BG: "#FCF9CC",
+  WARNING_TEXT: "#B59F07",
+  INFO_BG: "#FCF1FF",
+  INFO_TEXT: "#9F15C2",
+  DANGER_BG: "#f44336",
+  DISABLED: "#e6e6e6",
+};
+
 export type SurfaceColorKey = keyof typeof SURFACE;
 export type OutlineColorKey = keyof typeof OUTLINE;
 export type TextCustomColorKey = keyof typeof TEXT_CUSTOM;
