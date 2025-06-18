@@ -1,14 +1,19 @@
-import { LoginCard } from "@components/LoginCard";
-import { MyBookingContainer } from "./MyBooking.styles";
-import { useAppSelector } from "src/app/hooks";
+import { MyBookingProvider } from "./context";
+
+export function MyBookingContent() {
+    return (
+        <div>
+            <h1>My Booking</h1>
+            <p>This page will display</p>
+            {/* Additional components and logic for displaying booking information can be added here */}
+        </div>
+    );
+}
 
 export function MyBooking() {
-    const user = useAppSelector(state => state.auth.user);
-
     return (
-        <MyBookingContainer>
-            <div>My Bookings</div>
-            {!user && <LoginCard />}
-        </MyBookingContainer>
+        <MyBookingProvider>
+            <MyBookingContent />
+        </MyBookingProvider>
     );
 }
