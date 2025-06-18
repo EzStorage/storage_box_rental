@@ -2,23 +2,22 @@ import React from "react";
 import { BookingItem } from "./BookingItem";
 import { Typography } from "@mui/material";
 import { ListWrapper } from "../styles";
-import { useMyBookingSelector } from "../context"; // <-- import context selector
+import { useMyBookingSelector , useMyBookingCommit} from "../context"; 
 
 type Props = {
   activeTab: string;
 };
 
-export const BookingList: React.FC<Props> = ({ activeTab }) => {
-  // Get bookings from context
+export const BookingList: React.FC = () => {
   const bookings = useMyBookingSelector(state => state.bookings);
+  const selectedTab = useMyBookingSelector(state => state.selectedTab); 
 
-  // Filter based on active tab
   const filteredBookings = bookings.filter(booking => {
-    if (activeTab === "Upcoming") {
+    if (selectedTab === "Upcoming") {
       return ["Awaiting Pickup", "Box to be delivered"].includes(booking.status);
-    } else if (activeTab === "Stored") {
+    } else if (selectedTab === "Stored") {
       return booking.status === "Stored";
-    } else if (activeTab === "History") {
+    } else if (selectedTab === "History") {
       return booking.status === "Returned";
     }
     return false;
@@ -28,11 +27,11 @@ export const BookingList: React.FC<Props> = ({ activeTab }) => {
     <ListWrapper>
       {filteredBookings.length > 0 ? (
         filteredBookings.map(booking => (
-          <BookingItem key={booking.id} booking={booking} activeTab={activeTab} />
+          <BookingItem key={booking.id} booking={booking} activeTab={selectedTab} />
         ))
       ) : (
         <Typography variant="body2" sx={{ color: "#666" }}>
-          No {activeTab.toLowerCase()} bookings.
+          No {selectedTab.toLowerCase()} bookings.
         </Typography>
       )}
     </ListWrapper>

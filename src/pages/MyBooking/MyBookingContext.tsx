@@ -3,9 +3,9 @@ import { BookingTabs } from "./components/Tabs";
 import { BookingList } from "./components/BookingList";
 import { Container, HeaderBox, NewStorageButton } from "./styles";
 import { Typography } from "@mui/material";
-import { useMyBookingSelector, useMyBookingCommit } from "./context";
+import { useMyBookingSelector, useMyBookingCommit, MyBookingProvider } from "./context";
 
-const MyBooking = () => {
+const MyBookingContent = () => {
   const selectedTab = useMyBookingSelector(state => state.selectedTab);
   const commit = useMyBookingCommit();
 
@@ -24,10 +24,17 @@ const MyBooking = () => {
         <NewStorageButton>+ New storage</NewStorageButton>
       </HeaderBox>
 
-      <BookingTabs activeTab={selectedTab} setActiveTab={setActiveTab} />
-      <BookingList activeTab={selectedTab} />
+      <BookingTabs/>
+      <BookingList/>
     </Container>
   );
 };
+export const MyBooking = () => {
+  return (
+    <MyBookingProvider>
+      <MyBookingContent />
+    </MyBookingProvider>
+  );
+};
 
-export default MyBooking;
+

@@ -17,7 +17,7 @@ import { parse, differenceInDays, intervalToDuration } from "date-fns";
 
 export const BookingItem = ({ booking, activeTab }: any) => {
     if (!booking || !booking.startDate || !booking.endDate) {
-        return null; // or return fallback UI
+        return null; 
     }
     const today = new Date();
     const start = parse(booking.startDate, "dd MMM yyyy", new Date());

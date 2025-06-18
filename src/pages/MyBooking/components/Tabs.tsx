@@ -1,17 +1,17 @@
 import React from "react";
 import { TabContainer, Tab } from "../styles";
-import { useMyBookingSelector } from "../context";
+import { useMyBookingSelector , useMyBookingCommit } from "../context";
 
-type BookingTabsProps = {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-};
-
-export const BookingTabs: React.FC<BookingTabsProps> = ({
-  activeTab,
-  setActiveTab,
-}) => {
+export const BookingTabs: React.FC = () => {
+  const selectedTab = useMyBookingSelector(state => state.selectedTab);
   const bookings = useMyBookingSelector(state => state.bookings);
+  const commit = useMyBookingCommit(); 
+
+  const setActiveTab = (tab: string) => {
+    commit(() => ({
+      selectedTab: tab,
+    }));
+  };
 
   const countByStatus = {
     Upcoming: bookings.filter(b =>
@@ -32,7 +32,7 @@ export const BookingTabs: React.FC<BookingTabsProps> = ({
       {tabs.map(tab => (
         <Tab
           key={tab.key}
-          active={activeTab === tab.key}
+          active={selectedTab === tab.key}
           onClick={() => setActiveTab(tab.key)}
         >
           {tab.label}

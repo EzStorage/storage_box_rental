@@ -9,16 +9,14 @@ export type BookingItem = {
   endDate: string;
   status: string;
   address:string;
-  duration:string; // e.g., "Awaiting Pickup", "Stored", "Returned", etc.
+  duration:string; 
 };
 
-// Global booking state structure
 export interface IMyBookingState {
   bookings: BookingItem[];
-  selectedTab: string; // "Upcoming", "Stored", "History"
+  selectedTab: string;
 }
 
-// Initial global state
 const initialBookingState: IMyBookingState = {
   bookings: [
     {
@@ -52,10 +50,9 @@ const initialBookingState: IMyBookingState = {
   duration: "6 months (180 days)"
 },
   ],
-  selectedTab: "Upcoming", // default tab to sync with MyBooking.tsx
+  selectedTab: "Upcoming",
 };
 
-// Create fast context
 export const {
   Provider: MyBookingProvider,
   useSelector: useMyBookingSelector,
