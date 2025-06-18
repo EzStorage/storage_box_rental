@@ -18,10 +18,12 @@ import { IoChevronUp, IoChevronDown } from "react-icons/io5";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
 import { differenceInDays } from "date-fns";
+import { useBookingFormValidation } from "@pages/BookingFlow/hooks/useBookingFormValidation";
 
 export function CheckoutFooter() {
     const theme = useTheme();
     const { isDesktop } = useScreenSize();
+    const { validateForm } = useBookingFormValidation();
 
     const commit = useBookingCommit();
     const step = useBookingSelector(state => state.step);
@@ -41,6 +43,9 @@ export function CheckoutFooter() {
     );
 
     const handleNext = () => {
+        if (!validateForm()) {
+            return;
+        }
         const nextStep = step + 1;
         commit({ step: nextStep });
         setTimeout(() => {
