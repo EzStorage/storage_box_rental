@@ -24,7 +24,7 @@ const OTPStep: React.FC<OTPStepProps> = ({ onBack, selectedCountry, phoneNumber 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const [loading, setLoading] = useState(false);
+    const [_, setLoading] = useState(false);
     const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
     const [isInvalid, setIsInvalid] = useState(false);
     const [countdown, setCountdown] = useState(60);
@@ -38,11 +38,11 @@ const OTPStep: React.FC<OTPStepProps> = ({ onBack, selectedCountry, phoneNumber 
     const handleVerify = async () => {
         setLoading(true);
         try {
-            const result = await dispatch(
+            await dispatch(
                 verifyOtp({ phoneNumber: `(${selectedCountry.code}) ${phoneNumber}`, otp }),
             ).unwrap();
             navigate("/");
-        } catch (error) {
+        } catch {
             setIsInvalid(true);
         } finally {
             setLoading(false);

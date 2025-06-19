@@ -15,7 +15,6 @@ import { ProductOriginalPrice } from "@components/ProductCard/ProductOriginalPri
 import { ProductDiscountedPrice } from "@components/ProductCard/ProductDiscountedPrice";
 import { BulkPricingDialog } from "@components/BulkPricingDialog";
 import { formatAmount } from "@helpers/amount";
-import { useAppSelector } from "src/app/hooks";
 
 interface ProductCardProps {
     productId: string;

@@ -9,7 +9,7 @@ export function PlanDetails() {
     const plans = DURATION_PLANS.find(m => m.id === commitmentPeriod);
     const differenceDays =
         typeof commitmentPeriod === "object" &&
-        typeof commitmentPeriod !== null &&
+        commitmentPeriod !== null &&
         differenceInDays(commitmentPeriod.endDate, commitmentPeriod.startDate);
 
     return (

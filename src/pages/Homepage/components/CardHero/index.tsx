@@ -1,4 +1,4 @@
-import { Divider, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { ProductCard } from "./ProductCard";
 import {
     CardHeroActionsContainer,

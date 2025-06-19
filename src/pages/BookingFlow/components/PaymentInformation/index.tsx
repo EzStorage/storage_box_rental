@@ -22,7 +22,7 @@ export function PaymentInformation() {
     const commitmentPeriod = useBookingSelector(state => state.form.commitmentPeriod);
     const differenceDays =
         typeof commitmentPeriod === "object" &&
-        typeof commitmentPeriod !== null &&
+        commitmentPeriod !== null &&
         differenceInDays(commitmentPeriod.endDate, commitmentPeriod.startDate);
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
     const plans = DURATION_PLANS.find(m => m.id === commitmentPeriod);

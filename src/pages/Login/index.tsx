@@ -1,4 +1,4 @@
-import { IconButton, Stack, useMediaQuery, useTheme } from "@mui/material";
+import { IconButton, Stack, useTheme } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import {

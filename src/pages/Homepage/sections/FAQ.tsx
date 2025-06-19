@@ -1,13 +1,11 @@
 import React, { useState, useRef } from "react";
-import { Accordion, AccordionSummary, AccordionDetails, Box, useTheme } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails, Box } from "@mui/material";
 
 import { FAQContainer, FAQHeading, QuestionText, AnswerText } from "../Homepage.styles";
 import { ChevronDownIcon } from "@components/Icons/ChevronDownIcon";
 import { faqs } from "../constants";
 
 const FAQSection: React.FC = () => {
-    const theme = useTheme();
-
     const [expandedIndex, setExpandedIndex] = useState<number | false>(false);
 
     const detailsRef = useRef<HTMLDivElement | null>(null);

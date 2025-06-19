@@ -1,5 +1,5 @@
 import { formatAmount } from "@helpers/amount";
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Table, TableCell, TableRow } from "@mui/material";
 import { PRODUCTS } from "src/constants/product.constants";
 import { Product } from "src/types/product.type";
 import {

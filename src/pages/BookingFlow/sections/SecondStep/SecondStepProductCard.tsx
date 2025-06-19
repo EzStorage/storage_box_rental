@@ -21,7 +21,6 @@ import { useMemo } from "react";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { DURATION_PLANS } from "@pages/BookingFlow/constants";
 import { differenceInDays } from "date-fns";
-import { formatDate } from "@helpers/formatDate";
 
 export function SecondStepProductCard() {
     const quantity = useBookingSelector(state => state.form.quantity);
@@ -30,7 +29,7 @@ export function SecondStepProductCard() {
     const product: Product = PRODUCTS.find(p => p.id === "standard-box") || PRODUCTS[0];
     const differenceDays =
         typeof commitmentPeriod === "object" &&
-        typeof commitmentPeriod !== null &&
+        commitmentPeriod !== null &&
         differenceInDays(commitmentPeriod.endDate, commitmentPeriod.startDate);
     const plans = DURATION_PLANS.find(m => m.id === commitmentPeriod);
     const months = (Number(plans?.days ?? differenceDays) || 0) / 30;

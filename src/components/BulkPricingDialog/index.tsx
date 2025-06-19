@@ -1,12 +1,4 @@
-import { Button } from "@components/Button";
-import {
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogTitle,
-    IconButton,
-    Typography,
-} from "@mui/material";
+import { DialogContent } from "@mui/material";
 import {
     BulkPricingCloseButton,
     BulkPricingDialogContainer,

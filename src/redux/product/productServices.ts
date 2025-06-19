@@ -1,7 +1,7 @@
 import { PRODUCTS } from "src/constants/product.constants";
 import { GetProductByIdPayload } from "src/types/product.type";
 
-export const getProductById = async (id: string): Promise<GetProductByIdPayload> => {
+export const getProductById = async (_: string): Promise<GetProductByIdPayload> => {
     const data = PRODUCTS[0];
 
     if (data !== null) {

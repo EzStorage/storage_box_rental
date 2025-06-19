@@ -1,4 +1,4 @@
-import { Box, FormControl, MenuItem, SelectChangeEvent, TextField, useTheme } from "@mui/material";
+import { Box, MenuItem, SelectChangeEvent, TextField, useTheme } from "@mui/material";
 import { COUNTRY_CALLING_CODES, CountryCallingCodeType } from "../../constants/phonecode.constants";
 import { PhoneInputContainer, PhoneInputSelectContainer } from "./PhoneInput.styles";
 

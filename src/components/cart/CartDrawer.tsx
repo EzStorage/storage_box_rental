@@ -46,11 +46,6 @@ const CartDrawer: React.FC = () => {
         decrementQuantity(cartItemId, quantity);
     };
 
-    const subtotal = cartItems.reduce((sum, item) => {
-        const unitPrice = calculateUnitPrice(item.quantity, item.bulkPricingTiers ?? []);
-        return sum + unitPrice * item.quantity;
-    }, 0);
-
     return (
         <Drawer
             anchor="right"

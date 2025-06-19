@@ -1,7 +1,7 @@
 import ChevronRightIcon from "@components/Icons/ChevronRightIcon";
 import { MENU_SECTIONS, MenuItemTypes } from "./constants";
 import { ProfileMenuItemContainer, ProfileSectionContainer } from "./Profile.styles";
-import { ListItemText, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 const renderMenuItem = (item: MenuItemTypes) => {
     const theme = useTheme();
