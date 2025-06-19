@@ -83,6 +83,10 @@ export const DatePickerContainer = styled("div")(({ theme }) => ({
 
     ".react-datepicker__day--keyboard-selected": {
         background: "transparent",
+
+        ":hover": {
+            backgroundColor: theme.palette.surface.greySurface2,
+        },
     },
 
     ".react-datepicker__day--selected.react-datepicker__day--today::after": {

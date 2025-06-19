@@ -1,6 +1,7 @@
 import { ProductImage } from "@components/ProductCard/ProductImage";
 import {
     ProductCardContainer,
+    ProductCardInfoContainer,
     ProductChipContainer,
     ProductDiscountedPeriod,
     ProductShowBulkPricing,
@@ -35,7 +36,7 @@ export function FirstStepProductCard() {
             <div>
                 <ProductImage src={product.image} alt={product.id} />
             </div>
-            <div>
+            <ProductCardInfoContainer>
                 <ProductTitle>Standard Box</ProductTitle>
                 <ProductChipContainer>
                     <ProductChip label={product.dimensions} />
@@ -49,7 +50,7 @@ export function FirstStepProductCard() {
                 <ProductShowBulkPricing onClick={toggleBulkDialog}>
                     Show all bulk pricing
                 </ProductShowBulkPricing>
-            </div>
+            </ProductCardInfoContainer>
             <BulkPricingDialog open={openDialog} onClose={toggleBulkDialog} />
         </ProductCardContainer>
     );

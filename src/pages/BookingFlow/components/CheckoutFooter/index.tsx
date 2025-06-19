@@ -119,6 +119,7 @@ export function CheckoutFooter() {
                             fullWidth
                             endIcon={isDesktop && <IoChevronDown />}
                             onClick={handleNext}
+                            disabled={!validateForm()}
                         >
                             Next
                         </MyButton>

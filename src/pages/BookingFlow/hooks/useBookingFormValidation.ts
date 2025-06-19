@@ -2,6 +2,10 @@ import { useBookingSelector } from "../context";
 
 export function useBookingFormValidation() {
     const step = useBookingSelector(state => state.step);
+    const deliveryLocation = useBookingSelector(state => state.form.delivery.location);
+    const pickupLocation = useBookingSelector(state => state.form.pickup.location);
+    const returnLocation = useBookingSelector(state => state.form.return.location);
+
     const validateFirstStep = () => {
         return true; // Placeholder for actual validation logic
     };
@@ -9,9 +13,11 @@ export function useBookingFormValidation() {
         return true; // Placeholder for actual validation logic
     };
     const validateThirdStep = () => {
+        if (!deliveryLocation) return false;
         return true; // Placeholder for actual validation logic
     };
     const validateFourthStep = () => {
+        if (!pickupLocation || !returnLocation) return false;
         return true; // Placeholder for actual validation logic
     };
     const validateFifthStep = () => {

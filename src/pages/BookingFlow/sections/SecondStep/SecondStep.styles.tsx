@@ -22,6 +22,10 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
 
 export const ProductInfoContainer = styled("div")({
     width: "100%",
+
+    "> h3:first-of-type": {
+        marginBottom: "4px",
+    },
 });
 
 export const ProductChipContainer = styled("div")({

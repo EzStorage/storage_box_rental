@@ -14,10 +14,17 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
     },
 }));
 
+export const ProductCardInfoContainer = styled("div")({
+    "> h3:first-of-type": {
+        marginBottom: "4px",
+    },
+});
+
 export const ProductChipContainer = styled("div")({
     display: "flex",
     alignItems: "center",
     gap: "6px",
+    marginBottom: "12px",
 });
 
 export const ProductDiscountedPeriod = styled("span")(({ theme }) => ({
