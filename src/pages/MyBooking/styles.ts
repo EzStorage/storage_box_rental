@@ -113,7 +113,7 @@ export const Meta = styled(Typography)(() => ({
 
 export const ProgressTrack = styled(Box)(() => ({
     position: "absolute",
-    bottom: 10,
+    bottom: "10px",
     left: 16,
     right: 16,
     height: 6,

@@ -14,22 +14,31 @@ import { LocationIcon } from "../../../components/Icons/LocationsIcon";
 import { ClockIcon } from "../../../components/Icons/ClockIcon";
 import { Box, Typography } from "@mui/material";
 import { parse, differenceInDays, intervalToDuration } from "date-fns";
-
-export const BookingItem = ({ booking, activeTab }: any) => {
+import { formatDurationText } from "../../../helpers/duration";
+import { BookingTab } from "../../../constants/Enums";
+import { BookingItem as BookingItemType } from "../context";
+import { useMemo } from "react";
+interface BookingItemProps {
+    booking: BookingItemType;
+    activeTab: BookingTab;
+}
+export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) => {
     if (!booking || !booking.startDate || !booking.endDate) {
-        return null; 
+        return null;
     }
     const today = new Date();
     const start = parse(booking.startDate, "dd MMM yyyy", new Date());
     const end = parse(booking.endDate, "dd MMM yyyy", new Date());
-
+    const timeLeftText = useMemo(() => {
+        return formatDurationText({ start: today, end });
+    }, [today, end]);
     const totalDays = differenceInDays(end, start);
     const daysLeft = differenceInDays(end, today);
     const storedDays = differenceInDays(today, start);
     const percentage = Math.min((storedDays / totalDays) * 100, 100);
 
     const duration = intervalToDuration({ start: today, end });
-    
+
     return (
         <ItemWrapper activeTab={activeTab}>
             <BoxIcon src={BoxImage} alt="box" />
@@ -50,8 +59,7 @@ export const BookingItem = ({ booking, activeTab }: any) => {
                     <>
                         <Meta>
                             <ClockIcon />
-                            {duration.months > 0 && `${duration.months} month${duration.months !== 1 ? "s" : ""} `}
-                            {duration.days} day{duration.days !== 1 ? "s" : ""} left
+                            {timeLeftText}
                         </Meta>
                         <ProgressTrack>
                             <ProgressBar percentage={percentage} />
