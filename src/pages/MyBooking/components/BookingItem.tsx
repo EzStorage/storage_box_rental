@@ -18,6 +18,7 @@ import { formatDurationText } from "../../../helpers/duration";
 import { BookingTab } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
 import { useMemo } from "react";
+import { BookingStatus } from "../../../constants/Enums";
 interface BookingItemProps {
     booking: BookingItemType;
     activeTab: BookingTab;
@@ -43,8 +44,8 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
         <ItemWrapper activeTab={activeTab}>
             <BoxIcon src={BoxImage} alt="box" />
             <Details>
-                {activeTab !== "Stored" && (
-                    <Status status={booking.status} label={booking.status} />
+                {activeTab !== BookingTab.Stored && (
+                    <Status bookingStatus={booking.status as BookingStatus}label={booking.status} />
                 )}
                 <DateRange>
                     {booking.startDate} - {booking.endDate}
@@ -55,7 +56,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
                 <Meta>
                     <LocationIcon /> {booking.address}
                 </Meta>
-                {activeTab === "Stored" && (
+                {activeTab === BookingTab.Stored && (
                     <>
                         <Meta>
                             <ClockIcon />
