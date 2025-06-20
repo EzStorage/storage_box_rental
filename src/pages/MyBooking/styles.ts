@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button, Typography, Chip } from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
-
+import { BookingStatus } from "../../constants/Enums";
 export const Container = styled(Box)(() => ({
     padding: "40px",
     backgroundColor: SURFACE.GREY_SURFACE_2,
@@ -31,46 +31,42 @@ export const HeaderBox = styled(Box)(() => ({
 }));
 
 interface StatusProps {
-    status: string;
+  bookingStatus: BookingStatus;
 }
 
 export const Status = styled(Chip, {
-    shouldForwardProp: prop => prop !== "status",
-})<StatusProps>(({ status }) => {
-    let background = SURFACE.GREY_SURFACE_2;
-    let color = TEXT_CUSTOM.GREY_HIGH;
+  shouldForwardProp: (prop) => prop !== "bookingStatus",
+})<StatusProps>(({ bookingStatus }) => {
+  let background = SURFACE.GREY_SURFACE_2;
+  let color = TEXT_CUSTOM.GREY_HIGH;
 
-    switch (status.toLowerCase()) {
-        case "awaiting pickup":
-            background = STATUS.WARNING_BG;
-            color = STATUS.WARNING_TEXT;
-            break;
-        case "box to be delivered":
-            background = STATUS.INFO_BG;
-            color = STATUS.INFO_TEXT;
-            break;
-        case "completed":
-            background = SURFACE.GREEN;
-            color = TEXT_CUSTOM.WHITE;
-            break;
-        case "cancelled":
-            background = STATUS.DANGER_BG;
-            color = TEXT_CUSTOM.WHITE;
-            break;
-        default:
-            break;
-    }
+  switch (bookingStatus) {
+    case BookingStatus.AwaitingPickup:
+      background = STATUS.WARNING_BG;
+      color = STATUS.WARNING_TEXT;
+      break;
+    case BookingStatus.BoxToBeDelivered:
+      background = STATUS.INFO_BG;
+      color = STATUS.INFO_TEXT;
+      break;
+    case BookingStatus.Returned:
+      background = SURFACE.GREEN;
+      color = TEXT_CUSTOM.WHITE;
+      break;
+    
+    default:
+      break;
+  }
 
-    return {
-        backgroundColor: background,
-        color: color,
-        fontWeight: 500,
-        borderRadius: "4px",
-        textTransform: "capitalize",
-        height: "20px",
-    };
+  return {
+    backgroundColor: background,
+    color: color,
+    fontWeight: 500,
+    borderRadius: "4px",
+    textTransform: "capitalize",
+    height: "20px",
+  };
 });
-
 export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
