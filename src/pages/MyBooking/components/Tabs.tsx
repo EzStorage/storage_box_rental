@@ -1,7 +1,8 @@
 import React from "react";
 import { TabContainer, Tab } from "../styles";
 import { useMyBookingSelector, useMyBookingCommit } from "../context";
-import { BookingTab } from "../../../constants/Enums";
+import { BookingTab, BookingStatus } from "../../../constants/Enums";
+
 export const BookingTabs: React.FC = () => {
     const selectedTab = useMyBookingSelector(state => state.selectedTab);
     const bookings = useMyBookingSelector(state => state.bookings);
@@ -15,17 +16,18 @@ export const BookingTabs: React.FC = () => {
 
     const countByStatus = {
         Upcoming: bookings.filter(b =>
-            ["Awaiting Pickup", "Box to be delivered"].includes(b.status),
+            b.status === BookingStatus.AwaitingPickup || b.status === BookingStatus.BoxToBeDelivered
         ).length,
-        Stored: bookings.filter(b => b.status === "Stored").length,
-        History: bookings.filter(b => b.status === "Returned").length,
+        Stored: bookings.filter(b => b.status === BookingStatus.Stored).length,
+        History: bookings.filter(
+            b => b.status === BookingStatus.Returned || b.status === BookingStatus.Cancelled
+        ).length,
     };
 
-    const tabs = [
-        { label: `Upcoming (${countByStatus.Upcoming})`, key: "Upcoming" },
-        { label: `Stored (${countByStatus.Stored})`, key: "Stored" },
-        { label: `History (${countByStatus.History})`, key: "History" },
-    ];
+    const tabs = (Object.keys(countByStatus) as BookingTab[]).map((key) => ({
+        label: `${key.charAt(0).toUpperCase()}${key.slice(1).toLowerCase()} (${countByStatus[key]})`,
+        key,
+    }));
 
     return (
         <TabContainer>
@@ -33,7 +35,7 @@ export const BookingTabs: React.FC = () => {
                 <Tab
                     key={tab.key}
                     active={selectedTab === tab.key}
-                    onClick={() => setActiveTab(tab.key as BookingTab)}
+                    onClick={() => setActiveTab(tab.key)}
                 >
                     {tab.label}
                 </Tab>

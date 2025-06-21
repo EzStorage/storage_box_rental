@@ -27,50 +27,62 @@ export const HeaderBox = styled(Box)(() => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: "20px",
+    marginBottom: "24px",
 }));
 
 interface StatusProps {
-  bookingStatus: BookingStatus;
+    bookingStatus: BookingStatus;
 }
 
 export const Status = styled(Chip, {
-  shouldForwardProp: (prop) => prop !== "bookingStatus",
+    shouldForwardProp: prop => prop !== "bookingStatus",
 })<StatusProps>(({ bookingStatus }) => {
-  let background = SURFACE.GREY_SURFACE_2;
-  let color = TEXT_CUSTOM.GREY_HIGH;
+    let background = SURFACE.GREY_SURFACE_2;
+    let color = TEXT_CUSTOM.GREY_HIGH;
 
-  switch (bookingStatus) {
-    case BookingStatus.AwaitingPickup:
-      background = STATUS.WARNING_BG;
-      color = STATUS.WARNING_TEXT;
-      break;
-    case BookingStatus.BoxToBeDelivered:
-      background = STATUS.INFO_BG;
-      color = STATUS.INFO_TEXT;
-      break;
-    case BookingStatus.Returned:
-      background = SURFACE.GREEN;
-      color = TEXT_CUSTOM.WHITE;
-      break;
-    
-    default:
-      break;
-  }
+    switch (bookingStatus) {
+        case BookingStatus.AwaitingPickup:
+            background = STATUS.WARNING_BG;
+            color = STATUS.WARNING_TEXT;
+            break;
+        case BookingStatus.BoxToBeDelivered:
+            background = STATUS.INFO_BG;
+            color = STATUS.INFO_TEXT;
+            break;
+        case BookingStatus.Returned:
+            background = SURFACE.GREY_SURFACE_1;
+            color = TEXT_CUSTOM.PRIMARY_MED;
+            break;
+        case BookingStatus.Cancelled:
+            background = SURFACE.GREY_SURFACE_1;
+            color = TEXT_CUSTOM.PRIMARY_MED;
+            break;
 
-  return {
-    backgroundColor: background,
-    color: color,
-    fontWeight: 500,
-    borderRadius: "4px",
-    textTransform: "capitalize",
-    height: "20px",
-  };
+        default:
+            break;
+    }
+
+    return {
+        backgroundColor: background,
+        color: color,
+        fontSize: "12px",
+        fontWeight: 400,
+        borderRadius: "4px",
+        textTransform: "capitalize",
+        height: "20px",
+
+        paddingLeft: "4.26px !important",
+        paddingRight: "4.26px !important",
+        "& .MuiChip-label": {
+            padding: "0px !important",
+            lineHeight: "16px",
+        },
+    };
 });
 export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
-    padding: 16,
+    padding: 12,
     display: "flex",
     gap: 16,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
@@ -94,7 +106,7 @@ export const Details = styled(Box)(() => ({
 export const DateRange = styled(Typography)(() => ({
     fontSize: "15px !important",
     fontWeight: "600 !important",
-    paddingTop: 2,
+    paddingTop: 8,
     paddingBottom: 6,
 }));
 
@@ -107,25 +119,30 @@ export const Meta = styled(Typography)(() => ({
     gap: 6,
 }));
 
-export const ProgressTrack = styled(Box)(() => ({
-    position: "absolute",
-    bottom: "10px",
-    left: 16,
-    right: 16,
-    height: 6,
-    borderRadius: 4,
-    backgroundColor: OUTLINE.GREY_MED,
-}));
+export const ProgressTrack = styled(Box)({
+  position:"absolute",
+  bottom: "10px",
+  left: 16,
+  right: 16,
+  height: 6,
+  borderRadius: 4,
+  backgroundColor: OUTLINE.GREY_MED,
+  overflow: "hidden",       
+  display: "flex",          
+  alignItems: "center",      
+  justifyContent: "flex-start", 
+});
 
 export const ProgressBar = styled(Box, {
-    shouldForwardProp: prop => prop !== "percentage",
+  shouldForwardProp: prop => prop !== "percentage",
 })<{ percentage: number }>(({ percentage }) => ({
-    height: "100%",
-    width: `${percentage}%`,
-    backgroundColor: SURFACE.GREEN,
-    borderRadius: 4,
-    transition: "width 0.3s ease-in-out",
+  height: "100%",
+  width: `${percentage}%`,
+  backgroundColor: SURFACE.GREEN,
+  borderRadius: 4,
+  transition: "width 0.3s ease-in-out",
 }));
+
 
 export const ListWrapper = styled(Box)(() => ({
     display: "flex",
@@ -139,11 +156,11 @@ export const TabContainer = styled(Box)(() => ({
     backgroundColor: OUTLINE.GREY_LOW,
     borderRadius: 8,
     height: 40,
-    marginBottom: 40,
+    marginBottom: 24,
     overflow: "hidden",
-    justifyContent:"flex",
-    alignItems:"center",
-    padding:4,
+    justifyContent: "flex",
+    alignItems: "center",
+    padding: 4,
 }));
 
 export const Tab = styled(Button, {
@@ -159,6 +176,20 @@ export const Tab = styled(Button, {
     fontSize: 12,
     textAlign: "center",
     borderRadius: 5,
-    
-    
+    textTransform: "none"
 }));
+
+export const IconWrapper = styled("span")({
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "16px",   
+  width: "16px",
+  marginRight: "6px", 
+  svg: {
+    height: "100%",  
+    width: "100%",
+    verticalAlign: "middle",
+    display: "block", 
+  },
+});

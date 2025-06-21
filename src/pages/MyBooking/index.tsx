@@ -4,17 +4,9 @@ import { BookingList } from "./components/BookingList";
 import { Container, HeaderBox, NewStorageButton } from "./styles";
 import { Typography } from "@mui/material";
 import { useMyBookingSelector, useMyBookingCommit, MyBookingProvider } from "./context";
-import { BookingTab } from "../../constants/Enums";
+
 export const MyBookingContent = () => {
-    const selectedTab = useMyBookingSelector(state => state.selectedTab);
     const commit = useMyBookingCommit();
-
-    const setActiveTab = (tab: BookingTab) => {
-        commit(() => ({
-            selectedTab: tab,
-        }));
-    };
-
     return (
         <Container>
             <HeaderBox>

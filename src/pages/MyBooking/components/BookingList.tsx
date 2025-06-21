@@ -10,17 +10,22 @@ export const BookingList: React.FC = () => {
     const selectedTab = useMyBookingSelector(state => state.selectedTab);
 
     const filteredBookings = bookings.filter(booking => {
-        if (selectedTab === BookingTab.Upcoming) {
-            return (
-                booking.status === BookingStatus.AwaitingPickup ||
-                booking.status === BookingStatus.BoxToBeDelivered
-            );
-        } else if (selectedTab === BookingTab.Stored) {
-            return booking.status === BookingStatus.Stored;
-        } else if (selectedTab === BookingTab.History) {
-            return booking.status === BookingStatus.Returned;
+        switch (selectedTab) {
+            case BookingTab.Upcoming:
+                return (
+                    booking.status === BookingStatus.AwaitingPickup ||
+                    booking.status === BookingStatus.BoxToBeDelivered
+                );
+            case BookingTab.Stored:
+                return booking.status === BookingStatus.Stored;
+            case BookingTab.History:
+                return (
+                    booking.status === BookingStatus.Returned ||
+                    booking.status === BookingStatus.Cancelled
+                );
+            default:
+                return false;
         }
-        return false;
     });
 
     return (

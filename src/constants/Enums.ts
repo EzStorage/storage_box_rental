@@ -3,6 +3,7 @@ export enum BookingStatus {
   BoxToBeDelivered = "Box to be delivered",
   Stored = "Stored",
   Returned = "Returned",
+  Cancelled="Cancelled"
 }
 
 export enum BookingTab {
