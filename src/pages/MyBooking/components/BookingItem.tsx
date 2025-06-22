@@ -1,5 +1,5 @@
 import BoxImage from "@assets/Box-GreyBG.jpeg";
-import Black_Box from "@assets/Black_Box.jpeg"
+import Black_Box from "@assets/Black_Box.jpeg";
 import {
     Status,
     ItemWrapper,
@@ -9,7 +9,7 @@ import {
     Meta,
     ProgressBar,
     ProgressTrack,
-    IconWrapper
+    IconWrapper,
 } from "../styles";
 import { BoxsIcon } from "@components/Icons/BoxIcon";
 import { LocationIcon } from "@components/Icons/LocationsIcon";
@@ -17,7 +17,7 @@ import { ClockIcon } from "@components/Icons/ClockIcon";
 import { Box, Typography } from "@mui/material";
 import { parse, differenceInDays, intervalToDuration } from "date-fns";
 import { formatDurationText } from "@helpers/duration";
-import { BookingTab,BookingStatus} from "../../../constants/Enums";
+import { BookingTab, BookingStatus } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
 import { useMemo } from "react";
 
@@ -29,8 +29,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
     if (!booking || !booking.startDate || !booking.endDate) {
         return null;
     }
-    const boxImageToUse =
-    booking.status === BookingStatus.Cancelled? Black_Box : BoxImage;
+    const boxImageToUse = booking.status === BookingStatus.Cancelled ? Black_Box : BoxImage;
     const today = new Date();
     const start = parse(booking.startDate, "dd MMM yyyy", new Date());
     const end = parse(booking.endDate, "dd MMM yyyy", new Date());
@@ -46,33 +45,48 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
 
     return (
         <ItemWrapper activeTab={activeTab}>
-            <BoxIcon src={boxImageToUse} alt="box" />
-            <Details>
-                {activeTab !== BookingTab.Stored && (
-                    <Status bookingStatus={booking.status as BookingStatus}label={booking.status} />
-                )}
-                <DateRange>
-                    {booking.startDate} - {booking.endDate}
-                </DateRange>
-                <Meta>
-                    <IconWrapper><BoxsIcon/> </IconWrapper>
-                    {booking.quantity} boxes • {booking.duration}
-                </Meta>
-                <Meta>
-                    <IconWrapper><LocationIcon /></IconWrapper> {booking.address}
-                </Meta>
-                {activeTab === BookingTab.Stored && (
-                    <>
+            {/* Row: Image + Details */}
+            <Box display="flex" flexDirection="row" gap={2}>
+                <BoxIcon src={boxImageToUse} alt="box" />
+                <Details>
+                    {activeTab !== BookingTab.Stored && (
+                        <Status
+                            bookingStatus={booking.status as BookingStatus}
+                            label={booking.status}
+                        />
+                    )}
+                    <DateRange>
+                        {booking.startDate} - {booking.endDate}
+                    </DateRange>
+                    <Meta>
+                        <IconWrapper>
+                            <BoxsIcon />
+                        </IconWrapper>
+                        {booking.quantity} boxes • {booking.duration}
+                    </Meta>
+                    <Meta>
+                        <IconWrapper>
+                            <LocationIcon />
+                        </IconWrapper>
+                        {booking.address}
+                    </Meta>
+                    {activeTab === BookingTab.Stored && (
                         <Meta>
-                             <IconWrapper><ClockIcon /></IconWrapper>
+                            <IconWrapper>
+                                <ClockIcon />
+                            </IconWrapper>
                             {timeLeftText}
                         </Meta>
-                        <ProgressTrack>
-                            <ProgressBar percentage={percentage} />
-                        </ProgressTrack>
-                    </>
-                )}
-            </Details>
+                    )}
+                </Details>
+            </Box>
+
+            {/* Progress bar (below entire row) */}
+            {activeTab === BookingTab.Stored && (
+                <ProgressTrack>
+                    <ProgressBar percentage={percentage} />
+                </ProgressTrack>
+            )}
         </ItemWrapper>
     );
 };

@@ -89,7 +89,7 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) =>
     width: 592,
     height: activeTab === "Stored" ? 144 : 126,
     position: "relative",
-    flexDirection: "row",
+    flexDirection: "column",
 }));
 
 export const BoxIcon = styled("img")(() => ({
@@ -120,7 +120,7 @@ export const Meta = styled(Typography)(() => ({
 }));
 
 export const ProgressTrack = styled(Box)({
-  position:"absolute",
+  //position:"absolute",
   bottom: "10px",
   left: 16,
   right: 16,
