@@ -80,12 +80,6 @@ const Header: React.FC = () => {
             </Stack>
 
             <HeaderRight>
-                <Button variant="contained" onClick={() => navigate("/payment-success")}>
-                    Payment Success
-                </Button>
-                <Button variant="contained" onClick={() => navigate("/payment-failed")}>
-                    Payment Failed
-                </Button>
                 <Badge>
                     <IconButton onClick={() => dispatch(openCart())}>
                         <ShopCartIcon width={24} color={!isWhiteBackground ? "white" : "black"} />
