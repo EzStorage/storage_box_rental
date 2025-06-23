@@ -14,12 +14,13 @@ import {
 import { BoxsIcon } from "@components/Icons/BoxIcon";
 import { LocationIcon } from "@components/Icons/LocationsIcon";
 import { ClockIcon } from "@components/Icons/ClockIcon";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { parse, differenceInDays, intervalToDuration } from "date-fns";
 import { formatDurationText } from "@helpers/duration";
 import { BookingTab, BookingStatus } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
 import { useMemo } from "react";
+import { ProgressBarContainer } from "../MyBooking.styles";
 
 interface BookingItemProps {
     booking: BookingItemType;
@@ -37,15 +38,11 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
         return formatDurationText({ start: today, end });
     }, [today, end]);
     const totalDays = differenceInDays(end, start);
-    const daysLeft = differenceInDays(end, today);
     const storedDays = differenceInDays(today, start);
     const percentage = Math.min((storedDays / totalDays) * 100, 100);
 
-    const duration = intervalToDuration({ start: today, end });
-
     return (
         <ItemWrapper activeTab={activeTab}>
-            {/* Row: Image + Details */}
             <Box display="flex" flexDirection="row" gap={2}>
                 <BoxIcon src={boxImageToUse} alt="box" />
                 <Details>
@@ -81,11 +78,12 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
                 </Details>
             </Box>
 
-            {/* Progress bar (below entire row) */}
             {activeTab === BookingTab.Stored && (
-                <ProgressTrack>
-                    <ProgressBar percentage={percentage} />
-                </ProgressTrack>
+                <ProgressBarContainer>
+                    <ProgressTrack>
+                        <ProgressBar percentage={percentage} />
+                    </ProgressTrack>
+                </ProgressBarContainer>
             )}
         </ItemWrapper>
     );

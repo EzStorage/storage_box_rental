@@ -34,12 +34,12 @@ export const TEXT_CUSTOM = {
 };
 
 export const STATUS = {
-  WARNING_BG: "#FCF9CC",
-  WARNING_TEXT: "#B59F07",
-  INFO_BG: "#FCF1FF",
-  INFO_TEXT: "#9F15C2",
-  DANGER_BG: "#f44336",
-  DISABLED: "#e6e6e6",
+    WARNING_BG: "#FCF9CC",
+    WARNING_TEXT: "#B59F07",
+    INFO_BG: "#FCF1FF",
+    INFO_TEXT: "#9F15C2",
+    DANGER_BG: "#f44336",
+    DISABLED: "#e6e6e6",
 };
 
 export type SurfaceColorKey = keyof typeof SURFACE;

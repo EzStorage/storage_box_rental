@@ -2,15 +2,20 @@ import { styled } from "@mui/material/styles";
 import { Box, Button, Typography, Chip } from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
-export const Container = styled(Box)(() => ({
-    padding: "40px",
+
+export const Container = styled(Box)({
     backgroundColor: SURFACE.GREY_SURFACE_2,
-    minHeight: "100vh",
+    minHeight: "calc(100vh - 72px)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     marginTop: "72px",
-}));
+    paddingTop: "40px",
+});
+
+export const Wrapper = styled("div")`
+    width: 45vw;
+`;
 
 export const NewStorageButton = styled(Button)(() => ({
     backgroundColor: "#D221311A",
@@ -23,7 +28,6 @@ export const NewStorageButton = styled(Button)(() => ({
 }));
 
 export const HeaderBox = styled(Box)(() => ({
-    width: "592px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -84,11 +88,7 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) =>
     borderRadius: 8,
     padding: 12,
     display: "flex",
-    gap: 16,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-    width: 592,
-    height: activeTab === "Stored" ? 144 : 126,
-    position: "relative",
     flexDirection: "column",
 }));
 
@@ -120,29 +120,28 @@ export const Meta = styled(Typography)(() => ({
 }));
 
 export const ProgressTrack = styled(Box)({
-  //position:"absolute",
-  bottom: "10px",
-  left: 16,
-  right: 16,
-  height: 6,
-  borderRadius: 4,
-  backgroundColor: OUTLINE.GREY_MED,
-  overflow: "hidden",       
-  display: "flex",          
-  alignItems: "center",      
-  justifyContent: "flex-start", 
+    //position:"absolute",
+    bottom: "10px",
+    left: 16,
+    right: 16,
+    height: 6,
+    borderRadius: 4,
+    backgroundColor: OUTLINE.GREY_MED,
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
 });
 
 export const ProgressBar = styled(Box, {
-  shouldForwardProp: prop => prop !== "percentage",
+    shouldForwardProp: prop => prop !== "percentage",
 })<{ percentage: number }>(({ percentage }) => ({
-  height: "100%",
-  width: `${percentage}%`,
-  backgroundColor: SURFACE.GREEN,
-  borderRadius: 4,
-  transition: "width 0.3s ease-in-out",
+    height: "100%",
+    width: `${percentage}%`,
+    backgroundColor: SURFACE.GREEN,
+    borderRadius: 4,
+    transition: "width 0.3s ease-in-out",
 }));
-
 
 export const ListWrapper = styled(Box)(() => ({
     display: "flex",
@@ -152,7 +151,6 @@ export const ListWrapper = styled(Box)(() => ({
 
 export const TabContainer = styled(Box)(() => ({
     display: "flex",
-    width: 592,
     backgroundColor: OUTLINE.GREY_LOW,
     borderRadius: 8,
     height: 40,
@@ -161,12 +159,14 @@ export const TabContainer = styled(Box)(() => ({
     justifyContent: "flex",
     alignItems: "center",
     padding: 4,
+    width: "100%",
 }));
 
 export const Tab = styled(Button, {
     shouldForwardProp: prop => prop !== "active",
 })<{ active?: boolean }>(({ active }) => ({
-    width: 200,
+    flex: 1,
+    display: "flex",
     height: 33,
     border: "none",
     backgroundColor: active ? SURFACE.GREY_SURFACE_0 : OUTLINE.GREY_LOW,
@@ -176,20 +176,20 @@ export const Tab = styled(Button, {
     fontSize: 12,
     textAlign: "center",
     borderRadius: 5,
-    textTransform: "none"
+    textTransform: "none",
 }));
 
 export const IconWrapper = styled("span")({
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "16px",   
-  width: "16px",
-  marginRight: "6px", 
-  svg: {
-    height: "100%",  
-    width: "100%",
-    verticalAlign: "middle",
-    display: "block", 
-  },
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "16px",
+    width: "16px",
+    marginRight: "6px",
+    svg: {
+        height: "100%",
+        width: "100%",
+        verticalAlign: "middle",
+        display: "block",
+    },
 });

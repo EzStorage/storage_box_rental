@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { MenuList } from "@mui/material";
 import { Link } from "react-router";
+import { HEADER_HEIGHT } from "./constants";
 
 export const HeaderContainer = styled("header", {
     shouldForwardProp: prop => prop !== "isWhiteBackground",
@@ -8,7 +9,7 @@ export const HeaderContainer = styled("header", {
     isWhiteBackground?: boolean;
 }>(({ theme, isWhiteBackground }) => ({
     width: "100%",
-    height: "72px",
+    height: `${HEADER_HEIGHT}px`,
     padding: "0 112px",
     display: "flex",
     justifyContent: "space-between",

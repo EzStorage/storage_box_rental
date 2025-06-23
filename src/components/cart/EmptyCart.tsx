@@ -4,6 +4,7 @@ import EmptyCartIcon from "../../components/Icons/EmptyCart";
 import { BookingTryAgain } from "../../pages/PaymentStatus/PaymentStatus.styles";
 import { EmptyCartWrapper } from "@pages/Homepage/Homepage.styles";
 import { EmptyCartBox } from "./CartStyles";
+
 export const EmptyCart: React.FC = () => {
     return (
         <EmptyCartWrapper>
@@ -15,4 +16,3 @@ export const EmptyCart: React.FC = () => {
         </EmptyCartWrapper>
     );
 };
-

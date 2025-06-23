@@ -46,10 +46,8 @@ const router = createBrowserRouter([
                 element: <PaymentFailed />,
             },
             {
-                path:"MyBookings",
-                element:(
-                     <MyBooking />
-                ),
+                path: "MyBookings",
+                element: <MyBooking />,
             },
             {
                 element: <ProtectedRoute />,
