@@ -1,20 +1,31 @@
-import { createFastContext } from "@helpers/createFastContext";
+import { createFastContext } from "../../../helpers/createFastContext";
+import { mockBookings } from "../../../constants/MockData";
+import { BookingTab } from "../../../constants/Enums";
+export type BookingItem = {
+    id: string;
+    productName: string;
+    quantity: number;
+    startDate: string;
+    endDate: string;
+    status: string;
+    address: string;
+    duration: string;
+};
 
-interface IMyBooking {
-    bookingId: string;
+export interface IMyBookingState {
+    bookings: BookingItem[];
+    selectedTab: BookingTab;
 }
 
-interface IMyBookingState {
-    data: IMyBooking[];
-}
-
-const initialMyBookingState: IMyBookingState = {
-    data: [],
+const initialBookingState: IMyBookingState = {
+    bookings: mockBookings,
+    selectedTab: BookingTab.Upcoming,
 };
 
 export const {
     Provider: MyBookingProvider,
-    useCommit: useMyBookingCommit,
     useSelector: useMyBookingSelector,
+    useCommit: useMyBookingCommit,
     useLazySelector: useMyBookingLazySelector,
-} = createFastContext(initialMyBookingState);
+    createSelector: createMyBookingSelector,
+} = createFastContext<IMyBookingState>(initialBookingState);

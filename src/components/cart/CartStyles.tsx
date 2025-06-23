@@ -180,3 +180,9 @@ export const mutedTextSx = {
 export const lightDividerSx = {
     borderColor: OUTLINE.GREY_LOW,
 };
+
+export const EmptyCartBox = styled(Box)({
+    mt: 6,
+    mb: -6.65,
+    paddingBottom: 3.7,
+});

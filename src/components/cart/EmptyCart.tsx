@@ -1,9 +1,18 @@
-export function EmptyCart() {
+import React from "react";
+import { Box, Typography } from "@mui/material";
+import EmptyCartIcon from "../../components/Icons/EmptyCart";
+import { BookingTryAgain } from "../../pages/PaymentStatus/PaymentStatus.styles";
+import { EmptyCartWrapper } from "@pages/Homepage/Homepage.styles";
+import { EmptyCartBox } from "./CartStyles";
+
+export const EmptyCart: React.FC = () => {
     return (
-        <div style={{ textAlign: "center", padding: "20px" }}>
-            <h2>Your Cart is Empty</h2>
-            <p>Looks like you haven&apos;t added anything to your cart yet.</p>
-            <p>Start shopping now!</p>
-        </div>
+        <EmptyCartWrapper>
+            <EmptyCartBox>
+                <EmptyCartIcon />
+            </EmptyCartBox>
+            <Typography sx={{ paddingBottom: 3 }}>No storage yet!</Typography>
+            <BookingTryAgain>Book new storage</BookingTryAgain>
+        </EmptyCartWrapper>
     );
-}
+};

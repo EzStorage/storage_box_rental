@@ -1,19 +1,30 @@
+import { BookingTabs } from "./components/Tabs";
+import { BookingList } from "./components/BookingList";
+import { Container, HeaderBox, NewStorageButton, Wrapper } from "./styles";
+import { Typography } from "@mui/material";
 import { MyBookingProvider } from "./context";
 
-export function MyBookingContent() {
+export const MyBookingContent = () => {
     return (
-        <div>
-            <h1>My Booking</h1>
-            <p>This page will display</p>
-            {/* Additional components and logic for displaying booking information can be added here */}
-        </div>
-    );
-}
+        <Container>
+            <Wrapper>
+                <HeaderBox>
+                    <Typography variant="h6" style={{ fontWeight: 600, fontSize: "26px" }}>
+                        My Bookings
+                    </Typography>
+                    <NewStorageButton>+ New storage</NewStorageButton>
+                </HeaderBox>
 
-export function MyBooking() {
+                <BookingTabs />
+                <BookingList />
+            </Wrapper>
+        </Container>
+    );
+};
+export const MyBooking = () => {
     return (
         <MyBookingProvider>
             <MyBookingContent />
         </MyBookingProvider>
     );
-}
+};

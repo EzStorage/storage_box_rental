@@ -1,8 +1,9 @@
+import { HEADER_HEIGHT } from "@components/Header/constants";
 import { styled } from "@mui/material";
 
 export const MyBookingContainer = styled("div")(({ theme }) => ({
     height: "calc(100vh - 62px - 44px)",
-    marginTop: "72px",
+    marginTop: `${HEADER_HEIGHT}px`,
     padding: "0 16px",
 
     "> div:first-of-type": {
@@ -16,3 +17,8 @@ export const MyBookingContainer = styled("div")(({ theme }) => ({
         marginTop: "44px",
     },
 }));
+
+export const ProgressBarContainer = styled("div")({
+    width: "100%",
+    marginTop: "12px",
+});
