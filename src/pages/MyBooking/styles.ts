@@ -4,6 +4,8 @@ import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
 
 export const Container = styled(Box)({
+    padding: "40px",
+
     backgroundColor: SURFACE.GREY_SURFACE_2,
     minHeight: "calc(100vh - 72px)",
     display: "flex",
@@ -11,11 +13,26 @@ export const Container = styled(Box)({
     alignItems: "center",
     marginTop: "72px",
     paddingTop: "40px",
+    "@media (max-width: 600px)": {
+        padding: "16px",
+        marginTop: "0px",
+    },
 });
 
-export const Wrapper = styled("div")`
-    width: 45vw;
-`;
+export const HeaderBox = styled(Box)(() => ({
+    width: "592px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "24px",
+    "@media (max-width: 600px)": {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "flex-start",
+        gap: "12px",
+        flexWrap: "nowrap",
+    },
+}));
 
 export const NewStorageButton = styled(Button)(() => ({
     backgroundColor: "#D221311A",
@@ -24,14 +41,135 @@ export const NewStorageButton = styled(Button)(() => ({
     fontSize: "14px",
     fontWeight: 600,
     textTransform: "none",
-    wwidth: 32,
+    width: "fit-content",
+    "@media (max-width: 600px)": {
+        fontSize: "13px",
+        padding: "6px 12px",
+    },
 }));
 
-export const HeaderBox = styled(Box)(() => ({
+export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
+    backgroundColor: SURFACE.GREY_SURFACE_0,
+    borderRadius: 8,
+    padding: 12,
     display: "flex",
-    justifyContent: "space-between",
+    gap: 16,
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+    width: 592,
+    height: activeTab === "Stored" ? 144 : 126,
+    position: "relative",
+    flexDirection: "column",
+    "@media (max-width: 600px)": {
+        width: "100%",
+        height: "auto",
+    },
+}));
+
+export const BoxIcon = styled("img")(() => ({
+    width: 102,
+    height: 102,
+    borderRadius: 4,
+    "@media (max-width: 600px)": {
+        width: 80,
+        height: 80,
+    },
+}));
+
+export const Details = styled(Box)(() => ({
+    flex: 1,
+    fontSize: "13px !important",
+}));
+
+export const DateRange = styled(Typography)(() => ({
+    fontSize: "15px !important",
+    fontWeight: "600 !important",
+    paddingTop: 8,
+    paddingBottom: 6,
+}));
+
+export const Meta = styled(Typography)(() => ({
+    fontSize: "13px !important",
+    color: TEXT_CUSTOM.GREY_LOW,
+    paddingBottom: "4px",
+    display: "flex",
     alignItems: "center",
-    marginBottom: "24px",
+    gap: 6,
+    wordBreak: "break-word",
+}));
+
+export const ProgressTrack = styled(Box)({
+    bottom: "10px",
+    left: 16,
+    right: 16,
+    height: 6,
+    borderRadius: 4,
+    backgroundColor: OUTLINE.GREY_MED,
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    "@media (max-width: 600px)": {
+        height: 5,
+    },
+});
+
+export const ProgressBar = styled(Box, {
+    shouldForwardProp: prop => prop !== "percentage",
+})<{ percentage: number }>(({ percentage }) => ({
+    height: "100%",
+    width: `${percentage}%`,
+    backgroundColor: SURFACE.GREEN,
+    borderRadius: 4,
+    transition: "width 0.3s ease-in-out",
+}));
+
+export const ListWrapper = styled(Box)(() => ({
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    width: "592px",
+    "@media (max-width: 600px)": {
+        width: "100%",
+    },
+}));
+
+export const TabContainer = styled(Box)(() => ({
+    display: "flex",
+    width: 592,
+    backgroundColor: OUTLINE.GREY_LOW,
+    borderRadius: 8,
+    height: 40,
+    marginBottom: 24,
+    overflowX: "auto",
+    overflowY: "hidden",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    padding: 4,
+    "@media (max-width: 600px)": {
+        width: "100%",
+    },
+}));
+
+export const Tab = styled(Button, {
+    shouldForwardProp: prop => prop !== "active",
+})<{ active?: boolean }>(({ active }) => ({
+    width: 200,
+    height: 33,
+    border: "none",
+    backgroundColor: active ? SURFACE.GREY_SURFACE_0 : OUTLINE.GREY_LOW,
+    fontWeight: active ? "bold" : "normal",
+    cursor: "pointer",
+    color: TEXT_CUSTOM.GREY_HIGH,
+    fontSize: 12,
+    textAlign: "center",
+    borderRadius: 5,
+    textTransform: "none",
+    whiteSpace: "nowrap",
+
+    "@media (max-width: 600px)": {
+        width: 120,
+        fontSize: 11,
+    },
 }));
 
 interface StatusProps {
@@ -54,14 +192,10 @@ export const Status = styled(Chip, {
             color = STATUS.INFO_TEXT;
             break;
         case BookingStatus.Returned:
-            background = SURFACE.GREY_SURFACE_1;
-            color = TEXT_CUSTOM.PRIMARY_MED;
-            break;
         case BookingStatus.Cancelled:
             background = SURFACE.GREY_SURFACE_1;
             color = TEXT_CUSTOM.PRIMARY_MED;
             break;
-
         default:
             break;
     }
@@ -74,7 +208,6 @@ export const Status = styled(Chip, {
         borderRadius: "4px",
         textTransform: "capitalize",
         height: "20px",
-
         paddingLeft: "4.26px !important",
         paddingRight: "4.26px !important",
         "& .MuiChip-label": {
@@ -83,101 +216,6 @@ export const Status = styled(Chip, {
         },
     };
 });
-export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
-    backgroundColor: SURFACE.GREY_SURFACE_0,
-    borderRadius: 8,
-    padding: 12,
-    display: "flex",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-    flexDirection: "column",
-}));
-
-export const BoxIcon = styled("img")(() => ({
-    width: 102,
-    height: 102,
-    borderRadius: 4,
-}));
-
-export const Details = styled(Box)(() => ({
-    flex: 1,
-    fontSize: "13px !important",
-}));
-
-export const DateRange = styled(Typography)(() => ({
-    fontSize: "15px !important",
-    fontWeight: "600 !important",
-    paddingTop: 8,
-    paddingBottom: 6,
-}));
-
-export const Meta = styled(Typography)(() => ({
-    fontSize: "13px !important",
-    color: TEXT_CUSTOM.GREY_LOW,
-    paddingBottom: "4px",
-    display: "flex",
-    alignItems: "center",
-    gap: 6,
-}));
-
-export const ProgressTrack = styled(Box)({
-    //position:"absolute",
-    bottom: "10px",
-    left: 16,
-    right: 16,
-    height: 6,
-    borderRadius: 4,
-    backgroundColor: OUTLINE.GREY_MED,
-    overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-start",
-});
-
-export const ProgressBar = styled(Box, {
-    shouldForwardProp: prop => prop !== "percentage",
-})<{ percentage: number }>(({ percentage }) => ({
-    height: "100%",
-    width: `${percentage}%`,
-    backgroundColor: SURFACE.GREEN,
-    borderRadius: 4,
-    transition: "width 0.3s ease-in-out",
-}));
-
-export const ListWrapper = styled(Box)(() => ({
-    display: "flex",
-    flexDirection: "column",
-    gap: 16,
-}));
-
-export const TabContainer = styled(Box)(() => ({
-    display: "flex",
-    backgroundColor: OUTLINE.GREY_LOW,
-    borderRadius: 8,
-    height: 40,
-    marginBottom: 24,
-    overflow: "hidden",
-    justifyContent: "flex",
-    alignItems: "center",
-    padding: 4,
-    width: "100%",
-}));
-
-export const Tab = styled(Button, {
-    shouldForwardProp: prop => prop !== "active",
-})<{ active?: boolean }>(({ active }) => ({
-    flex: 1,
-    display: "flex",
-    height: 33,
-    border: "none",
-    backgroundColor: active ? SURFACE.GREY_SURFACE_0 : OUTLINE.GREY_LOW,
-    fontWeight: active ? "bold" : "normal",
-    cursor: "pointer",
-    color: TEXT_CUSTOM.GREY_HIGH,
-    fontSize: 12,
-    textAlign: "center",
-    borderRadius: 5,
-    textTransform: "none",
-}));
 
 export const IconWrapper = styled("span")({
     display: "inline-flex",
