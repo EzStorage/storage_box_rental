@@ -1,6 +1,6 @@
 import { createFastContext } from "../../../helpers/createFastContext";
 import { mockBookings } from "../../../constants/MockData";
-import { BookingTab } from "../../../constants/Enums"
+import { BookingTab } from "../../../constants/Enums";
 export type BookingItem = {
     id: string;
     productName: string;
@@ -18,8 +18,8 @@ export interface IMyBookingState {
 }
 
 const initialBookingState: IMyBookingState = {
-    bookings:mockBookings,
-    selectedTab:  BookingTab.Upcoming,
+    bookings: mockBookings,
+    selectedTab: BookingTab.Upcoming,
 };
 
 export const {
