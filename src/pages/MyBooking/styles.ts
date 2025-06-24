@@ -47,18 +47,25 @@ export const NewStorageButton = styled(Button)(() => ({
         padding: "6px 12px",
     },
 }));
+export const Wrapper = styled("div")`
+    width: 100%;
+    max-width: 592px;
+    margin: 0 auto;
+`;
 
 export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
-    padding: 12,
+    padding: activeTab === "Stored" ? "12px 12px 12px 12px" : "12px 12px 12px 12px", // 
     display: "flex",
-    gap: 16,
+    gap:-6,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
     width: 592,
-    height: activeTab === "Stored" ? 144 : 126,
-    position: "relative",
+    //height: activeTab === "Stored" ? 144 : 126,
+    //position: "relative",
     flexDirection: "column",
+    height: activeTab === "Stored" ? 144 : "auto",  
+    
     "@media (max-width: 600px)": {
         width: "100%",
         height: "auto",
@@ -230,4 +237,13 @@ export const IconWrapper = styled("span")({
         verticalAlign: "middle",
         display: "block",
     },
+});
+export const ContentRow = styled(Box)({
+  display: "flex",
+  flexDirection: "row",
+  gap: 16,           
+  flex: 1,
+  minHeight: 0,
+  overflow: "hidden",
+  padding: 0,        
 });
