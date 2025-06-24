@@ -2,6 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Button, Typography, Chip } from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
+import { Padding } from "@mui/icons-material";
 
 export const Container = styled(Box)({
     padding: "40px",
@@ -49,26 +50,36 @@ export const NewStorageButton = styled(Button)(() => ({
 }));
 export const Wrapper = styled("div")`
     width: 100%;
-    max-width: 592px;
-    margin: 0 auto;
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width: 600px) {
+        padding: 0 6px;
+        max-width: 100%;
+        align-items: stretch;
+    }
 `;
 
 export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
-    padding: activeTab === "Stored" ? "12px 12px 12px 12px" : "12px 12px 12px 12px", // 
+    padding: activeTab === "Stored" ? "12px 12px 12px 12px" : "12px 12px 12px 12px", //
     display: "flex",
-    gap:-6,
+    gap: 0,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
     width: 592,
     //height: activeTab === "Stored" ? 144 : 126,
     //position: "relative",
     flexDirection: "column",
-    height: activeTab === "Stored" ? 144 : "auto",  
-    
+    height: activeTab === "Stored" ? 144 : "auto",
+
     "@media (max-width: 600px)": {
         width: "100%",
         height: "auto",
+        padding: "8px 12px 8px 8px",
     },
 }));
 
@@ -77,8 +88,8 @@ export const BoxIcon = styled("img")(() => ({
     height: 102,
     borderRadius: 4,
     "@media (max-width: 600px)": {
-        width: 80,
-        height: 80,
+        width: "92px",
+        height: "92px",
     },
 }));
 
@@ -92,6 +103,9 @@ export const DateRange = styled(Typography)(() => ({
     fontWeight: "600 !important",
     paddingTop: 8,
     paddingBottom: 6,
+    "@media (max-width: 600px)": {
+        paddingTop: 3,
+    },
 }));
 
 export const Meta = styled(Typography)(() => ({
@@ -239,11 +253,15 @@ export const IconWrapper = styled("span")({
     },
 });
 export const ContentRow = styled(Box)({
-  display: "flex",
-  flexDirection: "row",
-  gap: 16,           
-  flex: 1,
-  minHeight: 0,
-  overflow: "hidden",
-  padding: 0,        
+    display: "flex",
+    flexDirection: "row",
+    gap: 12,
+    flex: 1,
+    minHeight: 0,
+    overflow: "hidden",
+    padding: 0,
+    alignItems: "flex-start",
+    "@media (max-width: 600px)": {
+        alignItems: "flex-start",
+    },
 });

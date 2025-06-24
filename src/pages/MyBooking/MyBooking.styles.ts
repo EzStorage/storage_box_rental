@@ -21,4 +21,7 @@ export const MyBookingContainer = styled("div")(({ theme }) => ({
 export const ProgressBarContainer = styled("div")({
     width: "100%",
     marginTop: "12px",
+    "@media (max-width: 600px)": {
+        marginTop: "3px",
+    },
 });

@@ -10,7 +10,7 @@ import {
     ProgressBar,
     ProgressTrack,
     IconWrapper,
-    ContentRow
+    ContentRow,
 } from "../styles";
 import { BoxsIcon } from "@components/Icons/BoxIcon";
 import { LocationIcon } from "@components/Icons/LocationsIcon";

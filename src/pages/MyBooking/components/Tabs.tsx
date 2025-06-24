@@ -15,16 +15,18 @@ export const BookingTabs: React.FC = () => {
     };
 
     const countByStatus = {
-        Upcoming: bookings.filter(b =>
-            b.status === BookingStatus.AwaitingPickup || b.status === BookingStatus.BoxToBeDelivered
+        Upcoming: bookings.filter(
+            b =>
+                b.status === BookingStatus.AwaitingPickup ||
+                b.status === BookingStatus.BoxToBeDelivered,
         ).length,
         Stored: bookings.filter(b => b.status === BookingStatus.Stored).length,
         History: bookings.filter(
-            b => b.status === BookingStatus.Returned || b.status === BookingStatus.Cancelled
+            b => b.status === BookingStatus.Returned || b.status === BookingStatus.Cancelled,
         ).length,
     };
 
-    const tabs = (Object.keys(countByStatus) as BookingTab[]).map((key) => ({
+    const tabs = (Object.keys(countByStatus) as BookingTab[]).map(key => ({
         label: `${key.charAt(0).toUpperCase()}${key.slice(1).toLowerCase()} (${countByStatus[key]})`,
         key,
     }));
