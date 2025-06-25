@@ -305,8 +305,8 @@ export const FeatureSectionContainer = styled("section")(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
     padding: "64px 112px",
 
-    [theme.breakpoints.down("md")]: {
-        padding: "64px 16px",
+    [theme.breakpoints.down("lg")]: {
+        padding: "48px 16px",
     },
 }));
 

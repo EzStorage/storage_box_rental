@@ -60,6 +60,7 @@ export const BulkPricingRowHead = styled(TableHead)(({ theme }) => ({
     },
 
     th: {
+        padding: "12px 16px",
         fontWeight: 600,
         fontSize: "12px",
         lineHeight: "16px",
@@ -70,6 +71,7 @@ export const BulkPricingRowHead = styled(TableHead)(({ theme }) => ({
 
 export const BulkPricingRowBody = styled(TableBody)(({ theme }) => ({
     td: {
+        padding: "12px 16px",
         fontWeight: 400,
         fontSize: "13px",
         lineHeight: "20px",

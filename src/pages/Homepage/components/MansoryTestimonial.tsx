@@ -48,16 +48,8 @@ const TestimonialList: React.FC<TestimonialListProps> = ({
 }) => {
     return (
         <TestimonialMotionList
-            initial={
-                isMobile
-                    ? { translateX: reverse ? "-100%" : "0%" }
-                    : { translateY: reverse ? "-100%" : "0%" }
-            }
-            animate={
-                isMobile
-                    ? { translateX: reverse ? "0%" : "-100%" }
-                    : { translateY: reverse ? "0%" : "-100%" }
-            }
+            initial={isMobile ? { x: reverse ? "-100%" : "0%" } : { y: reverse ? "-100%" : "0%" }}
+            animate={isMobile ? { x: reverse ? "0%" : "-100%" } : { y: reverse ? "0%" : "-100%" }}
             transition={{ duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         >
             {list.map(testimonial => (

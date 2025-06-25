@@ -6,7 +6,7 @@ const TestimonialSection: React.FC = () => {
         <TestimonialSectionContainer>
             <TestimonialSectionHeader>
                 <h1>
-                    What's our customer <span>say</span>
+                    What's our customer <span>saying</span>
                 </h1>
                 <p>Over 10,000 clients use EzStorage</p>
             </TestimonialSectionHeader>

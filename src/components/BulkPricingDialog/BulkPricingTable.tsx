@@ -26,7 +26,7 @@ export function BulkPricingTable() {
                             <TableCell>
                                 {row.min} - {row.max}
                             </TableCell>
-                            <TableCell>{formatAmount(row.unitPrice)}</TableCell>
+                            <TableCell>{formatAmount(row.unitPrice)}/month</TableCell>
                         </TableRow>
                     ))}
                 </BulkPricingRowBody>

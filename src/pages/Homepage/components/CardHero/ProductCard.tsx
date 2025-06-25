@@ -52,7 +52,7 @@ export function ProductCard({ productId, quantity }: ProductCardProps) {
                     <ProductDiscountedPeriod>/month</ProductDiscountedPeriod>
                 </div>
                 <ProductShowBulkPricing onClick={toggleBulkDialog}>
-                    Show all bulk pricing
+                    Show bulk pricing
                 </ProductShowBulkPricing>
             </div>
             <BulkPricingDialog open={openDialog} onClose={toggleBulkDialog} />
