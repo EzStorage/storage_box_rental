@@ -3,7 +3,6 @@ import background from "../../assets/background-hero.jpg";
 import { Box, Grid, Stack, Button, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import { CrossCircleIcon } from "@components/Icons/CrossCircleIcon";
 import { SURFACE, OUTLINE, TEXT_CUSTOM } from "../../constants/palette";
 
@@ -564,7 +563,7 @@ export const FAQHeading = styled("h2")(({ theme }) => ({
     },
     [theme.breakpoints.up("md")]: {
         marginLeft: "80px",
-        fontSize:"40px"
+        fontSize: "40px",
     },
 }));
 
@@ -583,12 +582,12 @@ export const QuestionText = styled("h4")(({ theme }) => ({
 export const AnswerText = styled("p")(({ theme }) => ({
     color: theme.palette.text.secondary,
     margin: 0,
-    fontWeight:400,
+    fontWeight: 400,
     fontSize: "18px",
     lineHeight: 1.5,
     [theme.breakpoints.up("md")]: {
         marginLeft: "80px",
-        fontSize:""
+        fontSize: "",
     },
 }));
 
@@ -681,10 +680,10 @@ export const ResponsiveFlexBox = styled(Box)(({ theme }) => ({
 }));
 
 export const EmptyCartWrapper = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  marginTop: theme.spacing(6),
-  marginBottom: theme.spacing(4),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(4),
 }));

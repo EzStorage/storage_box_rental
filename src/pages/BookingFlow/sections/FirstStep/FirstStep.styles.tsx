@@ -2,7 +2,6 @@ import { styled } from "@mui/material";
 
 export const ProductCardContainer = styled("div")(({ theme }) => ({
     display: "flex",
-    maxHeight: "137px",
     margin: "20px 0",
 
     [theme.breakpoints.down("lg")]: {
@@ -14,17 +13,13 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
     },
 }));
 
-export const ProductCardInfoContainer = styled("div")({
-    "> h3:first-of-type": {
-        marginBottom: "4px",
-    },
-});
-
 export const ProductChipContainer = styled("div")({
     display: "flex",
+    flexWrap: "wrap",
     alignItems: "center",
     gap: "6px",
     marginBottom: "12px",
+    marginTop: "4px",
 });
 
 export const ProductDiscountedPeriod = styled("span")(({ theme }) => ({

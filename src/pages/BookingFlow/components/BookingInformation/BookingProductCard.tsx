@@ -6,7 +6,6 @@ import {
     ProductCardContainer,
     ProductChipContainer,
     ProductDescription,
-    ProductInfoContainer,
 } from "./BookingInformation.styles";
 import { ProductChip } from "@components/ProductCard/ProductChip";
 import { useBookingSelector } from "@pages/BookingFlow/context";
@@ -28,7 +27,7 @@ export function BookingProductCard() {
             <div>
                 <ProductImage src={product.image} alt={product.id} />
             </div>
-            <ProductInfoContainer>
+            <div>
                 <ProductTitle>{product.name}</ProductTitle>
                 <ProductChipContainer>
                     <ProductChip label={product.dimensions} />
@@ -40,7 +39,7 @@ export function BookingProductCard() {
                         ? `${plans.title} (${plans.days} ${plans.days <= 1 ? "day" : "days"})`
                         : `${typeof differenceDays === "number" ? `${differenceDays} ${differenceDays <= 1 ? "day" : "days"}` : ""}`}
                 </ProductDescription>
-            </ProductInfoContainer>
+            </div>
         </ProductCardContainer>
     );
 }

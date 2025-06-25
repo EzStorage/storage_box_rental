@@ -4,20 +4,21 @@ import { styled } from "@mui/material";
 export const ProductCardContainer = styled("div")(({ theme }) => ({
     display: "flex",
     gap: "20px",
+    marginBottom: "24px",
 
     [theme.breakpoints.down("lg")]: {
         marginRight: "16px",
+        marginBottom: "12px",
     },
 }));
 
-export const ProductInfoContainer = styled("div")({
-    width: "100%",
-});
-
 export const ProductChipContainer = styled("div")({
     display: "flex",
+    flexWrap: "wrap",
     alignItems: "center",
     gap: "6px",
+    marginTop: "4px",
+    marginBottom: "12px",
 });
 
 export const ProductDescription = styled("div")(({ theme }) => ({
@@ -25,7 +26,6 @@ export const ProductDescription = styled("div")(({ theme }) => ({
     fontSize: "13px",
     lineHeight: "20px",
     color: theme.palette.textCustom.greyMed,
-    marginTop: "12px",
 }));
 
 // ---- Booking Info -----

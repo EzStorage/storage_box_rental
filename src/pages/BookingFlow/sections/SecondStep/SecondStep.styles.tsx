@@ -22,23 +22,21 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
 
 export const ProductInfoContainer = styled("div")({
     width: "100%",
-
-    "> h3:first-of-type": {
-        marginBottom: "4px",
-    },
 });
 
 export const ProductChipContainer = styled("div")({
     display: "flex",
+    flexWrap: "wrap",
     alignItems: "center",
     gap: "6px",
+    marginBottom: "12px",
+    marginTop: "4px",
 });
 
 export const ProductEstimateFeeContainer = styled("div")(({ theme }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: "12px",
 
     [theme.breakpoints.down("lg")]: {
         flexDirection: "column",

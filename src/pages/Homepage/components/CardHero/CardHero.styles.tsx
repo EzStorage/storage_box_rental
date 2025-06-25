@@ -5,7 +5,6 @@ import { styled } from "@mui/material";
 export const ProductCardContainer = styled("div")(({ theme }) => ({
     display: "flex",
     gap: "16px",
-    maxHeight: "137px",
     marginBottom: "20px",
 
     [theme.breakpoints.down("lg")]: {
@@ -15,8 +14,11 @@ export const ProductCardContainer = styled("div")(({ theme }) => ({
 
 export const ProductChipContainer = styled("div")({
     display: "flex",
+    flexWrap: "wrap",
     alignItems: "center",
     gap: "6px",
+    marginTop: "4px",
+    marginBottom: "12px",
 });
 
 export const ProductDiscountedPeriod = styled("span")(({ theme }) => ({
@@ -52,11 +54,13 @@ export const CardHeroContainer = styled("div", {
     backgroundColor: "white",
     borderRadius: "12px",
     padding: "24px",
+    width: "464px",
 
     [theme.breakpoints.down("lg")]: {
         ...(isLogin && {
             borderTop: `1px solid ${theme.palette.outline.greyMed}`,
         }),
+        width: "100%",
     },
 }));
 

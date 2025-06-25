@@ -27,6 +27,12 @@ export const DHeroContainer = styled("section")({
         position: "relative",
         zIndex: 2,
         height: "100%",
+
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "32px",
+        maxWidth: "1280px",
+        margin: "0 auto",
     },
 });
 
@@ -92,6 +98,7 @@ export const HeroTitleContainer = styled("div")(({ theme }) => ({
         fontSize: "18px",
         fontWeight: "400",
         lineHeight: "26px",
+        textAlign: "justify",
 
         [theme.breakpoints.down("lg")]: {
             fontSize: "15px",
@@ -102,6 +109,7 @@ export const HeroTitleContainer = styled("div")(({ theme }) => ({
 
     [theme.breakpoints.down("lg")]: {
         marginBottom: "24px",
+        paddingRight: 0,
     },
 }));
 
@@ -111,6 +119,7 @@ export const HeroCardContainer = styled("div", {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    margin: "0 auto",
 
     [theme.breakpoints.down("lg")]: {
         display: "block",

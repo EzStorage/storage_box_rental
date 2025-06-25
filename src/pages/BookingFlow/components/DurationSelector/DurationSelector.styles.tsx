@@ -20,6 +20,10 @@ export const DurationSelectorItem = styled("div")<DurationSelectorItemProps>(
         border: `1px solid ${isSelected ? "#FA8371" : theme.palette.outline.greyLow}`,
         background: isSelected ? theme.palette.surface.primaryBase : "transparent",
         padding: "12px 16px",
+
+        [theme.breakpoints.down("lg")]: {
+            padding: "12px",
+        },
     }),
 );
 
@@ -28,6 +32,12 @@ export const DurationSelectorTitle = styled("div")(({ theme }) => ({
     fontSize: "15px",
     lineHeight: "24px",
     color: theme.palette.textCustom.greyHigh,
+
+    [theme.breakpoints.down("lg")]: {
+        fontWeight: 600,
+        fontSize: "13px",
+        lineHeight: "20px",
+    },
 
     span: {
         fontWeight: 400,
@@ -56,7 +66,7 @@ export const CustomDurationButton = styled(Button)(({ theme }) => ({
 }));
 
 export const DialogCustomDuration = styled(Dialog)({
-    ".css-17jr764-MuiPaper-root-MuiDialog-paper": {
+    ".MuiPaper-root": {
         backgroundColor: "white",
         borderRadius: "20px",
         boxShadow: "none",

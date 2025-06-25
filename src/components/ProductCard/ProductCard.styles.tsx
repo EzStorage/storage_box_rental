@@ -34,11 +34,16 @@ export const ProductChipContainer = styled(Chip)(({ theme }) => ({
     backgroundColor: "#F4F4F6",
     borderRadius: "4px",
     padding: "4px 6px",
+    height: "auto",
 
     fontSize: "12px",
     fontWeight: 600,
     lineHeight: "16px",
     color: theme.palette.textCustom.greyMed,
+
+    ".MuiChip-label": {
+        padding: 0,
+    },
 }));
 
 export const ProductOriginalPriceContainer = styled("span")(({ theme }) => ({

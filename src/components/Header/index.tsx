@@ -55,7 +55,7 @@ const Header: React.FC = () => {
     };
 
     useMotionValueEvent(scrollY, "change", latest => {
-        setScrolled(latest > 50 ? true : false);
+        setScrolled(latest > 10 ? true : false);
     });
 
     return (
