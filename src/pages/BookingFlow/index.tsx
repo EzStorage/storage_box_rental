@@ -27,11 +27,11 @@ function BookingContent() {
             {!isDesktop && <MHeader />}
             <ProgressBooking />
             <StepsContainer>
-                {step >= 1 && <FirstStep />}
-                {step >= 2 && <SecondStep />}
-                {step >= 3 && <ThirdStep />}
-                {step >= 4 && <FourthStep />}
-                {step >= 5 && <FifthStep />}
+                {step === 1 && <FirstStep />}
+                {step === 2 && <SecondStep />}
+                {step === 3 && <ThirdStep />}
+                {step === 4 && <FourthStep />}
+                {step === 5 && <FifthStep />}
             </StepsContainer>
             <CheckoutFooter />
         </BookingContainer>

@@ -100,6 +100,7 @@ const Header: React.FC = () => {
             </HeaderRight>
 
             <Popover
+                disableScrollLock
                 open={Boolean(anchorEl)}
                 anchorEl={anchorEl}
                 onClose={handleClose}
