@@ -2,12 +2,11 @@ import Feature from "./sections/Feature";
 import HowItWorks from "./sections/HowItWorks";
 import Testimonial from "./sections/Testimonial";
 import Hero from "./sections/Hero";
-import FAQ from "./sections/FAQ";
 import { SectionDivider } from "./components/SectionDivider";
-
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import CartDrawer from "@components/cart/CartDrawer";
+import { FAQ } from "./sections/FAQ";
 
 export const Homepage: React.FC = () => {
     const location = useLocation();

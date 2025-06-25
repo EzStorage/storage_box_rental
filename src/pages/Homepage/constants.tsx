@@ -224,7 +224,7 @@ export const getStatusCards = (user: User): StatusCard[] => [
     },
 ];
 
-export const faqs = [
+export const FAQS = [
     {
         question: "How does the storage service work?",
         answer: "You choose your storage size and duration, complete the booking online, and deliver your items to our secure facility.",
