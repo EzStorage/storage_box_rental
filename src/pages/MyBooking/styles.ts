@@ -244,6 +244,8 @@ export const IconWrapper = styled("span")({
     justifyContent: "center",
     height: "16px",
     width: "16px",
+    minHeight: "16px",
+    minWidth: "16px",
     marginRight: "6px",
     svg: {
         height: "100%",
