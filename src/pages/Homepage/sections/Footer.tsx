@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                 }}
             >
                 <FooterText style={{ textAlign: "left" }}>
-                    © 2077 EzStorage. All rights reserved.
+                    © 2025 EzStorage. All rights reserved.
                 </FooterText>
 
                 <Box sx={{ display: "flex", gap: "20px" }}>
