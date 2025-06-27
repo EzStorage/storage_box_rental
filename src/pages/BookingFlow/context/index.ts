@@ -23,6 +23,7 @@ export interface IBookingForm {
 
 export interface IBookingState {
     step: number;
+    direction: number;
     errorMessage?: Record<string, string>;
     form: IBookingForm;
 }
@@ -55,6 +56,7 @@ const initalBookingState: IBookingState = {
         emptyDuration: 7,
     },
     step: 1,
+    direction: 1,
     errorMessage: {},
 };
 

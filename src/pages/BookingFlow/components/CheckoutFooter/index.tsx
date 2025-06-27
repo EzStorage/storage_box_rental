@@ -47,30 +47,22 @@ export function CheckoutFooter() {
             return;
         }
         const nextStep = step + 1;
+
         commit({ step: nextStep });
+
         setTimeout(() => {
-            const nextSection = document.getElementById(`step-${nextStep}`);
-            if (nextSection) {
-                window.scrollTo({
-                    top: nextSection.getBoundingClientRect().top + window.pageYOffset - 40,
-                    behavior: "smooth",
-                });
-            }
-        });
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
     };
 
     const handleBack = () => {
         const nextStep = step - 1;
-        const nextSection = document.getElementById(`step-${nextStep}`);
-        if (nextSection) {
-            window.scrollTo({
-                top: nextSection.getBoundingClientRect().top + window.pageYOffset - 40,
-                behavior: "smooth",
-            });
-        }
+
+        commit({ step: nextStep });
+
         setTimeout(() => {
-            commit({ step: nextStep });
-        }, 500);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
     };
 
     const AddToCardButton = () => {
