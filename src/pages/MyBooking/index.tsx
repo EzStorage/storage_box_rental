@@ -14,10 +14,10 @@ export const MyBookingContent = () => {
                     </Typography>
                     <NewStorageButton>+ New storage</NewStorageButton>
                 </HeaderBox>
-
-                <BookingTabs />
-                <BookingList />
             </Wrapper>
+
+            <BookingTabs />
+            <BookingList />
         </Container>
     );
 };

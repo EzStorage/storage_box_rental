@@ -10,6 +10,7 @@ import {
     ProgressBar,
     ProgressTrack,
     IconWrapper,
+    ContentRow,
 } from "../styles";
 import { BoxsIcon } from "@components/Icons/BoxIcon";
 import { LocationIcon } from "@components/Icons/LocationsIcon";
@@ -43,7 +44,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
 
     return (
         <ItemWrapper activeTab={activeTab}>
-            <Box display="flex" flexDirection="row" gap={2}>
+            <ContentRow>
                 <BoxIcon src={boxImageToUse} alt="box" />
                 <Details>
                     {activeTab !== BookingTab.Stored && (
@@ -76,7 +77,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
                         </Meta>
                     )}
                 </Details>
-            </Box>
+            </ContentRow>
 
             {activeTab === BookingTab.Stored && (
                 <ProgressBarContainer>

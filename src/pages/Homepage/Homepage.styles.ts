@@ -583,10 +583,10 @@ export const AnswerText = styled("p")(({ theme }) => ({
     color: theme.palette.text.secondary,
     margin: 0,
     fontWeight: 400,
-    fontSize: "18px",
+    fontSize: "15px",
     lineHeight: 1.5,
     [theme.breakpoints.up("md")]: {
-        marginLeft: "80px",
+        marginLeft: "0px",
         fontSize: "",
     },
 }));
