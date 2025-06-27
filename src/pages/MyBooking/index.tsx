@@ -1,18 +1,19 @@
 import { BookingTabs } from "./components/Tabs";
 import { BookingList } from "./components/BookingList";
-import { Container, HeaderBox, NewStorageButton, Wrapper } from "./styles";
+import { Container, HeaderBox, NewStorageButton, Wrapper,ResponsiveHeading } from "./styles";
 import { Typography } from "@mui/material";
 import { MyBookingProvider } from "./context";
+import {PlusIcon} from "../../components/Icons/PlusNewIcon";
 
 export const MyBookingContent = () => {
     return (
         <Container>
             <Wrapper>
                 <HeaderBox>
-                    <Typography variant="h6" style={{ fontWeight: 600, fontSize: "26px" }}>
+                    <ResponsiveHeading>
                         My Bookings
-                    </Typography>
-                    <NewStorageButton>+ New storage</NewStorageButton>
+                    </ResponsiveHeading>
+                    <NewStorageButton><PlusIcon/>&nbsp;New storage</NewStorageButton>
                 </HeaderBox>
             </Wrapper>
 

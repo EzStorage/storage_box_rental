@@ -25,13 +25,14 @@ export const HeaderBox = styled(Box)(() => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: "24px",
+    marginBottom: "20px",
     "@media (max-width: 600px)": {
         width: "100%",
         flexDirection: "row",
-        alignItems: "flex-start",
+        alignItems: "center",
         gap: "12px",
         flexWrap: "nowrap",
+        padding: "12px 0 0 0"
     },
 }));
 
@@ -268,3 +269,14 @@ export const ContentRow = styled(Box)({
         alignItems: "flex-start",
     },
 });
+export const ResponsiveHeading = styled(Typography)(({ theme }) => ({
+  fontWeight: 600,
+  fontSize: "23px", 
+
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "22px",
+  },
+  [theme.breakpoints.up("md")]: {
+    fontSize: "26px",
+  },
+}));
