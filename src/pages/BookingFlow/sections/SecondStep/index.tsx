@@ -7,6 +7,8 @@ import { SecondStepProductCard } from "./SecondStepProductCard";
 import { PlanDetails } from "@pages/BookingFlow/components/PlanDetails";
 import { OtherNotes } from "@pages/BookingFlow/components/OtherNotes";
 import { PlanDetailsContainer } from "./SecondStep.styles";
+import { Note } from "@components/Note";
+import NotificationIcon from "@components/Icons/NotificationIcon";
 
 export function SecondStep() {
     return (
@@ -17,6 +19,7 @@ export function SecondStep() {
             <PlanDetailsContainer>
                 <PlanDetails />
             </PlanDetailsContainer>
+            <Note Icon={<NotificationIcon />} title="You can cancel anytime" />
             <OtherNotes />
         </StepContainer>
     );
