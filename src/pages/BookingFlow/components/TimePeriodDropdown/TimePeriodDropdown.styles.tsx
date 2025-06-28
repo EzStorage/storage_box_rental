@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled, TextField } from "@mui/material";
 
 export const TimePeriodDropdownContainer = styled("div")(({ theme }) => ({
     position: "relative",
@@ -11,6 +11,7 @@ export const TimePeriodDropdownContainer = styled("div")(({ theme }) => ({
     fontSize: "15px",
     lineHeight: "24px",
     backgroundColor: theme.palette.surface.greySurface2,
+    cursor: "text",
 
     "> div:first-of-type": {
         fontWeight: 400,
@@ -29,3 +30,14 @@ export const ChevronContainer = styled("div")({
         padding: 0,
     },
 });
+
+export const TextFieldStyled = styled(TextField)`
+    input {
+        padding: 0;
+        border: none;
+        width: 50px;
+    }
+    fieldset {
+        border: none;
+    }
+`;

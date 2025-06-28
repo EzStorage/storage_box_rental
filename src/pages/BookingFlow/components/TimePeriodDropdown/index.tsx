@@ -1,49 +1,51 @@
-import { useState } from "react";
-import { ChevronContainer, TimePeriodDropdownContainer } from "./TimePeriodDropdown.styles";
-import { IconButton } from "@mui/material";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { useRef, useState } from "react";
+import { TextFieldStyled, TimePeriodDropdownContainer } from "./TimePeriodDropdown.styles";
+import { SideActions } from "./SideActions";
 
 interface TimePeriodDropdownProps {
     value?: number;
     onChange?: (value: number) => void;
 }
 
+const LIMIT_DATE = 1000;
+
 export function TimePeriodDropdown({ value = 7, onChange }: TimePeriodDropdownProps) {
     const [selectedValue, setSelectedValue] = useState(value);
+    const inputRef = useRef<HTMLDivElement>(null);
 
-    const handleIncrementDays = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation();
-        const currentNum = selectedValue;
-        if (!isNaN(currentNum)) {
-            const newValue = currentNum + 1;
-            setSelectedValue(newValue);
-            onChange?.(newValue);
+    const handleChange = (value: number) => {
+        setSelectedValue(value);
+        onChange?.(value);
+    };
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const textVal = event.target.value;
+        if (textVal === "") {
+            handleChange(0);
+            return;
+        }
+        const newValue = parseInt(textVal, 10);
+        if (newValue >= LIMIT_DATE) return;
+        if (!isNaN(newValue) && newValue > 0) {
+            handleChange(newValue);
         }
     };
 
-    const handleDecrementtDays = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation();
-        const currentNum = selectedValue;
-        if (!isNaN(currentNum) && currentNum > 1) {
-            const newValue = currentNum - 1;
-            setSelectedValue(newValue);
-            onChange?.(newValue);
+    const onFocus = () => {
+        if (inputRef.current) {
+            inputRef.current.querySelector("input")?.focus();
         }
     };
 
     return (
-        <TimePeriodDropdownContainer>
-            <div>
-                {selectedValue} {selectedValue <= 1 ? "day" : "days"}
-            </div>
-            <ChevronContainer>
-                <IconButton onClick={handleIncrementDays} aria-label="Increase days">
-                    <FaChevronUp size={"12px"} />
-                </IconButton>
-                <IconButton onClick={handleDecrementtDays} aria-label="Decrease days">
-                    <FaChevronDown size={"12px"} />
-                </IconButton>
-            </ChevronContainer>
+        <TimePeriodDropdownContainer onClick={onFocus}>
+            <TextFieldStyled
+                ref={inputRef}
+                value={selectedValue.toString()}
+                onChange={handleInputChange}
+                slotProps={{ input: { endAdornment: <span>days</span> } }}
+            />
+            <SideActions value={selectedValue} onChange={handleChange} />
         </TimePeriodDropdownContainer>
     );
 }
