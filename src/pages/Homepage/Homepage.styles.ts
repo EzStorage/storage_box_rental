@@ -588,7 +588,6 @@ export const AnswerText = styled("p")(({ theme }) => ({
     [theme.breakpoints.up("md")]: {
         marginLeft: "0px",
         fontSize: "",
-
     },
 }));
 
