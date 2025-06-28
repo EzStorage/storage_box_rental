@@ -27,16 +27,18 @@ export const DurationSelectorItem = styled("div")<DurationSelectorItemProps>(
     }),
 );
 
-export const DurationSelectorTitle = styled("div")(({ theme }) => ({
-    fontWeight: 600,
-    fontSize: "15px",
-    lineHeight: "24px",
-    color: theme.palette.textCustom.greyHigh,
-
-    [theme.breakpoints.down("lg")]: {
+export const DurationSelectorTitle = styled("p")(({ theme }) => ({
+    textWrap: "nowrap",
+    strong: {
         fontWeight: 600,
-        fontSize: "13px",
-        lineHeight: "20px",
+        fontSize: "15px",
+        lineHeight: "24px",
+        color: theme.palette.textCustom.greyHigh,
+
+        [theme.breakpoints.down("lg")]: {
+            fontSize: "13px",
+            lineHeight: "20px",
+        },
     },
 
     span: {

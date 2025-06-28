@@ -60,7 +60,7 @@ export function DurationSelector() {
                         onClick={() => handleCommitmentPeriod(plan.id)}
                     >
                         <DurationSelectorTitle>
-                            {plan.title} <span>({plan.days} days)</span>
+                            <strong>{plan.title}</strong> <span>({plan.days} days)</span>
                         </DurationSelectorTitle>
                         <DurationSelectorPrice>
                             From {formatAmount(plan.price)}
