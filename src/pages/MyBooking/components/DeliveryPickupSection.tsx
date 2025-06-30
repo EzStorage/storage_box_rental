@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Typography, Box } from "@mui/material";
 import { InfosIcon } from "@components/Icons/InfosIcon";
 import { SectionHeader } from "./SectionHeader";
-import { BookingRow } from "./BookingRow";
+import { BookingRow } from "./InfoAndPaymentSection";
 import { ReturnItemsRow, ChangeText, InfoNoteBox, ContactBoxWrapper } from "../styles";
 
 export const DeliveryPickupSection = ({ booking }: { booking: any }) => (

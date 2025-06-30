@@ -99,7 +99,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
 };
 
 // Inner row used inside breakdown
-const BookingRow = ({
+export const BookingRow = ({
     label,
     value,
     bold,
