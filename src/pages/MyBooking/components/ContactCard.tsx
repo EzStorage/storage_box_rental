@@ -4,10 +4,10 @@ import { WhitePaperBox, FlexRowStart } from "../styles";
 import { WhatsAppIcon } from "@components/Icons/Whatsapp";
 
 export const ContactCard = () => (
-  <WhitePaperBox>
-    <FlexRowStart>
-      <WhatsAppIcon />
-      <Typography>Contact Us (WhatsApp)</Typography>
-    </FlexRowStart>
-  </WhitePaperBox>
+    <WhitePaperBox>
+        <FlexRowStart>
+            <WhatsAppIcon />
+            <Typography>Contact Us (WhatsApp)</Typography>
+        </FlexRowStart>
+    </WhitePaperBox>
 );

@@ -16,38 +16,36 @@ import { ContactCard } from "./ContactCard";
 import { ActionButtons } from "./ActionButtons";
 
 export const BookingDetails = () => {
-  const { bookingID } = useParams();
-  const booking = useMyBookingSelector(state =>
-    state.bookings.find(b => b.id === bookingID)
-  );
+    const { bookingID } = useParams();
+    const booking = useMyBookingSelector(state => state.bookings.find(b => b.id === bookingID));
 
-  const [showBreakdown, setShowBreakdown] = useState(false);
-  const toggleBreakdown = () => setShowBreakdown(prev => !prev);
+    const [showBreakdown, setShowBreakdown] = useState(false);
+    const toggleBreakdown = () => setShowBreakdown(prev => !prev);
 
-  if (!booking) return <div>Booking not found</div>;
+    if (!booking) return <div>Booking not found</div>;
 
-  return (
-    <OuterContainer>
-      <InnerWrapper>
-        <TopSection />
+    return (
+        <OuterContainer>
+            <InnerWrapper>
+                <TopSection />
 
-        <InfoAndPaymentSection
-          booking={booking}
-          showBreakdown={showBreakdown}
-          toggleBreakdown={toggleBreakdown}
-        />
+                <InfoAndPaymentSection
+                    booking={booking}
+                    showBreakdown={showBreakdown}
+                    toggleBreakdown={toggleBreakdown}
+                />
 
-        <DeliveryPickupSection booking={booking} />
-        <MetaInfoSection booking={booking} />
+                <DeliveryPickupSection booking={booking} />
+                <MetaInfoSection booking={booking} />
 
-        {booking.status === BookingStatus.Stored && <RetrieveBox />}
+                {booking.status === BookingStatus.Stored && <RetrieveBox />}
 
-        <ContactCard />
+                <ContactCard />
 
-        <Box mt={-1} mb={8}>
-          <ActionButtons status={booking.status as BookingStatus} />
-        </Box>
-      </InnerWrapper>
-    </OuterContainer>
-  );
+                <Box mt={-1} mb={8}>
+                    <ActionButtons status={booking.status as BookingStatus} />
+                </Box>
+            </InnerWrapper>
+        </OuterContainer>
+    );
 };
