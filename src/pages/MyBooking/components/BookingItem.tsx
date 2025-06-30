@@ -22,7 +22,7 @@ import { BookingTab, BookingStatus } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
 import { useMemo } from "react";
 import { ProgressBarContainer } from "../MyBooking.styles";
-
+import { Link } from "react-router-dom";
 interface BookingItemProps {
     booking: BookingItemType;
     activeTab: BookingTab;
@@ -43,6 +43,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
     const percentage = Math.min((storedDays / totalDays) * 100, 100);
 
     return (
+       <Link to={`/my-booking/${booking.id}`} style={{ textDecoration: "none", color: "inherit" }}>
         <ItemWrapper activeTab={activeTab}>
             <ContentRow>
                 <BoxIcon src={boxImageToUse} alt="box" />
@@ -87,5 +88,6 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
                 </ProgressBarContainer>
             )}
         </ItemWrapper>
+       </Link>
     );
 };

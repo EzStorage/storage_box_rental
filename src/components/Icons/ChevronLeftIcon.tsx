@@ -5,7 +5,7 @@ interface Props {
     color?: string;
 }
 
-const ChevronLeftIcon: React.FC<Props> = ({
+export const ChevronLeftIcon: React.FC<Props> = ({
     className,
     width = "28",
     height = width,
@@ -29,4 +29,4 @@ const ChevronLeftIcon: React.FC<Props> = ({
         </svg>
     );
 };
-export default ChevronLeftIcon;
+

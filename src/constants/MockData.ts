@@ -10,6 +10,7 @@ export const mockBookings: BookingItem[] = [
         status: "Awaiting Pickup",
         address: "123 Changi, Singapore",
         duration: "6 months (180 days)",
+        paymentMode: "ApplePay",
     },
     {
         id: "B002",
@@ -20,6 +21,7 @@ export const mockBookings: BookingItem[] = [
         status: "Box to be delivered",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode:"PAYNOW "
     },
     {
         id: "B003",
@@ -50,6 +52,7 @@ export const mockBookings: BookingItem[] = [
         status: "Stored",
         address: "123 Changi, Singapore",
         duration: "6 months (180 days)",
+        paymentMode: "CreditCard",
     },
     {
         id: "B006",
@@ -60,6 +63,7 @@ export const mockBookings: BookingItem[] = [
         status: "Stored",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode: "PAYNOW ",
     },
     {
         id: "B007",
@@ -70,6 +74,7 @@ export const mockBookings: BookingItem[] = [
         status: "Stored",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode: "CreditCard",
     },
     {
         id: "B008",
@@ -80,6 +85,7 @@ export const mockBookings: BookingItem[] = [
         status: "Stored",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode: "CreditCard",
     },
     {
         id: "B009",
@@ -90,6 +96,7 @@ export const mockBookings: BookingItem[] = [
         status: "Returned",
         address: "123 Changi, Singapore",
         duration: "6 months (180 days)",
+        paymentMode: "PAYNOW ",
     },
     {
         id: "B010",
@@ -100,6 +107,7 @@ export const mockBookings: BookingItem[] = [
         status: "Cancelled",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode: "PAYNOW ",
     },
     {
         id: "B011",
@@ -110,5 +118,6 @@ export const mockBookings: BookingItem[] = [
         status: "Cancelled",
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
+        paymentMode: "PAYNOW ",
     },
 ];

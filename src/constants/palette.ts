@@ -40,6 +40,12 @@ export const STATUS = {
     INFO_TEXT: "#9F15C2",
     DANGER_BG: "#f44336",
     DISABLED: "#e6e6e6",
+
+    SUCCESS_BG: "#EDFBE6",
+    SUCCESS_TEXT: "#458116",
+
+    CANCELLED_BG: "#F0F0F0",
+    CANCELLED_TEXT: "#8C929C",
 };
 
 export type SurfaceColorKey = keyof typeof SURFACE;

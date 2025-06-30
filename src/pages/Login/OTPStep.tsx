@@ -1,7 +1,7 @@
 import { Box, Divider, IconButton, Stack, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Button } from "@components/Button";
-import ChevronLeftIcon from "@components/Icons/ChevronLeftIcon";
+import {ChevronLeftIcon }from "@components/Icons/ChevronLeftIcon";
 import PrivacyIcon from "@components/Icons/PrivacyIcon";
 import OTPInput from "@components/OTPInput";
 import { OTPResendCodeContainer } from "./Login.styles";
