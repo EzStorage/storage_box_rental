@@ -22,7 +22,7 @@ import { BookingTab, BookingStatus } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
 import { useMemo } from "react";
 import { ProgressBarContainer } from "../MyBooking.styles";
-
+import { Link } from "react-router-dom";
 interface BookingItemProps {
     booking: BookingItemType;
     activeTab: BookingTab;
@@ -43,49 +43,51 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
     const percentage = Math.min((storedDays / totalDays) * 100, 100);
 
     return (
-        <ItemWrapper activeTab={activeTab}>
-            <ContentRow>
-                <BoxIcon src={boxImageToUse} alt="box" />
-                <Details>
-                    {activeTab !== BookingTab.Stored && (
-                        <Status
-                            bookingStatus={booking.status as BookingStatus}
-                            label={booking.status}
-                        />
-                    )}
-                    <DateRange>
-                        {booking.startDate} - {booking.endDate}
-                    </DateRange>
-                    <Meta>
-                        <IconWrapper>
-                            <BoxsIcon />
-                        </IconWrapper>
-                        {booking.quantity} boxes • {booking.duration}
-                    </Meta>
-                    <Meta>
-                        <IconWrapper>
-                            <LocationIcon />
-                        </IconWrapper>
-                        {booking.address}
-                    </Meta>
-                    {activeTab === BookingTab.Stored && (
+        <Link to={`/my-booking/${booking.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <ItemWrapper activeTab={activeTab}>
+                <ContentRow>
+                    <BoxIcon src={boxImageToUse} alt="box" />
+                    <Details>
+                        {activeTab !== BookingTab.Stored && (
+                            <Status
+                                bookingStatus={booking.status as BookingStatus}
+                                label={booking.status}
+                            />
+                        )}
+                        <DateRange>
+                            {booking.startDate} - {booking.endDate}
+                        </DateRange>
                         <Meta>
                             <IconWrapper>
-                                <ClockIcon />
+                                <BoxsIcon />
                             </IconWrapper>
-                            {timeLeftText}
+                            {booking.quantity} boxes • {booking.duration}
                         </Meta>
-                    )}
-                </Details>
-            </ContentRow>
+                        <Meta>
+                            <IconWrapper>
+                                <LocationIcon />
+                            </IconWrapper>
+                            {booking.address}
+                        </Meta>
+                        {activeTab === BookingTab.Stored && (
+                            <Meta>
+                                <IconWrapper>
+                                    <ClockIcon />
+                                </IconWrapper>
+                                {timeLeftText}
+                            </Meta>
+                        )}
+                    </Details>
+                </ContentRow>
 
-            {activeTab === BookingTab.Stored && (
-                <ProgressBarContainer>
-                    <ProgressTrack>
-                        <ProgressBar percentage={percentage} />
-                    </ProgressTrack>
-                </ProgressBarContainer>
-            )}
-        </ItemWrapper>
+                {activeTab === BookingTab.Stored && (
+                    <ProgressBarContainer>
+                        <ProgressTrack>
+                            <ProgressBar percentage={percentage} />
+                        </ProgressTrack>
+                    </ProgressBarContainer>
+                )}
+            </ItemWrapper>
+        </Link>
     );
 };
