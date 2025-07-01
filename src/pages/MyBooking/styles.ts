@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Button, Typography, Chip, Link, Stack, IconButton } from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
-import { Padding } from "@mui/icons-material";
+import { Height, Padding } from "@mui/icons-material";
 import { RetrieveBoxIcon } from "@components/Icons/BackupIcon";
 import { BoxToBeDeliveredIcon } from "@components/Icons/BoxToBeDeliveredIcon";
 import { VerifiedStoredStatusIcon } from "@components/Icons/VartifiedStoreddStatusIcon";
@@ -347,6 +347,16 @@ export const InnerWrapper = styled(Box)({
     flexDirection: "column",
     gap: "16px",
     marginTop: "72px",
+
+    "@media (max-width: 600px)": {
+        width: "100%",
+        padding: "12px",
+        marginTop: 0,
+        gap: "8px",
+        "& > *:nth-of-type(2)": {
+            marginTop: "-1px",
+        },
+    },
 });
 export const BackButton = styled(Button)({
     fontSize: "13px",
@@ -357,11 +367,19 @@ export const BackButton = styled(Button)({
     marginBottom: "16px",
     textTransform: "none",
     gap: "12px",
+    "@media (max-width: 600px)": {
+        marginTop: 0,
+        marginBottom: 0,
+    },
 });
 export const BookingTitle = styled(Typography)({
     fontSize: "26px",
     fontWeight: 600,
     marginBottom: "6.4px",
+    "@media (max-width: 600px)": {
+        fontSize: "15px",
+        marginLeft: "90px",
+    },
 });
 export const StatusBanner = styled(Box)(({ theme }) => ({
     padding: `${1.2 * 8}px`,
@@ -454,6 +472,11 @@ export const BookingValueWrapper = styled(Box)({
     display: "flex",
     alignItems: "center",
     gap: 8,
+    "@media (max-width: 600px)": {
+        flexWrap: "wrap",
+        maxWidth: "100%",
+        wordBreak: "break-word",
+    },
 });
 
 export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: string }>(
@@ -464,6 +487,11 @@ export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: str
         display: "flex",
         alignItems: "center",
         gap: 4,
+        "@media (max-width: 600px)": {
+            maxWidth: "180px",
+            overflowWrap: "break-word",
+            whiteSpace: "normal",
+        },
     }),
 );
 export const SectionHeaderText = styled(Typography)({
@@ -485,23 +513,35 @@ export const GreyButton = styled(Button)({
     border: `1px solid ${OUTLINE.GREY_LOW}`,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
+    "@media (max-width: 600px)": {
+        height: "48px",
+    },
 });
 
 export const PlainGreyButton = styled(Button)({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
+    "@media (max-width: 600px)": {
+        height: "48px",
+    },
 });
 
 export const PrimaryButton = styled(Button)({
     textTransform: "none",
     boxShadow: "none",
+    "@media (max-width: 600px)": {
+        height: "48px",
+    },
 });
 
 export const ButtonRow = styled(Box)({
     display: "flex",
     flexDirection: "row",
     gap: "8px",
+    "@media (max-width: 600px)": {
+        flexDirection: "column",
+    },
 });
 export const BackLabel = styled(Typography)({
     fontWeight: 400,
@@ -540,6 +580,19 @@ export const TopSectionWrapper = styled(Box)({
     display: "flex",
     flexDirection: "column",
     gap: 8,
+
+    "@media (max-width: 600px)": {
+        flexDirection: "row",
+        alignItems: "center",
+        gap: "12px",
+        justifyContent: "flex-start",
+        marginTop: "5px",
+        marginBottom: "5px",
+
+        "& > *:last-child": {
+            marginBottom: 0,
+        },
+    },
 });
 export const BackRow = styled(Box)({
     display: "flex",
