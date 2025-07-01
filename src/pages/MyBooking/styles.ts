@@ -9,7 +9,8 @@ import { VerifiedStoredStatusIcon } from "@components/Icons/VartifiedStoreddStat
 import { AwaitingPickupIcon } from "@components/Icons/AwaitngPickupIcon";
 import { CrossIcon } from "@components/Icons/CrossIcon";
 import { SuccessIcon } from "@components/Icons/TickIcon";
-export const Container = styled(Box)({
+
+export const Container = styled(Box)(({ theme }) => ({
     padding: "40px",
 
     backgroundColor: SURFACE.GREY_SURFACE_2,
@@ -19,19 +20,19 @@ export const Container = styled(Box)({
     alignItems: "center",
     marginTop: "72px",
     paddingTop: "40px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         padding: "16px",
         marginTop: "0px",
     },
-});
+}));
 
-export const HeaderBox = styled(Box)(() => ({
+export const HeaderBox = styled(Box)(({ theme }) => ({
     width: "592px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: "20px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
@@ -41,7 +42,7 @@ export const HeaderBox = styled(Box)(() => ({
     },
 }));
 
-export const NewStorageButton = styled(Button)(() => ({
+export const NewStorageButton = styled(Button)(({ theme }) => ({
     backgroundColor: "#D221311A",
     color: SURFACE.PRIMARY_MED,
     borderRadius: "6px",
@@ -49,7 +50,7 @@ export const NewStorageButton = styled(Button)(() => ({
     fontWeight: 600,
     textTransform: "none",
     width: "fit-content",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         fontSize: "13px",
         padding: "6px 12px",
     },
@@ -69,7 +70,7 @@ export const Wrapper = styled("div")`
     }
 `;
 
-export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) => ({
+export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ theme, activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
     padding: activeTab === "Stored" ? "12px 12px 12px 12px" : "12px 12px 12px 12px", //
@@ -82,18 +83,18 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ activeTab }) =>
     flexDirection: "column",
     height: activeTab === "Stored" ? 144 : "auto",
 
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "100%",
         height: "auto",
         padding: "8px 12px 8px 8px",
     },
 }));
 
-export const BoxIcon = styled("img")(() => ({
+export const BoxIcon = styled("img")(({ theme }) => ({
     width: 102,
     height: 102,
     borderRadius: 4,
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "92px",
         height: "92px",
     },
@@ -104,12 +105,12 @@ export const Details = styled(Box)(() => ({
     fontSize: "13px !important",
 }));
 
-export const DateRange = styled(Typography)(() => ({
+export const DateRange = styled(Typography)(({ theme }) => ({
     fontSize: "15px !important",
     fontWeight: "600 !important",
     paddingTop: 8,
     paddingBottom: 6,
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         paddingTop: 3,
     },
 }));
@@ -124,7 +125,7 @@ export const Meta = styled(Typography)(() => ({
     wordBreak: "break-word",
 }));
 
-export const ProgressTrack = styled(Box)({
+export const ProgressTrack = styled(Box)(({ theme }) => ({
     bottom: "10px",
     left: 16,
     right: 16,
@@ -135,10 +136,10 @@ export const ProgressTrack = styled(Box)({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         height: 5,
     },
-});
+}));
 
 export const ProgressBar = styled(Box, {
     shouldForwardProp: prop => prop !== "percentage",
@@ -150,17 +151,17 @@ export const ProgressBar = styled(Box, {
     transition: "width 0.3s ease-in-out",
 }));
 
-export const ListWrapper = styled(Box)(() => ({
+export const ListWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     gap: 16,
     width: "592px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "100%",
     },
 }));
 
-export const TabContainer = styled(Box)(() => ({
+export const TabContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     width: 592,
     backgroundColor: OUTLINE.GREY_LOW,
@@ -172,14 +173,14 @@ export const TabContainer = styled(Box)(() => ({
     justifyContent: "flex-start",
     alignItems: "center",
     padding: 4,
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "100%",
     },
 }));
 
 export const Tab = styled(Button, {
     shouldForwardProp: prop => prop !== "active",
-})<{ active?: boolean }>(({ active }) => ({
+})<{ active?: boolean }>(({ active, theme }) => ({
     width: 200,
     height: 33,
     border: "none",
@@ -193,7 +194,7 @@ export const Tab = styled(Button, {
     textTransform: "none",
     whiteSpace: "nowrap",
 
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: 120,
         fontSize: 11,
     },
@@ -261,7 +262,7 @@ export const IconWrapper = styled("span")({
         display: "block",
     },
 });
-export const ContentRow = styled(Box)({
+export const ContentRow = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "row",
     gap: 12,
@@ -270,10 +271,10 @@ export const ContentRow = styled(Box)({
     overflow: "hidden",
     padding: 0,
     alignItems: "flex-start",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         alignItems: "flex-start",
     },
-});
+}));
 export const ResponsiveHeading = styled(Typography)(({ theme }) => ({
     fontWeight: 600,
     fontSize: "23px",
@@ -337,7 +338,7 @@ export const OuterContainer = styled(Box)({
     backgroundColor: SURFACE.GREY_SURFACE_1,
 });
 
-export const InnerWrapper = styled(Box)({
+export const InnerWrapper = styled(Box)(({ theme }) => ({
     width: "624px",
     padding: "16px",
     maxWidth: "720px",
@@ -348,7 +349,7 @@ export const InnerWrapper = styled(Box)({
     gap: "16px",
     marginTop: "72px",
 
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         width: "100%",
         padding: "12px",
         marginTop: 0,
@@ -357,8 +358,8 @@ export const InnerWrapper = styled(Box)({
             marginTop: "-1px",
         },
     },
-});
-export const BackButton = styled(Button)({
+}));
+export const BackButton = styled(Button)(({ theme }) => ({
     fontSize: "13px",
     minWidth: 0,
     padding: 0,
@@ -367,20 +368,20 @@ export const BackButton = styled(Button)({
     marginBottom: "16px",
     textTransform: "none",
     gap: "12px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         marginTop: 0,
         marginBottom: 0,
     },
-});
-export const BookingTitle = styled(Typography)({
+}));
+export const BookingTitle = styled(Typography)(({ theme }) => ({
     fontSize: "26px",
     fontWeight: 600,
     marginBottom: "6.4px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         fontSize: "15px",
         marginLeft: "90px",
     },
-});
+}));
 export const StatusBanner = styled(Box)(({ theme }) => ({
     padding: `${1.2 * 8}px`,
     display: "flex",
@@ -468,16 +469,16 @@ export const BookingLabel = styled(Typography)({
     color: TEXT_CUSTOM.GREY_LOW,
 });
 
-export const BookingValueWrapper = styled(Box)({
+export const BookingValueWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     gap: 8,
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         flexWrap: "wrap",
         maxWidth: "100%",
         wordBreak: "break-word",
     },
-});
+}));
 
 export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: string }>(
     ({ bold, color, theme }) => ({
@@ -487,7 +488,7 @@ export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: str
         display: "flex",
         alignItems: "center",
         gap: 4,
-        "@media (max-width: 600px)": {
+        [theme.breakpoints.up("sm")]: {
             maxWidth: "180px",
             overflowWrap: "break-word",
             whiteSpace: "normal",
@@ -508,41 +509,41 @@ export const StyledChip = styled("span")({
     marginBottom: "8px",
     color: TEXT_CUSTOM.GREY_LOW,
 });
-export const GreyButton = styled(Button)({
+export const GreyButton = styled(Button)(({ theme }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     border: `1px solid ${OUTLINE.GREY_LOW}`,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         height: "48px",
     },
-});
+}));
 
-export const PlainGreyButton = styled(Button)({
+export const PlainGreyButton = styled(Button)(({ theme }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         height: "48px",
     },
-});
+}));
 
-export const PrimaryButton = styled(Button)({
+export const PrimaryButton = styled(Button)(({ theme }) => ({
     textTransform: "none",
     boxShadow: "none",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         height: "48px",
     },
-});
+}));
 
-export const ButtonRow = styled(Box)({
+export const ButtonRow = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "row",
     gap: "8px",
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         flexDirection: "column",
     },
-});
+}));
 export const BackLabel = styled(Typography)({
     fontWeight: 400,
     fontSize: "13px",
@@ -576,12 +577,12 @@ export const ContactBoxWrapper = styled(Box)({
     padding: 16,
     marginBottom: 4,
 });
-export const TopSectionWrapper = styled(Box)({
+export const TopSectionWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     gap: 8,
 
-    "@media (max-width: 600px)": {
+    [theme.breakpoints.up("sm")]: {
         flexDirection: "row",
         alignItems: "center",
         gap: "12px",
@@ -593,7 +594,7 @@ export const TopSectionWrapper = styled(Box)({
             marginBottom: 0,
         },
     },
-});
+}));
 export const BackRow = styled(Box)({
     display: "flex",
     alignItems: "center",
