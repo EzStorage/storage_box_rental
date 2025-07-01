@@ -20,7 +20,7 @@ export const Container = styled(Box)(({ theme }) => ({
     alignItems: "center",
     marginTop: "72px",
     paddingTop: "40px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         padding: "16px",
         marginTop: "0px",
     },
@@ -32,7 +32,7 @@ export const HeaderBox = styled(Box)(({ theme }) => ({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: "20px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
@@ -50,7 +50,7 @@ export const NewStorageButton = styled(Button)(({ theme }) => ({
     fontWeight: 600,
     textTransform: "none",
     width: "fit-content",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         fontSize: "13px",
         padding: "6px 12px",
     },
@@ -83,7 +83,7 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ theme, activeTa
     flexDirection: "column",
     height: activeTab === "Stored" ? 144 : "auto",
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "100%",
         height: "auto",
         padding: "8px 12px 8px 8px",
@@ -94,7 +94,7 @@ export const BoxIcon = styled("img")(({ theme }) => ({
     width: 102,
     height: 102,
     borderRadius: 4,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "92px",
         height: "92px",
     },
@@ -110,7 +110,7 @@ export const DateRange = styled(Typography)(({ theme }) => ({
     fontWeight: "600 !important",
     paddingTop: 8,
     paddingBottom: 6,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         paddingTop: 3,
     },
 }));
@@ -136,7 +136,7 @@ export const ProgressTrack = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         height: 5,
     },
 }));
@@ -156,7 +156,7 @@ export const ListWrapper = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     gap: 16,
     width: "592px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "100%",
     },
 }));
@@ -173,7 +173,7 @@ export const TabContainer = styled(Box)(({ theme }) => ({
     justifyContent: "flex-start",
     alignItems: "center",
     padding: 4,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "100%",
     },
 }));
@@ -194,7 +194,7 @@ export const Tab = styled(Button, {
     textTransform: "none",
     whiteSpace: "nowrap",
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: 120,
         fontSize: 11,
     },
@@ -271,7 +271,7 @@ export const ContentRow = styled(Box)(({ theme }) => ({
     overflow: "hidden",
     padding: 0,
     alignItems: "flex-start",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         alignItems: "flex-start",
     },
 }));
@@ -279,10 +279,10 @@ export const ResponsiveHeading = styled(Typography)(({ theme }) => ({
     fontWeight: 600,
     fontSize: "23px",
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         fontSize: "22px",
     },
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.down("md")]: {
         fontSize: "26px",
     },
 }));
@@ -349,7 +349,7 @@ export const InnerWrapper = styled(Box)(({ theme }) => ({
     gap: "16px",
     marginTop: "72px",
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         width: "100%",
         padding: "12px",
         marginTop: 0,
@@ -368,7 +368,7 @@ export const BackButton = styled(Button)(({ theme }) => ({
     marginBottom: "16px",
     textTransform: "none",
     gap: "12px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         marginTop: 0,
         marginBottom: 0,
     },
@@ -377,7 +377,7 @@ export const BookingTitle = styled(Typography)(({ theme }) => ({
     fontSize: "26px",
     fontWeight: 600,
     marginBottom: "6.4px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         fontSize: "15px",
         marginLeft: "90px",
     },
@@ -473,7 +473,7 @@ export const BookingValueWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     gap: 8,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         flexWrap: "wrap",
         maxWidth: "100%",
         wordBreak: "break-word",
@@ -488,7 +488,7 @@ export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: str
         display: "flex",
         alignItems: "center",
         gap: 4,
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.down("sm")]: {
             maxWidth: "180px",
             overflowWrap: "break-word",
             whiteSpace: "normal",
@@ -514,7 +514,7 @@ export const GreyButton = styled(Button)(({ theme }) => ({
     border: `1px solid ${OUTLINE.GREY_LOW}`,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         height: "48px",
     },
 }));
@@ -523,7 +523,7 @@ export const PlainGreyButton = styled(Button)(({ theme }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         height: "48px",
     },
 }));
@@ -531,7 +531,7 @@ export const PlainGreyButton = styled(Button)(({ theme }) => ({
 export const PrimaryButton = styled(Button)(({ theme }) => ({
     textTransform: "none",
     boxShadow: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         height: "48px",
     },
 }));
@@ -540,7 +540,7 @@ export const ButtonRow = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "row",
     gap: "8px",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
     },
 }));
@@ -582,7 +582,7 @@ export const TopSectionWrapper = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     gap: 8,
 
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
         flexDirection: "row",
         alignItems: "center",
         gap: "12px",
