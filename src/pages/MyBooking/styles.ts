@@ -73,7 +73,7 @@ export const Wrapper = styled("div")`
 export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ theme, activeTab }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 8,
-    padding: activeTab === "Stored" ? "12px 12px 12px 12px" : "12px 12px 12px 12px", //
+    padding:"12px 12px 12px 12px",
     display: "flex",
     gap: 0,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
