@@ -27,7 +27,7 @@ export const Container = styled(Box)(({ theme }) => ({
 }));
 
 export const HeaderBox = styled(Box)(({ theme }) => ({
-    width: "592px",
+    width: "40vw",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -77,11 +77,11 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ theme, activeTa
     display: "flex",
     gap: 0,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-    width: 592,
+    width: "40vw",
     //height: activeTab === "Stored" ? 144 : 126,
     //position: "relative",
     flexDirection: "column",
-    height: activeTab === "Stored" ? 144 : "auto",
+    height: activeTab === BookingStatus.Stored ? 144 : "auto",
 
     [theme.breakpoints.down("sm")]: {
         width: "100%",
@@ -155,7 +155,7 @@ export const ListWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     gap: 16,
-    width: "592px",
+    width: "40vw",
     [theme.breakpoints.down("sm")]: {
         width: "100%",
     },
@@ -163,7 +163,7 @@ export const ListWrapper = styled(Box)(({ theme }) => ({
 
 export const TabContainer = styled(Box)(({ theme }) => ({
     display: "flex",
-    width: 592,
+    width: "40vw",
     backgroundColor: OUTLINE.GREY_LOW,
     borderRadius: 8,
     height: 40,
@@ -181,7 +181,8 @@ export const TabContainer = styled(Box)(({ theme }) => ({
 export const Tab = styled(Button, {
     shouldForwardProp: prop => prop !== "active",
 })<{ active?: boolean }>(({ active, theme }) => ({
-    width: 200,
+    flex: 1,  
+     minWidth: 0,
     height: 33,
     border: "none",
     backgroundColor: active ? SURFACE.GREY_SURFACE_0 : OUTLINE.GREY_LOW,
