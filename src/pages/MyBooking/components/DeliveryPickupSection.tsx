@@ -33,7 +33,9 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
         </Box>
         <BookingRow label="Pick-up empty box time" value="3 Oct 2025, 8AM – 2PM" />
         <InfoNoteBox>
-            <InfosIcon /> &nbsp;We will collect empty box after you take item out of box
+            <span style={{ paddingLeft: "4px" }}>
+                We will collect empty box after you take item out of box
+            </span>
         </InfoNoteBox>
     </ContactBoxWrapper>
 );
