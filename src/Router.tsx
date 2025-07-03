@@ -6,9 +6,8 @@ import { Homepage } from "@pages/Homepage";
 import { MyBooking } from "./pages/MyBooking";
 import { Login } from "@pages/Login";
 import { Profile } from "@pages/Profile";
-import { MyBookingProvider } from "./pages/MyBooking/context";
-import { BookingDetails } from "@pages/MyBooking/components/BookingDetails";
 import { ProcessResult } from "@pages/ProcessResult";
+import { BookingDetailsElement } from "@pages/MyBooking/components/BookingDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,20 +27,12 @@ const router = createBrowserRouter([
                 element: <Booking />,
             },
             {
-                path: "/my-booking",
-                element: <MyBooking />,
-            },
-            {
                 path: "/profile",
                 element: <Profile />,
             },
             {
                 path: "/my-booking/:bookingID",
-                element: (
-                    <MyBookingProvider>
-                        <BookingDetails />
-                    </MyBookingProvider>
-                ),
+                element: <BookingDetailsElement />,
             },
             {
                 path: "MyBookings",

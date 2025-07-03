@@ -70,7 +70,9 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 </Box>
             </BoxDetailsRow>
 
-            <Divider sx={{ width: "95%", mx: "auto" }} />
+            <Box sx={{ maxWidth: 1200, width: "100%", mx: "auto", px: 2 }}>
+                <Divider sx={{ width: "100%" }} />
+            </Box>
 
             {/* Payment section */}
             <Box>
@@ -105,7 +107,7 @@ export const BookingRow = ({
     bold,
     color,
 }: {
-    label: string;
+    label: React.ReactNode;
     value: React.ReactNode;
     bold?: boolean;
     color?: string;
