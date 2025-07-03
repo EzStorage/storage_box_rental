@@ -8,8 +8,7 @@ import { Login } from "@pages/Login";
 import PaymentSuccess from "./pages/PaymentStatus/PaymentSuccess";
 import PaymentFailed from "./pages/PaymentStatus/PaymentFailed";
 import { Profile } from "@pages/Profile";
-import { MyBookingProvider } from "./pages/MyBooking/context";
-import { BookingDetails } from "@pages/MyBooking/components/BookingDetails";
+import { BookingDetailsElement } from "@pages/MyBooking/components/BookingDetails";
 
 const router = createBrowserRouter([
     {
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
                 element: <Booking />,
             },
             {
-                path: "/my-booking",
-                element: <MyBooking />,
-            },
-            {
                 path: "/profile",
                 element: <Profile />,
             },
@@ -46,11 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-booking/:bookingID",
-                element: (
-                    <MyBookingProvider>
-                        <BookingDetails />
-                    </MyBookingProvider>
-                ),
+                element: <BookingDetailsElement />,
             },
             {
                 path: "MyBookings",
