@@ -35,10 +35,6 @@ const router = createBrowserRouter([
                 element: <MyBooking />,
             },
             {
-                path: "/my-bookings/:type",
-                element: <MyBooking />,
-            },
-            {
                 path: "/my-bookings/:type/:bookingID",
                 element: <BookingDetailsElement />,
             },

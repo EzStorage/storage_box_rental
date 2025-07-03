@@ -13,7 +13,6 @@ import { MetaInfoSection } from "./MetaInfoSection";
 import { RetrieveBox } from "./RetrieveBox";
 import { ContactCard } from "./ContactCard";
 import { ActionButtons } from "./ActionButtons";
-
 export const BookingDetails = () => {
     const { bookingID } = useParams();
     const booking = useMyBookingSelector(state => state.bookings.find(b => b.id === bookingID));
@@ -48,7 +47,6 @@ export const BookingDetails = () => {
         </OuterContainer>
     );
 };
-
 export const BookingDetailsElement = () => (
     <MyBookingProvider>
         <BookingDetails />

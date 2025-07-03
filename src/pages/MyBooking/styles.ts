@@ -77,8 +77,6 @@ export const ItemWrapper = styled(Box)<{ activeTab: string }>(({ theme, activeTa
     gap: 0,
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
     width: "40vw",
-    //height: activeTab === "Stored" ? 144 : 126,
-    //position: "relative",
     flexDirection: "column",
     height: activeTab === BookingStatus.Stored ? 144 : "auto",
 
@@ -353,7 +351,6 @@ export const InnerWrapper = styled(Box)(({ theme }) => ({
     boxSizing: "border-box",
     [theme.breakpoints.down("sm")]: {
         width: "100vw",
-        //alignItems:"center",
         padding: "0px",
         marginLeft: "0px",
         marginRight: "0px",
@@ -388,11 +385,11 @@ export const BookingTitle = styled(Typography)(({ theme }) => ({
     },
 }));
 export const StatusBanner = styled(Box)(({ theme }) => ({
-    padding: `${1.2 * 8}px`,
+    padding: "9.6px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: `${1 * 4}px`,
+    gap: "4px",
     height: "32px",
 }));
 export const StatusText = styled(Typography)({
@@ -403,27 +400,27 @@ export const StatusText = styled(Typography)({
 export const BoxDetailsRow = styled(Box)({
     display: "flex",
     alignItems: "center",
-    marginLeft: `${0.5 * 8}px`,
-    padding: `${1.5 * 8}px`,
-    gap: `${2 * 8}px`,
-    marginBottom: `${-0.2 * 8}px`,
+    marginLeft: "4px",
+    padding: "12px",
+    gap: "16px",
+    marginBottom: "-1.6px",
 });
 interface PriceToggleRowProps {
     expanded?: boolean;
 }
 
-export const PriceToggleRow = styled(Box)<PriceToggleRowProps>(({ expanded, theme }) => ({
+export const PriceToggleRow = styled(Box)<PriceToggleRowProps>(({ expanded }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: theme.spacing(2),
-    paddingBottom: expanded ? theme.spacing(0.5) : theme.spacing(2), // 👈 dynamic bottom padding
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
+    paddingTop: "16px",
+    paddingBottom: expanded ? "4px" : "16px",
+    paddingLeft: "16px",
+    paddingRight: "16px",
     fontWeight: 600,
     cursor: "pointer",
     gap: "0px",
-    transition: "padding-bottom 0.2s ease", // optional smooth transition
+    transition: "padding-bottom 0.2s ease",
 }));
 export const CollapsesIconButton = styled(IconButton)({
     padding: 0,
@@ -433,8 +430,8 @@ export const ReturnItemsRow = styled(Box)({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "baseline",
-    marginBottom: `${0.2 * 8}px`,
-    marginTop: `${1.5 * 8}px`,
+    marginBottom: "1.6px",
+    marginTop: "12px",
 });
 export const ReturnChangeLink = styled(Typography)({
     textDecoration: "none",
@@ -557,6 +554,7 @@ export const PlainGreyButton = styled(Button)(({ theme }) => ({
     fontSize: "15px",
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
+    border: `1px solid ${OUTLINE.GREY_LOW}`,
 
     [theme.breakpoints.down("sm")]: {
         backgroundColor: OUTLINE.GREY_BASE,
@@ -679,24 +677,26 @@ export const ChangeText = styled(Typography)({
     textDecoration: "none",
     cursor: "pointer",
 });
-export const PriceBreakdownContainer = styled(Box)(({ theme }) => ({
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-    fontSize: 14,
+export const PriceBreakdownContainer = styled(Box)({
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    paddingBottom: "16px",
+    fontSize: "14px",
     color: "#555",
-}));
-export const WhiteCard = styled(Box)(({ theme }) => ({
+});
+export const WhiteCard = styled(Box)({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 4,
-    padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
-}));
+    padding: "8px 16px",
+});
+
 export const WhitePaperBox = styled(Box)(({ theme }) => ({
     backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 4,
     padding: 16,
     marginBottom: 8,
     display: "flex",
+    height: "91px",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -742,7 +742,6 @@ export const TextSlot = styled(Typography)({
     fontSize: "13px",
     color: TEXT_CUSTOM.GREY_LOW,
     lineHeight: "20px",
-    //wordBreak: "break-word",
     flex: 1,
 });
 export const HeaderWithActionRow = styled(Box)(({ theme }) => ({
@@ -750,8 +749,8 @@ export const HeaderWithActionRow = styled(Box)(({ theme }) => ({
     justifyContent: "space-between",
     alignItems: "flex-start",
     flexWrap: "wrap",
-    rowGap: theme.spacing(1),
-    columnGap: theme.spacing(2),
+    rowGap: "8px",
+    columnGap: "16px",
 }));
 export const MobileActionBox = styled(Box)({
     gap: 8,
@@ -761,6 +760,6 @@ export const MobileActionBox = styled(Box)({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingLeft: "25px",
-    paddingRight: "25px",
+    paddingLeft: "15px",
+    paddingRight: "15px",
 });
