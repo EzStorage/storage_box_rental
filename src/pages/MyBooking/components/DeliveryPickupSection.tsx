@@ -13,13 +13,13 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
         <BookingRow label="Drop-off box time" value="19 Sep 2025, 8AM – 2PM" />
         <Divider />
         <BookingRow
-            label="Pickup location"
+            label="Pick-up location"
             value="51 Ubi Avenue 1 #02-28 (2D), Paya Ubi Industrial Park"
         />
         <Divider />
         <BookingRow label="Pick-up time" value="19 Mar 2025, 8AM – 2PM" />
         <ReturnItemsRow>
-            <Typography fontWeight={600}>Return items</Typography>
+            <SectionHeader>Return items</SectionHeader>
             <ChangeText onClick={() => alert("Change return location")}>Change</ChangeText>
         </ReturnItemsRow>
         <BookingRow
@@ -33,6 +33,7 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
         </Box>
         <BookingRow label="Pick-up empty box time" value="3 Oct 2025, 8AM – 2PM" />
         <InfoNoteBox>
+            <InfosIcon />
             <span style={{ paddingLeft: "4px" }}>
                 We will collect empty box after you take item out of box
             </span>
