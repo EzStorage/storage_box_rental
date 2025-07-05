@@ -46,6 +46,12 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
     const unitPrice = calculateUnitPrice(booking.quantity, product?.bulkPricingTiers);
     const storageFee = (unitPrice ?? 0) * booking.quantity;
     const formattedStorageFee = formatAmount(storageFee, "SGD");
+    const FEES = {
+    EMPTY_BOX_DROPOFF: 58.99,
+    PACKED_BOX_PICKUP: 50.0,
+    PACKED_BOX_DROPOFF: 12.99,
+    STUDENT_DISCOUNT: -5.0,
+};
     return (
         <PaperCard>
             {/* Status banner */}
@@ -94,12 +100,12 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 <Collapse in={showBreakdown} timeout="auto" unmountOnExit>
                     <PriceBreakdownContainer>
                         <BookingRow label="Box storage fee" value={formattedStorageFee} compact />
-                        <BookingRow label="Empty Box Drop-off fee" value="S$58.99" compact />
-                        <BookingRow label="Packed Box Pick-up fee" value="S$50.00" compact />
-                        <BookingRow label="Packed box drop-off fee" value="S$12.99" compact />
+                        <BookingRow label="Empty Box Drop-off fee" value={formatAmount(FEES.EMPTY_BOX_DROPOFF,"SGD")} compact />
+                        <BookingRow label="Packed Box Pick-up fee" value={formatAmount(FEES.PACKED_BOX_PICKUP, "SGD")} compact />
+                        <BookingRow label="Packed box drop-off fee" value={formatAmount(FEES.PACKED_BOX_DROPOFF, "SGD")} compact />
                         <BookingRow
                             label="Student discount"
-                            value="- S$5.00"
+                            value={formatAmount(FEES.STUDENT_DISCOUNT, "SGD")}
                             color="green"
                             compact
                         />

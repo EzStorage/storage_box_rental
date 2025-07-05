@@ -11,12 +11,12 @@ export const BookingTabs: React.FC = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const tab = location.state?.tab ?? BookingTab.Upcoming;
+        const tab = location.state?.tab;
 
         if (tab) {
-            commit ({
+            commit(() => ({
                 selectedTab: tab,
-            });
+            }));
         }
     }, [location.state, commit]);
 

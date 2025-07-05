@@ -23,7 +23,7 @@ export const ActionButtons = ({ status }: { status: BookingStatus }) => {
                         <>
                             <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
                             <PrimaryButton variant="contained" color="primary" fullWidth>
-                                Renew STORAGE
+                                Renew Storage
                             </PrimaryButton>
                         </>,
                     )}
