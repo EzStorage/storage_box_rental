@@ -45,6 +45,12 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
     const unitPrice = calculateUnitPrice(booking.quantity, product?.bulkPricingTiers);
     const storageFee = (unitPrice ?? 0) * booking.quantity;
     const formattedStorageFee = formatAmount(storageFee, "SGD");
+    const FEES = {
+    EMPTY_BOX_DROPOFF: 58.99,
+    PACKED_BOX_PICKUP: 50.0,
+    PACKED_BOX_DROPOFF: 12.99,
+    STUDENT_DISCOUNT: -5.0,
+};
     return (
         <PaperCard>
             {/* Status banner */}

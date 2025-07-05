@@ -14,6 +14,8 @@ export const ContactCard = () => (
                 <Typography fontSize="15px">Contact Us (WhatsApp)</Typography>
             </FlexRowStart>
         </Box>
-        <ChevronRightCustomIcon />
+        <Box mt={5}> 
+            <ChevronRightCustomIcon />
+        </Box>
     </WhitePaperBox>
 );
