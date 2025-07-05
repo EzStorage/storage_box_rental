@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import EmptyCartIcon from "../../components/Icons/EmptyCart";
-import { BookingTryAgain } from "../../pages/PaymentStatus/PaymentStatus.styles";
 import { EmptyCartWrapper } from "@pages/Homepage/Homepage.styles";
 import { EmptyCartBox } from "./CartStyles";
+import { BookingTryAgain } from "@pages/ProcessResult/pages/PaymentStatus.styles";
 
 export const EmptyCart: React.FC = () => {
     return (

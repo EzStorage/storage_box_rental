@@ -66,7 +66,7 @@ export const QuantityButtonContainer = styled(Box)(() => ({
     justifyContent: "center",
 }));
 
-export const Bold_text = styled("h5")(({ theme }) => ({
+export const BoldText = styled("h5")(({ theme }) => ({
     fontWeight: 600,
     fontSize: "22px",
     display: "flex",

@@ -7,7 +7,7 @@ import { updateQuantity, closeCart } from "../../redux/auth/cartSlice";
 import { calculateUnitPrice } from "../../helpers/calculateUnitPrice";
 import Standard_Product from "../../assets/standard-box.png";
 import {
-    Bold_text,
+    BoldText,
     Button_Cart,
     CartDrawerHeader,
     CartDurationText,
@@ -58,9 +58,9 @@ const CartDrawer: React.FC = () => {
             }}
         >
             <CartDrawerHeader>
-                <Bold_text>
+                <BoldText>
                     Cart<SuperScript>({cartItems.length})</SuperScript>
-                </Bold_text>
+                </BoldText>
                 <IconButton onClick={onClose}>
                     <IoClose style={{ color: SURFACE.BLACK, fontSize: "22px" }} />
                 </IconButton>
