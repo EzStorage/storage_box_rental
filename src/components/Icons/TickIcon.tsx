@@ -1,12 +1,12 @@
 import React from "react";
 
 export const SuccessIcon: React.FC<{ size?: number; color?: string }> = ({
-    size = 16,
+    size = 18,
     color = "#5B616D",
 }) => (
     <svg
         width={size}
-        height={(size * 16) / 17} // keep aspect ratio based on original 17x16
+        height={(size * 16) / 17} 
         viewBox="0 0 17 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
