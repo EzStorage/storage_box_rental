@@ -1,4 +1,3 @@
-import React from "react";
 import { Divider, Box } from "@mui/material";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
 import { getStatusStyles } from "../styles";

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Divider } from "@mui/material";
 import { ApplePayIcon } from "@components/Icons/ApplePayIcon";
 import { PaynowIcon } from "@components/Icons/PayNowIcon";
