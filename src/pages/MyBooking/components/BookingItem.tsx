@@ -50,7 +50,11 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
     const percentage = Math.min((storedDays / totalDays) * 100, 100);
 
     return (
-        <Link to={`/my-booking/${booking.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Link
+            to={`/my-booking/${booking.id}`}
+            state={{ tab: activeTab }}
+            style={{ textDecoration: "none", color: "inherit" }}
+        >
             <ItemWrapper activeTab={activeTab}>
                 <ContentRow>
                     <BoxIcon src={boxImageToUse} alt="box" />

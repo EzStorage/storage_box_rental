@@ -47,7 +47,9 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
         <PaperCard>
             {/* Status banner */}
             <StatusBanner sx={{ backgroundColor }}>
-                <Icon />
+                <Box sx={{ pt: 1 }}>
+                    <Icon />
+                </Box>
                 <StatusText sx={{ color: textColor }}>
                     {booking.status === BookingStatus.Stored
                         ? "Your inventory has been stored"
@@ -76,7 +78,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
 
             {/* Payment section */}
             <Box>
-                <PriceToggleRow onClick={toggleBreakdown}>
+                <PriceToggleRow expanded={showBreakdown} onClick={toggleBreakdown}>
                     <Typography>Paid</Typography>
                     <BreakdownAmountBox>
                         <PaidAmountText>S$1,164.99</PaidAmountText>
@@ -88,11 +90,16 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
 
                 <Collapse in={showBreakdown} timeout="auto" unmountOnExit>
                     <PriceBreakdownContainer>
-                        <BookingRow label="Box storage fee" value="S$1040.00" />
-                        <BookingRow label="Empty Box Drop-off fee" value="S$58.99" />
-                        <BookingRow label="Packed Box Pick-up fee" value="S$50.00" />
-                        <BookingRow label="Packed box drop-off fee" value="S$12.99" />
-                        <BookingRow label="Student discount" value="- S$5.00" color="green" bold />
+                        <BookingRow label="Box storage fee" value="S$1040.00" compact />
+                        <BookingRow label="Empty Box Drop-off fee" value="S$58.99" compact />
+                        <BookingRow label="Packed Box Pick-up fee" value="S$50.00" compact />
+                        <BookingRow label="Packed box drop-off fee" value="S$12.99" compact />
+                        <BookingRow
+                            label="Student discount"
+                            value="- S$5.00"
+                            color="green"
+                            compact
+                        />
                     </PriceBreakdownContainer>
                 </Collapse>
             </Box>
@@ -100,19 +107,20 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
     );
 };
 
-// Inner row used inside breakdown
 export const BookingRow = ({
     label,
     value,
     bold,
     color,
+    compact,
 }: {
     label: React.ReactNode;
     value: React.ReactNode;
     bold?: boolean;
     color?: string;
+    compact?: boolean;
 }) => (
-    <BookingRowWrapper>
+    <BookingRowWrapper compact={compact}>
         <BookingLabel>{label}</BookingLabel>
         <BookingValueWrapper>
             <BookingValueText bold={bold} color={color}>
