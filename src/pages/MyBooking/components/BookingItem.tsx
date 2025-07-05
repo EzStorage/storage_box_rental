@@ -19,7 +19,7 @@ import { ClockIcon } from "@components/Icons/ClockIcon";
 import { BoxsIconMobile } from "@components/Icons/BoxsIconMobile";
 import { LocationIconMobile } from "@components/Icons/LocationIconMobile";
 import { ClockIconMobile } from "@components/Icons/ClockIconMobile";
-import { parse, differenceInDays, intervalToDuration } from "date-fns";
+import { parse, differenceInDays } from "date-fns";
 import { formatDurationText } from "@helpers/duration";
 import { BookingTab, BookingStatus } from "../../../constants/Enums";
 import { BookingItem as BookingItemType } from "../context";
