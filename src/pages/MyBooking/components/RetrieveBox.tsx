@@ -1,4 +1,3 @@
-import React from "react";
 import { Typography, Stack } from "@mui/material";
 import { RetrieveBoxIcon } from "@components/Icons/BackupIcon";
 import { ChevronRightCustomIcon } from "@components/Icons/ChevronRights";
