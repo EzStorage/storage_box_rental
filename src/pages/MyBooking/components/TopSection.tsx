@@ -12,7 +12,7 @@ export const TopSection = () => {
         const fromTab = location.state?.tab;
 
         if (fromTab) {
-            navigate("/MyBookings", { state: { tab: fromTab } });
+            navigate("/my-bookings", { state: { tab: fromTab } });
         } else {
             navigate(-1);
         }

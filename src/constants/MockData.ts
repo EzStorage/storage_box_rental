@@ -3,7 +3,7 @@ import { BookingItem } from "@pages/MyBooking/context";
 export const mockBookings: BookingItem[] = [
     {
         id: "B001",
-        productName: "Storage Box A",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -14,7 +14,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B002",
-        productName: "Storage Box B",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -25,7 +25,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B003",
-        productName: "Storage Box C",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -35,7 +35,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B004",
-        productName: "Storage Box D",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -45,7 +45,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B005",
-        productName: "Storage Box E",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -56,7 +56,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B006",
-        productName: "Storage Box F",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -67,7 +67,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B007",
-        productName: "Storage Box G",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -78,7 +78,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B008",
-        productName: "Storage Box H",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -89,7 +89,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B009",
-        productName: "Storage Box I",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -100,7 +100,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B010",
-        productName: "Storage Box J",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
@@ -111,7 +111,7 @@ export const mockBookings: BookingItem[] = [
     },
     {
         id: "B011",
-        productName: "Storage Box K",
+        productName: "standard-box",
         quantity: 2,
         startDate: "19 Mar 2025",
         endDate: "19 Sep 2025",
