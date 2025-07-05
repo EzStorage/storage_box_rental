@@ -696,7 +696,7 @@ export const WhitePaperBox = styled(Box)(({ theme }) => ({
     padding: 16,
     marginBottom: 8,
     display: "flex",
-    height:"91px",
+    height: "91px",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
