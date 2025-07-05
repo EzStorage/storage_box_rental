@@ -47,11 +47,11 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
     const storageFee = (unitPrice ?? 0) * booking.quantity;
     const formattedStorageFee = formatAmount(storageFee, "SGD");
     const FEES = {
-    EMPTY_BOX_DROPOFF: 58.99,
-    PACKED_BOX_PICKUP: 50.0,
-    PACKED_BOX_DROPOFF: 12.99,
-    STUDENT_DISCOUNT: -5.0,
-};
+        EMPTY_BOX_DROPOFF: 58.99,
+        PACKED_BOX_PICKUP: 50.0,
+        PACKED_BOX_DROPOFF: 12.99,
+        STUDENT_DISCOUNT: -5.0,
+    };
     return (
         <PaperCard>
             {/* Status banner */}
@@ -81,8 +81,8 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 </Box>
             </BoxDetailsRow>
 
-            <Box sx={{ maxWidth: 1200, width: "100%", mx: "auto", px: 2 }}>
-                <Divider sx={{ width: "100%" }} />
+            <Box sx={{ px: 2 }}>
+                <Divider />
             </Box>
 
             {/* Payment section */}
@@ -100,9 +100,21 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 <Collapse in={showBreakdown} timeout="auto" unmountOnExit>
                     <PriceBreakdownContainer>
                         <BookingRow label="Box storage fee" value={formattedStorageFee} compact />
-                        <BookingRow label="Empty Box Drop-off fee" value={formatAmount(FEES.EMPTY_BOX_DROPOFF,"SGD")} compact />
-                        <BookingRow label="Packed Box Pick-up fee" value={formatAmount(FEES.PACKED_BOX_PICKUP, "SGD")} compact />
-                        <BookingRow label="Packed box drop-off fee" value={formatAmount(FEES.PACKED_BOX_DROPOFF, "SGD")} compact />
+                        <BookingRow
+                            label="Empty Box Drop-off fee"
+                            value={formatAmount(FEES.EMPTY_BOX_DROPOFF, "SGD")}
+                            compact
+                        />
+                        <BookingRow
+                            label="Packed Box Pick-up fee"
+                            value={formatAmount(FEES.PACKED_BOX_PICKUP, "SGD")}
+                            compact
+                        />
+                        <BookingRow
+                            label="Packed box drop-off fee"
+                            value={formatAmount(FEES.PACKED_BOX_DROPOFF, "SGD")}
+                            compact
+                        />
                         <BookingRow
                             label="Student discount"
                             value={formatAmount(FEES.STUDENT_DISCOUNT, "SGD")}
