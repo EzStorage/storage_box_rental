@@ -557,6 +557,7 @@ export const PlainGreyButton = styled(Button)(({ theme }) => ({
     fontSize: "15px",
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
+    border: `1px solid ${OUTLINE.GREY_LOW}`,
 
     [theme.breakpoints.down("sm")]: {
         backgroundColor: OUTLINE.GREY_BASE,
@@ -697,6 +698,7 @@ export const WhitePaperBox = styled(Box)(({ theme }) => ({
     padding: 16,
     marginBottom: 8,
     display: "flex",
+    height:"91px",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
