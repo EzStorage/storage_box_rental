@@ -6,9 +6,9 @@ import { Homepage } from "@pages/Homepage";
 import { MyBooking } from "./pages/MyBooking";
 import { Login } from "@pages/Login";
 import { Profile } from "@pages/Profile";
-
+import { PaymentSuccess } from "@pages/ProcessResult/pages/PaymentSuccess";
 import { ProcessResult } from "@pages/ProcessResult";
-
+import { PaymentFailed } from "@pages/ProcessResult/pages/PaymentFailed";
 import { BookingDetailsElement } from "@pages/MyBooking/components/BookingDetails";
 
 const router = createBrowserRouter([
@@ -33,7 +33,16 @@ const router = createBrowserRouter([
                 element: <Profile />,
             },
             {
-                path: "/my-booking/:bookingID",
+                path: "payment-success",
+                element: <PaymentSuccess />,
+            },
+            {
+                path: "payment-failed",
+                element: <PaymentFailed />,
+            },
+            {
+                path: "/my-bookings/:bookingID",
+
                 element: <BookingDetailsElement />,
             },
             {

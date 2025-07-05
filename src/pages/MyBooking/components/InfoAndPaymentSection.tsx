@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Collapse, Divider } from "@mui/material";
-
+import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
+import { formatAmount } from "@helpers/amount";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
 import {
     PaperCard,
@@ -24,11 +25,10 @@ import {
 
 import { ExpandUp } from "@components/Icons/ExpandUp";
 import { ExpandDown } from "@components/Icons/ExpandDown";
-import { RetrieveBoxIcon } from "@components/Icons/BackupIcon";
-
+import { mockBookings } from "src/constants/MockData";
 import { BookingStatus } from "../../../constants/Enums";
 import { getStatusStyles } from "../styles";
-
+import { PRODUCTS } from "src/constants/product.constants";
 type Props = {
     booking: {
         id: string;
@@ -42,7 +42,10 @@ type Props = {
 
 export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown }: Props) => {
     const { backgroundColor, textColor, Icon } = getStatusStyles(booking.status as BookingStatus);
-
+    const product = PRODUCTS.find(p => p.id === "standard-box");
+    const unitPrice = calculateUnitPrice(booking.quantity, product?.bulkPricingTiers);
+    const storageFee = (unitPrice ?? 0) * booking.quantity;
+    const formattedStorageFee = formatAmount(storageFee, "SGD");
     return (
         <PaperCard>
             {/* Status banner */}
@@ -90,7 +93,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
 
                 <Collapse in={showBreakdown} timeout="auto" unmountOnExit>
                     <PriceBreakdownContainer>
-                        <BookingRow label="Box storage fee" value="S$1040.00" compact />
+                        <BookingRow label="Box storage fee" value={formattedStorageFee} compact />
                         <BookingRow label="Empty Box Drop-off fee" value="S$58.99" compact />
                         <BookingRow label="Packed Box Pick-up fee" value="S$50.00" compact />
                         <BookingRow label="Packed box drop-off fee" value="S$12.99" compact />
