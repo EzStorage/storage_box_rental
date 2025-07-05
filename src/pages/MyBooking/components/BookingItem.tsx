@@ -51,7 +51,7 @@ export const BookingItem: React.FC<BookingItemProps> = ({ booking, activeTab }) 
 
     return (
         <Link
-            to={`/my-booking/${booking.id}`}
+            to={`/my-bookings/${booking.id}`}
             state={{ tab: activeTab }}
             style={{ textDecoration: "none", color: "inherit" }}
         >

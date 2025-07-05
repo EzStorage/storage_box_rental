@@ -40,7 +40,7 @@ const router = createBrowserRouter([
                 element: <PaymentFailed />,
             },
             {
-                path: "/my-booking/:bookingID",
+                path: "/my-bookings/:bookingID",
                 element: <BookingDetailsElement />,
             },
             {
