@@ -27,7 +27,7 @@
             "@hooks/*": ["src/hooks/*"],
             "@helpers/*": ["src/helpers/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@pages/*": ["src/pages/*"],
+            "@pages/*": ["src/pages/*"]
         }
     },
     "include": ["src"],

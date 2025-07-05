@@ -195,8 +195,3 @@ export const StyledBoxChip = styled(Chip)({
         paddingRight: 0,
     },
 });
-
-
-
-
-

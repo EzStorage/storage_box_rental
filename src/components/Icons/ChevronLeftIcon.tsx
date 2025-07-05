@@ -29,4 +29,3 @@ export const ChevronLeftIcon: React.FC<Props> = ({
         </svg>
     );
 };
-

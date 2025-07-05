@@ -181,8 +181,8 @@ export const TabContainer = styled(Box)(({ theme }) => ({
 export const Tab = styled(Button, {
     shouldForwardProp: prop => prop !== "active",
 })<{ active?: boolean }>(({ active, theme }) => ({
-    flex: 1,  
-     minWidth: 0,
+    flex: 1,
+    minWidth: 0,
     height: 33,
     border: "none",
     backgroundColor: active ? SURFACE.GREY_SURFACE_0 : OUTLINE.GREY_LOW,
