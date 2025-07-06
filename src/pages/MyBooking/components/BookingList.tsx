@@ -4,10 +4,11 @@ import { Typography } from "@mui/material";
 import { ListWrapper } from "../styles";
 import { useMyBookingSelector } from "../context";
 import { BookingStatus, BookingTab } from "../../../constants/Enums";
+import { useParams } from "react-router";
 
 export const BookingList: React.FC = () => {
     const bookings = useMyBookingSelector(state => state.bookings);
-    const selectedTab = useMyBookingSelector(state => state.selectedTab);
+    const selectedTab = useParams().type as BookingTab;
 
     const filteredBookings = bookings.filter(booking => {
         switch (selectedTab) {

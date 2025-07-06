@@ -31,12 +31,16 @@ const router = createBrowserRouter([
                 element: <Profile />,
             },
             {
-                path: "/my-bookings/:bookingID",
-                element: <BookingDetailsElement />,
+                path: "/my-bookings",
+                element: <MyBooking />,
             },
             {
-                path: "my-bookings",
+                path: "/my-bookings/:type",
                 element: <MyBooking />,
+            },
+            {
+                path: "/my-bookings/:type/:bookingID",
+                element: <BookingDetailsElement />,
             },
             {
                 path: `:processFlow/:status`,

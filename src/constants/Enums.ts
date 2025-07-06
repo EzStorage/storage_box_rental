@@ -7,7 +7,7 @@ export enum BookingStatus {
 }
 
 export enum BookingTab {
-    Upcoming = "Upcoming",
-    Stored = "Stored",
-    History = "History",
+    Upcoming = "upcoming",
+    Stored = "stored",
+    History = "history",
 }

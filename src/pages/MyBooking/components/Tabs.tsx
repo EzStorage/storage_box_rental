@@ -1,39 +1,25 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { TabContainer, Tab } from "../styles";
-import { useMyBookingSelector, useMyBookingCommit } from "../context";
+import { useMyBookingSelector } from "../context";
 import { BookingTab, BookingStatus } from "../../../constants/Enums";
+import { useNavigate, useParams } from "react-router";
 
 export const BookingTabs: React.FC = () => {
-    const selectedTab = useMyBookingSelector(state => state.selectedTab);
+    const selectedTab = useParams().type as BookingTab;
     const bookings = useMyBookingSelector(state => state.bookings);
-    const commit = useMyBookingCommit();
-    const location = useLocation();
-
-    useEffect(() => {
-        const tab = location.state?.tab ?? BookingTab.Upcoming;
-
-        if (tab) {
-            commit ({
-                selectedTab: tab,
-            });
-        }
-    }, [location.state, commit]);
+    const navigate = useNavigate();
 
     const setActiveTab = (tab: BookingTab) => {
-        commit(() => ({
-            selectedTab: tab,
-        }));
+        navigate(`/my-bookings/${tab.toLowerCase()}`);
     };
 
     const countByStatus = {
-        Upcoming: bookings.filter(
+        [BookingTab.Upcoming]: bookings.filter(
             b =>
                 b.status === BookingStatus.AwaitingPickup ||
                 b.status === BookingStatus.BoxToBeDelivered,
         ).length,
-        Stored: bookings.filter(b => b.status === BookingStatus.Stored).length,
-        History: bookings.filter(
+        [BookingTab.Stored]: bookings.filter(b => b.status === BookingStatus.Stored).length,
+        [BookingTab.History]: bookings.filter(
             b => b.status === BookingStatus.Returned || b.status === BookingStatus.Cancelled,
         ).length,
     };
