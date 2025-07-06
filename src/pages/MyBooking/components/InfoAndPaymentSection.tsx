@@ -25,7 +25,6 @@ import {
 
 import { ExpandUp } from "@components/Icons/ExpandUp";
 import { ExpandDown } from "@components/Icons/ExpandDown";
-import { mockBookings } from "src/constants/MockData";
 import { BookingStatus } from "../../../constants/Enums";
 import { getStatusStyles } from "../styles";
 import { PRODUCTS } from "src/constants/product.constants";
@@ -84,7 +83,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 <PriceToggleRow expanded={showBreakdown} onClick={toggleBreakdown}>
                     <Typography>Paid</Typography>
                     <BreakdownAmountBox>
-                        <PaidAmountText>S$1,164.99</PaidAmountText>
+                        <PaidAmountText>{formatAmount(1164.99)}</PaidAmountText>
                         <CollapsesIconButton size="small" disableRipple>
                             {showBreakdown ? <ExpandUp /> : <ExpandDown />}
                         </CollapsesIconButton>
@@ -94,12 +93,24 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 <Collapse in={showBreakdown} timeout="auto" unmountOnExit>
                     <PriceBreakdownContainer>
                         <BookingRow label="Box storage fee" value={formattedStorageFee} compact />
-                        <BookingRow label="Empty Box Drop-off fee" value="S$58.99" compact />
-                        <BookingRow label="Packed Box Pick-up fee" value="S$50.00" compact />
-                        <BookingRow label="Packed box drop-off fee" value="S$12.99" compact />
+                        <BookingRow
+                            label="Empty Box Drop-off fee"
+                            value={formatAmount(58.99)}
+                            compact
+                        />
+                        <BookingRow
+                            label="Packed Box Pick-up fee"
+                            value={formatAmount(50)}
+                            compact
+                        />
+                        <BookingRow
+                            label="Packed box drop-off fee"
+                            value={formatAmount(12.99)}
+                            compact
+                        />
                         <BookingRow
                             label="Student discount"
-                            value="- S$5.00"
+                            value={formatAmount(-5)}
                             color="green"
                             compact
                         />

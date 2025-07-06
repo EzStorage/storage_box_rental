@@ -4,43 +4,53 @@ import { BookingStatus } from "../../../constants/Enums";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-export const ActionButtons = ({ status }: { status: BookingStatus }) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' usually means <600px
+interface Props {
+    status: BookingStatus;
+}
 
-    const wrapMobile = (content: React.ReactNode) =>
-        isMobile ? <MobileActionBox>{content}</MobileActionBox> : content;
-
+function ActionButtonContent({ status }: Props) {
     switch (status) {
         case BookingStatus.AwaitingPickup:
         case BookingStatus.BoxToBeDelivered:
-            return wrapMobile(<GreyButton fullWidth>Request Cancellation</GreyButton>);
+            return <GreyButton fullWidth>Request Cancellation</GreyButton>;
 
         case BookingStatus.Stored:
             return (
                 <ButtonRow>
-                    {wrapMobile(
-                        <>
-                            <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
-                            <PrimaryButton variant="contained" color="primary" fullWidth>
-                                Renew STORAGE
-                            </PrimaryButton>
-                        </>,
-                    )}
+                    <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
+                    <PrimaryButton variant="contained" color="primary" fullWidth>
+                        Renew Storage
+                    </PrimaryButton>
                 </ButtonRow>
             );
-
         case BookingStatus.Returned:
-            return wrapMobile(<PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>);
-
+            return <PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>;
         case BookingStatus.Cancelled:
-            return wrapMobile(
+            return (
                 <PrimaryButton variant="contained" color="primary" fullWidth>
                     Book Again
-                </PrimaryButton>,
+                </PrimaryButton>
             );
-
         default:
             return null;
     }
+}
+
+export const ActionButtons = ({ status }: Props) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+    if (!Object.values(BookingStatus).includes(status)) {
+        return null;
+    }
+
+    if (isMobile) {
+        return (
+            <MobileActionBox>
+                <ActionButtonContent status={status} />
+            </MobileActionBox>
+        );
+    }
+
+    return <ActionButtonContent status={status} />;
 };
