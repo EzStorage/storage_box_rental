@@ -20,7 +20,7 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
         <BookingRow label="Pick-up time" value="19 Mar 2025, 8AM – 2PM" />
         <ReturnItemsRow>
             <Box mb={-1} mt={1}>
-            <SectionHeader>Return items</SectionHeader>
+                <SectionHeader>Return items</SectionHeader>
             </Box>
             <ChangeText onClick={() => alert("Change return location")}>Change</ChangeText>
         </ReturnItemsRow>
