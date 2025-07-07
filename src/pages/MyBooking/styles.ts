@@ -545,6 +545,7 @@ export const GreyButton = styled(Button)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
         height: "48px",
         backgroundColor: OUTLINE.GREY_BASE,
+        border: `1px solid ${SURFACE.GREY_SURFACE_0}`,
     },
 }));
 
@@ -766,3 +767,12 @@ export const MobileActionBox = styled(Box)({
 export const CustomDivider = styled(Divider)({
   borderColor: '#EBECF0',
 });
+export const CustomDivider2 = styled(Divider)(({ theme }) => ({
+  width: "95%",
+  marginLeft: "auto",
+  marginRight: "auto",
+  backgroundColor: "#EBECF0", 
+  height: "1px",
+  border: "none",
+}));
+

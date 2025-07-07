@@ -1,6 +1,6 @@
 import { Divider, Box } from "@mui/material";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
-import { getStatusStyles } from "../styles";
+import { getStatusStyles, CustomDivider2 } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
 import {
     BoxDetailsRow,
@@ -39,7 +39,7 @@ export const StatusCard = ({ booking }: { booking: any }) => {
                     </BoxSubText>
                 </Box>
             </BoxDetailsRow>
-            <Divider sx={{ width: "95%", mx: "auto" }} />
+            <CustomDivider2/>
         </PaperCard>
     );
 };
