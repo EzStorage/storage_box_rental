@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button, Typography, Chip, IconButton } from "@mui/material";
+import { Box, Button, Typography, Chip, IconButton, Divider } from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
 import { BoxToBeDeliveredIcon } from "@components/Icons/BoxToBeDeliveredIcon";
@@ -355,7 +355,7 @@ export const InnerWrapper = styled(Box)(({ theme }) => ({
         marginLeft: "0px",
         marginRight: "0px",
         marginTop: -5,
-        gap: "8px",
+        gap: "10px",
         "& > *:nth-of-type(2)": {
             marginTop: "-8px",
         },
@@ -451,7 +451,7 @@ export const InfoNoteBox = styled(Box)({
     borderRadius: 4,
     marginTop: 8,
     padding: 6.4,
-    fontSize: 11,
+    fontSize: 12,
     alignItems: "center",
     color: TEXT_CUSTOM.GREY_LOW,
 });
@@ -481,8 +481,8 @@ export const BookingRowWrapper = styled(Box)<BookingRowWrapperProps>(({ compact 
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingTop: compact ? "6px" : "11.2px",
-    paddingBottom: compact ? "6px" : "11.2px",
+    paddingTop: compact ? "4px" : "11.2px",
+    paddingBottom: compact ? "4px" : "11.2px",
 }));
 
 export const BookingLabel = styled(Typography)({
@@ -576,6 +576,7 @@ export const ButtonRow = styled(Box)(({ theme }) => ({
     gap: "8px",
     [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
+        width:"100%"
     },
 }));
 export const BackLabel = styled(Typography)({
@@ -609,7 +610,6 @@ export const ContactBoxWrapper = styled(Box)(({ theme }) => ({
     backgroundColor: "#fff",
     borderRadius: 4,
     padding: 16,
-    marginBottom: 4,
 
     [theme.breakpoints.down("sm")]: {
         width: "100%",
@@ -762,4 +762,7 @@ export const MobileActionBox = styled(Box)({
     alignItems: "center",
     paddingLeft: "15px",
     paddingRight: "15px",
+});
+export const CustomDivider = styled(Divider)({
+  borderColor: '#EBECF0',
 });

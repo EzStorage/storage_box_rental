@@ -11,6 +11,7 @@ export type BookingItem = {
     address: string;
     duration: string;
     paymentMode?: "CreditCard" | "PAYNOW" | "ApplePay";
+    cardNumber?: string; 
 };
 
 export interface IMyBookingState {

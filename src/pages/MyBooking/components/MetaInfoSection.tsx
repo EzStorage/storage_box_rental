@@ -1,9 +1,8 @@
 import { useMemo } from "react";
-import { Divider } from "@mui/material";
 import { ApplePayIcon } from "@components/Icons/ApplePayIcon";
 import { PaynowIcon } from "@components/Icons/PayNowIcon";
 import { BookingRow } from "./InfoAndPaymentSection";
-import { WhiteCard, BookingLabelHeader } from "../styles";
+import { WhiteCard, BookingLabelHeader, CustomDivider } from "../styles";
 
 export const MetaInfoSection = ({ booking }: { booking: any }) => {
     const paymentMethodValue = useMemo(() => {
@@ -11,6 +10,9 @@ export const MetaInfoSection = ({ booking }: { booking: any }) => {
             return <ApplePayIcon />;
         } else if (booking.paymentMode?.trim() === "PAYNOW") {
             return <PaynowIcon />;
+        }  else if (booking.paymentMode?.toLowerCase() === "creditcard") {
+            return `Credit card, ${booking.cardNumber}`;
+    
         } else {
             return booking.paymentMode ?? "N/A";
         }
@@ -23,8 +25,8 @@ export const MetaInfoSection = ({ booking }: { booking: any }) => {
                 value={booking.id}
                 bold
             />
-            <BookingRow label="Payment method" value={paymentMethodValue} bold color="purple" />
-            <Divider />
+            <BookingRow label="Payment method" value={paymentMethodValue}/>
+            <CustomDivider/>
             <BookingRow label="Booking time" value={`${booking.startDate}, 8:00 PM`} />
         </WhiteCard>
     );

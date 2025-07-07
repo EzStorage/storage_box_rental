@@ -9,12 +9,12 @@ export const ContactCard = () => (
     <WhitePaperBox>
         <Box display="flex" flexDirection="column">
             <SectionHeader>Support</SectionHeader>
-            <FlexRowStart>
+            <FlexRowStart mt={"8px"}>
                 <WhatsAppIcon />
                 <Typography fontSize="15px">Contact Us (WhatsApp)</Typography>
             </FlexRowStart>
         </Box>
-        <Box mt={5}> 
+        <Box mt={6}> 
             <ChevronRightCustomIcon />
         </Box>
     </WhitePaperBox>
