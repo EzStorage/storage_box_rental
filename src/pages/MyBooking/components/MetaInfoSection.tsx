@@ -10,13 +10,12 @@ export const MetaInfoSection = ({ booking }: { booking: any }) => {
             return <ApplePayIcon />;
         } else if (booking.paymentMode?.trim() === "PAYNOW") {
             return <PaynowIcon />;
-        }  else if (booking.paymentMode?.toLowerCase() === "creditcard") {
+        } else if (booking.paymentMode?.toLowerCase() === "creditcard") {
             return `Credit card, ${booking.cardNumber}`;
-    
         } else {
             return booking.paymentMode ?? "N/A";
         }
-    }, [booking.paymentMode]);
+    }, [booking.paymentMode, booking.cardNumber]);
 
     return (
         <WhiteCard>
@@ -25,8 +24,8 @@ export const MetaInfoSection = ({ booking }: { booking: any }) => {
                 value={booking.id}
                 bold
             />
-            <BookingRow label="Payment method" value={paymentMethodValue}/>
-            <CustomDivider/>
+            <BookingRow label="Payment method" value={paymentMethodValue} />
+            <CustomDivider />
             <BookingRow label="Booking time" value={`${booking.startDate}, 8:00 PM`} />
         </WhiteCard>
     );

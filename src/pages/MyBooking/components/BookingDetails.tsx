@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
-
 import { OuterContainer, InnerWrapper } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
 import { MyBookingProvider, useMyBookingSelector } from "../context";
-
 import { TopSection } from "./TopSection";
 import { InfoAndPaymentSection } from "./InfoAndPaymentSection";
 import { DeliveryPickupSection } from "./DeliveryPickupSection";

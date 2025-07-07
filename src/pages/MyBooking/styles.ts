@@ -559,6 +559,7 @@ export const PlainGreyButton = styled(Button)(({ theme }) => ({
 
     [theme.breakpoints.down("sm")]: {
         backgroundColor: OUTLINE.GREY_BASE,
+        border: `1px solid ${SURFACE.GREY_SURFACE_0}`,
     },
 }));
 
@@ -577,7 +578,7 @@ export const ButtonRow = styled(Box)(({ theme }) => ({
     gap: "8px",
     [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
-        width:"100%"
+        width: "100%",
     },
 }));
 export const BackLabel = styled(Typography)({
@@ -765,14 +766,11 @@ export const MobileActionBox = styled(Box)({
     paddingRight: "15px",
 });
 export const CustomDivider = styled(Divider)({
-  borderColor: '#EBECF0',
+    borderColor: OUTLINE.GREY_LOW,
 });
-export const CustomDivider2 = styled(Divider)(({ theme }) => ({
-  width: "95%",
-  marginLeft: "auto",
-  marginRight: "auto",
-  backgroundColor: "#EBECF0", 
-  height: "1px",
-  border: "none",
-}));
-
+export const CustomDivider2 = styled(Divider)({
+    width: "100%",
+    backgroundColor:OUTLINE.GREY_LOW,
+    height: "1px",
+    border: "none",
+});

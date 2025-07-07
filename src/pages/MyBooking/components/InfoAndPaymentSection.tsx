@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Collapse, Divider } from "@mui/material";
+import { Box, Typography, Collapse } from "@mui/material";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { formatAmount } from "@helpers/amount";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
@@ -21,6 +21,7 @@ import {
     BookingLabel,
     BookingValueWrapper,
     BookingValueText,
+    CustomDivider2
 } from "../styles";
 
 import { ExpandUp } from "@components/Icons/ExpandUp";
@@ -81,7 +82,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
             </BoxDetailsRow>
 
             <Box sx={{ px: 2 }}>
-                <Divider />
+                <CustomDivider2 />
             </Box>
 
             {/* Payment section */}
