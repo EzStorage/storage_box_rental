@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Typography, Collapse, Divider } from "@mui/material";
+import { SURFACE } from "src/constants/palette";
+import { Box, Typography, Collapse } from "@mui/material";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { formatAmount } from "@helpers/amount";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
@@ -21,6 +22,7 @@ import {
     BookingLabel,
     BookingValueWrapper,
     BookingValueText,
+    CustomDivider2
 } from "../styles";
 
 import { ExpandUp } from "@components/Icons/ExpandUp";
@@ -45,6 +47,12 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
     const unitPrice = calculateUnitPrice(booking.quantity, product?.bulkPricingTiers);
     const storageFee = (unitPrice ?? 0) * booking.quantity;
     const formattedStorageFee = formatAmount(storageFee, "SGD");
+    const FEES = {
+        EMPTY_BOX_DROPOFF: 58.99,
+        PACKED_BOX_PICKUP: 50.0,
+        PACKED_BOX_DROPOFF: 12.99,
+        STUDENT_DISCOUNT: -5.0,
+    };
     return (
         <PaperCard>
             {/* Status banner */}
@@ -74,8 +82,8 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                 </Box>
             </BoxDetailsRow>
 
-            <Box sx={{ maxWidth: 1200, width: "100%", mx: "auto", px: 2 }}>
-                <Divider sx={{ width: "100%" }} />
+            <Box sx={{ px: 2 }}>
+                <CustomDivider2 />
             </Box>
 
             {/* Payment section */}
@@ -111,7 +119,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                         <BookingRow
                             label="Student discount"
                             value={formatAmount(-5)}
-                            color="green"
+                            color={SURFACE.SUCCESS_MED}
                             compact
                         />
                     </PriceBreakdownContainer>

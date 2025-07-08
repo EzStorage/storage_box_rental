@@ -53,6 +53,7 @@ export const mockBookings: BookingItem[] = [
         address: "123 Changi, Singapore",
         duration: "6 months (180 days)",
         paymentMode: "CreditCard",
+        cardNumber: "**** 1234",
     },
     {
         id: "B006",
@@ -75,6 +76,7 @@ export const mockBookings: BookingItem[] = [
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
         paymentMode: "CreditCard",
+        cardNumber: "**** 5678",
     },
     {
         id: "B008",
@@ -86,6 +88,7 @@ export const mockBookings: BookingItem[] = [
         address: "280 Bukit Batok East Avenue 3 #01-327",
         duration: "6 months (180 days)",
         paymentMode: "CreditCard",
+        cardNumber: "**** 9012",
     },
     {
         id: "B009",

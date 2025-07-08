@@ -1,4 +1,3 @@
-import React from "react";
 import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
 import { useTheme } from "@mui/material/styles";
@@ -12,7 +11,7 @@ function ActionButtonContent({ status }: Props) {
     switch (status) {
         case BookingStatus.AwaitingPickup:
         case BookingStatus.BoxToBeDelivered:
-            return <GreyButton fullWidth>Request Cancellation</GreyButton>;
+            return <GreyButton fullWidth>Request Cancel</GreyButton>;
 
         case BookingStatus.Stored:
             return (
