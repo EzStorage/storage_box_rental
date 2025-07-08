@@ -453,7 +453,7 @@ export const InfoNoteBox = styled(Box)({
     padding: 6.4,
     fontSize: 12,
     alignItems: "center",
-    color: TEXT_CUSTOM.GREY_LOW,
+    color: TEXT_CUSTOM.PRIMARY_MED,
 });
 export const RetrieveBoxCard = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -537,13 +537,13 @@ export const StyledChip = styled("span")({
     color: TEXT_CUSTOM.PRIMARY_MED,
 });
 export const GreyButton = styled(Button)(({ theme }) => ({
-    backgroundColor: "#fff",
+    backgroundColor: SURFACE.GREY_SURFACE_0,
     border: `1px solid ${OUTLINE.GREY_LOW}`,
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
-
+    height: "48px",
+    fontWeight: 600,
     [theme.breakpoints.down("sm")]: {
-        height: "48px",
         backgroundColor: OUTLINE.GREY_BASE,
         border: `1px solid ${SURFACE.GREY_SURFACE_0}`,
     },
@@ -551,12 +551,12 @@ export const GreyButton = styled(Button)(({ theme }) => ({
 
 export const PlainGreyButton = styled(Button)(({ theme }) => ({
     height: "48px",
-    backgroundColor: "#fff",
+    backgroundColor: SURFACE.GREY_SURFACE_0,
     fontSize: "15px",
     color: TEXT_CUSTOM.PRIMARY_MED,
     textTransform: "none",
     border: `1px solid ${OUTLINE.GREY_LOW}`,
-
+    fontWeight: 600,
     [theme.breakpoints.down("sm")]: {
         backgroundColor: OUTLINE.GREY_BASE,
         border: `1px solid ${SURFACE.GREY_SURFACE_0}`,
@@ -609,7 +609,7 @@ export const BreakdownAmountBox = styled(Box)({
     gap: "2px",
 });
 export const ContactBoxWrapper = styled(Box)(({ theme }) => ({
-    backgroundColor: "#fff",
+    backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 4,
     padding: 16,
 
@@ -675,7 +675,7 @@ export const ChangeText = styled(Typography)({
     fontSize: "13px",
     fontWeight: 600,
     marginTop: "2px",
-    color: STATUS.DANGER_BG,
+    color: TEXT_CUSTOM.PRIMARY_HIGH,
     textDecoration: "none",
     cursor: "pointer",
 });
@@ -756,7 +756,7 @@ export const HeaderWithActionRow = styled(Box)(({ theme }) => ({
 }));
 export const MobileActionBox = styled(Box)({
     gap: 8,
-    backgroundColor: "#fff",
+    backgroundColor: SURFACE.GREY_SURFACE_0,
     borderRadius: 4,
     padding: "16px 0",
     display: "flex",
@@ -770,7 +770,7 @@ export const CustomDivider = styled(Divider)({
 });
 export const CustomDivider2 = styled(Divider)({
     width: "100%",
-    backgroundColor:OUTLINE.GREY_LOW,
+    backgroundColor: OUTLINE.GREY_LOW,
     height: "1px",
     border: "none",
 });
