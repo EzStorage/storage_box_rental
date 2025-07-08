@@ -1,4 +1,5 @@
 import React from "react";
+import { SURFACE } from "src/constants/palette";
 import { Box, Typography, Collapse } from "@mui/material";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { formatAmount } from "@helpers/amount";
@@ -118,7 +119,7 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
                         <BookingRow
                             label="Student discount"
                             value={formatAmount(-5)}
-                            color="green"
+                            color={SURFACE.SUCCESS_MED}
                             compact
                         />
                     </PriceBreakdownContainer>
