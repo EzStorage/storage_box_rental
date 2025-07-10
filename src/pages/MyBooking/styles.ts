@@ -1,5 +1,17 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button, Typography, Chip, IconButton, Divider } from "@mui/material";
+import {
+    Box,
+    Button,
+    Typography,
+    Chip,
+    IconButton,
+    Divider,
+    Select,
+    TextField,
+    Dialog,
+    Paper,
+    DialogContent,
+} from "@mui/material";
 import { SURFACE, TEXT_CUSTOM, STATUS, OUTLINE } from "../../constants/palette";
 import { BookingStatus } from "../../constants/Enums";
 import { BoxToBeDeliveredIcon } from "@components/Icons/BoxToBeDeliveredIcon";
@@ -475,24 +487,31 @@ export const RetrieveBoxCard = styled(Box)(({ theme }) => ({
 
 interface BookingRowWrapperProps {
     compact?: boolean;
+    medcompact?: boolean;
 }
 
-export const BookingRowWrapper = styled(Box)<BookingRowWrapperProps>(({ compact }) => ({
+export const BookingRowWrapper = styled(Box)<BookingRowWrapperProps>(({ compact, medcompact }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingTop: compact ? "4px" : "11.2px",
-    paddingBottom: compact ? "4px" : "11.2px",
+    paddingTop: compact ? "4px" : medcompact ? "6.5px" : "11.2px",
+    paddingBottom: compact ? "4px" : medcompact ? "6.5px" : "11.2px",
 }));
 
-export const BookingLabel = styled(Typography)({
-    fontSize: 15,
+interface BookingLabelProps {
+    small?: boolean;
+}
+
+export const BookingLabel = styled(Typography, {
+    shouldForwardProp: prop => prop !== "small",
+})<BookingLabelProps>(({ small }) => ({
+    fontSize: small ? 13 : 15,
     color: TEXT_CUSTOM.PRIMARY_MED,
     maxWidth: "50%",
     width: "100%",
     wordBreak: "break-word",
     flex: "1 1 50%",
-});
+}));
 
 export const BookingValueWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -505,22 +524,24 @@ export const BookingValueWrapper = styled(Box)(({ theme }) => ({
     },
 }));
 
-export const BookingValueText = styled(Typography)<{ bold?: boolean; color?: string }>(
-    ({ bold, color, theme }) => ({
-        fontSize: 15,
-        fontWeight: bold ? 600 : 400,
-        color: color || theme.palette.text.primary,
-        display: "flex",
-        alignItems: "center",
-        textAlign: "right",
-        gap: 4,
-        [theme.breakpoints.down("sm")]: {
-            maxWidth: "180px",
-            overflowWrap: "break-word",
-            whiteSpace: "normal",
-        },
-    }),
-);
+export const BookingValueText = styled(Typography)<{
+    bold?: boolean;
+    color?: string;
+    small?: boolean;
+}>(({ bold, color, theme, small }) => ({
+    fontSize: small ? "13px" : 15,
+    fontWeight: bold ? 600 : 400,
+    color: color || theme.palette.text.primary,
+    display: "flex",
+    alignItems: "center",
+    textAlign: "right",
+    gap: 4,
+    [theme.breakpoints.down("sm")]: {
+        maxWidth: "180px",
+        overflowWrap: "break-word",
+        whiteSpace: "normal",
+    },
+}));
 export const SectionHeaderText = styled(Typography)({
     fontWeight: 600,
     marginBottom: "12px",
@@ -773,4 +794,126 @@ export const CustomDivider2 = styled(Divider)({
     backgroundColor: OUTLINE.GREY_LOW,
     height: "1px",
     border: "none",
+});
+export const ModalWrapper = styled(Box)(({ theme }) => ({
+    padding: "24px",
+    backgroundColor: SURFACE.GREY_SURFACE_0,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+}));
+
+export const HeaderRow = styled(Box)({
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "24px",
+});
+
+export const StyledSelect = styled(Select<string>)(({ theme }) => ({
+    width: "100%",
+    height: "48px",
+    borderRadius: 4,
+    backgroundColor: "#F4F4F6",
+    color: "#8C929C",
+    marginBottom: "12px",
+    fontSize: "15px", // <-- Apply 15px font to the select value
+    "& .MuiSelect-select": {
+        padding: 12,
+        fontSize: "15px", // <-- Apply 15px to dropdown display text
+    },
+    "& .MuiMenuItem-root": {
+        fontSize: "15px", // <-- This applies to the MenuItems in dropdown
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+        border: "none", // ✅ removes border
+    },
+}));
+
+export const StyledTextField = styled(TextField)({
+    backgroundColor: "#F4F4F6",
+    borderRadius: 4,
+    "& .MuiOutlinedInput-root": {
+        alignItems: "flex-start",
+        "& textarea": {
+            minHeight: "31px", // ✅ Starts at 159px height
+            resize: "vertical", // ✅ Optional: allow manual resizing
+        },
+        "& .MuiOutlinedInput-notchedOutline": {
+            border: "none", // ✅ removes border
+        },
+    },
+});
+
+export const RedButton = styled(Button)({
+    marginTop: 30,
+    backgroundColor: "#EF151E",
+    color: TEXT_CUSTOM.WHITE,
+    fontWeight: 600,
+    height: 48,
+    borderRadius: 4,
+    textTransform: "none",
+    border: "none",
+});
+
+export const CustomDialog = styled(Dialog)(({ theme }) => ({
+    "& .MuiDialog-paper": {
+        width: "480px",
+        height: "448px",
+        margin: 0,
+        maxHeight: "none",
+        borderRadius: "12px",
+        overflow: "hidden",
+        boxSizing: "border-box",
+        boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.08)",
+    },
+}));
+export const ResponsivePaper = styled(Paper)(({ theme }) => ({
+    backgroundColor: TEXT_CUSTOM.WHITE,
+    padding: "16px",
+    width: "100%",
+    height: "auto",
+    boxShadow: "none",
+    [theme.breakpoints.up("sm")]: {
+        width: "492px",
+    },
+    [theme.breakpoints.up("md")]: {
+        width: "492px",
+        height: 264,
+    },
+}));
+
+export const ModalTitle = styled(Typography)({
+    fontWeight: 600,
+    fontSize: "22px",
+});
+
+export const CloseIconButton = styled(IconButton)({
+    marginRight: "-33px",
+    marginTop: "-12px",
+});
+
+export const StyledDialogContent = styled(DialogContent)({
+    flex: 1,
+    padding: 0,
+    height: "267px",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: 0,
+});
+
+export const ReasonLabel = styled(Typography)({
+    marginTop: "24px",
+    marginBottom: "0px",
+    fontSize: "13px",
+    color: "#8C929C",
+    paddingBottom: "4px",
+});
+
+export const FullWidthDivider = styled(Divider)({
+    marginLeft: "-24px",
+    marginRight: "-24px",
+    width: "calc(100% + 48px)",
 });

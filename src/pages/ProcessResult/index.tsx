@@ -43,10 +43,12 @@ export function ProcessResult() {
             <IconWrapper>{success ? <CheckCircleIcon /> : <CrossCircleIcon />}</IconWrapper>
             <HeadingContainer>
                 <Title>{title || null}</Title>
-                <Description>
-                    Thank you for purchase! Your booking information will be sent to
-                    <span> (+65) 1234 123 124</span>
-                </Description>
+                {processFlow !== "cancellation" && (
+    <Description>
+      Thank you for your purchase! Your booking information will be sent to
+      <span> (+65) 1234 123 124</span>
+    </Description>
+  )}
             </HeadingContainer>
             <ResultBody {...params} />
         </Container>

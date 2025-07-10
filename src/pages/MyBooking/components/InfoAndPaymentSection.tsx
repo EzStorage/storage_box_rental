@@ -135,17 +135,21 @@ export const BookingRow = ({
     bold,
     color,
     compact,
+    medcompact,
+    small,
 }: {
     label: React.ReactNode;
     value: React.ReactNode;
     bold?: boolean;
     color?: string;
     compact?: boolean;
+    medcompact?: boolean;
+    small?: boolean
 }) => (
-    <BookingRowWrapper compact={compact}>
-        <BookingLabel>{label}</BookingLabel>
+    <BookingRowWrapper compact={compact} medcompact={medcompact} >
+        <BookingLabel small={small}>{label}</BookingLabel>
         <BookingValueWrapper>
-            <BookingValueText bold={bold} color={color}>
+            <BookingValueText bold={bold} color={color} small={small}>
                 {value}
             </BookingValueText>
         </BookingValueWrapper>

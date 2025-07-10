@@ -8,7 +8,7 @@ import { Login } from "@pages/Login";
 import { Profile } from "@pages/Profile";
 import { ProcessResult } from "@pages/ProcessResult";
 import { BookingDetailsElement } from "@pages/MyBooking/components/BookingDetails";
-
+import { CancellationSuccess } from "@pages/MyBooking/components/CancellationSuccess";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -46,6 +46,7 @@ const router = createBrowserRouter([
                 path: `:processFlow/:status`,
                 element: <ProcessResult />,
             },
+
             {
                 element: <ProtectedRoute />,
                 children: [

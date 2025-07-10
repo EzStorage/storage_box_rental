@@ -11,6 +11,9 @@ export const SURFACE = {
     BLACK: "#000000",
     PRIMARY_DARK: "#cc0000",
     GREEN: "#458116",
+    SUCCESS_MED: "#59961F",
+    ERROR_SURFACE: "#E50914",          
+    ERROR_SURFACE_HOVER: "#C10710",  
 };
 
 export const OUTLINE = {

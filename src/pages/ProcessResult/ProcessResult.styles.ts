@@ -44,3 +44,11 @@ export const Description = styled.p`
 export const Body = styled.div`
     padding: 24px 0;
 `;
+export const CancelContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+
+`;
