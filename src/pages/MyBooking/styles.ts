@@ -811,25 +811,25 @@ export const HeaderRow = styled(Box)({
     height: "24px",
 });
 
-export const StyledSelect = styled(Select<string>)(({ theme }) => ({
+export const StyledSelect = styled(Select<string>)({
     width: "100%",
     height: "48px",
     borderRadius: 4,
     backgroundColor: "#F4F4F6",
     color: "#8C929C",
     marginBottom: "12px",
-    fontSize: "15px", // <-- Apply 15px font to the select value
+    fontSize: "15px",
     "& .MuiSelect-select": {
         padding: 12,
-        fontSize: "15px", // <-- Apply 15px to dropdown display text
+        fontSize: "15px",
     },
     "& .MuiMenuItem-root": {
-        fontSize: "15px", // <-- This applies to the MenuItems in dropdown
+        fontSize: "15px",
     },
     "& .MuiOutlinedInput-notchedOutline": {
-        border: "none", // ✅ removes border
+        border: "none",
     },
-}));
+});
 
 export const StyledTextField = styled(TextField)({
     backgroundColor: "#F4F4F6",
@@ -837,11 +837,11 @@ export const StyledTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
         alignItems: "flex-start",
         "& textarea": {
-            minHeight: "31px", // ✅ Starts at 159px height
-            resize: "vertical", // ✅ Optional: allow manual resizing
+            minHeight: "31px",
+            resize: "vertical",
         },
         "& .MuiOutlinedInput-notchedOutline": {
-            border: "none", // ✅ removes border
+            border: "none",
         },
     },
 });
@@ -857,7 +857,7 @@ export const RedButton = styled(Button)({
     border: "none",
 });
 
-export const CustomDialog = styled(Dialog)(({ theme }) => ({
+export const CustomDialog = styled(Dialog)({
     "& .MuiDialog-paper": {
         width: "480px",
         height: "448px",
@@ -868,7 +868,7 @@ export const CustomDialog = styled(Dialog)(({ theme }) => ({
         boxSizing: "border-box",
         boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.08)",
     },
-}));
+});
 export const ResponsivePaper = styled(Paper)(({ theme }) => ({
     backgroundColor: TEXT_CUSTOM.WHITE,
     padding: "16px",
