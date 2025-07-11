@@ -529,7 +529,7 @@ export const BookingValueText = styled(Typography)<{
     color?: string;
     small?: boolean;
 }>(({ bold, color, theme, small }) => ({
-    fontSize: small ? "13px" : 15,
+    fontSize: small ? "13px" : "15px",
     fontWeight: bold ? 600 : 400,
     color: color || theme.palette.text.primary,
     display: "flex",

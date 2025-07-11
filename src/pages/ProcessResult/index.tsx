@@ -44,11 +44,11 @@ export function ProcessResult() {
             <HeadingContainer>
                 <Title>{title || null}</Title>
                 {processFlow !== "cancellation" && (
-    <Description>
-      Thank you for your purchase! Your booking information will be sent to
-      <span> (+65) 1234 123 124</span>
-    </Description>
-  )}
+                    <Description>
+                        Thank you for your purchase! Your booking information will be sent to
+                        <span> (+65) 1234 123 124</span>
+                    </Description>
+                )}
             </HeadingContainer>
             <ResultBody {...params} />
         </Container>

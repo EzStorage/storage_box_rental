@@ -5,7 +5,7 @@ export const ExpandUp = ({
   ...props
 }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
   <svg
-    {...props} // ✅ essential for MUI integration
+    {...props}
     width={size}
     height={size}
     viewBox="0 0 20 20"
@@ -16,7 +16,7 @@ export const ExpandUp = ({
       fillRule="evenodd"
       clipRule="evenodd"
       d="M15.6629 12.3295C15.2968 12.6957 14.7032 12.6957 14.3371 12.3295L10 7.99253L5.66288 12.3295C5.29675 12.6957 4.70325 12.6957 4.33713 12.3295C3.971 11.9634 3.971 11.3699 4.33713 11.0038L9.33713 6.00374C9.70325 5.63763 10.2968 5.63763 10.6629 6.00374L15.6629 11.0038C16.029 11.3699 16.029 11.9634 15.6629 12.3295Z"
-      fill="#5B616D"
+      fill="#8C929C"
     />
   </svg>
 );

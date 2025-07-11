@@ -4,16 +4,14 @@ import { RedButton } from "../styles";
 import { ResponsivePaper } from "../styles";
 
 import { Divider, Typography } from "@mui/material";
-import { BookingRow } from "./InfoAndPaymentSection";
+import { BookingRow } from "./BookingRow";
 import { formatAmount } from "@helpers/amount";
 import { useNavigate } from "react-router-dom";
 
-export function PaymentContent({ success = false }: { success?: boolean }) {
-    const title = success ? "Paid" : "Payment Failed";
-    const titleColor = success ? TEXT_CUSTOM.SUCCESS : TEXT_CUSTOM.DANGER;
+export function PaymentContent() {
     const navigate = useNavigate();
     return (
-        <>
+       
             <CancelContainer>
                 <ResponsivePaper>
                     <Typography fontSize="13px" fontWeight="400" mb="14.5px">
@@ -53,15 +51,15 @@ export function PaymentContent({ success = false }: { success?: boolean }) {
                     ></BookingRow>
                 </ResponsivePaper>
                 <RedButton
-                    sx={{ padding: 2.5, fontWeight: 400 }}
+                    sx={{ padding: 2.5 }}
                     onClick={() => navigate("/my-bookings")}
                 >
                     Go to my bookings
                 </RedButton>
             </CancelContainer>
-        </>
+      
     );
 }
 export function CancellationSuccess() {
-    return <PaymentContent success={true} />;
+    return <PaymentContent />;
 }

@@ -1,7 +1,4 @@
-import {
-    MenuItem,
-    SelectChangeEvent,
-} from "@mui/material";
+import { MenuItem, SelectChangeEvent } from "@mui/material";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +38,6 @@ export const CancelModal = ({ open, onClose }: CancelModalProps) => {
     const navigate = useNavigate();
 
     const handleProceed = () => {
-        console.log("Cancelled with:", { reason, details });
         navigate("/cancellation/success");
     };
     return (
@@ -76,7 +72,7 @@ export const CancelModal = ({ open, onClose }: CancelModalProps) => {
                         fullWidth
                         multiline
                         minRows={4}
-                        placeholder="Tell us more about your reason"
+                        placeholder="Tell us more your reason"
                         value={details}
                         onChange={e => setDetails(e.target.value)}
                     />

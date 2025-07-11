@@ -5,7 +5,7 @@ export const ExpandDown = ({
   ...props
 }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
   <svg
-    {...props} // ✅ lets MUI control click, style, aria, etc.
+    {...props} 
     width={size}
     height={size}
     viewBox="0 0 20 20"
