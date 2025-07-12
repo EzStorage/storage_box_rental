@@ -846,7 +846,7 @@ export const StyledTextField = styled(TextField)({
     },
 });
 
-export const RedButton = styled(Button)({
+export const RedButton = styled(Button)(({ theme }) => ({
     marginTop: 30,
     backgroundColor: "#EF151E",
     color: TEXT_CUSTOM.WHITE,
@@ -855,7 +855,13 @@ export const RedButton = styled(Button)({
     borderRadius: 4,
     textTransform: "none",
     border: "none",
-});
+
+    [theme.breakpoints.down("sm")]: {
+        //width: "100vw",
+        paddingLeft: 16,
+        paddingRight: 16,
+    },
+}));
 
 export const CustomDialog = styled(Dialog)({
     "& .MuiDialog-paper": {
@@ -873,14 +879,18 @@ export const ResponsivePaper = styled(Paper)(({ theme }) => ({
     backgroundColor: TEXT_CUSTOM.WHITE,
     padding: "16px",
     width: "100%",
-    height: "auto",
     boxShadow: "none",
+    display: "flex",
+    flexDirection: "column",
+
     [theme.breakpoints.up("sm")]: {
         width: "492px",
+        height: "auto",
     },
-    [theme.breakpoints.up("md")]: {
-        width: "492px",
-        height: 264,
+
+    [theme.breakpoints.down("sm")]: {
+        flex: 1,
+        overflowY: "auto",
     },
 }));
 
@@ -904,16 +914,30 @@ export const StyledDialogContent = styled(DialogContent)({
     gap: 0,
 });
 
-export const ReasonLabel = styled(Typography)({
+export const ReasonLabel = styled(Typography)(({ theme }) => ({
     marginTop: "24px",
     marginBottom: "0px",
     fontSize: "13px",
     color: "#8C929C",
     paddingBottom: "4px",
-});
+    [theme.breakpoints.down("sm")]: {
+        marginTop: "0px",
+    },
+}));
 
 export const FullWidthDivider = styled(Divider)({
     marginLeft: "-24px",
     marginRight: "-24px",
     width: "calc(100% + 48px)",
 });
+export const BackRowModal = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    [theme.breakpoints.down("sm")]: {
+        position: "absolute",
+        left: "0px",
+        top: "50%",
+        transform: "translateY(-50%)",
+    },
+}));

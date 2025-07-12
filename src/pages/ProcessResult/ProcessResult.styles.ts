@@ -7,6 +7,9 @@ export const Container = styled.div`
     height: 100vh;
     background-color: #f5f5f5;
     padding-top: 120px;
+    @media (max-width: 600px) {
+        padding-top: 24px;
+    }
 `;
 
 export const IconWrapper = styled.div`
@@ -28,6 +31,9 @@ export const Title = styled.h1`
     font-weight: 700;
     color: #000;
     text-align: center;
+    @media (max-width: 600px) {
+        font-size: 18px;
+    }
 `;
 
 export const Description = styled.p`
@@ -50,5 +56,4 @@ export const CancelContainer = styled.div`
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;
-
 `;
