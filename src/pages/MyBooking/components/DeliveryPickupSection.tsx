@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { InfosIcon } from "@components/Icons/InfosIcon";
 import { SectionHeader } from "./SectionHeader";
-import { BookingRow } from "./InfoAndPaymentSection";
+import { BookingRow } from "./BookingRow";
 import { ReturnItemsRow, ChangeText, InfoNoteBox, ContactBoxWrapper, CustomDivider } from "../styles";
 
 export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
