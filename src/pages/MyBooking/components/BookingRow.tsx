@@ -1,4 +1,19 @@
-import { BookingRowWrapper, BookingLabel, BookingValueWrapper, BookingValueText } from "../styles";
+import {
+    BookingRowWrapper,
+    BookingLabel,
+    BookingValueWrapper,
+    BookingValueText,
+} from "../styles";
+
+interface BookingRowProps {
+    label: React.ReactNode;
+    value: React.ReactNode;
+    bold?: boolean;
+    color?: string;
+    compact?: boolean;
+    medcompact?: boolean;
+    small?: boolean;
+}
 
 export const BookingRow = ({
     label,
@@ -8,15 +23,7 @@ export const BookingRow = ({
     compact,
     medcompact,
     small,
-}: {
-    label: React.ReactNode;
-    value: React.ReactNode;
-    bold?: boolean;
-    color?: string;
-    compact?: boolean;
-    medcompact?: boolean;
-    small?: boolean;
-}) => (
+}: BookingRowProps) => (
     <BookingRowWrapper compact={compact} medcompact={medcompact}>
         <BookingLabel small={small}>{label}</BookingLabel>
         <BookingValueWrapper>
