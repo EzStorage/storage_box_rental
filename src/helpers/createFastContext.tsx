@@ -148,7 +148,6 @@ export type CancelModalStore = {
     details: string;
     selectOpen: boolean;
     isLoading: boolean;
-    handleProceed: () => void;
 };
 
 const {
@@ -160,7 +159,6 @@ const {
     details: "",
     selectOpen: false,
     isLoading: false,
-    handleProceed: () => {},
 });
 
 export { CancelModalProvider, useCancelModalSelector, useCancelModalCommit };

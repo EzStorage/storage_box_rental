@@ -12,14 +12,14 @@ import { CircularProgress } from "@mui/material";
 type Props = {
     open: boolean;
     onClose: () => void;
+    onProceed: () => void | Promise<void>;
 };
 
-export const CancelModalMobile = ({ open, onClose }: Props) => {
+export const CancelModalMobile = ({ open, onClose, onProceed }: Props) => {
     const reason = useCancelModalSelector(state => state.reason);
     const details = useCancelModalSelector(state => state.details);
     const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
-    const handleProceed = useCancelModalSelector(state => state.handleProceed);
 
     const commit = useCancelModalCommit();
 
@@ -107,7 +107,7 @@ export const CancelModalMobile = ({ open, onClose }: Props) => {
                 <Button
                     fullWidth
                     variant="contained"
-                    onClick={handleProceed}
+                    onClick={onProceed}
                     disabled={!reason}
                     sx={{
                         height: 48,
