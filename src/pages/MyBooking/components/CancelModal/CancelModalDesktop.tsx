@@ -10,29 +10,30 @@ import {
     FullWidthDivider,
     RedButton,
     CustomDialog,
-} from "../styles";
-import { MenuItem } from "@mui/material";
+} from "../../styles";
+
+import { MenuItem, CircularProgress } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
 import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
 import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
-import { useCancelModal } from "./CancelModalContext";
-import { CircularProgress } from "@mui/material";
+import {
+    useCancelModalSelector,
+    useCancelModalCommit,
+} from "../../../../helpers/createFastContext";
+
 type Props = {
     open: boolean;
     onClose: () => void;
 };
 
 export const CancelModalDesktop = ({ open, onClose }: Props) => {
-    const {
-        reason,
-        details,
-        selectOpen,
-        isLoading,
-        setReason,
-        setDetails,
-        setSelectOpen,
-        handleProceed,
-    } = useCancelModal();
+    const reason = useCancelModalSelector(state => state.reason);
+    const details = useCancelModalSelector(state => state.details);
+    const selectOpen = useCancelModalSelector(state => state.selectOpen);
+    const isLoading = useCancelModalSelector(state => state.isLoading);
+    const handleProceed = useCancelModalSelector(state => state.handleProceed);
+
+    const commit = useCancelModalCommit();
 
     return (
         <CustomDialog open={open} onClose={onClose}>
@@ -50,9 +51,9 @@ export const CancelModalDesktop = ({ open, onClose }: Props) => {
                         fullWidth
                         displayEmpty
                         value={reason}
-                        onChange={setReason}
-                        onOpen={() => setSelectOpen(true)}
-                        onClose={() => setSelectOpen(false)}
+                        onChange={e => commit({ reason: e.target.value })}
+                        onOpen={() => commit({ selectOpen: true })}
+                        onClose={() => commit({ selectOpen: false })}
                         IconComponent={selectOpen ? GreyExpandUp : GreyExpandDown}
                     >
                         <MenuItem value="" disabled>
@@ -68,7 +69,7 @@ export const CancelModalDesktop = ({ open, onClose }: Props) => {
                         minRows={4}
                         placeholder="Tell us more your reason"
                         value={details}
-                        onChange={e => setDetails(e.target.value)}
+                        onChange={e => commit({ details: e.target.value })}
                     />
                 </StyledDialogContent>
 

@@ -1,10 +1,13 @@
-import { ReasonLabel, StyledSelect, StyledTextField } from "../styles";
+import { ReasonLabel, StyledSelect, StyledTextField } from "../../styles";
 import { SwipeableDrawer, Box, Typography, Divider, Button, MenuItem } from "@mui/material";
-import { TopSectionWrapper, BackRowModal } from "../styles";
+import { TopSectionWrapper, BackRowModal } from "../../styles";
 import { MobileCloseIcon } from "@components/Icons/CrossDrawer";
 import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
 import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
-import { useCancelModal } from "./CancelModalContext";
+import {
+    useCancelModalSelector,
+    useCancelModalCommit,
+} from "../../../../helpers/createFastContext";
 import { CircularProgress } from "@mui/material";
 type Props = {
     open: boolean;
@@ -12,16 +15,13 @@ type Props = {
 };
 
 export const CancelModalMobile = ({ open, onClose }: Props) => {
-    const {
-        reason,
-        details,
-        selectOpen,
-        isLoading,
-        setReason,
-        setDetails,
-        setSelectOpen,
-        handleProceed,
-    } = useCancelModal();
+    const reason = useCancelModalSelector(state => state.reason);
+    const details = useCancelModalSelector(state => state.details);
+    const selectOpen = useCancelModalSelector(state => state.selectOpen);
+    const isLoading = useCancelModalSelector(state => state.isLoading);
+    const handleProceed = useCancelModalSelector(state => state.handleProceed);
+
+    const commit = useCancelModalCommit();
 
     return (
         <SwipeableDrawer
@@ -63,9 +63,9 @@ export const CancelModalMobile = ({ open, onClose }: Props) => {
                     fullWidth
                     displayEmpty
                     value={reason}
-                    onChange={setReason}
-                    onOpen={() => setSelectOpen(true)}
-                    onClose={() => setSelectOpen(false)}
+                    onChange={e => commit({ reason: e.target.value })}
+                    onOpen={() => commit({ selectOpen: true })}
+                    onClose={() => commit({ selectOpen: false })}
                     IconComponent={selectOpen ? GreyExpandUp : GreyExpandDown}
                 >
                     <MenuItem value="" disabled>
@@ -81,7 +81,7 @@ export const CancelModalMobile = ({ open, onClose }: Props) => {
                     minRows={4}
                     placeholder="Tell us more your reason"
                     value={details}
-                    onChange={e => setDetails(e.target.value)}
+                    onChange={e => commit({ details: e.target.value })}
                 />
             </Box>
 

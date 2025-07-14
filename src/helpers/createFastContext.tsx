@@ -142,5 +142,25 @@ export function createFastContext<Store extends Record<string, any>>(initialValu
         useCommit,
         createSelector,
     };
-    
 }
+export type CancelModalStore = {
+    reason: string;
+    details: string;
+    selectOpen: boolean;
+    isLoading: boolean;
+    handleProceed: () => void;
+};
+
+const {
+    Provider: CancelModalProvider,
+    useSelector: useCancelModalSelector,
+    useCommit: useCancelModalCommit,
+} = createFastContext<CancelModalStore>({
+    reason: "",
+    details: "",
+    selectOpen: false,
+    isLoading: false,
+    handleProceed: () => {},
+});
+
+export { CancelModalProvider, useCancelModalSelector, useCancelModalCommit };

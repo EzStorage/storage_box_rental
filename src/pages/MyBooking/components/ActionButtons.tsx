@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
-import { CancelModal } from "./CancelModal";
+import { CancelModal } from "./CancelModal/CancelModal";
 
 interface Props {
     status: BookingStatus;
