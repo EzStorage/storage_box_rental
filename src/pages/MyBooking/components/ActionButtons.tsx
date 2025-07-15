@@ -1,10 +1,12 @@
-import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
 import { CancelModal } from "./CancelModal/index";
 
+import { useCancelModalActions } from "./CancelModal/LogicHook";
+import { useCancelModalSelector } from "./CancelModal/Context";
+import { selectCancelModalOpen } from "./CancelModal/Context";
 interface Props {
     status: BookingStatus;
 }
@@ -13,10 +15,11 @@ export const ActionButtons = ({ status }: Props) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const [cancelModalOpen, setCancelModalOpen] = useState(false);
+    const { openModal } = useCancelModalActions();
+    const isModalOpen = useCancelModalSelector(selectCancelModalOpen);
 
     const handleRequestCancel = () => {
-        setCancelModalOpen(true);
+        openModal();
     };
 
     const content = (() => {
@@ -59,9 +62,7 @@ export const ActionButtons = ({ status }: Props) => {
             {isMobile ? <MobileActionBox>{content}</MobileActionBox> : content}
 
             {(status === BookingStatus.AwaitingPickup ||
-                status === BookingStatus.BoxToBeDelivered) && (
-                <CancelModal open={cancelModalOpen} onClose={() => setCancelModalOpen(false)} />
-            )}
+                status === BookingStatus.BoxToBeDelivered) && <CancelModal />}
         </>
     );
 };

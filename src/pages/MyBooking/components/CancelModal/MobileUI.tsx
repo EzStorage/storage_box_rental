@@ -4,30 +4,24 @@ import { TopSectionWrapper, BackRowModal } from "../../styles";
 import { MobileCloseIcon } from "@components/Icons/CrossDrawer";
 import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
 import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
-import {
-    useCancelModalSelector,
-    useCancelModalCommit,
-} from "../../../../helpers/createFastContext";
+import { useCancelModalSelector, useCancelModalCommit } from "./Context";
 import { CircularProgress } from "@mui/material";
-type Props = {
-    open: boolean;
-    onClose: () => void;
-    onProceed: () => void | Promise<void>;
-};
+import { useCancelModalLogic } from "./LogicHook";
 
-export const CancelModalMobile = ({ open, onClose, onProceed }: Props) => {
+export const CancelModalMobile = () => {
     const reason = useCancelModalSelector(state => state.reason);
     const details = useCancelModalSelector(state => state.details);
     const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
-
+    const open = useCancelModalSelector(s => s.open);
+    const { close, handleProceed } = useCancelModalLogic();
     const commit = useCancelModalCommit();
 
     return (
         <SwipeableDrawer
             anchor="bottom"
             open={open}
-            onClose={onClose}
+            onClose={close}
             onOpen={() => {}}
             slotProps={{
                 paper: {
@@ -46,7 +40,7 @@ export const CancelModalMobile = ({ open, onClose, onProceed }: Props) => {
         >
             <TopSectionWrapper>
                 <BackRowModal>
-                    <Button onClick={onClose} sx={{ mt: "0px", padding: 0 }}>
+                    <Button onClick={close} sx={{ mt: "0px", padding: 0 }}>
                         <MobileCloseIcon />
                     </Button>
                 </BackRowModal>
@@ -91,7 +85,7 @@ export const CancelModalMobile = ({ open, onClose, onProceed }: Props) => {
                 <Button
                     fullWidth
                     variant="outlined"
-                    onClick={onClose}
+                    onClick={close}
                     sx={{
                         height: 48,
                         fontWeight: 600,
@@ -107,7 +101,7 @@ export const CancelModalMobile = ({ open, onClose, onProceed }: Props) => {
                 <Button
                     fullWidth
                     variant="contained"
-                    onClick={onProceed}
+                    onClick={handleProceed}
                     disabled={!reason}
                     sx={{
                         height: 48,

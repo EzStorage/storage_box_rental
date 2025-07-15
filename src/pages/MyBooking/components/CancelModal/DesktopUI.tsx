@@ -11,36 +11,28 @@ import {
     RedButton,
     CustomDialog,
 } from "../../styles";
-
+import { useCancelModalLogic } from "./LogicHook";
 import { MenuItem, CircularProgress } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
 import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
 import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
-import {
-    useCancelModalSelector,
-    useCancelModalCommit,
-} from "../../../../helpers/createFastContext";
+import { useCancelModalSelector, useCancelModalCommit } from "./Context";
 
-type Props = {
-    open: boolean;
-    onClose: () => void;
-    onProceed: () => void;
-};
-
-export const CancelModalDesktop = ({ open, onClose, onProceed }: Props) => {
+export const CancelModalDesktop = () => {
     const reason = useCancelModalSelector(state => state.reason);
     const details = useCancelModalSelector(state => state.details);
     const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
-
+    const open = useCancelModalSelector(s => s.open);
     const commit = useCancelModalCommit();
+    const { close, handleProceed } = useCancelModalLogic();
 
     return (
-        <CustomDialog open={open} onClose={onClose}>
+        <CustomDialog open={open} onClose={close}>
             <ModalWrapper>
                 <HeaderRow>
                     <ModalTitle variant="h6">Request cancel</ModalTitle>
-                    <CloseIconButton onClick={onClose}>
+                    <CloseIconButton onClick={close}>
                         <CloseCircleIcon />
                     </CloseIconButton>
                 </HeaderRow>
@@ -75,7 +67,7 @@ export const CancelModalDesktop = ({ open, onClose, onProceed }: Props) => {
 
                 <FullWidthDivider />
 
-                <RedButton variant="contained" onClick={onProceed} disabled={!reason}>
+                <RedButton variant="contained" onClick={handleProceed} disabled={!reason}>
                     {isLoading ? <CircularProgress size={20} sx={{ color: "white" }} /> : "Proceed"}
                 </RedButton>
             </ModalWrapper>

@@ -11,6 +11,8 @@ import { MetaInfoSection } from "./MetaInfoSection";
 import { RetrieveBox } from "./RetrieveBox";
 import { ContactCard } from "./ContactCard";
 import { ActionButtons } from "./ActionButtons";
+import { CancelModal } from "./CancelModal";
+import { CancelModalProvider } from "./CancelModal/Context";
 export const BookingDetails = () => {
     const { bookingID } = useParams();
     const booking = useMyBookingSelector(state => state.bookings.find(b => b.id === bookingID));
@@ -47,6 +49,9 @@ export const BookingDetails = () => {
 };
 export const BookingDetailsElement = () => (
     <MyBookingProvider>
-        <BookingDetails />
+        <CancelModalProvider>
+            <BookingDetails />
+            <CancelModal />
+        </CancelModalProvider>
     </MyBookingProvider>
 );
