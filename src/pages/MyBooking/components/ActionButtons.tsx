@@ -4,7 +4,7 @@ import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox 
 import { BookingStatus } from "../../../constants/Enums";
 import { CancelModal } from "./CancelModal/index";
 
-import { useCancelModalActions } from "./CancelModal/LogicHook";
+import { useCancelModalController } from "./CancelModal/LogicHook";
 import { useCancelModalSelector } from "./CancelModal/Context";
 import { selectCancelModalOpen } from "./CancelModal/Context";
 interface Props {
@@ -15,11 +15,10 @@ export const ActionButtons = ({ status }: Props) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const { openModal } = useCancelModalActions();
-    const isModalOpen = useCancelModalSelector(selectCancelModalOpen);
+    const { open } = useCancelModalController();
 
     const handleRequestCancel = () => {
-        openModal();
+        open();
     };
 
     const content = (() => {

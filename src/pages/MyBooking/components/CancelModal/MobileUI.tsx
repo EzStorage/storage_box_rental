@@ -6,16 +6,15 @@ import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
 import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
 import { useCancelModalSelector, useCancelModalCommit } from "./Context";
 import { CircularProgress } from "@mui/material";
-import { useCancelModalLogic } from "./LogicHook";
-
+import { useCancelModalController } from "./LogicHook";
+import { CancelModalForm } from "./Form";
 export const CancelModalMobile = () => {
     const reason = useCancelModalSelector(state => state.reason);
     const details = useCancelModalSelector(state => state.details);
     const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
     const open = useCancelModalSelector(s => s.open);
-    const { close, handleProceed } = useCancelModalLogic();
-    const commit = useCancelModalCommit();
+    const { close, handleProceed } = useCancelModalController();
 
     return (
         <SwipeableDrawer
@@ -41,7 +40,7 @@ export const CancelModalMobile = () => {
             <TopSectionWrapper>
                 <BackRowModal>
                     <Button onClick={close} sx={{ mt: "0px", padding: 0 }}>
-                        <MobileCloseIcon />
+                        <MobileCloseIcon/>
                     </Button>
                 </BackRowModal>
                 <Typography fontWeight={600} fontSize={16}>
@@ -53,30 +52,7 @@ export const CancelModalMobile = () => {
 
             <Box mt={2} flex={1} display="flex" flexDirection="column">
                 <ReasonLabel>Reason</ReasonLabel>
-                <StyledSelect
-                    fullWidth
-                    displayEmpty
-                    value={reason}
-                    onChange={e => commit({ reason: e.target.value })}
-                    onOpen={() => commit({ selectOpen: true })}
-                    onClose={() => commit({ selectOpen: false })}
-                    IconComponent={selectOpen ? GreyExpandUp : GreyExpandDown}
-                >
-                    <MenuItem value="" disabled>
-                        Select reason
-                    </MenuItem>
-                    <MenuItem value="Changed mind">Changed mind</MenuItem>
-                    <MenuItem value="Wrong date">Booked wrong date</MenuItem>
-                </StyledSelect>
-
-                <StyledTextField
-                    fullWidth
-                    multiline
-                    minRows={4}
-                    placeholder="Tell us more your reason"
-                    value={details}
-                    onChange={e => commit({ details: e.target.value })}
-                />
+                <CancelModalForm/>
             </Box>
 
             <Divider sx={{ mx: "-24px" }} />

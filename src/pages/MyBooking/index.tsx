@@ -43,10 +43,7 @@ export const MyBooking = () => {
 
     return (
         <MyBookingProvider>
-            <CancelModalProvider>
                 <MyBookingContent />
-                <CancelModal />
-            </CancelModalProvider>
         </MyBookingProvider>
     );
 };
