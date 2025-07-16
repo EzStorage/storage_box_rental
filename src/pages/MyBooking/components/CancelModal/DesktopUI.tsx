@@ -12,12 +12,9 @@ import {
     CustomDialog,
 } from "../../styles";
 import { useCancelModalController } from "./LogicHook";
-import { MenuItem, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
-import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
-import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
-import { useCancelModalSelector, useCancelModalCommit } from "./Context";
-import { SelectChangeEvent } from "@mui/material";
+import { useCancelModalSelector } from "./Context";
 import { CancelModalForm } from "./Form";
 export const CancelModalDesktop = () => {
     const reason = useCancelModalSelector(state => state.reason);
@@ -25,7 +22,7 @@ export const CancelModalDesktop = () => {
     const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
     const open = useCancelModalSelector(s => s.open);
-    const {close, handleProceed } = useCancelModalController();
+    const { close, handleProceed } = useCancelModalController();
 
     return (
         <CustomDialog open={open} onClose={close}>
@@ -38,7 +35,8 @@ export const CancelModalDesktop = () => {
                 </HeaderRow>
 
                 <StyledDialogContent>
-                    <CancelModalForm/>
+                    <ReasonLabel>Reason</ReasonLabel>
+                    <CancelModalForm />
                 </StyledDialogContent>
 
                 <FullWidthDivider />

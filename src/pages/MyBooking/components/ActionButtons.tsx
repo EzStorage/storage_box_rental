@@ -3,10 +3,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
 import { BookingStatus } from "../../../constants/Enums";
 import { CancelModal } from "./CancelModal/index";
-
 import { useCancelModalController } from "./CancelModal/LogicHook";
-import { useCancelModalSelector } from "./CancelModal/Context";
-import { selectCancelModalOpen } from "./CancelModal/Context";
+
 interface Props {
     status: BookingStatus;
 }

@@ -494,8 +494,8 @@ export const BookingRowWrapper = styled(Box)<BookingRowWrapperProps>(({ compact,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingTop: compact ? "4px" : medcompact ? "6.5px" : "11.2px",
-    paddingBottom: compact ? "4px" : medcompact ? "6.5px" : "11.2px",
+    paddingTop: compact ? "4px" : medcompact ? "5px" : "11.2px",
+    paddingBottom: compact ? "4px" : medcompact ? "5px" : "11.2px",
 }));
 
 interface BookingLabelProps {
@@ -902,6 +902,10 @@ export const ModalTitle = styled(Typography)({
 export const CloseIconButton = styled(IconButton)({
     marginRight: "-33px",
     marginTop: "-12px",
+    transition: "none",
+    "&:hover": {
+        backgroundColor: "transparent",
+    },
 });
 
 export const StyledDialogContent = styled(DialogContent)({

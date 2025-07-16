@@ -1,9 +1,7 @@
-import { ReasonLabel, StyledSelect, StyledTextField } from "../../styles";
-import { SwipeableDrawer, Box, Typography, Divider, Button, MenuItem } from "@mui/material";
+import { ReasonLabel } from "../../styles";
+import { SwipeableDrawer, Box, Typography, Divider, Button } from "@mui/material";
 import { TopSectionWrapper, BackRowModal } from "../../styles";
 import { MobileCloseIcon } from "@components/Icons/CrossDrawer";
-import { GreyExpandDown } from "@components/Icons/GreyExpandDown";
-import { GreyExpandUp } from "@components/Icons/GreyExpandUp";
 import { useCancelModalSelector, useCancelModalCommit } from "./Context";
 import { CircularProgress } from "@mui/material";
 import { useCancelModalController } from "./LogicHook";
@@ -39,7 +37,7 @@ export const CancelModalMobile = () => {
         >
             <TopSectionWrapper>
                 <BackRowModal>
-                    <Button onClick={close} sx={{ mt: "0px", padding: 0 }}>
+                    <Button onClick={close} sx={{ mt: "0px", padding: 0, ml: -3 }}>
                         <MobileCloseIcon/>
                     </Button>
                 </BackRowModal>
@@ -65,10 +63,10 @@ export const CancelModalMobile = () => {
                     sx={{
                         height: 48,
                         fontWeight: 600,
-                        borderRadius: 2,
+                        borderRadius: "4px",
                         textTransform: "none",
                         color: "#2D2D2D",
-                        borderColor: "#E0E0E0",
+                        border:"none",
                         backgroundColor: "#F4F4F4",
                     }}
                 >
@@ -82,10 +80,10 @@ export const CancelModalMobile = () => {
                     sx={{
                         height: 48,
                         fontWeight: 600,
-                        borderRadius: 2,
+                        borderRadius: "4px",
                         textTransform: "none",
                         backgroundColor: "#EF151E",
-                        color: "white",
+                        color: "#5B616D",
                     }}
                 >
                     {isLoading ? <CircularProgress size={20} sx={{ color: "white" }} /> : "Send"}

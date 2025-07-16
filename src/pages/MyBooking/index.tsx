@@ -8,12 +8,16 @@ import { useEffect } from "react";
 import { CancelModalProvider } from "./components/CancelModal/Context";
 import { CancelModal } from "./components/CancelModal";
 export const MyBookingContent = () => {
+    const navigate = useNavigate();
+     const handleNewStorageClick = () => {
+        navigate("/booking"); 
+    };
     return (
         <Container>
             <Wrapper>
                 <HeaderBox>
                     <ResponsiveHeading>My Bookings</ResponsiveHeading>
-                    <NewStorageButton>
+                    <NewStorageButton onClick={handleNewStorageClick}>
                         <PlusIcon />
                         &nbsp;New storage
                     </NewStorageButton>
