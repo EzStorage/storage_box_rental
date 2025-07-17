@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { useCancelModalCommit } from "./Context";
+import { useCancelModalCommit, useCancelModalSelector } from "./Context";
 import { fakeRequest } from "src/services/mockHttp";
 
 export function useCancelModalController() {
     const commit = useCancelModalCommit();
     const navigate = useNavigate();
-
+    const state = useCancelModalSelector(s => s);
     const open = () => commit(prev => ({ ...prev, open: true }));
     const close = () => commit(prev => ({ ...prev, open: false }));
 
@@ -21,12 +21,12 @@ export function useCancelModalController() {
         }
     };
     const resetFields = () =>
-        commit(prev => ({
-            ...prev,
+        commit({
+            ...state,
             reason: "",
             details: "",
             isLoading: false,
-        }));
+        });
 
     return { resetFields, open, close, handleProceed };
 }
