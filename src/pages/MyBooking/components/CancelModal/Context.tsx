@@ -4,7 +4,6 @@ export type CancelModalStore = {
     open: boolean;
     reason: string;
     details: string;
-    selectOpen: boolean;
     isLoading: boolean;
 };
 
@@ -12,7 +11,6 @@ const initialState: CancelModalStore = {
     open: false,
     reason: "",
     details: "",
-    selectOpen: false,
     isLoading: false,
 };
 

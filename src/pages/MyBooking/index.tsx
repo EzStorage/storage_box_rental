@@ -9,8 +9,8 @@ import { CancelModalProvider } from "./components/CancelModal/Context";
 import { CancelModal } from "./components/CancelModal";
 export const MyBookingContent = () => {
     const navigate = useNavigate();
-     const handleNewStorageClick = () => {
-        navigate("/booking"); 
+    const handleNewStorageClick = () => {
+        navigate("/booking");
     };
     return (
         <Container>
@@ -47,7 +47,7 @@ export const MyBooking = () => {
 
     return (
         <MyBookingProvider>
-                <MyBookingContent />
+            <MyBookingContent />
         </MyBookingProvider>
     );
 };
