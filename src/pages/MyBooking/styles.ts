@@ -857,7 +857,6 @@ export const RedButton = styled(Button)(({ theme }) => ({
     border: "none",
 
     [theme.breakpoints.down("sm")]: {
-        //width: "100vw",
         paddingLeft: 16,
         paddingRight: 16,
     },
@@ -873,6 +872,13 @@ export const CustomDialog = styled(Dialog)({
         overflow: "hidden",
         boxSizing: "border-box",
         boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.08)",
+        transition: "none !important",
+        "& .MuiDialog-container": {
+            animation: "none !important",
+        },
+        "& .MuiBackdrop-root": {
+            animation: "none !important",
+        },
     },
 });
 export const ResponsivePaper = styled(Paper)(({ theme }) => ({
@@ -905,6 +911,9 @@ export const CloseIconButton = styled(IconButton)({
     transition: "none",
     "&:hover": {
         backgroundColor: "transparent",
+    },
+    "& .MuiTouchRipple-root": {
+        display: "none",
     },
 });
 

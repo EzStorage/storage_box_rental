@@ -1,3 +1,4 @@
+import React from "react";
 import {
     ModalWrapper,
     HeaderRow,
@@ -5,27 +6,31 @@ import {
     CloseIconButton,
     StyledDialogContent,
     ReasonLabel,
-    StyledSelect,
-    StyledTextField,
     FullWidthDivider,
     RedButton,
     CustomDialog,
 } from "../../styles";
+import { TransitionProps } from "@mui/material/transitions";
 import { useCancelModalController } from "./LogicHook";
 import { CircularProgress } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
 import { useCancelModalSelector } from "./Context";
 import { CancelModalForm } from "./Form";
+
 export const CancelModalDesktop = () => {
     const reason = useCancelModalSelector(state => state.reason);
     const details = useCancelModalSelector(state => state.details);
-    const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
     const open = useCancelModalSelector(s => s.open);
     const { close, handleProceed } = useCancelModalController();
-
     return (
-        <CustomDialog open={open} onClose={close}>
+        <CustomDialog
+            open={open}
+            onClose={close}
+            transitionDuration={0}
+            keepMounted
+            slotProps={{ transition: { timeout: 0 } }}
+        >
             <ModalWrapper>
                 <HeaderRow>
                     <ModalTitle variant="h6">Request cancel</ModalTitle>
@@ -41,7 +46,11 @@ export const CancelModalDesktop = () => {
 
                 <FullWidthDivider />
 
-                <RedButton variant="contained" onClick={handleProceed} disabled={!reason}>
+                <RedButton
+                    variant="contained"
+                    onClick={handleProceed}
+                    disabled={!reason || details.trim() === ""}
+                >
                     {isLoading ? <CircularProgress size={20} sx={{ color: "white" }} /> : "Proceed"}
                 </RedButton>
             </ModalWrapper>

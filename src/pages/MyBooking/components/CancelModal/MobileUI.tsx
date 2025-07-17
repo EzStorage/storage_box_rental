@@ -2,18 +2,16 @@ import { ReasonLabel } from "../../styles";
 import { SwipeableDrawer, Box, Typography, Divider, Button } from "@mui/material";
 import { TopSectionWrapper, BackRowModal } from "../../styles";
 import { MobileCloseIcon } from "@components/Icons/CrossDrawer";
-import { useCancelModalSelector, useCancelModalCommit } from "./Context";
+import { useCancelModalSelector } from "./Context";
 import { CircularProgress } from "@mui/material";
 import { useCancelModalController } from "./LogicHook";
 import { CancelModalForm } from "./Form";
 export const CancelModalMobile = () => {
     const reason = useCancelModalSelector(state => state.reason);
-    const details = useCancelModalSelector(state => state.details);
-    const selectOpen = useCancelModalSelector(state => state.selectOpen);
     const isLoading = useCancelModalSelector(state => state.isLoading);
     const open = useCancelModalSelector(s => s.open);
     const { close, handleProceed } = useCancelModalController();
-
+    const details = useCancelModalSelector(state => state.details);
     return (
         <SwipeableDrawer
             anchor="bottom"
@@ -38,7 +36,7 @@ export const CancelModalMobile = () => {
             <TopSectionWrapper>
                 <BackRowModal>
                     <Button onClick={close} sx={{ mt: "0px", padding: 0, ml: -3 }}>
-                        <MobileCloseIcon/>
+                        <MobileCloseIcon />
                     </Button>
                 </BackRowModal>
                 <Typography fontWeight={600} fontSize={16}>
@@ -50,7 +48,7 @@ export const CancelModalMobile = () => {
 
             <Box mt={2} flex={1} display="flex" flexDirection="column">
                 <ReasonLabel>Reason</ReasonLabel>
-                <CancelModalForm/>
+                <CancelModalForm />
             </Box>
 
             <Divider sx={{ mx: "-24px" }} />
@@ -66,7 +64,7 @@ export const CancelModalMobile = () => {
                         borderRadius: "4px",
                         textTransform: "none",
                         color: "#2D2D2D",
-                        border:"none",
+                        border: "none",
                         backgroundColor: "#F4F4F4",
                     }}
                 >
@@ -76,7 +74,7 @@ export const CancelModalMobile = () => {
                     fullWidth
                     variant="contained"
                     onClick={handleProceed}
-                    disabled={!reason}
+                    disabled={!reason || details.trim() === ""}
                     sx={{
                         height: 48,
                         fontWeight: 600,

@@ -20,7 +20,13 @@ export function useCancelModalController() {
             commit(prev => ({ ...prev, isLoading: false }));
         }
     };
+    const resetFields = () =>
+        commit(prev => ({
+            ...prev,
+            reason: "",
+            details: "",
+            isLoading: false,
+        }));
 
-    return { open, close, handleProceed };
+    return { resetFields, open, close, handleProceed };
 }
-

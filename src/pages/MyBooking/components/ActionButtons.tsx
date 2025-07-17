@@ -13,9 +13,10 @@ export const ActionButtons = ({ status }: Props) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const { open } = useCancelModalController();
+    const { open, resetFields } = useCancelModalController();
 
     const handleRequestCancel = () => {
+        resetFields();
         open();
     };
 

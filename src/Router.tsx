@@ -8,9 +8,7 @@ import { Login } from "@pages/Login";
 import { Profile } from "@pages/Profile";
 import { ProcessResult } from "@pages/ProcessResult";
 import { BookingDetailsElement } from "@pages/MyBooking/components/BookingDetails";
-import { CancelModal } from "@pages/MyBooking/components/CancelModal";
-import { CancelModalProvider } from "@pages/MyBooking/components/CancelModal/Context";
-import { BookingDetails } from "@pages/MyBooking/components/BookingDetails";
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -39,7 +37,6 @@ const router = createBrowserRouter([
             {
                 path: "/my-bookings/:type",
                 element: <MyBooking />,
-                
             },
             {
                 path: "/my-bookings/:type/:bookingID",
