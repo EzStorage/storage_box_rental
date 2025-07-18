@@ -1,55 +1,65 @@
-import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
-import { BookingStatus } from "../../../constants/Enums";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox } from "../styles";
+import { BookingStatus } from "../../../constants/Enums";
+import { CancelModal } from "./CancelModal/index";
+import { useCancelModalController } from "./CancelModal/LogicHook";
 
 interface Props {
     status: BookingStatus;
-}
-
-function ActionButtonContent({ status }: Props) {
-    switch (status) {
-        case BookingStatus.AwaitingPickup:
-        case BookingStatus.BoxToBeDelivered:
-            return <GreyButton fullWidth>Request Cancel</GreyButton>;
-
-        case BookingStatus.Stored:
-            return (
-                <ButtonRow>
-                    <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
-                    <PrimaryButton variant="contained" color="primary" fullWidth>
-                        Renew Storage
-                    </PrimaryButton>
-                </ButtonRow>
-            );
-        case BookingStatus.Returned:
-            return <PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>;
-        case BookingStatus.Cancelled:
-            return (
-                <PrimaryButton variant="contained" color="primary" fullWidth>
-                    Book Again
-                </PrimaryButton>
-            );
-        default:
-            return null;
-    }
 }
 
 export const ActionButtons = ({ status }: Props) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-    if (!Object.values(BookingStatus).includes(status)) {
-        return null;
-    }
+    const { open } = useCancelModalController();
 
-    if (isMobile) {
-        return (
-            <MobileActionBox>
-                <ActionButtonContent status={status} />
-            </MobileActionBox>
-        );
-    }
+    const handleRequestCancel = () => {
+        open();
+    };
 
-    return <ActionButtonContent status={status} />;
+    const content = (() => {
+        switch (status) {
+            case BookingStatus.AwaitingPickup:
+            case BookingStatus.BoxToBeDelivered:
+                return (
+                    <GreyButton fullWidth onClick={handleRequestCancel}>
+                        Request Cancel
+                    </GreyButton>
+                );
+
+            case BookingStatus.Stored:
+                return (
+                    <ButtonRow>
+                        <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
+                        <PrimaryButton variant="contained" fullWidth>
+                            Renew Storage
+                        </PrimaryButton>
+                    </ButtonRow>
+                );
+
+            case BookingStatus.Returned:
+                return <PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>;
+
+            case BookingStatus.Cancelled:
+                return (
+                    <PrimaryButton variant="contained" fullWidth>
+                        Book Again
+                    </PrimaryButton>
+                );
+
+            default:
+                return null;
+        }
+    })();
+
+    return (
+        <>
+            {isMobile ? <MobileActionBox>{content}</MobileActionBox> : content}
+
+            {(status === BookingStatus.AwaitingPickup ||
+                status === BookingStatus.BoxToBeDelivered) && <CancelModal />}
+        </>
+    );
 };

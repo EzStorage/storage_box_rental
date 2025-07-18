@@ -5,14 +5,19 @@ import { MyBookingProvider } from "./context";
 import { PlusIcon } from "../../components/Icons/PlusNewIcon";
 import { useNavigate, useParams, useSearchParams } from "react-router";
 import { useEffect } from "react";
-
+import { CancelModalProvider } from "./components/CancelModal/Context";
+import { CancelModal } from "./components/CancelModal";
 export const MyBookingContent = () => {
+    const navigate = useNavigate();
+    const handleNewStorageClick = () => {
+        navigate("/booking");
+    };
     return (
         <Container>
             <Wrapper>
                 <HeaderBox>
                     <ResponsiveHeading>My Bookings</ResponsiveHeading>
-                    <NewStorageButton>
+                    <NewStorageButton onClick={handleNewStorageClick}>
                         <PlusIcon />
                         &nbsp;New storage
                     </NewStorageButton>
@@ -28,7 +33,6 @@ export const MyBooking = () => {
     const navigate = useNavigate();
     const [, setSearchParams] = useSearchParams();
 
-    // if I set url is /my-bookings I expect browser to redirect to /my-bookings/upcoming
     useEffect(() => {
         if (!type) {
             if (!Object.values(BookingTabs).includes(type)) {

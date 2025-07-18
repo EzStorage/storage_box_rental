@@ -1,6 +1,6 @@
 import { PaymentFailed } from "@pages/ProcessResult/pages/PaymentFailed";
 import { PaymentSuccess } from "@pages/ProcessResult/pages/PaymentSuccess";
-
+import { CancellationSuccess } from "@pages/MyBooking/components/CancellationSuccess";
 interface Props {
     processFlow?: string;
     status?: string;
@@ -15,7 +15,7 @@ export function ResultBody({ processFlow, status }: Props) {
         return <PaymentFailed />;
     }
     if (key === "cancellation-success") {
-        return <div>Cancellation successful</div>;
+        return <CancellationSuccess/>;
     }
     if (key === "cancellation-failed") {
         return <div>Cancellation failed</div>;

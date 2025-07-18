@@ -1,9 +1,9 @@
-import React from "react";
 import { SURFACE } from "src/constants/palette";
 import { Box, Typography, Collapse } from "@mui/material";
 import { calculateUnitPrice } from "@helpers/calculateUnitPrice";
 import { formatAmount } from "@helpers/amount";
 import BoxImage from "../../../assets/Box-GreyBG.jpeg";
+import { BookingRow } from "./BookingRow";
 import {
     PaperCard,
     StatusBanner,
@@ -128,26 +128,3 @@ export const InfoAndPaymentSection = ({ booking, showBreakdown, toggleBreakdown 
         </PaperCard>
     );
 };
-
-export const BookingRow = ({
-    label,
-    value,
-    bold,
-    color,
-    compact,
-}: {
-    label: React.ReactNode;
-    value: React.ReactNode;
-    bold?: boolean;
-    color?: string;
-    compact?: boolean;
-}) => (
-    <BookingRowWrapper compact={compact}>
-        <BookingLabel>{label}</BookingLabel>
-        <BookingValueWrapper>
-            <BookingValueText bold={bold} color={color}>
-                {value}
-            </BookingValueText>
-        </BookingValueWrapper>
-    </BookingRowWrapper>
-);

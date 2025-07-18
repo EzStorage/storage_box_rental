@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ApplePayIcon } from "@components/Icons/ApplePayIcon";
 import { PaynowIcon } from "@components/Icons/PayNowIcon";
-import { BookingRow } from "./InfoAndPaymentSection";
+import { BookingRow } from "./BookingRow";
 import { WhiteCard, BookingLabelHeader, CustomDivider } from "../styles";
 
 export const MetaInfoSection = ({ booking }: { booking: any }) => {

@@ -46,6 +46,7 @@ const router = createBrowserRouter([
                 path: `:processFlow/:status`,
                 element: <ProcessResult />,
             },
+
             {
                 element: <ProtectedRoute />,
                 children: [
