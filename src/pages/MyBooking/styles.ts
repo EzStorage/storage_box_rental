@@ -954,3 +954,12 @@ export const BackRowModal = styled(Box)(({ theme }) => ({
         transform: "translateY(-50%)",
     },
 }));
+export const ButtonContent = styled("div")<{ isLoading: boolean }>(({ isLoading }) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minWidth: 110,
+    height: 24,
+    transition: "opacity 0.2s ease-in-out",
+    gap: 6,
+}));

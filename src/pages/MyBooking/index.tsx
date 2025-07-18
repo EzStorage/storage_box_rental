@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BookingTabs } from "./components/Tabs";
 import { BookingList } from "./components/BookingList";
 import { Container, HeaderBox, NewStorageButton, Wrapper, ResponsiveHeading } from "./styles";
@@ -5,21 +6,39 @@ import { MyBookingProvider } from "./context";
 import { PlusIcon } from "../../components/Icons/PlusNewIcon";
 import { useNavigate, useParams, useSearchParams } from "react-router";
 import { useEffect } from "react";
-import { CancelModalProvider } from "./components/CancelModal/Context";
-import { CancelModal } from "./components/CancelModal";
+import { fakeRequest } from "src/services/mockHttp";
+import { CircularProgress } from "@mui/material";
+
 export const MyBookingContent = () => {
     const navigate = useNavigate();
-    const handleNewStorageClick = () => {
-        navigate("/booking");
+    const [isLoading, setIsLoading] = useState(false);
+    const handleNewStorageClick = async () => {
+        setIsLoading(true);
+        try {
+            await fakeRequest({
+                resolve: () => ({}),
+            });
+            navigate("/booking");
+        } catch (e) {
+            console.error("Fake request failed", e);
+        } finally {
+            setIsLoading(false);
+        }
     };
     return (
         <Container>
             <Wrapper>
                 <HeaderBox>
                     <ResponsiveHeading>My Bookings</ResponsiveHeading>
-                    <NewStorageButton onClick={handleNewStorageClick}>
-                        <PlusIcon />
-                        &nbsp;New storage
+                    <NewStorageButton onClick={handleNewStorageClick} disabled={isLoading}>
+                        {isLoading ? (
+                            <CircularProgress size={20} />
+                        ) : (
+                            <>
+                                <PlusIcon />
+                                &nbsp;New storage
+                            </>
+                        )}
                     </NewStorageButton>
                 </HeaderBox>
             </Wrapper>
