@@ -8,37 +8,20 @@ import { useNavigate, useParams, useSearchParams } from "react-router";
 import { useEffect } from "react";
 import { fakeRequest } from "src/services/mockHttp";
 import { CircularProgress } from "@mui/material";
-
+import { Box } from "@mui/material";
 export const MyBookingContent = () => {
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
-    const handleNewStorageClick = async () => {
-        setIsLoading(true);
-        try {
-            await fakeRequest({
-                resolve: () => ({}),
-            });
-            navigate("/booking");
-        } catch (e) {
-            console.error("Fake request failed", e);
-        } finally {
-            setIsLoading(false);
-        }
+    const handleNewStorageClick = () => {
+        navigate("/booking");
     };
     return (
         <Container>
             <Wrapper>
                 <HeaderBox>
                     <ResponsiveHeading>My Bookings</ResponsiveHeading>
-                    <NewStorageButton onClick={handleNewStorageClick} disabled={isLoading}>
-                        {isLoading ? (
-                            <CircularProgress size={20} />
-                        ) : (
-                            <>
-                                <PlusIcon />
-                                &nbsp;New storage
-                            </>
-                        )}
+                    <NewStorageButton onClick={handleNewStorageClick}>
+                        <PlusIcon />
+                        &nbsp;New storage
                     </NewStorageButton>
                 </HeaderBox>
             </Wrapper>
@@ -51,7 +34,15 @@ export const MyBooking = () => {
     const { type } = useParams<{ type: string }>();
     const navigate = useNavigate();
     const [, setSearchParams] = useSearchParams();
-
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const loadFakeData = async () => {
+            setIsLoading(true);
+            await fakeRequest({ resolve: () => ({}) });
+            setIsLoading(false);
+        };
+        loadFakeData();
+    }, []);
     useEffect(() => {
         if (!type) {
             if (!Object.values(BookingTabs).includes(type)) {
@@ -61,7 +52,18 @@ export const MyBooking = () => {
             navigate("/my-bookings/upcoming", { replace: true });
         }
     }, [type, setSearchParams, navigate]);
-
+    if (!type || isLoading) {
+        return (
+            <Box
+                height="calc(100vh - 72px)"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <CircularProgress />
+            </Box>
+        );
+    }
     if (!type) return null;
 
     return (
