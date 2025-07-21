@@ -14,7 +14,7 @@ export function useCancelModalController() {
             details: "",
             isLoading: false,
         });
-    
+
     const handleProceed = async () => {
         commit(prev => ({ ...prev, isLoading: true }));
         try {
