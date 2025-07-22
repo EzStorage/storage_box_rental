@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BookingTabs } from "./components/Tabs";
 import { BookingList } from "./components/BookingList";
 import { Container, HeaderBox, NewStorageButton, Wrapper, ResponsiveHeading } from "./styles";
@@ -5,13 +6,44 @@ import { MyBookingProvider } from "./context";
 import { PlusIcon } from "../../components/Icons/PlusNewIcon";
 import { useNavigate, useParams, useSearchParams } from "react-router";
 import { useEffect } from "react";
-import { CancelModalProvider } from "./components/CancelModal/Context";
-import { CancelModal } from "./components/CancelModal";
+import { fakeRequest } from "src/services/mockHttp";
+import { CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
+import { mockBookings } from "src/constants/MockData";
+import { useMyBookingCommit } from "./context";
+
 export const MyBookingContent = () => {
     const navigate = useNavigate();
     const handleNewStorageClick = () => {
         navigate("/booking");
     };
+    const [isLoading, setIsLoading] = useState(true);
+    const commit = useMyBookingCommit();
+
+    useEffect(() => {
+        const loadFakeData = async () => {
+            setIsLoading(true);
+            const result = await fakeRequest({ resolve: () => mockBookings });
+            commit({
+                bookings: result,
+            });
+            setIsLoading(false);
+        };
+        loadFakeData();
+    }, []);
+
+    if (isLoading) {
+        return (
+            <Box
+                height="calc(100vh - 72px)"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <CircularProgress />
+            </Box>
+        );
+    }
     return (
         <Container>
             <Wrapper>

@@ -1,7 +1,7 @@
 import { CancelContainer } from "../../ProcessResult/ProcessResult.styles";
 import { RedButton } from "../styles";
 import { ResponsivePaper } from "../styles";
-
+import { fakeRequest } from "../../../services/mockHttp";
 import { Divider, Typography, Box, useMediaQuery, useTheme } from "@mui/material";
 import { BookingRow } from "./BookingRow";
 import { formatAmount } from "@helpers/amount";
@@ -11,6 +11,7 @@ export function PaymentContent() {
     const navigate = useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    
     return (
         <CancelContainer>
             <ResponsivePaper>

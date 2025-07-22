@@ -10,7 +10,6 @@ import {
     RedButton,
     CustomDialog,
 } from "../../styles";
-import { TransitionProps } from "@mui/material/transitions";
 import { useCancelModalController } from "./LogicHook";
 import { CircularProgress } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
