@@ -802,6 +802,7 @@ export const ModalWrapper = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "space-between",
     height: "100%",
+    overflow:"visible"
 }));
 
 export const HeaderRow = styled(Box)({
@@ -868,7 +869,7 @@ export const CustomDialog = styled(Dialog)({
         height: "448px",
         margin: 0,
         maxHeight: "none",
-        borderRadius: "12px",
+        borderRadius: "12px !important",
         overflow: "hidden",
         boxSizing: "border-box",
         boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.08)",

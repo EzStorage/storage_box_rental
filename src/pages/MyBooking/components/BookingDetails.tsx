@@ -13,7 +13,8 @@ import { ContactCard } from "./ContactCard";
 import { ActionButtons } from "./ActionButtons";
 import { CancelModal } from "./CancelModal";
 import { CancelModalProvider } from "./CancelModal/Context";
-
+import { ReduceFlowProvider } from "./ReduceFlow/Context";
+import { ChangeTimeModal } from "./ReduceFlow";
 export const BookingDetails = () => {
     const { bookingID } = useParams();
     const booking = useMyBookingSelector(state => state.bookings.find(b => b.id === bookingID));
@@ -50,9 +51,12 @@ export const BookingDetails = () => {
 };
 export const BookingDetailsElement = () => (
     <MyBookingProvider>
-        <CancelModalProvider>
-            <BookingDetails />
-            <CancelModal />
-        </CancelModalProvider>
+        <ReduceFlowProvider>
+            <CancelModalProvider>
+                <BookingDetails />
+                <CancelModal />
+                <ChangeTimeModal />
+            </CancelModalProvider>
+        </ReduceFlowProvider>
     </MyBookingProvider>
 );

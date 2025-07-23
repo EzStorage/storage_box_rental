@@ -10,7 +10,7 @@ import {
     CalendarWeekday,
 } from "./DatePicker.styles";
 import { IconButton, useTheme } from "@mui/material";
-import ChevronLeftIcon from "@components/Icons/ChevronLeftIcon";
+import { ChevronLeftIcon } from "@components/Icons/ChevronLeftIcon";
 import ChevronRightIcon from "@components/Icons/ChevronRightIcon";
 
 interface CalendarProps {
