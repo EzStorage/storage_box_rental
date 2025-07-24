@@ -14,8 +14,8 @@ const initialState: ReduceFlowStore = {
 
 export const {
     Provider: ReduceFlowProvider,
-    useSelector: ReduceFlowSelector,
-    useCommit: ReduceFlowCommit,
+    useSelector: useReduceFlowSelector,
+    useCommit: useReduceFlowCommit,
     createSelector: createReduceFlowSelector,
 } = createFastContext<ReduceFlowStore>(initialState);
 

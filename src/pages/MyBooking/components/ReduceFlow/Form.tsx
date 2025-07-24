@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import BoxImage from "../../../../assets/Box-GreyBG.jpeg";
-import { Typography, Chip } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import {
     formatDate,
     ContainerForm,
@@ -9,19 +9,15 @@ import {
     ChipContainer,
     BoxCount,
 } from "./StyledDatePicker";
+import { StyledChip } from "@pages/MyBooking/styles";
 
-const DateSelector = () => {
+export const DateSelector = () => {
     const [selectedDate, setSelectedDate] = useState(() => {
         const today = new Date();
         return today.toISOString().split("T")[0];
     });
 
-    const [formattedDate, setFormattedDate] = useState(formatDate(selectedDate));
-    const dateInputRef = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-        setFormattedDate(formatDate(selectedDate));
-    }, [selectedDate]);
+    const formattedDate = formatDate(selectedDate);
 
     return (
         <>
@@ -34,8 +30,10 @@ const DateSelector = () => {
                 <div>
                     <BoxDetails>Standard Box</BoxDetails>
                     <ChipContainer>
-                        <Chip label="60 x 40 x 31cm" />
-                        <Chip label="Max 20kg" />
+                        <Box>
+                            <StyledChip>60 x 40 x 31cm</StyledChip>
+                            <StyledChip>Max 20kg</StyledChip>
+                        </Box>
                     </ChipContainer>
                     <BoxCount>2 boxes</BoxCount>
                 </div>
@@ -45,5 +43,3 @@ const DateSelector = () => {
         </>
     );
 };
-
-export default DateSelector;

@@ -11,8 +11,6 @@ import { MetaInfoSection } from "./MetaInfoSection";
 import { RetrieveBox } from "./RetrieveBox";
 import { ContactCard } from "./ContactCard";
 import { ActionButtons } from "./ActionButtons";
-import { CancelModal } from "./CancelModal";
-import { CancelModalProvider } from "./CancelModal/Context";
 import { ReduceFlowProvider } from "./ReduceFlow/Context";
 import { ChangeTimeModal } from "./ReduceFlow";
 export const BookingDetails = () => {
@@ -52,11 +50,8 @@ export const BookingDetails = () => {
 export const BookingDetailsElement = () => (
     <MyBookingProvider>
         <ReduceFlowProvider>
-            <CancelModalProvider>
-                <BookingDetails />
-                <CancelModal />
-                <ChangeTimeModal />
-            </CancelModalProvider>
+            <BookingDetails />
+            <ChangeTimeModal />
         </ReduceFlowProvider>
     </MyBookingProvider>
 );

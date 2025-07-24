@@ -4,33 +4,39 @@ import { GreyButton, PlainGreyButton, PrimaryButton, ButtonRow, MobileActionBox 
 import { BookingStatus } from "../../../constants/Enums";
 import { CancelModal } from "./CancelModal/index";
 import { useCancelModalController } from "./CancelModal/LogicHook";
+import { CancelModalProvider } from "./CancelModal/Context";
 
 interface Props {
     status: BookingStatus;
 }
 
-export const ActionButtons = ({ status }: Props) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+const CancelActions = ({ isMobile }: { isMobile: boolean }) => {
     const { open } = useCancelModalController();
 
     const handleRequestCancel = () => {
         open();
     };
 
+    const button = (
+        <GreyButton fullWidth onClick={handleRequestCancel}>
+            Request Cancel
+        </GreyButton>
+    );
+
+    return isMobile ? <MobileActionBox>{button}</MobileActionBox> : button;
+};
+
+export const ActionButtons = ({ status }: Props) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const cancelEligible =
+        status === BookingStatus.AwaitingPickup || status === BookingStatus.BoxToBeDelivered;
+
     const content = (() => {
         switch (status) {
-            case BookingStatus.AwaitingPickup:
-            case BookingStatus.BoxToBeDelivered:
-                return (
-                    <GreyButton fullWidth onClick={handleRequestCancel}>
-                        Request Cancel
-                    </GreyButton>
-                );
-
             case BookingStatus.Stored:
-                return (
+                const stored = (
                     <ButtonRow>
                         <PlainGreyButton fullWidth>Reduce the storage date</PlainGreyButton>
                         <PrimaryButton variant="contained" fullWidth>
@@ -38,28 +44,33 @@ export const ActionButtons = ({ status }: Props) => {
                         </PrimaryButton>
                     </ButtonRow>
                 );
+                return isMobile ? <MobileActionBox>{stored}</MobileActionBox> : stored;
 
             case BookingStatus.Returned:
-                return <PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>;
+                const returned = <PlainGreyButton fullWidth>Rate your booking</PlainGreyButton>;
+                return isMobile ? <MobileActionBox>{returned}</MobileActionBox> : returned;
 
             case BookingStatus.Cancelled:
-                return (
+                const cancelled = (
                     <PrimaryButton variant="contained" fullWidth>
                         Book Again
                     </PrimaryButton>
                 );
+                return isMobile ? <MobileActionBox>{cancelled}</MobileActionBox> : cancelled;
 
             default:
                 return null;
         }
     })();
 
-    return (
-        <>
-            {isMobile ? <MobileActionBox>{content}</MobileActionBox> : content}
+    if (cancelEligible) {
+        return (
+            <CancelModalProvider>
+                <CancelActions isMobile={isMobile} />
+                <CancelModal />
+            </CancelModalProvider>
+        );
+    }
 
-            {(status === BookingStatus.AwaitingPickup ||
-                status === BookingStatus.BoxToBeDelivered) && <CancelModal />}
-        </>
-    );
+    return content;
 };

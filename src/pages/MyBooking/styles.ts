@@ -22,7 +22,6 @@ import { SuccessIcon } from "@components/Icons/TickIcon";
 
 export const Container = styled(Box)(({ theme }) => ({
     padding: "40px",
-
     backgroundColor: SURFACE.GREY_SURFACE_2,
     minHeight: "calc(100vh - 72px)",
     display: "flex",
@@ -802,7 +801,7 @@ export const ModalWrapper = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "space-between",
     height: "100%",
-    overflow:"visible"
+    overflow: "visible",
 }));
 
 export const HeaderRow = styled(Box)({
@@ -955,3 +954,27 @@ export const BackRowModal = styled(Box)(({ theme }) => ({
         transform: "translateY(-50%)",
     },
 }));
+export const StyledOuterBox = styled(Box)({
+    border: `1px solid #EBECF0`,
+    borderRadius: "4px",
+    padding: 0,
+});
+
+export const StyledDropoffTitle = styled(Typography)({
+    fontWeight: 600,
+    marginBottom: "4px",
+    fontSize: "15px",
+});
+
+export const StyledBoxMeta = styled(Typography)({
+    fontWeight: 600,
+    color: "#5B616D",
+    fontSize: "13px",
+    marginTop: 12,
+});
+
+export const StyledDropoffMeta = styled(Typography)({
+    fontSize: "11px",
+    color: "#5B616D",
+    marginTop: 2,
+});

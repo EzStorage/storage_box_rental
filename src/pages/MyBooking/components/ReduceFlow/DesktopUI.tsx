@@ -1,4 +1,3 @@
-import React, { useRef, useState, useEffect } from "react";
 import {
     ModalWrapper,
     HeaderRow,
@@ -9,16 +8,19 @@ import {
     RedButton,
     CustomDialog,
 } from "../../styles";
-import { BodyPortal } from "./BodyPortal";
 import { useReduceTimeController } from "./LogicHook";
 import { CustomDatePicker } from "@pages/BookingFlow/components/CustomDatePicker";
 import { CircularProgress, Box } from "@mui/material";
 import { CloseCircleIcon } from "@components/Icons/CloseCircleIcon";
-import { ReduceFlowSelector, ReduceFlowCommit } from "./Context";
-import FormReduceFlow from "./Form";
+import { useReduceFlowSelector } from "./Context";
+import { DateSelector } from "./Form";
+import { useReduceFlowCommit } from "./Context";
+
+import { useRef, useState, useEffect } from "react";
 
 export const ChangeTimeModalDesktop = () => {
     const { close, handleProceed } = useReduceTimeController();
+
     return <ReduceFlowContent close={close} handleProceed={handleProceed} />;
 };
 
@@ -29,23 +31,29 @@ const ReduceFlowContent = ({
     close: () => void;
     handleProceed: () => void;
 }) => {
-    const date = ReduceFlowSelector(state => state.date);
-    const isLoading = ReduceFlowSelector(state => state.isLoading);
-    const open = ReduceFlowSelector(s => s.open);
-    const commit = ReduceFlowCommit();
+    const date = useReduceFlowSelector(state => state.date);
+    const isLoading = useReduceFlowSelector(state => state.isLoading);
+    const open = useReduceFlowSelector(s => s.open);
+    const commit = useReduceFlowCommit();
 
     const triggerRef = useRef<HTMLDivElement>(null);
     const [calendarAnchor, setCalendarAnchor] = useState<DOMRect | null>(null);
     const [showCalendar, setShowCalendar] = useState(false);
 
-    useEffect(() => {
-        if (open && triggerRef.current) {
+    const handleCalendarOpen = () => {
+        if (triggerRef.current) {
             const rect = triggerRef.current.getBoundingClientRect();
             setCalendarAnchor(rect);
-            setShowCalendar(true);
-        } else {
-            setShowCalendar(false);
         }
+        setShowCalendar(true);
+    };
+
+    const handleCalendarClose = () => {
+        setShowCalendar(false);
+    };
+
+    useEffect(() => {
+        if (!open) setShowCalendar(false);
     }, [open]);
 
     return (
@@ -70,32 +78,18 @@ const ReduceFlowContent = ({
                 </HeaderRow>
 
                 <StyledDialogContent>
-                    <FormReduceFlow />
+                    <DateSelector />
                 </StyledDialogContent>
-
-                <Box ref={triggerRef} sx={{ mb: 3 }} />
-
-                {calendarAnchor && showCalendar && (
-                    <BodyPortal>
-                        <div
-                            style={{
-                                position: "absolute",
-                                top: calendarAnchor.bottom + window.scrollY - 48,
-                                left: calendarAnchor.left + window.scrollX,
-                                zIndex: 9999,
-                                width: "420px",
-                            }}
-                        >
-                            <CustomDatePicker
-                                defaultValue={date ? new Date(date) : new Date()}
-                                onChange={(date: Date) => {
-                                    commit({ date: date.toISOString() });
-                                }}
-                                minDate={new Date()}
-                            />
-                        </div>
-                    </BodyPortal>
-                )}
+                <Box ref={triggerRef} sx={{ mb: 4 }} onClick={handleCalendarOpen}>
+                    <CustomDatePicker
+                        defaultValue={date ? new Date(date) : new Date()}
+                        onChange={(date: Date) => {
+                            commit({ date: date.toISOString() });
+                            handleCalendarClose();
+                        }}
+                        minDate={new Date()}
+                    />
+                </Box>
 
                 <FullWidthDivider />
 

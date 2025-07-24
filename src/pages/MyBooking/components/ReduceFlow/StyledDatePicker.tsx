@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import { format } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
-import { Calendar } from "lucide-react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -34,26 +30,6 @@ const ProceedButton = styled.button<{ disabled: boolean }>`
     border-radius: 8px;
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 `;
-
-export const StyledDatePicker = () => {
-    const [date, setDate] = useState<Date | null>(null);
-
-    return (
-        <Container>
-            <DatePicker
-                selected={date}
-                onChange={date => setDate(date)}
-                customInput={
-                    <DateInput>
-                        <Calendar size={18} />
-                        {date ? format(date, "EEE, dd MMM yyyy") : "Select a return date"}
-                    </DateInput>
-                }
-            />
-            <ProceedButton disabled={!date}>Proceed</ProceedButton>
-        </Container>
-    );
-};
 
 export const ContainerForm = styled.div`
   display: flex;

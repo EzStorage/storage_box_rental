@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { ReduceFlowCommit, ReduceFlowSelector } from "./Context";
+import { useReduceFlowCommit, useReduceFlowSelector } from "./Context";
 import { fakeRequest } from "src/services/mockHttp";
 
 export function useReduceTimeController() {
-    const commit = ReduceFlowCommit();
+    const commit = useReduceFlowCommit();
     const navigate = useNavigate();
-    const state = ReduceFlowSelector(s => s);
+    const state = useReduceFlowSelector(s => s);
     const open = () => commit({ open: true });
     const close = () =>
         commit({
@@ -18,7 +18,7 @@ export function useReduceTimeController() {
         commit(prev => ({ ...prev, isLoading: true }));
         try {
             await fakeRequest({ resolve: () => ({}) });
-            navigate("/reduce_time/success");
+            navigate("/reduce/success");
         } catch (error) {
             console.error("Reduce Time Failed", error);
         } finally {
