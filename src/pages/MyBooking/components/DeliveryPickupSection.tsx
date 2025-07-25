@@ -3,8 +3,14 @@ import { InfosIcon } from "@components/Icons/InfosIcon";
 import { SectionHeader } from "./SectionHeader";
 import { BookingRow } from "./BookingRow";
 import { ReturnItemsRow, ChangeText, InfoNoteBox, ContactBoxWrapper, CustomDivider } from "../styles";
+import { useReduceTimeController } from "../../MyBooking/components/ReduceFlow/LogicHook";
+export const DeliveryPickupSection = ({ booking }: { booking: any }) => {
+     const { open } = useReduceTimeController(); 
 
-export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
+    const handleRequestCancel = () => {
+        open(); 
+    };
+    return(
     <ContactBoxWrapper>
         <SectionHeader>Delivery box & Pick-up</SectionHeader>
         <BookingRow label="Drop-off box location" value={booking.address} />
@@ -21,7 +27,7 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
             <Box mb={-1} mt={1}>
                 <SectionHeader>Return items</SectionHeader>
             </Box>
-            <ChangeText onClick={() => alert("Change return location")}>Change time</ChangeText>
+            <ChangeText onClick={handleRequestCancel}>Change time</ChangeText>
         </ReturnItemsRow>
         <BookingRow
             label="Return location"
@@ -40,4 +46,5 @@ export const DeliveryPickupSection = ({ booking }: { booking: any }) => (
             </span>
         </InfoNoteBox>
     </ContactBoxWrapper>
-);
+    );
+};

@@ -43,7 +43,7 @@ export function ProcessResult() {
             <IconWrapper>{success ? <CheckCircleIcon /> : <CrossCircleIcon />}</IconWrapper>
             <HeadingContainer>
                 <Title>{title || null}</Title>
-                {processFlow !== "cancellation" && (
+                {processFlow !== "cancellation" && processFlow !== "reduce" && (
                     <Description>
                         Thank you for your purchase! Your booking information will be sent to
                         <span> (+65) 1234 123 124</span>
